@@ -1,6 +1,4 @@
-import { CallTracker } from "assert"
-
-export default function Cal({ position }) {
+export default function Cal({ position, storyBeat }) {
 
   return (
     <div
