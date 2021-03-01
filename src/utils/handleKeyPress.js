@@ -1,12 +1,16 @@
 import CHANGE_POSITION from './CHANGE_POSITION'
-import checkCollision from './checkCollision';
-
+import checkCollision from './collisionChecker';
 
 export default handleKeyPress = (e, localUser) => {
+
     e.preventDefault();
+    
     if (localUser.current && !disable) {
+
         clearTimeout(idleTimer);
+        
         setDisable(true);
+
         const { position, speed, dimension } = localUser.current;
         if (e.key === 'ArrowUp') {
             const newPosition = CHANGE_POSITION.UP(position, speed);
@@ -71,8 +75,6 @@ export default handleKeyPress = (e, localUser) => {
                     setText([...text, bob.texts[bob.storyBeat]]);
                     bob.storyBeat++;
                 }
-
-
             });
         }
     }
