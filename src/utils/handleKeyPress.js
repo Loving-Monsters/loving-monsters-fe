@@ -1,14 +1,14 @@
-import CHANGE_POSITION from './CHANGE_POSITION'
+import CHANGE_POSITION from './CHANGE_POSITION';
 import checkCollision from './collisionChecker';
 
-export default handleKeyPress = (e, localUser) => {
+export default (e, localUser) => {
 
     e.preventDefault();
-    
+
     if (localUser.current && !disable) {
 
         clearTimeout(idleTimer);
-        
+
         setDisable(true);
 
         const { position, speed, dimension } = localUser.current;
@@ -78,4 +78,4 @@ export default handleKeyPress = (e, localUser) => {
             });
         }
     }
-}
+};
