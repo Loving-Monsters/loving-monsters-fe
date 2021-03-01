@@ -1,4 +1,4 @@
-export default function Teacher({ position }) {
+export default function Teacher({ position, storyBeat }) {
 
   return (
     <div

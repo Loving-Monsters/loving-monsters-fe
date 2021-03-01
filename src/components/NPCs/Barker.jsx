@@ -1,4 +1,4 @@
-export default function Barker({ position }) {
+export default function Barker({ position, storyBeat }) {
 
   return (
     <div
