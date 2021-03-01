@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 // import styles from './engine.module.scss';
-import useEvent from '../hooks/useEvent';
+// import useEvent from '../hooks/useEvent';
 import Player from '../components/Player';
 import io from 'socket.io-client';
 // import Wall from '../components/Walls';
 // import Janitor from '../Janitor/Janitor';
 // import { objectArray } from '../../data/walls';
-import handleKeyPress from '../utils/handleKeyPress';
-import renderWalls from '../utils/renderWalls';
-import renderUsers from '../utils/renderUsers';
+// import handleKeyPress from '../utils/handleKeyPress';
+// import renderWalls from '../utils/renderWalls';
+// import renderUsers from '../utils/renderUsers';
 const serverUrl = process.env.REACT_APP_SERVER_URL;
 const socket = io.connect(serverUrl);
 
@@ -43,27 +43,27 @@ export default function Engine() {
 
         socket.on('GAME_STATE', response => {
             setUserArray(response);
-            setDisable(false);
+            // setDisable(false);
         });
     }, [socket]);
 
     useEffect(() => {
         socket.emit('CREATE_USER', null);
 
-        setInterval(() => {
-            socket.emit('GAME_STATE', localUser.current);
-        }, 150);
+        // setInterval(() => {
+        //     socket.emit('GAME_STATE', localUser.current);
+        // }, 150);
     }, []);
 
 
 
-    setIdleTimer(setTimeout(() => {
-        localUser.current = { ...localUser.current, dir: 'idle' };
-    }, [400]));
+    // setIdleTimer(setTimeout(() => {
+    //     localUser.current = { ...localUser.current, dir: 'idle' };
+    // }, [400]));
 
 
 
-    useEvent('keydown', handleKeyPress(e, localUser));
+    // useEvent('keydown', handleKeyPress(e));
 
 
 
@@ -73,7 +73,7 @@ export default function Engine() {
         // onClick={() => { engineFocused.current = true; }}
         >
             <span />
-            {renderUsers(userArray)}
+            {/* {renderUsers(userArray)} */}
             {localUser.current ?
                 <Player
                     key={localUser.current.id}
@@ -82,7 +82,6 @@ export default function Engine() {
                     userName={' '}
                 />
                 : null}
-            {renderWalls(objectArray)}
         </div>
     );
 }
