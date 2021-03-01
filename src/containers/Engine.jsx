@@ -7,8 +7,9 @@ import io from 'socket.io-client';
 import Wall from '../Wall/Wall';
 import Janitor from '../Janitor/Janitor';
 import { objectArray } from '../../data/walls';
-import handleKeyPress from '../functions/handleKeyPress'
-
+import handleKeyPress from '../utils/handleKeyPress'
+import renderWalls from '../utils/renderWalls'
+import renderUsers from '../utils/renderUsers'
 const serverUrl = process.env.REACT_APP_SERVER_URL;
 const socket = io.connect(serverUrl);
 
@@ -56,8 +57,6 @@ export default function Engine({ text, setText, engineFocused }) {
 
 
 
-
-
     setIdleTimer(setTimeout(() => {
         localUser.current = { ...localUser.current, dir: 'idle' };
     }, [400]));
@@ -66,33 +65,15 @@ export default function Engine({ text, setText, engineFocused }) {
 
 useEvent('keydown', handleKeyPress(e, localUser), engineFocused);
 
-const renderUsers = () => {
-    return userArray.map(user => {
-        return <Player
-            key={user.id}
-            position={user.position}
-            direction={user.dir}
-            userName={user.userName}
-        />;
-    });
-};
 
-const renderWalls = objectArray => {
-    return objectArray.map(({ position, dimension }, index) => {
-        return <Wall
-            key={index}
-            position={position}
-            dimension={dimension}
-        />;
-    });
-};
+
 
 return (
     <div className={styles.container}
         onClick={() => { engineFocused.current = true; }}
     >
         <span className={styles.background} />
-        {renderUsers()}
+        {renderUsers(userArray)}
         {localUser.current ?
             <Player
                 key={localUser.current.id}
