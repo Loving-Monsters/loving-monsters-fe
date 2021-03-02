@@ -67,7 +67,7 @@
             "after": false
           },
           "if": {
-            "after": false
+            "after": true
           },
           "switch": {
             "after": false
