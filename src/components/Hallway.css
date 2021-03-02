@@ -1,6 +1,12 @@
 .wall {
     position: absolute;
-    margin-top: 5%;
-    margin-left: 50px;
     background-color: red;
+    z-index: 1;
+}
+
+.hallway {
+    position: absolute;
+    background-image: '/hallway/MessyHallway.png';
+    height: 650px;
+    background-repeat: no-repeat;
 }

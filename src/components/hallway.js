@@ -1,21 +1,21 @@
 const NorthWall = {
     position: { x: 0, y: 0 },
-    dimension: { x: 775, y: 10 }
+    dimension: { x: 1516, y: 10 }
 };
 
 const EastWall = {
-    position: { x: 775, y: 0 },
-    dimension: { x: 10, y: 650 }
+    position: { x: 1506, y: 0 },
+    dimension: { x: 10, y: 640 }
 };
 
 const SouthWall = {
-    position: { x: 0, y: 650 },
-    dimension: { x: 785, y: 10 }
+    position: { x: 0, y: 640 },
+    dimension: { x: 1516, y: 10 }
 };
 
 const WestWall = {
     position: { x: 0, y: 0 },
-    dimension: { x: 10, y: 650 }
+    dimension: { x: 10, y: 640 }
 };
 
 export const hallArray = [NorthWall, EastWall, SouthWall, WestWall];

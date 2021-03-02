@@ -1,7 +1,9 @@
+/* eslint-disable max-len */
 import CHANGE_POSITION from './CHANGE_POSITION';
 import checkCollision from './collisionChecker';
+// const map = document.getElementsByClassName(".map");
 
-export default function (e, currentUser, objectArray = [], npcArray = [], setDisableKeys, disableKeys) {
+export default function(e, currentUser, objectArray = [], npcArray = [], setDisableKeys, disableKeys) {
     e.preventDefault();
     // const currentUser = useSelector(getUser);
     if (currentUser.current && !disableKeys) {
@@ -14,6 +16,8 @@ export default function (e, currentUser, objectArray = [], npcArray = [], setDis
             if (checkCollision(
                 [...objectArray, ...npcArray], newPosition, dimension)
             ) {
+
+                // map.style.transform = `translate3d( 0px, -25px, 0 )`;
                 currentUser.current = {
                     ...currentUser.current,
                     position: newPosition,

@@ -22,12 +22,14 @@ export default function Player({ position, direction, userName, avatar }) {
         <div
             style={{
                 position: 'absolute',
-                transform: `translate(${position.x}px, ${position.y}px)`
+                transform: `translate(${position.x}px, ${position.y}px)`,
+                overflow: 'hidden'
             }}
         >
             <span>{userName}</span>
             <span>{`  x: ${position.x}, y: ${position.y}`}</span>
-            <img src={sprite} />
+            <img src={sprite}
+            />
         </div>
     );
 }

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps';
+import styles from './Engine.css';
 
 
 
@@ -36,9 +37,9 @@ export default function Engine({ currentUser, socket }) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
         }, 150);
+
+
     }, []);
-
-
     useEffect(() => {
         // if (engineFocused.current) {
 
@@ -63,11 +64,17 @@ export default function Engine({ currentUser, socket }) {
     };
 
     return (
-        <div>
+        <div className={styles.view}>
+
             <span />
-            {renderUsers()}
             {currentUser.current.position ?
-                <div>
+                <div className={styles.map}
+                    style={{
+                        transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y}px)`
+                    }}>
+                    <Maps />
+                    {renderUsers()}
+
                     <Player
                         key={currentUser.current.id}
                         position={currentUser.current.position}
@@ -75,10 +82,11 @@ export default function Engine({ currentUser, socket }) {
                         avatar={currentUser.current.avatar}
                         userName={currentUser.current.userName}
                     />
-                    <Maps />
-                </div>
-                : null}
-        </div>
+                </div >
+                : null
+            }
+        </div >
+
     );
 }
 
