@@ -34,9 +34,9 @@ export default function Engine({ currentUser, socket }) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
         }, 150);
+
+
     }, []);
-
-
     useEffect(() => {
         // if (engineFocused.current) {
 
@@ -61,19 +61,41 @@ export default function Engine({ currentUser, socket }) {
     };
 
     return (
-        <div>
+        <div className='view' style={{
+            width: 500,
+            height: 500,
+            overflow: 'hidden',
+            border: 'solid',
+            position: 'relative'
+
+        }}>
+
             <span />
-            {renderUsers()};
             {currentUser.current.position ?
-                <Player
-                    key={currentUser.current.id}
-                    position={currentUser.current.position}
-                    direction={currentUser.current.dir}
-                    avatar={currentUser.current.avatar}
-                    userName={currentUser.current.userName}
-                />
-                : null}
-        </div>
+                <div className='map'
+                    style={{
+                        backgroundImage: 'url(https://assets.codepen.io/21542/CameraDemoMap.png)',
+                        height: 600,
+                        width: 600,
+                        backgroundSize: '100%',
+                        position: 'relative',
+                        transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y}px)`
+
+                    }}>
+                    {renderUsers()};
+
+                    <Player
+                        key={currentUser.current.id}
+                        position={currentUser.current.position}
+                        direction={currentUser.current.dir}
+                        avatar={currentUser.current.avatar}
+                        userName={currentUser.current.userName}
+                    />
+                </div >
+                : null
+            }
+        </div >
+
     );
 }
 
