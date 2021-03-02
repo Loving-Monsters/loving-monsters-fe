@@ -1,4 +1,4 @@
-export default renderWalls = objectArray => {
+export default objectArray => {
     return objectArray.map(({ position, dimension }, index) => {
         return <Wall
             key={index}

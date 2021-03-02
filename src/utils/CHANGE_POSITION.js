@@ -1,4 +1,4 @@
-export default CHANGE_POSITION = {
+export default {
     UP: (position, speed) => {
         return {
             x: position.x,
