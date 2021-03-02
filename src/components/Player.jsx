@@ -7,7 +7,7 @@ export default function Player({ position, direction, userName, avatar }) {
 
     useEffect(() => {
         setTimeout(() => {
-            if(runDirections.includes(direction)) {
+            if (runDirections.includes(direction)) {
                 runAnimation();
             }
         }, 200);
@@ -21,10 +21,12 @@ export default function Player({ position, direction, userName, avatar }) {
     return (
         <div
             style={{
+                position: 'absolute',
                 transform: `translate(${position.x}px, ${position.y}px)`
             }}
         >
             <span>{userName}</span>
+            <span>{`  x: ${position.x}, y: ${position.y}`}</span>
             <img src={sprite} />
         </div>
     );

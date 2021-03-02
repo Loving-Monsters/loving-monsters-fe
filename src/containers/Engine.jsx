@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 
 import React, { useState, useEffect } from 'react';
 // import useEvent from '../hooks/useEvent';
@@ -63,7 +64,7 @@ export default function Engine({ currentUser, socket }) {
     return (
         <div>
             <span />
-            {renderUsers()};
+            {renderUsers()}
             {currentUser.current.position ?
                 <Player
                     key={currentUser.current.id}
