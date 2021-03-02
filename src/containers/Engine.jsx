@@ -62,11 +62,12 @@ export default function Engine({ currentUser, socket }) {
 
     return (
         <div className='view' style={{
-            width: 500,
-            height: 500,
+            width: 400,
+            height: 400,
             overflow: 'hidden',
             border: 'solid',
-            position: 'relative'
+            position: 'relative',
+
 
         }}>
 
@@ -79,12 +80,14 @@ export default function Engine({ currentUser, socket }) {
                         width: 600,
                         backgroundSize: '100%',
                         position: 'relative',
-                        transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y}px)`
+                        transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y}px)`,
+                        backgroundPosition: '150px 0px',
+                        backgroundRepeat: 'no-repeat'
 
                     }}>
                     {renderUsers()};
 
-                    <Player
+            <Player
                         key={currentUser.current.id}
                         position={currentUser.current.position}
                         direction={currentUser.current.dir}
