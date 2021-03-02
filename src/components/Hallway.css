@@ -1,7 +1,5 @@
 .wall {
     position: absolute;
-    background-color: red;
-    z-index: 1;
 }
 
 .hallway {

@@ -18,4 +18,4 @@ const WestWall = {
     dimension: { x: 10, y: 640 }
 };
 
-export const hallArray = [NorthWall, EastWall, SouthWall, WestWall];
+export const objectArray = [NorthWall, EastWall, SouthWall, WestWall];

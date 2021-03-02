@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
 import React, { useState, useEffect } from 'react';
@@ -6,8 +7,6 @@ import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps';
 import styles from './Engine.css';
-
-
 
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
@@ -68,13 +67,17 @@ export default function Engine({ currentUser, socket }) {
 
             <span />
             {currentUser.current.position ?
-                <div className={styles.map}
-                    style={{
-                        transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y}px)`
-                    }}>
-                    <Maps />
+                <div>
+                    <div className={styles.map}
+                        style={{
+                            width: '785px',
+                            backgroundSize: '100%',
+                            position: 'absolute',
+                            transform: `translate(-${currentUser.current.position.x}px)`
+                        }}>
+                        <Maps />
+                    </div>
                     {renderUsers()}
-
                     <Player
                         key={currentUser.current.id}
                         position={currentUser.current.position}
@@ -82,7 +85,7 @@ export default function Engine({ currentUser, socket }) {
                         avatar={currentUser.current.avatar}
                         userName={currentUser.current.userName}
                     />
-                </div >
+                </div>
                 : null
             }
         </div >
