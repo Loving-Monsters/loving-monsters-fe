@@ -1,9 +1,12 @@
+
 export default {
     UP: (position, speed) => {
+
         return {
             x: position.x,
-            y: position.y - speed
+            y: position.y - speed,
         };
+
     },
     DOWN: (position, speed) => {
         return {
