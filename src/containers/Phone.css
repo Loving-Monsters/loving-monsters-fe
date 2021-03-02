@@ -1,0 +1,21 @@
+.phone {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 850px;
+    height: 630px;
+    width: 370px;
+    border-radius: 30px;
+    border: outset 10px #141114;
+    background-image: linear-gradient(#0f0d0f, #141114);
+}
+
+.screen {
+    position: block;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 620px;
+    width: 360px;
+    border-radius: 20px;
+    background-color: white;
+}

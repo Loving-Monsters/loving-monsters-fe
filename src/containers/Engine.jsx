@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 // import useEvent from '../hooks/useEvent';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
+import Maps from '../components/Maps';
 
 
 
@@ -66,13 +67,16 @@ export default function Engine({ currentUser, socket }) {
             <span />
             {renderUsers()}
             {currentUser.current.position ?
-                <Player
-                    key={currentUser.current.id}
-                    position={currentUser.current.position}
-                    direction={currentUser.current.dir}
-                    avatar={currentUser.current.avatar}
-                    userName={currentUser.current.userName}
-                />
+                <div>
+                    <Player
+                        key={currentUser.current.id}
+                        position={currentUser.current.position}
+                        direction={currentUser.current.dir}
+                        avatar={currentUser.current.avatar}
+                        userName={currentUser.current.userName}
+                    />
+                    <Maps />
+                </div>
                 : null}
         </div>
     );

@@ -1,0 +1,6 @@
+.wall {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 50px;
+    background-color: red;
+}
