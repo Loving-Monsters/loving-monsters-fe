@@ -1,6 +1,6 @@
 import React from 'react';
-import Engine from '../../containers/Engine';
+import Frame from '../../containers/Frame';
 
 export default function App() {
-  return <Engine />;
+  return <Frame />;
 }

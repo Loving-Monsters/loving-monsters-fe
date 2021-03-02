@@ -1,25 +1,28 @@
-import React, { useState, useEffect, useRef } from 'react';
 
-import useEvent from '../hooks/useEvent';
+import React, { useState, useEffect } from 'react';
+// import useEvent from '../hooks/useEvent';
 import Player from '../components/Player';
-import io from 'socket.io-client';
+import handleKeyPress from '../utils/handleKeyPress';
 
-const serverUrl = process.env.REACT_APP_SERVER_URL;
-const socket = io.connect(serverUrl);
 
-export default function Engine() {
+
+export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
-    const localUser = useRef(null);
+    const [objectArray, setObjectArray] = useState([]);
+    const [disableKeys, setDisableKeys] = useState(false);
+    const [npcArray, setNpcArray] = useState([]);
+
 
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
-            localUser.current = newUser;
             setUserArray(userArray);
+            currentUser.current = newUser;
         });
 
         socket.on('GAME_STATE', response => {
             setUserArray(response);
-            // setDisable(false);
+            setDisableKeys(false);
+
         });
     }, [socket]);
 
@@ -27,27 +30,47 @@ export default function Engine() {
         socket.emit('CREATE_USER', null);
 
         setInterval(() => {
-            if(localUser.current) {
-                socket.emit('GAME_STATE', localUser.current);
+            if (currentUser.current) {
+                socket.emit('GAME_STATE', currentUser.current);
             }
         }, 150);
     }, []);
 
 
-    useEvent('keydown', localUser);
+    useEffect(() => {
+        // if (engineFocused.current) {
+
+        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, objectArray, npcArray, setDisableKeys, disableKeys));
+
+        return function cleanup() {
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, objectArray));
+            // };
+        };
+    }, []);
 
 
-
+    const renderUsers = () => {
+        return userArray.map(user => <Player
+            key={user.id}
+            position={user.position}
+            direction={user.dir}
+            avatar={user.avatar}
+            userName={user.userName}
+        />
+        );
+    };
 
     return (
         <div>
             <span />
-            {localUser.current ?
+            {renderUsers()};
+            {currentUser.current.position ?
                 <Player
-                    key={localUser.current.id}
-                    position={localUser.current.position}
-                    direction={localUser.current.dir}
-                    userName={' '}
+                    key={currentUser.current.id}
+                    position={currentUser.current.position}
+                    direction={currentUser.current.dir}
+                    avatar={currentUser.current.avatar}
+                    userName={currentUser.current.userName}
                 />
                 : null}
         </div>
