@@ -49,18 +49,28 @@ export default function Engine({ currentUser, socket }) {
     }, []);
 
 
-
+    const renderUsers = () => {
+        return userArray.map(user => <Player
+            key={user.id}
+            position={user.position}
+            direction={user.dir}
+            avatar={user.avatar}
+            userName={user.userName}
+        />
+        );
+    };
 
     return (
         <div>
             <span />
+            {renderUsers()};
             {currentUser.current.position ?
                 <Player
                     key={currentUser.current.id}
                     position={currentUser.current.position}
                     direction={currentUser.current.dir}
                     avatar={currentUser.current.avatar}
-                    userName={' '}
+                    userName={currentUser.current.userName}
                 />
                 : null}
         </div>
