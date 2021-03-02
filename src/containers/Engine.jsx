@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-
+import { useSelector } from 'react-redux';
+import { getUser } from '../../selectors/userSelector';
 import useEvent from '../hooks/useEvent';
 import Player from '../components/Player';
 import io from 'socket.io-client';
