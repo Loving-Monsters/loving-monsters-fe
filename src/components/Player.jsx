@@ -22,13 +22,15 @@ export default function Player({ position, direction, userName, avatar }) {
 
     return (
         <div
+            className={styles.char}
             style={{
                 transform: `translate(${position.x}px, ${position.y}px)`
             }}
         >
-            <img className={styles.sprite} src={sprite}/>
-            <span>{`x: ${position.x}, y: ${position.y}`}</span>
             <span>{userName}</span>
+            <br /><img className={styles.sprite} src={sprite}/>
+            <span>{`x: ${position.x}`}</span>
+            <br /><span>{`y: ${position.y}`}</span>
         </div>
     );
 }
