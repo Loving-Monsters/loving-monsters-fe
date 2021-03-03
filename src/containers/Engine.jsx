@@ -7,7 +7,7 @@ import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps';
 import styles from './Containers.css';
-import { hallway } from '../components/maps';
+import { hallway } from '../components/hallway';
 
 export default function Engine({ currentUser, socket, gameFocused }) {
     const [userArray, setUserArray] = useState([]);
@@ -42,10 +42,10 @@ export default function Engine({ currentUser, socket, gameFocused }) {
 
     }, []);
     useEffect(() => {
-        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray, npcArray, setDisableKeys, disableKeys));
+        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray, npcArray, setDisableKeys, disableKeys));
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray));
         };
     }, []);
 
