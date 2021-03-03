@@ -37,16 +37,23 @@ export default function (e, currentUser, currentMap, npcArray = [], setDisableKe
         }
         if (e.key === 'ArrowDown') {
             const newPosition = CHANGE_POSITION.DOWN(position, speed);
+            if (currentUser.current.position.x === currentMap.portals.position.x || currentUser.current.position.y === currentMap.portals.position.y) {
+                setLoading(true);
+                setCurrentMap(currentMap.portals.nextMap);
+                setLoading(false);
 
-            if (checkCollision(
-                [...currentMap.objectArray, ...npcArray],
-                newPosition,
-                dimension)) {
-                currentUser.current = {
-                    ...currentUser.current,
-                    position: newPosition,
-                    dir: 'down'
-                };
+
+            } else {
+                if (checkCollision(
+                    [...currentMap.objectArray, ...npcArray],
+                    newPosition,
+                    dimension)) {
+                    currentUser.current = {
+                        ...currentUser.current,
+                        position: newPosition,
+                        dir: 'down'
+                    };
+                }
             }
         }
         if (e.key === 'ArrowLeft') {
