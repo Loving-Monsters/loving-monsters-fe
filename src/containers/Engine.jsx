@@ -6,13 +6,13 @@ import React, { useState, useEffect } from 'react';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps';
-import styles from './Engine.css';
-
-import { hallArray } from '../components/hallway';
+import styles from './Containers.css';
+import { hallway } from '../components/hallway';
 
 export default function Engine({ currentUser, socket, gameFocused }) {
     const [userArray, setUserArray] = useState([]);
-    // const [objectArray, setObjectArray] = useState([]);
+    const [currentMap, setCurrentMap] = useState(hallway);
+    // const [mapImage, setMapImage] = useState(hallImage)
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
@@ -70,7 +70,7 @@ export default function Engine({ currentUser, socket, gameFocused }) {
                         style={{
                             transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
                         }}>
-                        <Maps />
+                        <Maps currentMap={currentMap} />
                         {renderUsers()}
                     </div>
 
@@ -85,7 +85,6 @@ export default function Engine({ currentUser, socket, gameFocused }) {
                 : null
             }
         </div >
-
     );
 }
 

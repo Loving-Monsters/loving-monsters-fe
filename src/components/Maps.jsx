@@ -1,23 +1,35 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React from 'react';
-import Hallway from './Hallway.jsx';
-import { hallArray } from './hallway';
+import styles from './Maps.css';
 
-const Maps = () => {
-    // const [map, setMap] = useState('hallway');
 
+const Maps = ({ currentMap }) => {
     const renderWalls = objectArray => {
         return objectArray.map(({ position, dimension }, index) => {
-            return <Hallway 
-                key={index} 
-                position={position} 
-                dimension={dimension} />;
+            return (
+                <div key={index}>
+                    <div
+                        className={styles.wall}
+                        style={{
+                            height: dimension.y,
+                            width: dimension.x,
+                            left: `${position.x}px`,
+                            top: `${position.y}px`
+                        }}
+                    >
+                    </div>
+                    <img
+                        className={styles.mapImg}
+                        src={currentMap.mapImage} />
+                </div>
+            );
         });
     };
 
     return (
         <div>
-            {renderWalls(hallArray)}
+            {renderWalls(currentMap.objectArray)}
         </div>
     );
 };
