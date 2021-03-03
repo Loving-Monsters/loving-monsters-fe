@@ -1,0 +1,16 @@
+.view {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 25px;
+    width: 785px;
+    height: 650px;
+    overflow: hidden;
+    border: solid 5px black;
+}
+
+.map {
+    position: absolute;
+    image-rendering: pixelated;
+    height: 650px;
+    width: 100%;
+}

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import Engine from './Engine';
+import Phone from './Phone';
 import io from 'socket.io-client';
 
 
@@ -17,6 +18,7 @@ export default function Frame() {
                 currentUser={currentUser}
                 socket={socket}
             />
+            <Phone />
         </div>
     );
 }
