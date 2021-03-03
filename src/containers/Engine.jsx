@@ -85,9 +85,9 @@ export default function Engine({ currentUser, socket }) {
                         backgroundRepeat: 'no-repeat'
 
                     }}>
-                    {renderUsers()};
+                    {renderUsers()}
 
-            <Player
+                    <Player
                         key={currentUser.current.id}
                         position={currentUser.current.position}
                         direction={currentUser.current.dir}
