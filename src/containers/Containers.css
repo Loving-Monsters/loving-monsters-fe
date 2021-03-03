@@ -1,0 +1,67 @@
+@font-face {
+    font-family: dogica;
+    src: url('./fonts/dogica.otf');
+}
+
+.view {
+    position: absolute;
+    margin-top: 7vh;
+    margin-left: 25px;
+    width: 775px;
+    height: 650px;
+    overflow: hidden;
+    border: solid 5px black;
+}
+
+.map {
+    position: absolute;
+    image-rendering: pixelated;
+    height: 750px;
+}
+
+.phone {
+    float: right;
+    margin-top: 7vh;
+    margin-right: 5%;
+    height: 640px;
+    width: 300px;
+    border-radius: 30px;
+    border: outset 10px #141114;
+    background-image: linear-gradient(#0f0d0f, #141114);
+}
+
+.screen {
+    position: absolute;
+    margin-top: 5px;
+    padding-top: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 600px;
+    width: 270px;
+    border-radius: 20px;
+    background-color: white;
+    overflow: scroll;
+}
+
+.apps {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    image-rendering: pixelated;
+}
+
+.apps img {
+    height: 100px;
+}
+
+.icon {
+    text-align: center;
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.icon span {
+    font-family: dogica;
+    font-size: 8pt;
+    margin-bottom: 15px;
+}

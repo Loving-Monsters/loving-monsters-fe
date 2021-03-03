@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React from 'react';
-import styles from './Hallway.css';
+import styles from './Maps.css';
 
 
 const Maps = ({ currentMap }) => {
-    console.log(currentMap)
     const renderWalls = objectArray => {
         return objectArray.map(({ position, dimension }, index) => {
             return (
@@ -20,7 +20,7 @@ const Maps = ({ currentMap }) => {
                     >
                     </div>
                     <img
-                        className={styles.hallway}
+                        className={styles.mapImg}
                         src={currentMap.mapImage} />
                 </div>
             );
