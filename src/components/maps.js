@@ -36,9 +36,6 @@ export const hallway = {
 };
 
 
-
-
-
 // const NorthWall = {
 //     position: { x: 0, y: 0 },
 //     dimension: { x: 1516, y: 400 }
