@@ -7,20 +7,20 @@ import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
 import styles from './Containers.css';
-<<<<<<< HEAD
-import { hallway } from '../components/maps.js';
-=======
+
 import { hallway } from '../components/hallway';
->>>>>>> c67ce705d9f60a71ae58bc7b7b5ffd1a00d33c31
+import { classroom } from '../components/classroom';
+
 
 export default function Engine({ currentUser, socket, gameFocused }) {
     const [userArray, setUserArray] = useState([]);
     const [currentMap, setCurrentMap] = useState(hallway);
+    const [loading, setLoading] = useState(false)
     // const [mapImage, setMapImage] = useState(hallImage)
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
-
+    console.log(currentMap.nextMap)
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
@@ -34,6 +34,12 @@ export default function Engine({ currentUser, socket, gameFocused }) {
         });
     }, [socket]);
 
+    // useEffect(() => {
+    //     // if (currentUser.current.position.x === currentMap.portals.position.x) {
+    //     setCurrentMap(classroom);
+
+    // }, [currentUser.current.position]);
+
     useEffect(() => {
         socket.emit('CREATE_USER', null);
 
@@ -45,10 +51,18 @@ export default function Engine({ currentUser, socket, gameFocused }) {
 
 
     }, []);
+    // console.log(currentMap.portals.position)
+    // console.log(currentUser.current.position)
+    // function mapTransition(currentMap, currentUser) {
+    //     if (currentUser.current.position === currentMap.portals.position) {
+    //         setCurrentMap(classroom);
+    //     }
+    // }
     useEffect(() => {
-        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray, npcArray, setDisableKeys, disableKeys));
-
+        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setCurrentMap, setLoading));
         return function cleanup() {
+            // mapTransition(currentMap, currentUser);
+
             window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray));
         };
     }, []);
@@ -65,28 +79,31 @@ export default function Engine({ currentUser, socket, gameFocused }) {
     };
 
     return (
+
         <div className={styles.view} onClick={() => { gameFocused.current = true; }}>
 
             <span />
-            {currentUser.current.position ?
-                <div>
-                    <div className={styles.map}
-                        style={{
-                            transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
-                        }}>
-                        <Maps currentMap={currentMap} />
-                        {renderUsers()}
-                    </div>
+            {loading ? <div>loading...</div>
 
-                    <Player
-                        key={currentUser.current.id}
-                        position={currentUser.current.position}
-                        direction={currentUser.current.dir}
-                        avatar={currentUser.current.avatar}
-                        userName={currentUser.current.userName}
-                    />
-                </div>
-                : null
+                : currentUser.current.position ?
+                    <div>
+                        <div className={styles.map}
+                            style={{
+                                transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
+                            }}>
+                            <Maps currentMap={currentMap} />
+                            {renderUsers()}
+                        </div>
+
+                        <Player
+                            key={currentUser.current.id}
+                            position={currentUser.current.position}
+                            direction={currentUser.current.dir}
+                            avatar={currentUser.current.avatar}
+                            userName={currentUser.current.userName}
+                        />
+                    </div>
+                    : null
             }
         </div >
     );
