@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import styles from './Player.css';
 
 export default function Player({ position, direction, userName, avatar }) {
     const [frame, setFrame] = useState(1);
@@ -25,9 +26,7 @@ export default function Player({ position, direction, userName, avatar }) {
                 transform: `translate(${position.x}px, ${position.y}px)`
             }}
         >
-            <img src={sprite}
-                style={{ border: 'solid 1px blue' }}
-            />
+            <img className={styles.sprite} src={sprite}/>
             <span>{`x: ${position.x}, y: ${position.y}`}</span>
             <span>{userName}</span>
         </div>

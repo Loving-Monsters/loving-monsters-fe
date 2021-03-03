@@ -71,7 +71,7 @@ export default function Engine({ currentUser, socket }) {
                 <div>
                     <div className={styles.map}
                         style={{
-                            transform: `translate(-${currentUser.current.position.x}px)`
+                            transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
                         }}>
                         <Maps />
                     </div>
