@@ -10,15 +10,16 @@ import styles from './Containers.css';
 import { hallway } from '../components/hallway';
 import { classroom } from '../components/classroom';
 
-export default function Engine({ currentUser, socket, gameFocused }) {
+const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
+
+export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
     const [currentMap, setCurrentMap] = useState(hallway);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     // const [mapImage, setMapImage] = useState(hallImage)
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
-    console.log(currentMap.nextMap)
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
@@ -46,8 +47,6 @@ export default function Engine({ currentUser, socket, gameFocused }) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
         }, 150);
-
-
     }, []);
     // console.log(currentMap.portals.position)
     // console.log(currentUser.current.position)
@@ -57,11 +56,13 @@ export default function Engine({ currentUser, socket, gameFocused }) {
     //     }
     // }
     useEffect(() => {
-        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setCurrentMap, setLoading));
+        window.addEventListener('keydown', (e) => {
+            if (validKeyPress.includes(e.key)) {
+                handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setCurrentMap, setLoading);
+            }
+        });
         return function cleanup() {
-            // mapTransition(currentMap, currentUser);
-
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setCurrentMap, setLoading));
         };
     }, []);
 
@@ -78,7 +79,7 @@ export default function Engine({ currentUser, socket, gameFocused }) {
 
     return (
 
-        <div className={styles.view} onClick={() => { gameFocused.current = true; }}>
+        <div className={styles.view} >
 
             <span />
             {loading ? <div>loading...</div>
