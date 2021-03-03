@@ -4,8 +4,8 @@ import Phone from './Phone';
 import io from 'socket.io-client';
 
 
-const serverUrl = process.env.REACT_APP_SERVER_URL;
-const socket = io.connect(serverUrl);
+// const serverUrl = process.env.REACT_APP_SERVER_URL;
+const socket = io.connect('http://localhost:3000');
 
 export default function Frame() {
 
