@@ -44,7 +44,7 @@ const Phone = () => {
                             onClick={handleMessaging}
                         >
                             <img src="/phone/Messaging.png" />
-                            <span>Messaging</span>
+                            <br /><span>Messaging</span>
                         </div>
     
                         <div 
@@ -52,7 +52,7 @@ const Phone = () => {
                             onClick={handleBulletin}
                         >
                             <img src="/phone/Bulletin.png" />
-                            <span>Bulletin</span>
+                            <br /><span>Bulletin</span>
                         </div>
     
                         <div 
@@ -60,7 +60,7 @@ const Phone = () => {
                             onClick={handleFriendships}
                         >
                             <img src="/phone/Friendships.png" />
-                            <span>Friendships</span>
+                            <br /><span>Friendships</span>
                         </div>
     
                         <div 
@@ -68,7 +68,7 @@ const Phone = () => {
                             onClick={handleInventory}
                         >
                             <img src="/phone/Inventory.png" />
-                            <span>Inventory</span>
+                            <br /><span>Inventory</span>
                         </div>
     
                         <div 
@@ -76,7 +76,7 @@ const Phone = () => {
                             onClick={handleOnline}
                         >
                             <img src="/phone/Online.png" />
-                            <span>Online</span>
+                            <br /><span>Online</span>
                         </div>
     
                     </div>
