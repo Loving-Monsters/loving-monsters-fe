@@ -25,10 +25,11 @@ export default function Player({ position, direction, userName, avatar }) {
                 transform: `translate(${position.x}px, ${position.y}px)`
             }}
         >
-            <span>{userName}</span>
-            <span>{`x: ${position.x}, y: ${position.y}`}</span>
             <img src={sprite}
+                style={{ border: 'solid 1px blue' }}
             />
+            <span>{`x: ${position.x}, y: ${position.y}`}</span>
+            <span>{userName}</span>
         </div>
     );
 }

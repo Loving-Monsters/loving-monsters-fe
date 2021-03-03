@@ -4,7 +4,8 @@
 
 .hallway {
     position: absolute;
-    background-image: '/hallway/MessyHallway.png';
-    height: 650px;
+    margin-top: -10px;
+    margin-left: -10px;
+    height: 670px;
     background-repeat: no-repeat;
 }

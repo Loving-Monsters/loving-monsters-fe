@@ -8,9 +8,11 @@ import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps';
 import styles from './Engine.css';
 
+import { hallArray } from '../components/hallway';
+
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
-    const [objectArray, setObjectArray] = useState([]);
+    // const [objectArray, setObjectArray] = useState([]);
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
@@ -42,14 +44,13 @@ export default function Engine({ currentUser, socket }) {
     useEffect(() => {
         // if (engineFocused.current) {
 
-        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, objectArray, npcArray, setDisableKeys, disableKeys));
+        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray, npcArray, setDisableKeys, disableKeys));
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, objectArray));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray));
             // };
         };
     }, []);
-
 
     const renderUsers = () => {
         return userArray.map(user => <Player
@@ -70,9 +71,6 @@ export default function Engine({ currentUser, socket }) {
                 <div>
                     <div className={styles.map}
                         style={{
-                            width: '785px',
-                            backgroundSize: '100%',
-                            position: 'absolute',
                             transform: `translate(-${currentUser.current.position.x}px)`
                         }}>
                         <Maps />

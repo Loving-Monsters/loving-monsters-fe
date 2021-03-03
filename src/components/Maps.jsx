@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import Hallway from './Hallway.jsx';
-import { objectArray } from './hallway';
+import { hallArray } from './hallway';
 
 const Maps = () => {
     // const [map, setMap] = useState('hallway');
@@ -17,7 +17,7 @@ const Maps = () => {
 
     return (
         <div>
-            {renderWalls(objectArray)}
+            {renderWalls(hallArray)}
         </div>
     );
 };
