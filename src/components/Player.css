@@ -1,4 +1,18 @@
+.char {
+    text-align: center;
+    font-family: dogica;
+    font-size: 9pt;
+    font-weight: 900;
+    width: 100px;
+}
+
+.char span {
+    color: black;
+    text-shadow: 1px 1px 10px white;
+}
+
 .sprite {
+    margin: 0;
     image-rendering: pixelated;
     height: 125px;
 }
