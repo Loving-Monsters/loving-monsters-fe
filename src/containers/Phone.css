@@ -14,8 +14,32 @@
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
-    height: 620px;
-    width: 360px;
+    padding-top: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    height: 605px;
+    width: 310px;
     border-radius: 20px;
     background-color: white;
+}
+
+.apps {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    image-rendering: pixelated;
+}
+
+.apps img {
+    height: 100px;
+}
+
+.icon {
+    text-align: center;
+    width: 130px;
+    margin-bottom: 15px;
+}
+
+.icon span {
+    margin-bottom: 15px;
 }
