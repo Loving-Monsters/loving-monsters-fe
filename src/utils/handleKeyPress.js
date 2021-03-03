@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
 import CHANGE_POSITION from './CHANGE_POSITION';
 import checkCollision from './collisionChecker';
+import { classroom } from '../components/classroom';
+
 // const map = document.getElementsByClassName(".map");
 
-export default function (e, currentUser, objectArray, npcArray = [], setDisableKeys, disableKeys) {
+export default function (e, currentUser, currentMap, npcArray = [], setDisableKeys, disableKeys, setCurrentMap, setLoading) {
     e.preventDefault();
     // const currentUser = useSelector(getUser);
     if (currentUser.current && !disableKeys) {
@@ -13,23 +15,31 @@ export default function (e, currentUser, objectArray, npcArray = [], setDisableK
         if (e.key === 'ArrowUp') {
             const newPosition = CHANGE_POSITION.UP(position, speed);
 
-            if (checkCollision(
-                [...objectArray, ...npcArray], newPosition, dimension)
-            ) {
+            if (currentUser.current.position.x === currentMap.portals.position.x || currentUser.current.position.y === currentMap.portals.position.y) {
+                setLoading(true);
+                setCurrentMap(currentMap.portals.nextMap);
+                setLoading(false)
 
-                // map.style.transform = `translate3d( 0px, -25px, 0 )`;
-                currentUser.current = {
-                    ...currentUser.current,
-                    position: newPosition,
-                    dir: 'up'
-                };
+
+            } else {
+                if (checkCollision(
+                    [...currentMap.objectArray, ...npcArray], newPosition, dimension)
+                ) {
+
+                    // map.style.transform = `translate3d( 0px, -25px, 0 )`;
+                    currentUser.current = {
+                        ...currentUser.current,
+                        position: newPosition,
+                        dir: 'up'
+                    };
+                }
             }
         }
         if (e.key === 'ArrowDown') {
             const newPosition = CHANGE_POSITION.DOWN(position, speed);
 
             if (checkCollision(
-                [...objectArray, ...npcArray],
+                [...currentMap.objectArray, ...npcArray],
                 newPosition,
                 dimension)) {
                 currentUser.current = {
@@ -43,7 +53,7 @@ export default function (e, currentUser, objectArray, npcArray = [], setDisableK
             const newPosition = CHANGE_POSITION.LEFT(position, speed);
 
             if (checkCollision(
-                [...objectArray, ...npcArray],
+                [...currentMap.objectArray, ...npcArray],
                 newPosition,
                 dimension)) {
                 currentUser.current = {
@@ -57,7 +67,7 @@ export default function (e, currentUser, objectArray, npcArray = [], setDisableK
             const newPosition = CHANGE_POSITION.RIGHT(position, speed);
 
             if (checkCollision(
-                [...objectArray, ...npcArray],
+                [...currentMap.objectArray, ...npcArray],
                 newPosition,
                 dimension)) {
                 currentUser.current = {
