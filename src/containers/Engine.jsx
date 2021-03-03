@@ -7,7 +7,7 @@ import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps';
 import styles from './Containers.css';
-import { hallway } from '../components/hallway';
+import { hallway } from '../components/maps';
 
 export default function Engine({ currentUser, socket, gameFocused }) {
     const [userArray, setUserArray] = useState([]);
