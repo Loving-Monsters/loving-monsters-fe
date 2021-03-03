@@ -6,7 +6,7 @@ import Inventory from '../components/PhoneApps/Inventory';
 import Messaging from '../components/PhoneApps/Messaging';
 import Online from '../components/PhoneApps/Online';
 
-const Phone = ({ currentUser, socket, gameFocused }) => {
+const Phone = ({ currentUser, socket }) => {
 
     const [displayScreen, setDisplayScreen] = useState('home');
 
@@ -36,7 +36,7 @@ const Phone = ({ currentUser, socket, gameFocused }) => {
 
     if (displayScreen === 'home') {
         return (
-            <div className={styles.phone} onClick={() => { gameFocused.current = false; }}>
+            <div className={styles.phone}>
                 <div className={styles.screen}>
                     <div className={styles.apps}>
                         <div
@@ -85,7 +85,7 @@ const Phone = ({ currentUser, socket, gameFocused }) => {
         );
     } else if (displayScreen === 'messaging') {
         return (
-            <div className={styles.phone} onClick={() => { gameFocused.current = false; }}>
+            <div className={styles.phone}>
                 <div className={styles.screen}>
                     <div className={styles.apps}>
                         <span onClick={handleHome}>Back to Home Screen</span>
@@ -99,7 +99,7 @@ const Phone = ({ currentUser, socket, gameFocused }) => {
         );
     } else if (displayScreen === 'bulletin') {
         return (
-            <div className={styles.phone} onClick={() => { gameFocused.current = false; }}>
+            <div className={styles.phone}>
                 <div className={styles.screen}>
                     <div className={styles.apps}>
                         <span onClick={handleHome}>Back to Home Screen</span>
@@ -110,7 +110,7 @@ const Phone = ({ currentUser, socket, gameFocused }) => {
         );
     } else if (displayScreen === 'friendships') {
         return (
-            <div className={styles.phone} onClick={() => { gameFocused.current = false; }}>
+            <div className={styles.phone}>
                 <div className={styles.screen}>
                     <div className={styles.apps}>
                         <span onClick={handleHome}>Back to Home Screen</span>
@@ -121,7 +121,7 @@ const Phone = ({ currentUser, socket, gameFocused }) => {
         );
     } else if (displayScreen === 'inventory') {
         return (
-            <div className={styles.phone} onClick={() => { gameFocused.current = false; }}>
+            <div className={styles.phone}>
                 <div className={styles.screen}>
                     <div className={styles.apps}>
                         <span onClick={handleHome}>Back to Home Screen</span>

@@ -3,6 +3,15 @@
     src: url('./fonts/dogica.otf');
 }
 
+.container {
+    display: block;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1250px;
+    height: 800px;
+}
+
 .view {
     position: absolute;
     margin-top: 7vh;
