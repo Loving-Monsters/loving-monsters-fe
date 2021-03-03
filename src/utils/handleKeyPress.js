@@ -9,11 +9,10 @@ export default function (e, currentUser, currentMap, npcArray = [], setDisableKe
     // const currentUser = useSelector(getUser);
     if (currentUser.current && !disableKeys) {
         setDisableKeys(true);
-
         const { position, speed, dimension } = currentUser.current;
 
         const newPosition = changePosition(position, speed, e.key);
-        if (currentUser.current.position.x === currentMap.portals.position.x || currentUser.current.position.y === currentMap.portals.position.y) {
+        if (currentUser.current.position.x === currentMap.portals.position.x && currentUser.current.position.y === currentMap.portals.position.y) {
             setLoading(true);
             setCurrentMap(currentMap.portals.nextMap);
             setLoading(false);

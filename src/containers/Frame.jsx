@@ -9,7 +9,6 @@ import styles from './Containers.css';
 const socket = io.connect('http://localhost:3000');
 
 export default function Frame() {
-
     const currentUser = useRef({});
 
 

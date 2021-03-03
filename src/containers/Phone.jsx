@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Containers.css';
 import Bulletin from '../components/PhoneApps/Bulletin';
 import Friendships from '../components/PhoneApps/Friendships';
@@ -9,6 +9,35 @@ import Online from '../components/PhoneApps/Online';
 const Phone = ({ currentUser, socket }) => {
 
     const [displayScreen, setDisplayScreen] = useState('home');
+    const [bulletinArray, setBulletinArray] = useState([]);
+    const [input, setInput] = useState('');
+
+    useEffect(() => {
+        socket.on('RECIEVE_BULLETIN', bulletinObj => {
+            const timestamp = new Date(bulletinObj.timestamp).toLocaleString();
+            bulletinObj.timestamp = timestamp;
+            bulletinArray.push(bulletinObj);
+
+            console.log(bulletinArray);
+            setBulletinArray(bulletinArray);
+        });
+    }, [socket]);
+
+    const handleInputChange = (event) => {
+        event.preventDefault();
+        setInput(event.target.value);
+    };
+
+    const handleSendBulletin = (event) => {
+        event.preventDefault();
+        const newBulletin = {
+            roomName: currentUser.current.currentRoom,
+            text: `${currentUser.current.userName}: ${input}`
+        };
+        socket.emit('SEND_BULLETIN', newBulletin);
+        setInput('');
+    };
+
 
     const handleHome = () => {
         setDisplayScreen('home');
@@ -103,7 +132,14 @@ const Phone = ({ currentUser, socket }) => {
                 <div className={styles.screen}>
                     <div className={styles.apps}>
                         <span onClick={handleHome}>Back to Home Screen</span>
-                        <Bulletin />
+                        <Bulletin
+                            socket={socket}
+                            currentUser={currentUser}
+                            bulletinArray={bulletinArray}
+                            handleInputChange={handleInputChange}
+                            handleSendBulletin={handleSendBulletin}
+                            input={input}
+                        />
                     </div>
                 </div>
             </div>

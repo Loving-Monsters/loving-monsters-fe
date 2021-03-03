@@ -29,7 +29,6 @@ export default function Engine({ currentUser, socket }) {
         socket.on('GAME_STATE', response => {
             setUserArray(response);
             setDisableKeys(false);
-
         });
     }, [socket]);
 
