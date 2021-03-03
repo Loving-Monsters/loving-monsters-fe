@@ -7,9 +7,13 @@ import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
 import styles from './Containers.css';
+<<<<<<< HEAD
 import { hallway } from '../components/maps.js';
+=======
+import { hallway } from '../components/hallway';
+>>>>>>> c67ce705d9f60a71ae58bc7b7b5ffd1a00d33c31
 
-export default function Engine({ currentUser, socket }) {
+export default function Engine({ currentUser, socket, gameFocused }) {
     const [userArray, setUserArray] = useState([]);
     const [currentMap, setCurrentMap] = useState(hallway);
     // const [mapImage, setMapImage] = useState(hallImage)
@@ -42,13 +46,10 @@ export default function Engine({ currentUser, socket }) {
 
     }, []);
     useEffect(() => {
-        // if (engineFocused.current) {
-
         window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray, npcArray, setDisableKeys, disableKeys));
 
         return function cleanup() {
             window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray));
-            // };
         };
     }, []);
 
@@ -64,7 +65,7 @@ export default function Engine({ currentUser, socket }) {
     };
 
     return (
-        <div className={styles.view}>
+        <div className={styles.view} onClick={() => { gameFocused.current = true; }}>
 
             <span />
             {currentUser.current.position ?
