@@ -16,7 +16,7 @@ export default function Hallway({ position, dimension }) {
                 }}
             >
             </div>
-            <img 
+            <img
                 className={styles.hallway}
                 src="/hallway/MessyHallway.png" />
         </div>

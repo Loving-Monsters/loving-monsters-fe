@@ -74,8 +74,9 @@ export default function Engine({ currentUser, socket }) {
                             transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
                         }}>
                         <Maps />
+                        {renderUsers()}
                     </div>
-                    {renderUsers()}
+
                     <Player
                         key={currentUser.current.id}
                         position={currentUser.current.position}
