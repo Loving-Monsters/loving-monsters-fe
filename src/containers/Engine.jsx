@@ -6,13 +6,13 @@ import React, { useState, useEffect } from 'react';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps';
-import styles from './Containers.css';
-
-import { hallArray } from '../components/hallway';
+import styles from './Engine.css';
+import { hallway } from '../components/hallway';
 
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
-    // const [objectArray, setObjectArray] = useState([]);
+    const [currentMap, setCurrentMap] = useState(hallway);
+    // const [mapImage, setMapImage] = useState(hallImage)
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
@@ -44,10 +44,10 @@ export default function Engine({ currentUser, socket }) {
     useEffect(() => {
         // if (engineFocused.current) {
 
-        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray, npcArray, setDisableKeys, disableKeys));
+        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray, npcArray, setDisableKeys, disableKeys));
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray));
             // };
         };
     }, []);
@@ -73,9 +73,10 @@ export default function Engine({ currentUser, socket }) {
                         style={{
                             transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
                         }}>
-                        <Maps />
+                        <Maps currentMap={currentMap} />
+                        {renderUsers()}
                     </div>
-                    {renderUsers()}
+
                     <Player
                         key={currentUser.current.id}
                         position={currentUser.current.position}
