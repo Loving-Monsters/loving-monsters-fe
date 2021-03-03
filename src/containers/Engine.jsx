@@ -1,14 +1,18 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
 
 import React, { useState, useEffect } from 'react';
 // import useEvent from '../hooks/useEvent';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
+import Maps from '../components/Maps';
+import styles from './Engine.css';
 
-
+import { hallArray } from '../components/hallway';
 
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
-    const [objectArray, setObjectArray] = useState([]);
+    // const [objectArray, setObjectArray] = useState([]);
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
@@ -40,14 +44,13 @@ export default function Engine({ currentUser, socket }) {
     useEffect(() => {
         // if (engineFocused.current) {
 
-        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, objectArray, npcArray, setDisableKeys, disableKeys));
+        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray, npcArray, setDisableKeys, disableKeys));
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, objectArray));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray));
             // };
         };
     }, []);
-
 
     const renderUsers = () => {
         return userArray.map(user => <Player
@@ -61,32 +64,18 @@ export default function Engine({ currentUser, socket }) {
     };
 
     return (
-        <div className='view' style={{
-            width: 400,
-            height: 400,
-            overflow: 'hidden',
-            border: 'solid',
-            position: 'relative',
-
-
-        }}>
+        <div className={styles.view}>
 
             <span />
             {currentUser.current.position ?
-                <div className='map'
-                    style={{
-                        backgroundImage: 'url(https://assets.codepen.io/21542/CameraDemoMap.png)',
-                        height: 600,
-                        width: 600,
-                        backgroundSize: '100%',
-                        position: 'relative',
-                        transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y}px)`,
-                        backgroundPosition: '150px 0px',
-                        backgroundRepeat: 'no-repeat'
-
-                    }}>
+                <div>
+                    <div className={styles.map}
+                        style={{
+                            transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
+                        }}>
+                        <Maps />
+                    </div>
                     {renderUsers()}
-
                     <Player
                         key={currentUser.current.id}
                         position={currentUser.current.position}
@@ -94,7 +83,7 @@ export default function Engine({ currentUser, socket }) {
                         avatar={currentUser.current.avatar}
                         userName={currentUser.current.userName}
                     />
-                </div >
+                </div>
                 : null
             }
         </div >
