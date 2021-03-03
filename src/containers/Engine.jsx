@@ -18,7 +18,7 @@ export default function Engine({ currentUser, socket, gameFocused }) {
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
-    console.log(currentMap.nextMap)
+    console.log(currentMap)
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
