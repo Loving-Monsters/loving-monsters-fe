@@ -10,7 +10,7 @@ import styles from './Engine.css';
 
 import { hallArray } from '../components/hallway';
 
-export default function Engine({ currentUser, socket }) {
+export default function Engine({ currentUser, socket, gameFocused }) {
     const [userArray, setUserArray] = useState([]);
     // const [objectArray, setObjectArray] = useState([]);
     const [disableKeys, setDisableKeys] = useState(false);
@@ -42,13 +42,10 @@ export default function Engine({ currentUser, socket }) {
 
     }, []);
     useEffect(() => {
-        // if (engineFocused.current) {
-
         window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray, npcArray, setDisableKeys, disableKeys));
 
         return function cleanup() {
             window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, hallArray));
-            // };
         };
     }, []);
 
@@ -64,7 +61,7 @@ export default function Engine({ currentUser, socket }) {
     };
 
     return (
-        <div className={styles.view}>
+        <div className={styles.view} onClick={() => { gameFocused.current = true; }}>
 
             <span />
             {currentUser.current.position ?
