@@ -10,11 +10,28 @@ const Phone = () => {
     return (
         <div className={styles.phone}>
             <div className={styles.screen}>
-                <Bulletin />
-                <Friendships />
-                <Inventory />
-                <Messaging />
-                <Online />
+                <div className={styles.apps}>
+                    <div className={styles.icon}>
+                        <img src="/phone/Messaging.png" />
+                        <span>Messaging</span>
+                    </div>
+                    <div className={styles.icon}>
+                        <img src="/phone/Bulletin.png" />
+                        <span>Bulletin</span>
+                    </div>
+                    <div className={styles.icon}>
+                        <img src="/phone/Friendships.png" />
+                        <span>Friendships</span>
+                    </div>
+                    <div className={styles.icon}>
+                        <img src="/phone/Inventory.png" />
+                        <span>Inventory</span>
+                    </div>
+                    <div className={styles.icon}>
+                        <img src="/phone/Online.png" />
+                        <span>Online</span>
+                    </div>
+                </div>
             </div>
         </div>
     );
