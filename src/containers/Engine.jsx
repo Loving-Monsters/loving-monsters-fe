@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps';
-import styles from './Engine.css';
+import styles from './Containers.css';
 
 import { hallArray } from '../components/hallway';
 

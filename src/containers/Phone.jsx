@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './Phone.css';
+import styles from './Containers.css';
 import Bulletin from '../components/PhoneApps/Bulletin';
 import Friendships from '../components/PhoneApps/Friendships';
 import Inventory from '../components/PhoneApps/Inventory';

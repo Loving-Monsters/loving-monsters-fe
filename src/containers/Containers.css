@@ -1,7 +1,23 @@
+.view {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 25px;
+    width: 65vw;
+    height: 73vh;
+    overflow: hidden;
+    border: solid 5px black;
+}
+
+.map {
+    position: absolute;
+    image-rendering: pixelated;
+    height: 73vh;
+}
+
 .phone {
     position: absolute;
     margin-top: 5%;
-    margin-left: 850px;
+    margin-left: 70vw;
     height: 73vh;
     width: 25vw;
     border-radius: 30px;
@@ -14,10 +30,10 @@
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 15px;
-    padding-right: 25px;
-    padding-left: 25px;
-    height: 70vh;
+    padding-top: 3vh;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    height: 69vh;
     width: 20vw;
     border-radius: 20px;
     background-color: white;
@@ -39,7 +55,6 @@
     text-align: center;
     width: 7vw;
     margin-bottom: 15px;
-    border: solid 1px blue;
 }
 
 .icon span {
