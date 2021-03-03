@@ -83,7 +83,6 @@ const Phone = () => {
                 </div>
             </div>
         );
-
     } else if (displayScreen === 'messaging') {
         return (
             <div className={styles.phone}>

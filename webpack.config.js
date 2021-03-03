@@ -78,10 +78,10 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(jpeg|jpg|png|svg)$/,
+                test: /\.(jpeg|jpg|png|svg|woff|woff2|eot|ttf|otf)$/,
                 use: {
                     loader: 'url-loader',
-                    options: { limit: 1000 },
+                    options: { limit: 100000 },
                 },
             },
         ],
