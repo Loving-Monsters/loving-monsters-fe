@@ -2,11 +2,13 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange) {
+export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange) {
     e.preventDefault();
+
     // const currentUser = useSelector(getUser);
     if (currentUser.current && !disableKeys) {
         setDisableKeys(true);
+
         const { position, speed, dimension } = currentUser.current;
 
         const newPosition = changePosition(position, speed, e.key);
@@ -20,9 +22,11 @@ export default function(e, currentUser, currentMap, setDisableKeys, disableKeys,
                 ...currentUser.current,
                 position: newPosition,
                 dir
-            };
+            }
+
         } else if (checkCollisionResult !== false) {
             handleMapChange(checkCollisionResult);
+
         }
         // if (!checkCollision(currentMap.current.portals, newPosition, dimension)) {
         //     console.log(currentMap.current);
