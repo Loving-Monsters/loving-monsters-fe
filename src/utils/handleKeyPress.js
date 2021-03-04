@@ -2,7 +2,7 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function (e, currentUser, currentMap, npcArray = [], setDisableKeys, disableKeys, handleMapChange, setIdle) {
+export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange) {
     e.preventDefault();
 
     // const currentUser = useSelector(getUser);
@@ -15,7 +15,7 @@ export default function (e, currentUser, currentMap, npcArray = [], setDisableKe
 
 
 
-        const checkCollisionResult = checkCollision([...currentMap.current.portals, ...npcArray, ...currentMap.current.objectArray], newPosition, dimension);
+        const checkCollisionResult = checkCollision([...currentMap.current.portals, ...currentMap.current.objectArray], newPosition, dimension);
         if (checkCollisionResult === true) {
             const dir = e.key.split('Arrow')[1].toLowerCase();
             currentUser.current = {
@@ -26,7 +26,6 @@ export default function (e, currentUser, currentMap, npcArray = [], setDisableKe
 
         } else if (checkCollisionResult !== false) {
             handleMapChange(checkCollisionResult);
-            setIdle(false)
 
         }
         // if (!checkCollision(currentMap.current.portals, newPosition, dimension)) {

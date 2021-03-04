@@ -2,6 +2,7 @@
 
 export const hallway2 = {
     mapImage: '/hallway/MessyHallway.png',
+    npc: 'cal',
     transformPositionX: 0,
     transformPositionY: 250,
     portals: [{
