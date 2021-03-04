@@ -4,7 +4,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // import useEvent from '../hooks/useEvent';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
@@ -13,10 +13,17 @@ import styles from './Containers.css';
 import { hallway } from '../components/hallway';
 import { classroom } from '../components/classroom';
 
-export default function Engine({ currentUser, socket, gameFocused }) {
+const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
+
+const mapObj = {
+    hallway,
+    classroom
+};
+
+export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
-    const [currentMap, setCurrentMap] = useState(hallway);
-    const [loading, setLoading] = useState(false)
+    const currentMap = useRef(hallway);
+    const [loading, setLoading] = useState(false);
     // const [mapImage, setMapImage] = useState(hallImage)
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
@@ -31,7 +38,6 @@ export default function Engine({ currentUser, socket, gameFocused }) {
         socket.on('GAME_STATE', response => {
             setUserArray(response);
             setDisableKeys(false);
-
         });
     }, [socket]);
 
@@ -64,13 +70,24 @@ export default function Engine({ currentUser, socket, gameFocused }) {
     //     }
     // }
     useEffect(() => {
-        window.addEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setCurrentMap, setLoading));
+        window.addEventListener('keydown', (e) => {
+            if (validKeyPress.includes(e.key)) {
+                handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, handleMapChange);
+            }
+        });
         return function cleanup() {
-            // mapTransition(currentMap, currentUser);
-
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap.objectArray));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setLoading));
         };
     }, []);
+
+    const handleMapChange = (nextMap) => {
+
+        setLoading(true);
+        currentUser.current.position = currentMap.current.portals[0].startingPosition;
+
+        currentMap.current = mapObj[nextMap];
+        setLoading(false);
+    };
 
     const renderUsers = () => {
         return userArray.map(user => <Player
@@ -96,7 +113,11 @@ export default function Engine({ currentUser, socket, gameFocused }) {
                             style={{
                                 transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
                             }}>
-                            <Maps currentMap={currentMap} />
+                            {currentMap.current ?
+                                <Maps currentMap={currentMap.current} />
+                                :
+                                null
+                            }
                             {renderUsers()}
                         </div>
 
