@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // import useEvent from '../hooks/useEvent';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
@@ -12,9 +12,14 @@ import { classroom } from '../components/classroom';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
 
+const mapObj = {
+    hallway,
+    classroom
+};
+
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
-    const [currentMap, setCurrentMap] = useState(hallway);
+    const currentMap = useRef(hallway);
     const [loading, setLoading] = useState(false);
     // const [mapImage, setMapImage] = useState(hallImage)
     const [disableKeys, setDisableKeys] = useState(false);
@@ -57,13 +62,22 @@ export default function Engine({ currentUser, socket }) {
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setCurrentMap, setLoading);
+                handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, handleMapChange);
             }
         });
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setCurrentMap, setLoading));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setLoading));
         };
     }, []);
+
+    const handleMapChange = (nextMap) => {
+
+        setLoading(true);
+        currentUser.current.position = currentMap.current.portals[0].startingPosition;
+
+        currentMap.current = mapObj[nextMap];
+        setLoading(false);
+    };
 
     const renderUsers = () => {
         return userArray.map(user => <Player
@@ -89,7 +103,11 @@ export default function Engine({ currentUser, socket }) {
                             style={{
                                 transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
                             }}>
-                            <Maps currentMap={currentMap} />
+                            {currentMap.current ?
+                                <Maps currentMap={currentMap.current} />
+                                :
+                                null
+                            }
                             {renderUsers()}
                         </div>
 

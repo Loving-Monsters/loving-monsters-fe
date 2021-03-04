@@ -1,16 +1,22 @@
 /* eslint-disable max-len */
-import { classroom } from './classroom';
 
 export const hallway = {
     mapImage: '/hallway/MessyHallway.png',
-    portals: {
+    portals: [{
         position: {
             x: 275,
-            y: 400
+            y: 350
         },
-        nextMap: classroom,
-    },
-
+        dimension: {
+            x: 50,
+            y: 50
+        },
+        nextMap: 'classroom',
+        startingPosition: {
+            x: 450,
+            y: 50
+        }
+    }],
 
     objectArray: [
         {
