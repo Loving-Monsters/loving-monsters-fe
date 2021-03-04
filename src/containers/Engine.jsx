@@ -72,11 +72,16 @@ export default function Engine({ currentUser, socket }) {
         currentUser.current.position = currentMap.current.portals[0].startingPosition;
 
         currentMap.current = mapObj[nextMap];
+        socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: nextMap });
+
         setLoading(false);
     };
 
+    const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom)
+    console.log('userarray', userArray)
+    console.log(currentUser.current)
     const renderUsers = () => {
-        return userArray.map(user => <Player
+        return filteredUserArray.map(user => <Player
             key={user.id}
             position={user.position}
             direction={user.dir}
