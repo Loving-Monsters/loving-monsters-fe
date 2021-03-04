@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-export const hallway2 = {
+export const hallway3 = {
     mapImage: '/hallway/MessyHallway.png',
     transformPositionX: 0,
     transformPositionY: 250,
@@ -13,7 +13,7 @@ export const hallway2 = {
             x: 25,
             y: 25
         },
-        nextMap: 'classroom',
+        nextMap: 'classroom3',
         startingPosition: {
             x: 25,
             y: 350
@@ -25,9 +25,22 @@ export const hallway2 = {
         dimension: {
             x: 10, y: 625
         },
-        nextMap: 'hallway',
+        nextMap: 'hallway2',
         startingPosition: {
             x: 700,
+            y: 350
+        }
+    }, {
+
+        position: {
+            x: 725, y: 0
+        },
+        dimension: {
+            x: 10, y: 640
+        },
+        nextMap: 'courtyard',
+        startingPosition: {
+            x: 25,
             y: 350
         }
     }],
@@ -42,15 +55,15 @@ export const hallway2 = {
                 x: 800, y: 325
             },
         },
-        {
-            name: 'EastWall',
-            position: {
-                x: 725, y: 0
-            },
-            dimension: {
-                x: 10, y: 640
-            }
-        },
+        // {
+        //     name: 'EastWall',
+        //     position: {
+        //         x: 725, y: 0
+        //     },
+        //     dimension: {
+        //         x: 10, y: 640
+        //     }
+        // },
         {
             name: 'SouthWall',
             position: {
