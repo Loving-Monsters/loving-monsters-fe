@@ -1,3 +1,4 @@
+
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
@@ -14,7 +15,7 @@ import { classroom2 } from '../components/maps/classroom2';
 import { classroom3 } from '../components/maps/classroom3';
 import { courtyard } from '../components/maps/courtyard'
 
-const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
+const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
 const mapObj = {
     hallway,
@@ -47,7 +48,6 @@ export default function Engine({ currentUser, socket }) {
 
     useEffect(() => {
         socket.emit('CREATE_USER', null);
-
         setInterval(() => {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
