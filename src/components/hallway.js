@@ -4,8 +4,8 @@ export const hallway = {
     mapImage: '/hallway/MessyHallway.png',
     portals: [{
         position: {
-            x: 275,
-            y: 350
+            x: 525,
+            y: 425
         },
         dimension: {
             x: 50,

@@ -110,15 +110,16 @@ export default function Engine({ currentUser, socket }) {
                                 null
                             }
                             {renderUsers()}
+                            <Player
+                                key={currentUser.current.id}
+                                position={currentUser.current.position}
+                                direction={currentUser.current.dir}
+                                avatar={currentUser.current.avatar}
+                                userName={currentUser.current.userName}
+                            />
                         </div>
 
-                        <Player
-                            key={currentUser.current.id}
-                            position={currentUser.current.position}
-                            direction={currentUser.current.dir}
-                            avatar={currentUser.current.avatar}
-                            userName={currentUser.current.userName}
-                        />
+
                     </div>
                     : null
             }
