@@ -6,7 +6,6 @@ export const hallway = {
     transformPositionY: 250,
     npc: 'barker',
     portals: [{
-
         position: {
             x: 275,
             y: 325
@@ -21,7 +20,6 @@ export const hallway = {
             y: 350
         }
     }, {
-
         position: {
             x: 725, y: 0
         },
@@ -44,15 +42,6 @@ export const hallway = {
                 x: 800, y: 325
             },
         },
-        // {
-        //     name: 'EastWall',
-        //     position: {
-        //         x: 725, y: 0
-        //     },
-        //     dimension: {
-        //         x: 10, y: 640
-        //     }
-        // },
         {
             name: 'SouthWall',
             position: {

@@ -1,5 +1,3 @@
-
-
 export default function(position, speed, dir) {
 
     switch(dir) {
