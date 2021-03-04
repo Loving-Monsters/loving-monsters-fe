@@ -11,7 +11,6 @@ const socket = io.connect('http://localhost:3000');
 export default function Frame() {
     const currentUser = useRef({});
 
-
     return (
         <div className={styles.container}>
             <Engine

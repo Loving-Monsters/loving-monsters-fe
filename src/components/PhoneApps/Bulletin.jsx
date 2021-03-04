@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import styles from '../../containers/Containers.css';
 
-const Bulletin = ({ socket, currentUser, input, bulletinArray, handleInputChange, handleSendBulletin }) => {
+const Bulletin = ({ handleHome }) => {
 
-    const renderBulletins = () => bulletinArray.map(bulletin => {
-        return (
-            <div key={bulletin.timestamp}>
-                <p>{bulletin.text}</p>
-                <p>{bulletin.timestamp}</p>
-            </div>
-        );
-    });
+    // const renderBulletins = () => bulletinArray.map(bulletin => {
+    //     return (
+    //         <div key={bulletin.timestamp}>
+    //             <p>{bulletin.text}</p>
+    //             <p>{bulletin.timestamp}</p>
+    //         </div>
+    //     );
+    // });
 
 
     return (
-        <div>
+        <div className={styles.screen}>
+            <button onClick={handleHome} >HOME</button>
+            {/* 
             <form onSubmit={(event) => handleSendBulletin(event)}>
                 <input
                     value={input}
@@ -21,7 +24,7 @@ const Bulletin = ({ socket, currentUser, input, bulletinArray, handleInputChange
                     onChange={(event) => handleInputChange(event)} />
                 <button>SEND</button>
             </form>
-            {renderBulletins()}
+            {renderBulletins()} */}
         </div>
     );
 };
