@@ -1,9 +1,11 @@
 import React from 'react';
+import styles from '../../containers/Containers.css';
 
-const Inventory = () => {
+const Inventory = ({ handleHome }) => {
     return (
-        <div>
-            {'This is the Inventory Page'}
+        <div className={styles.screen}>
+            <button onClick={handleHome} >HOME</button>
+            { 'This is the Inventory Page'}
         </div>
     );
 };
