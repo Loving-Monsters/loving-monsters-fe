@@ -6,16 +6,24 @@ import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
 import styles from './Containers.css';
-import { hallway } from '../components/hallway';
-import { hallway2 } from '../components/hallway2';
-import { classroom } from '../components/classroom';
+import { hallway } from '../components/maps/hallway';
+import { hallway2 } from '../components/maps/hallway2';
+import { hallway3 } from '../components/maps/hallway3';
+import { classroom } from '../components/maps/classroom';
+import { classroom2 } from '../components/maps/classroom2';
+import { classroom3 } from '../components/maps/classroom3';
+import { courtyard } from '../components/maps/courtyard'
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
 
 const mapObj = {
     hallway,
     classroom,
-    hallway2
+    classroom2,
+    hallway2,
+    hallway3,
+    classroom3,
+    courtyard
 };
 
 export default function Engine({ currentUser, socket }) {
@@ -62,7 +70,6 @@ export default function Engine({ currentUser, socket }) {
 
     const handleMapChange = (nextMap) => {
         setLoading(true);
-
 
         currentUser.current.position = currentMap.current.portals.filter(portal => portal.nextMap === nextMap)[0].startingPosition;
 
