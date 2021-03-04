@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 export const misscreech = {
     name: 'misscreech',
-    displayName: 'Barker',
+    displayName: 'Miss Creech',
     img: '/npcs/Teacher.png',
     map: 'classroom',
     npcposition: {

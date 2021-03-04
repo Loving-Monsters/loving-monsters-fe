@@ -103,7 +103,7 @@ export default function Engine({ currentUser, socket }) {
         return filteredNPCArray.map(npc =>
             <NPC
                 key={npc.name}
-                name={npc.name}
+                name={npc.displayName}
                 img={npc.img}
                 npcposition={npc.npcposition}
                 marginTop={npc.marginTop}
