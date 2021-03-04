@@ -45,7 +45,7 @@ export default function Engine({ currentUser, socket }) {
     const currentMap = useRef(hallway);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
-    const idle = useRef(true)
+    // const idle = useRef(currentUser.current.idle)
     // const [npcArray] = useState([npcArr]);
 
     useEffect(() => {
@@ -59,7 +59,7 @@ export default function Engine({ currentUser, socket }) {
             setDisableKeys(false);
         });
     }, [socket]);
-
+    console.log(userArray)
     useEffect(() => {
         socket.emit('CREATE_USER', null);
         setInterval(() => {
@@ -70,11 +70,15 @@ export default function Engine({ currentUser, socket }) {
 
 
     }, []);
-
+    console.log(currentUser.current)
     useEffect(() => {
 
         window.addEventListener('keydown', (e) => {
-            idle.current = false
+            currentUser.current.idle = false
+            setTimeout(() => {
+                currentUser.current.idle = true
+            }, 500);
+
 
             if (validKeyPress.includes(e.key)) {
                 handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange);
@@ -122,6 +126,7 @@ export default function Engine({ currentUser, socket }) {
             direction={user.dir}
             avatar={user.avatar}
             userName={user.userName}
+            idle={user.idle}
         />
         );
     };
@@ -149,7 +154,7 @@ export default function Engine({ currentUser, socket }) {
                         </div>
 
                         <Player
-                            idle={idle}
+                            idle={currentUser.current.idle}
                             key={currentUser.current.id}
                             position={currentUser.current.position}
                             direction={currentUser.current.dir}
