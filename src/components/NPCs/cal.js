@@ -8,6 +8,8 @@ export const cal = {
         x: 100,
         y: 350
     },
+    marginTop: '350px',
+    marginLeft: '800px',
     storyBeats: [
         'You\'re gross', 'Why is your skin so dry', 'I can\'t be seen talking to you.'
     ]
