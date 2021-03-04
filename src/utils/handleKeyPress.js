@@ -2,7 +2,7 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange) {
+export default function(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange) {
     e.preventDefault();
 
     // const currentUser = useSelector(getUser);
@@ -22,7 +22,7 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
                 ...currentUser.current,
                 position: newPosition,
                 dir
-            }
+            };
 
         } else if (checkCollisionResult !== false) {
             handleMapChange(checkCollisionResult);

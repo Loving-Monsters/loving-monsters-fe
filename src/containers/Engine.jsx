@@ -72,7 +72,6 @@ export default function Engine({ currentUser, socket }) {
     }, []);
     console.log(currentUser.current)
     useEffect(() => {
-
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false
             setTimeout(() => {
@@ -83,8 +82,8 @@ export default function Engine({ currentUser, socket }) {
             if (validKeyPress.includes(e.key)) {
                 handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange);
             }
-
         });
+
         return function cleanup() {
             window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange));
         };
@@ -135,14 +134,13 @@ export default function Engine({ currentUser, socket }) {
 
         <div className={styles.view} >
             {loading ? <div>loading...</div>
-
                 : currentUser.current.position ?
                     <div>
                         <div className={styles.map}
                             style={{
                                 transform:
                                     `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
-                                -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
+                                    -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
                             }}>
                             {renderNPCs()}
                             {currentMap.current ?
@@ -152,7 +150,6 @@ export default function Engine({ currentUser, socket }) {
                             }
                             {renderUsers()}
                         </div>
-
                         <Player
                             idle={currentUser.current.idle}
                             key={currentUser.current.id}
@@ -161,7 +158,6 @@ export default function Engine({ currentUser, socket }) {
                             avatar={currentUser.current.avatar}
                             userName={currentUser.current.userName}
                         />
-
                     </div>
                     : null
             }
