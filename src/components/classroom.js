@@ -18,13 +18,40 @@ export const classroom = {
     }],
     objectArray: [
         {
-            name: 'Lockers2',
+            name: 'NorthWall',
             position: {
-                x: 500, y: 325
+                x: 0, y: 0
             },
             dimension: {
-                x: 250, y: 100
+                x: 700, y: 150
             }
-        }
+        },
+        {
+            name: 'EastWall',
+            position: {
+                x: 325, y: 0
+            },
+            dimension: {
+                x: 10, y: 640
+            }
+        },
+        {
+            name: 'SouthWall',
+            position: {
+                x: 0, y: 525
+            },
+            dimension: {
+                x: 700, y: 150
+            }
+        },
+        {
+            name: 'WestWall',
+            position: {
+                x: 0, y: 0
+            },
+            dimension: {
+                x: 10, y: 640
+            }
+        },
     ],
 };
