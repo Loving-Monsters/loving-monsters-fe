@@ -28,7 +28,7 @@ export default function Player({ position, direction, userName, avatar }) {
             }}
         >
             <span>{userName}</span>
-            <br /><img className={styles.sprite} src={sprite}/>
+            <br /><img className={styles.sprite} src={sprite} />
             <span>{`x: ${position.x}`}</span>
             <br /><span>{`y: ${position.y}`}</span>
         </div>
