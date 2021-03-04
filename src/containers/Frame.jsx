@@ -11,7 +11,6 @@ const socket = io.connect('http://localhost:3000');
 export default function Frame() {
 
     const currentUser = useRef({});
-    const gameFocused = useRef(true);
 
 
     return (
@@ -19,12 +18,10 @@ export default function Frame() {
             <Engine
                 currentUser={currentUser}
                 socket={socket}
-                gameFocused={gameFocused}
             />
             <Phone
                 currentUser={currentUser}
                 socket={socket}
-                gameFocused={gameFocused}
             />
         </div>
     );

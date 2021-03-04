@@ -1,3 +1,6 @@
+
+
+
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
@@ -18,7 +21,7 @@ export default function Engine({ currentUser, socket, gameFocused }) {
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
-    console.log(currentMap)
+    console.log(currentUser)
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
@@ -44,6 +47,10 @@ export default function Engine({ currentUser, socket, gameFocused }) {
         setInterval(() => {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
+            }
+            if (currentUser.current.position.x === currentMap.portals.position.x && currentUser.current.position.y === currentMap.portals.position.y) {
+                setLoading(true);
+                setCurrentMap(currentMap.portals.nextMap);
             }
         }, 150);
 
