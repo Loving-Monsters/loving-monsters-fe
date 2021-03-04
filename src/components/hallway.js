@@ -13,8 +13,8 @@ export const hallway = {
         },
         nextMap: 'classroom',
         startingPosition: {
-            x: 450,
-            y: 50
+            x: 250,
+            y: 475
         }
     }],
 
