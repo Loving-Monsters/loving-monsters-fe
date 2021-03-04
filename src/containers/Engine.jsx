@@ -1,6 +1,3 @@
-
-
-
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
@@ -26,7 +23,6 @@ export default function Engine({ currentUser, socket }) {
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
-    console.log(currentUser)
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
@@ -46,10 +42,6 @@ export default function Engine({ currentUser, socket }) {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
-            if (currentUser.current.position.x === currentMap.portals.position.x && currentUser.current.position.y === currentMap.portals.position.y) {
-                setLoading(true);
-                setCurrentMap(currentMap.portals.nextMap);
-            }
         }, 150);
 
 
@@ -67,19 +59,18 @@ export default function Engine({ currentUser, socket }) {
     }, []);
 
     const handleMapChange = (nextMap) => {
-
         setLoading(true);
         currentUser.current.position = currentMap.current.portals[0].startingPosition;
 
         currentMap.current = mapObj[nextMap];
         socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: nextMap });
+        currentUser.current.currentRoom = nextMap;
 
         setLoading(false);
     };
 
-    const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom)
-    console.log('userarray', userArray)
-    console.log(currentUser.current)
+    const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom);
+
     const renderUsers = () => {
         return filteredUserArray.map(user => <Player
             key={user.id}
@@ -93,7 +84,7 @@ export default function Engine({ currentUser, socket }) {
 
     return (
 
-        <div className={styles.view} onClick={() => { gameFocused.current = true; }}>
+        <div className={styles.view} >
 
             <span />
             {loading ? <div>loading...</div>
