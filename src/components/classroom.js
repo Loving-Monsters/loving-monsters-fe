@@ -1,14 +1,16 @@
 
 export const classroom = {
     mapImage: '/classroom/Workroom.png',
+    transformPositionX: 0,
+    transformPositionY: 150,
     portals: [{
         position: {
-            x: 250,
-            y: 500
+            x: 25,
+            y: 375
         },
         dimension: {
-            x: 50,
-            y: 50
+            x: 25,
+            y: 25
         },
         nextMap: 'hallway',
         startingPosition: {
@@ -23,34 +25,34 @@ export const classroom = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 700, y: 150
+                x: 600, y: 150
             }
         },
         {
             name: 'EastWall',
             position: {
-                x: 325, y: 0
+                x: 350, y: 0
             },
             dimension: {
-                x: 10, y: 640
+                x: 10, y: 400
             }
         },
         {
             name: 'SouthWall',
             position: {
-                x: 0, y: 525
+                x: 0, y: 400
             },
             dimension: {
-                x: 700, y: 150
+                x: 600, y: 150
             }
         },
         {
             name: 'WestWall',
             position: {
-                x: 0, y: 0
+                x: -25, y: 0
             },
             dimension: {
-                x: 10, y: 640
+                x: 10, y: 400
             }
         },
     ],

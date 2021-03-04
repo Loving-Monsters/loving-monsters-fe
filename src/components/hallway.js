@@ -2,19 +2,21 @@
 
 export const hallway = {
     mapImage: '/hallway/MessyHallway.png',
+    transformPositionX: 0,
+    transformPositionY: 250,
     portals: [{
         position: {
             x: 275,
-            y: 350
+            y: 325
         },
         dimension: {
-            x: 50,
-            y: 50
+            x: 25,
+            y: 25
         },
         nextMap: 'classroom',
         startingPosition: {
-            x: 250,
-            y: 475
+            x: 25,
+            y: 350
         }
     }],
 
@@ -25,13 +27,13 @@ export const hallway = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 1516, y: 400
+                x: 800, y: 325
             },
         },
         {
             name: 'EastWall',
             position: {
-                x: 750, y: 0
+                x: 725, y: 0
             },
             dimension: {
                 x: 10, y: 640
@@ -40,19 +42,19 @@ export const hallway = {
         {
             name: 'SouthWall',
             position: {
-                x: 0, y: 550
+                x: 0, y: 475
             },
             dimension: {
-                x: 1516, y: 10
+                x: 800, y: 10
             }
         },
         {
             name: 'WestWall',
             position: {
-                x: -30, y: 0
+                x: -25, y: 0
             },
             dimension: {
-                x: 10, y: 640
+                x: 10, y: 625
             }
         },
         {
@@ -61,7 +63,7 @@ export const hallway = {
                 x: 0, y: 325
             },
             dimension: {
-                x: 150, y: 100
+                x: 150, y: 10
             }
         },
         {
@@ -70,7 +72,7 @@ export const hallway = {
                 x: 500, y: 325
             },
             dimension: {
-                x: 250, y: 100
+                x: 250, y: 10
             }
         }
     ],
