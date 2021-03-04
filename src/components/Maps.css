@@ -1,5 +1,7 @@
 .wall {
     position: absolute;
+    background-color: blue;
+    z-index: 1;
 }
 
 .mapImg {

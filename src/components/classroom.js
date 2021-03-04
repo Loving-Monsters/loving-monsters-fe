@@ -3,8 +3,8 @@ export const classroom = {
     mapImage: '/classroom/Workroom.png',
     portals: [{
         position: {
-            x: 275,
-            y: 400
+            x: 250,
+            y: 500
         },
         dimension: {
             x: 50,
@@ -12,8 +12,8 @@ export const classroom = {
         },
         nextMap: 'hallway',
         startingPosition: {
-            x: 50,
-            y: 450
+            x: 275,
+            y: 400
         }
     }],
     objectArray: [
