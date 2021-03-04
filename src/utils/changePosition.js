@@ -1,8 +1,8 @@
 
 
-export default function (position, speed, dir) {
+export default function(position, speed, dir) {
 
-    switch (dir) {
+    switch(dir) {
         case 'ArrowUp':
             return {
                 x: position.x,
