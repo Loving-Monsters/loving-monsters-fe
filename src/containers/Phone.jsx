@@ -11,6 +11,13 @@ import Online from '../components/PhoneApps/Online';
 
 const Phone = ({ currentUser, socket }) => {
 
+    useEffect(() => {
+        socket.on('RECIEVE_BULLETIN', bulletinObj => {
+            currentUser.current.bulletinArray = [...currentUser.current.bulletinArray, bulletinObj];
+        });
+    }, [socket]);
+
+
     const handleAppChange = (appName) => {
         setDisplayScreen(phoneApps[appName]);
     };
@@ -21,12 +28,16 @@ const Phone = ({ currentUser, socket }) => {
         setDisplayScreen(phoneApps.home);
     };
 
+
+
     const phoneApps = {
         home: <Home
             handleAppChange={handleAppChange}
         />,
         bulletin: <Bulletin
             handleHome={handleHome}
+            currentUser={currentUser}
+            socket={socket}
         />,
         friendships: <Friendships
             handleHome={handleHome}
@@ -39,6 +50,7 @@ const Phone = ({ currentUser, socket }) => {
         />,
         online: <Online
             handleHome={handleHome}
+            socket={socket}
         />
     };
 
