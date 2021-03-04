@@ -32,6 +32,7 @@ export const hallway = {
             y: 350
         }
     }],
+    arrows: ['hallwayarrow1', 'hallwayarrow2'],
     objectArray: [
         {
             name: 'NorthWall',
