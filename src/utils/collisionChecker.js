@@ -15,7 +15,6 @@ export default function checkCollision(objectArray, proposedMove, playerDimensio
 
                     if (position.x + dimension.x > proposedMove.x) {
                         // right of object to the right of the right of the player
-                        console.log(object.name);
                         if (object.nextMap) {
                             returnValue = object.nextMap;
                         } else {
