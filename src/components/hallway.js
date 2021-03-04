@@ -4,6 +4,7 @@ export const hallway = {
     mapImage: '/hallway/MessyHallway.png',
     transformPositionX: 0,
     transformPositionY: 250,
+    npc: 'barker',
     portals: [{
         position: {
             x: 275,
@@ -19,7 +20,6 @@ export const hallway = {
             y: 350
         }
     }],
-
     objectArray: [
         {
             name: 'NorthWall',

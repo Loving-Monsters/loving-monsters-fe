@@ -2,7 +2,7 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function(e, currentUser, currentMap, npcArray = [], setDisableKeys, disableKeys, handleMapChange) {
+export default function(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange) {
     e.preventDefault();
 
     if (currentUser.current && !disableKeys) {
@@ -16,7 +16,7 @@ export default function(e, currentUser, currentMap, npcArray = [], setDisableKey
             handleMapChange(currentMap.current.portals[0].nextMap);
         } else {
             if (checkCollision(
-                [...currentMap.current.objectArray, ...npcArray], newPosition, dimension)
+                [...currentMap.current.objectArray], newPosition, dimension)
             ) {
                 const dir = e.key.split('Arrow')[1].toLowerCase();
                 currentUser.current = {

@@ -3,6 +3,7 @@ export const classroom = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
+    npc: 'misscreech',
     portals: [{
         position: {
             x: 25,

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 export default function checkCollision(objectArray, proposedMove, playerDimension) {
     let returnValue = true;
-    for (const object of objectArray) {
+    for(const object of objectArray) {
         const { position, dimension } = object;
 
         if (position.y < proposedMove.y + playerDimension.y) {
@@ -15,7 +15,6 @@ export default function checkCollision(objectArray, proposedMove, playerDimensio
 
                     if (position.x + dimension.x > proposedMove.x) {
                         // right of object to the right of the right of the player
-
                         returnValue = false;
                     }
                 }
