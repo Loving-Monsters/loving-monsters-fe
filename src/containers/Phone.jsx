@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import styles from './Containers.css';
 import Bulletin from '../components/PhoneApps/Bulletin';
@@ -66,7 +67,7 @@ const Phone = ({ currentUser, socket }) => {
     if (displayScreen === 'home') {
         return (
             <div className={styles.phone}>
-                <div className={styles.screen}>
+                <div className={styles.homescreen}>
                     <div className={styles.apps}>
                         <div
                             className={styles.icon}
@@ -107,7 +108,6 @@ const Phone = ({ currentUser, socket }) => {
                             <img src="/phone/Online.png" />
                             <br /><span>Online</span>
                         </div>
-
                     </div>
                 </div>
             </div>
