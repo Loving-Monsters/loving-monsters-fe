@@ -1,10 +1,9 @@
 /* eslint-disable max-len */
 
-export const hallway = {
+export const hallway3 = {
     mapImage: '/hallway/MessyHallway.png',
     transformPositionX: 0,
     transformPositionY: 250,
-    npc: 'barker',
     portals: [{
         position: {
             x: 275,
@@ -14,12 +13,38 @@ export const hallway = {
             x: 25,
             y: 25
         },
-        nextMap: 'classroom',
+        nextMap: 'classroom3',
+        startingPosition: {
+            x: 25,
+            y: 350
+        }
+    }, {
+        position: {
+            x: -25, y: 0
+        },
+        dimension: {
+            x: 10, y: 625
+        },
+        nextMap: 'hallway2',
+        startingPosition: {
+            x: 700,
+            y: 350
+        }
+    }, {
+
+        position: {
+            x: 725, y: 0
+        },
+        dimension: {
+            x: 10, y: 640
+        },
+        nextMap: 'courtyard',
         startingPosition: {
             x: 25,
             y: 350
         }
     }],
+
     objectArray: [
         {
             name: 'NorthWall',
@@ -30,15 +55,15 @@ export const hallway = {
                 x: 800, y: 325
             },
         },
-        {
-            name: 'EastWall',
-            position: {
-                x: 725, y: 0
-            },
-            dimension: {
-                x: 10, y: 640
-            }
-        },
+        // {
+        //     name: 'EastWall',
+        //     position: {
+        //         x: 725, y: 0
+        //     },
+        //     dimension: {
+        //         x: 10, y: 640
+        //     }
+        // },
         {
             name: 'SouthWall',
             position: {
@@ -48,15 +73,15 @@ export const hallway = {
                 x: 800, y: 10
             }
         },
-        {
-            name: 'WestWall',
-            position: {
-                x: -25, y: 0
-            },
-            dimension: {
-                x: 10, y: 625
-            }
-        },
+        // {
+        //     name: 'WestWall',
+        //     position: {
+        //         x: -25, y: 0
+        //     },
+        //     dimension: {
+        //         x: 10, y: 625
+        //     }
+        // },
         {
             name: 'Lockers1',
             position: {

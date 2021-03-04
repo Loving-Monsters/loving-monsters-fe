@@ -6,18 +6,31 @@ import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
 import styles from './Containers.css';
-import { hallway } from '../components/hallway';
-import { classroom } from '../components/classroom';
+
+
 import { barker } from '../components/NPCs/barker';
 import { cal } from '../components/NPCs/cal';
 import { misscreech } from '../components/NPCs/misscreech';
 import NPC from '../components/NPCs/NPC.jsx';
 
+import { hallway } from '../components/maps/hallway';
+import { hallway2 } from '../components/maps/hallway2';
+import { hallway3 } from '../components/maps/hallway3';
+import { classroom } from '../components/maps/classroom';
+import { classroom2 } from '../components/maps/classroom2';
+import { classroom3 } from '../components/maps/classroom3';
+import { courtyard } from '../components/maps/courtyard';
+
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
 
 const mapObj = {
     hallway,
-    classroom
+    classroom,
+    classroom2,
+    hallway2,
+    hallway3,
+    classroom3,
+    courtyard
 };
 
 const npcArr = [
@@ -31,7 +44,7 @@ export default function Engine({ currentUser, socket }) {
     const currentMap = useRef(hallway);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
-    const [npcArray] = useState([npcArr]);
+    // const [npcArray] = useState([npcArr]);
 
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
@@ -53,6 +66,8 @@ export default function Engine({ currentUser, socket }) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
         }, 150);
+
+
     }, []);
 
     useEffect(() => {
@@ -70,11 +85,10 @@ export default function Engine({ currentUser, socket }) {
     const handleMapChange = (nextMap) => {
         setLoading(true);
 
-        currentUser.current.position = currentMap.current.portals[0].startingPosition;
+        currentUser.current.position = currentMap.current.portals.filter(portal => portal.nextMap === nextMap)[0].startingPosition;
 
         currentMap.current = mapObj[nextMap];
         socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: nextMap });
-
         currentUser.current.currentRoom = nextMap;
 
         setLoading(false);
@@ -111,16 +125,14 @@ export default function Engine({ currentUser, socket }) {
     return (
 
         <div className={styles.view} >
-
-            <span />
             {loading ? <div>loading...</div>
 
                 : currentUser.current.position ?
                     <div>
                         <div className={styles.map}
                             style={{
-                                transform: 
-                                `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
+                                transform:
+                                    `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
                                 -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
                             }}>
                             {renderNPCs()}
@@ -131,7 +143,7 @@ export default function Engine({ currentUser, socket }) {
                             }
                             {renderUsers()}
                         </div>
-                        
+
                         <Player
                             key={currentUser.current.id}
                             position={currentUser.current.position}

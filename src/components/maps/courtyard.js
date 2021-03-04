@@ -1,9 +1,8 @@
 
-export const classroom = {
-    mapImage: '/classroom/Workroom.png',
+export const courtyard = {
+    mapImage: '',
     transformPositionX: 0,
     transformPositionY: 150,
-    npc: 'misscreech',
     portals: [{
         position: {
             x: 25,
@@ -13,10 +12,10 @@ export const classroom = {
             x: 25,
             y: 25
         },
-        nextMap: 'hallway',
+        nextMap: 'hallway3',
         startingPosition: {
             x: 275,
-            y: 400
+            y: 350
         }
     }],
     objectArray: [
