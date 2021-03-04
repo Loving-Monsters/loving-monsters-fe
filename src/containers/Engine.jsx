@@ -32,7 +32,7 @@ export default function Engine({ currentUser, socket }) {
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
-
+    const idle = useRef(true)
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
@@ -59,11 +59,16 @@ export default function Engine({ currentUser, socket }) {
 
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
+            idle.current = false
+
             if (validKeyPress.includes(e.key)) {
                 handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, handleMapChange);
             }
+
         });
         return function cleanup() {
+
+
             window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setLoading, handleMapChange));
         };
     }, []);
@@ -79,7 +84,7 @@ export default function Engine({ currentUser, socket }) {
 
         setLoading(false);
     };
-
+    // console.log(idle)
     // const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom);
 
     const renderUsers = () => {
@@ -124,6 +129,7 @@ export default function Engine({ currentUser, socket }) {
                         </div>
 
                         <Player
+                            idle={idle}
                             key={currentUser.current.id}
                             position={currentUser.current.position}
                             direction={currentUser.current.dir}

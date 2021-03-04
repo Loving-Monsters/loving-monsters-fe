@@ -14,7 +14,7 @@ export const courtyard = {
         },
         nextMap: 'hallway3',
         startingPosition: {
-            x: 275,
+            x: 600,
             y: 350
         }
     }],
