@@ -2,7 +2,6 @@
 /* eslint-disable max-len */
 
 import React, { useState, useEffect, useRef } from 'react';
-// import useEvent from '../hooks/useEvent';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
@@ -21,7 +20,6 @@ export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
     const currentMap = useRef(hallway);
     const [loading, setLoading] = useState(false);
-    // const [mapImage, setMapImage] = useState(hallImage)
     const [disableKeys, setDisableKeys] = useState(false);
     const [npcArray, setNpcArray] = useState([]);
 
@@ -37,12 +35,6 @@ export default function Engine({ currentUser, socket }) {
         });
     }, [socket]);
 
-    // useEffect(() => {
-    //     // if (currentUser.current.position.x === currentMap.portals.position.x) {
-    //     setCurrentMap(classroom);
-
-    // }, [currentUser.current.position]);
-
     useEffect(() => {
         socket.emit('CREATE_USER', null);
 
@@ -52,13 +44,7 @@ export default function Engine({ currentUser, socket }) {
             }
         }, 150);
     }, []);
-    // console.log(currentMap.portals.position)
-    // console.log(currentUser.current.position)
-    // function mapTransition(currentMap, currentUser) {
-    //     if (currentUser.current.position === currentMap.portals.position) {
-    //         setCurrentMap(classroom);
-    //     }
-    // }
+
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
             if (validKeyPress.includes(e.key)) {
