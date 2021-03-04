@@ -26,6 +26,7 @@
     position: absolute;
     image-rendering: pixelated;
     height: 750px;
+    width: 100%;
 }
 
 .phone {

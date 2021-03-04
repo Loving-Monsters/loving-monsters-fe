@@ -52,7 +52,7 @@ export default function Engine({ currentUser, socket }) {
             }
         });
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setLoading));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, npcArray, setDisableKeys, disableKeys, setLoading, handleMapChange));
         };
     }, []);
 
@@ -87,7 +87,9 @@ export default function Engine({ currentUser, socket }) {
                     <div>
                         <div className={styles.map}
                             style={{
-                                transform: `translate(-${currentUser.current.position.x}px, -${currentUser.current.position.y - 400}px)`
+                                transform: 
+                                `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
+                                -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
                             }}>
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current} />
@@ -96,7 +98,7 @@ export default function Engine({ currentUser, socket }) {
                             }
                             {renderUsers()}
                         </div>
-
+                        
                         <Player
                             key={currentUser.current.id}
                             position={currentUser.current.position}
@@ -104,6 +106,7 @@ export default function Engine({ currentUser, socket }) {
                             avatar={currentUser.current.avatar}
                             userName={currentUser.current.userName}
                         />
+
                     </div>
                     : null
             }
