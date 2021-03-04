@@ -7,13 +7,15 @@ import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
 import styles from './Containers.css';
 import { hallway } from '../components/hallway';
+import { hallway2 } from '../components/hallway2';
 import { classroom } from '../components/classroom';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
 
 const mapObj = {
     hallway,
-    classroom
+    classroom,
+    hallway2
 };
 
 export default function Engine({ currentUser, socket }) {
@@ -60,7 +62,9 @@ export default function Engine({ currentUser, socket }) {
 
     const handleMapChange = (nextMap) => {
         setLoading(true);
-        currentUser.current.position = currentMap.current.portals[0].startingPosition;
+
+
+        currentUser.current.position = currentMap.current.portals.filter(portal => portal.nextMap === nextMap)[0].startingPosition;
 
         currentMap.current = mapObj[nextMap];
         socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: nextMap });
@@ -69,10 +73,10 @@ export default function Engine({ currentUser, socket }) {
         setLoading(false);
     };
 
-    const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom);
+    // const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom);
 
     const renderUsers = () => {
-        return filteredUserArray.map(user => <Player
+        return userArray.map(user => <Player
             key={user.id}
             position={user.position}
             direction={user.dir}
@@ -93,8 +97,8 @@ export default function Engine({ currentUser, socket }) {
                     <div>
                         <div className={styles.map}
                             style={{
-                                transform: 
-                                `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
+                                transform:
+                                    `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
                                 -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
                             }}>
                             {currentMap.current ?
@@ -103,18 +107,15 @@ export default function Engine({ currentUser, socket }) {
                                 null
                             }
                             {renderUsers()}
-                            <Player
+                            {/* <Player
                                 key={currentUser.current.id}
                                 position={currentUser.current.position}
                                 direction={currentUser.current.dir}
                                 avatar={currentUser.current.avatar}
                                 userName={currentUser.current.userName}
-                            />
+                            /> */}
                         </div>
-<<<<<<< HEAD
 
-=======
-                        
                         <Player
                             key={currentUser.current.id}
                             position={currentUser.current.position}
@@ -122,7 +123,6 @@ export default function Engine({ currentUser, socket }) {
                             avatar={currentUser.current.avatar}
                             userName={currentUser.current.userName}
                         />
->>>>>>> 2c003860bdcd2a85528fa23c6c823d17304a4786
 
                     </div>
                     : null

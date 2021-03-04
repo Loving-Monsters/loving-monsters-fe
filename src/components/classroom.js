@@ -15,7 +15,7 @@ export const classroom = {
         nextMap: 'hallway',
         startingPosition: {
             x: 275,
-            y: 400
+            y: 350
         }
     }],
     objectArray: [
