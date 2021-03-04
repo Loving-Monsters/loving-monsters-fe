@@ -10,13 +10,13 @@ export const hallway = {
             y: 325
         },
         dimension: {
-            x: 50,
+            x: 25,
             y: 25
         },
         nextMap: 'classroom',
         startingPosition: {
-            x: 250,
-            y: 375
+            x: 25,
+            y: 350
         }
     }],
 
