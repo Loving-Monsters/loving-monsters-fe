@@ -22,6 +22,8 @@ import { classroom2 } from '../components/maps/classroom2';
 import { classroom3 } from '../components/maps/classroom3';
 import { courtyard } from '../components/maps/courtyard';
 
+import Arrow from '../components/arrows/Arrow';
+
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
 const mapObj = {
@@ -59,7 +61,7 @@ export default function Engine({ currentUser, socket }) {
             setDisableKeys(false);
         });
     }, [socket]);
-    console.log(userArray)
+
     useEffect(() => {
         socket.emit('CREATE_USER', null);
         setInterval(() => {
@@ -70,12 +72,12 @@ export default function Engine({ currentUser, socket }) {
 
 
     }, []);
-    console.log(currentUser.current)
+
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
-            currentUser.current.idle = false
+            currentUser.current.idle = false;
             setTimeout(() => {
-                currentUser.current.idle = true
+                currentUser.current.idle = true;
             }, 500);
 
 
@@ -116,6 +118,17 @@ export default function Engine({ currentUser, socket }) {
         );
     };
 
+    const renderArrows = () => {
+        return currentMap.current.arrows.map(arrow => 
+            <Arrow
+                key={arrow.location}
+                marginTop={arrow.marginTop}
+                marginLeft={arrow.marginLeft}
+                rotate={arrow.rotate}
+            />
+        );
+    };
+
     const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom);
 
     const renderUsers = () => {
@@ -143,6 +156,7 @@ export default function Engine({ currentUser, socket }) {
                                     -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
                             }}>
                             {renderNPCs()}
+                            {renderArrows()}
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current} />
                                 :

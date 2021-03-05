@@ -28,21 +28,6 @@ export default function(e, currentUser, currentMap, setDisableKeys, disableKeys,
             handleMapChange(checkCollisionResult);
 
         }
-        // if (!checkCollision(currentMap.current.portals, newPosition, dimension)) {
-        //     console.log(currentMap.current);
-        //     handleMapChange(currentMap.current.portals[0].nextMap);
-        // } else {
-        //     if (checkCollision(
-        //         [...currentMap.current.objectArray, ...npcArray], newPosition, dimension)
-        //     ) {
-        //         const dir = e.key.split('Arrow')[1].toLowerCase();
-        //         currentUser.current = {
-        //             ...currentUser.current,
-        //             position: newPosition,
-        //             dir
-        //         };
-        //     }
-        // }
 
     }
 }

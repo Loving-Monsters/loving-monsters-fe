@@ -1,0 +1,8 @@
+.arrows {
+    position: absolute;
+    z-index: 1;
+}
+
+.arrows img {
+    height: 200px;
+}

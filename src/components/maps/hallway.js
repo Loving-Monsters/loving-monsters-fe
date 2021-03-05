@@ -32,7 +32,19 @@ export const hallway = {
             y: 350
         }
     }],
-    arrows: ['hallwayarrow1', 'hallwayarrow2'],
+    arrows: [{
+        location: 'hallwayarrow1',
+        marginTop: '400px',
+        marginLeft: '800px',
+        rotate: 0
+    },
+    {
+        location: 'hallwayarrow2',
+        marginTop: '350px',
+        marginLeft: '500px',
+        rotate: 90
+    }
+    ],
     objectArray: [
         {
             name: 'NorthWall',
