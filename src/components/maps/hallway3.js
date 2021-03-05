@@ -44,6 +44,24 @@ export const hallway3 = {
             y: 350
         }
     }],
+    arrows: [{
+        location: 'hallwayarrow1',
+        marginTop: '250px',
+        marginLeft: '545px',
+        rotate: 0
+    },
+    {
+        location: 'hallwayarrow2',
+        marginTop: '500px',
+        marginLeft: '1300px',
+        rotate: 90
+    },
+    {
+        location: 'hallwayarrow3',
+        marginTop: '500px',
+        marginLeft: '30px',
+        rotate: 270
+    }],
     objectArray: [
         {
             name: 'NorthWall',
