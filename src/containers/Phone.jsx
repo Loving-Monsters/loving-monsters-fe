@@ -17,9 +17,11 @@ const Phone = ({ currentUser, socket }) => {
         socket.on('RECIEVE_BULLETIN', bulletinObj => {
             currentUser.current.bulletinArray = [...currentUser.current.bulletinArray, bulletinObj];
         });
+
+        socket.on('RECIEVE_MESSAGE', messageObj => {
+            currentUser.current.messageObj[messageObj.sender];
+        });
     }, [socket]);
-
-
     const handleAppChange = (appName) => {
         setDisplayScreen(phoneApps[appName]);
     };

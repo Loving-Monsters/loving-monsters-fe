@@ -1,4 +1,5 @@
 .char {
+    position: fixed;
     text-align: center;
     font-family: dogica;
     font-size: 9pt;

@@ -6,7 +6,7 @@ export default function Player({ position, direction, userName, avatar, idle }) 
     const [frame, setFrame] = useState(1);
     const [sprite, setSprite] = useState('/sprites/1/down1.png');
     const runDirections = ['up', 'down', 'left', 'right'];
-    console.log(idle)
+
 
     useEffect(() => {
 
