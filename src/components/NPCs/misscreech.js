@@ -6,6 +6,7 @@ export const misscreech = {
     img: '/npcs/Teacher.png',
     map: 'classroom',
     item: 'pancakes',
+    friendship: 0,
     position: {
         x: 250,
         y: 175

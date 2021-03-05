@@ -5,6 +5,7 @@ export const barker = {
     displayName: 'Barker',
     img: '/npcs/Barker.png',
     map: 'hallway',
+    friendship: 0,
     item: 'frog',
     position: {
         x: 425,

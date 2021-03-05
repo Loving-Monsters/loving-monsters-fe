@@ -64,7 +64,6 @@ export default function Engine({ currentUser, socket }) {
     const [currentNpc, setNpc] = useState(false);
     // const idle = useRef(currentUser.current.idle)
     // const [npcArray] = useState([npcArr]);
-    console.log(currentUser.current)
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
@@ -90,6 +89,7 @@ export default function Engine({ currentUser, socket }) {
     }, []);
 
     useEffect(() => {
+
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false;
             setTimeout(() => {
@@ -124,6 +124,7 @@ export default function Engine({ currentUser, socket }) {
         setBoxOpen(true);
         setNpc(npcArr[npcName]);
 
+
     };
     const handleItemInteraction = (itemName) => {
 
@@ -142,6 +143,7 @@ export default function Engine({ currentUser, socket }) {
                 key={npc.name}
                 name={npc.displayName}
                 img={npc.img}
+                npc={npc}
                 npcposition={npc.position}
                 marginTop={npc.marginTop}
                 marginLeft={npc.marginLeft}
@@ -196,6 +198,8 @@ export default function Engine({ currentUser, socket }) {
                 if (index !== -1) {
                     currentUser.current.inventory.splice(index, 1);
                 }
+                npcArr[npcName].friendship = 10;
+
             }
         });
 

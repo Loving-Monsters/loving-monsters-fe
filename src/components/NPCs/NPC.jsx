@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from './NPCs.css';
 
-export default function NPC({ name, img, position, marginTop, marginLeft, storyBeats }) {
+export default function NPC({ name, img, position, marginTop, marginLeft, npc, storyBeats }) {
 
     return (
         <div
@@ -15,6 +15,7 @@ export default function NPC({ name, img, position, marginTop, marginLeft, storyB
             }}
         >
             <span>{name}</span>
+            <div>friendship: {npc.friendship}</div>
             <br />
             <img src={`${img}`} />
         </div>
