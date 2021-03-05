@@ -22,6 +22,7 @@ const Maps = ({ currentMap }) => {
                         className={styles.mapImg}
                         src={currentMap.mapImage} />
                 </div>
+
             );
         });
     };
