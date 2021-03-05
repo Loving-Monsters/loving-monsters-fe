@@ -1,12 +1,17 @@
 /* eslint-disable max-len */
 export const misscreech = {
+    type: 'npc',
     name: 'misscreech',
     displayName: 'Barker',
     img: '/npcs/Teacher.png',
     map: 'classroom',
-    npcposition: {
-        x: -100,
-        y: 0
+    position: {
+        x: 250,
+        y: 175
+    },
+    dimension: {
+        x: 75,
+        y: 25
     },
     marginTop: '150px',
     marginLeft: '475px',

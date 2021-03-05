@@ -34,11 +34,11 @@ const mapObj = {
     courtyard
 };
 
-const npcArr = [
+const npcArr = {
     barker,
     misscreech,
     cal
-];
+};
 
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
@@ -59,9 +59,10 @@ export default function Engine({ currentUser, socket }) {
             setDisableKeys(false);
         });
     }, [socket]);
-    console.log(userArray)
+    console.log(userArray);
     useEffect(() => {
         socket.emit('CREATE_USER', null);
+
         setInterval(() => {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
@@ -70,22 +71,22 @@ export default function Engine({ currentUser, socket }) {
 
 
     }, []);
-    console.log(currentUser.current)
+    console.log(currentUser.current);
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
-            currentUser.current.idle = false
+            currentUser.current.idle = false;
             setTimeout(() => {
-                currentUser.current.idle = true
+                currentUser.current.idle = true;
             }, 500);
 
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction));
         };
     }, []);
 
@@ -101,15 +102,19 @@ export default function Engine({ currentUser, socket }) {
         setLoading(false);
     };
 
-    const filteredNPCArray = npcArr.filter(npc => npc.name === currentMap.current.npc);
+    const handleNPCInteraction = (npcName) => {
+        console.log(npcArr[npcName]);
+    };
+
+    // const npcArray = npcArr.filter(npc => npc.name === currentMap.current.npc);
 
     const renderNPCs = () => {
-        return filteredNPCArray.map(npc =>
+        return currentMap.current.npcs.map(npc =>
             <NPC
                 key={npc.name}
                 name={npc.name}
                 img={npc.img}
-                npcposition={npc.npcposition}
+                npcposition={npc.position}
                 marginTop={npc.marginTop}
                 marginLeft={npc.marginLeft}
             />

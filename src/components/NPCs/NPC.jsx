@@ -3,16 +3,13 @@
 import React from 'react';
 import styles from './NPCs.css';
 
-export default function NPC({ name, img, npcposition, marginTop, marginLeft, storyBeats }) {
+export default function NPC({ name, img, position, marginTop, marginLeft, storyBeats }) {
 
     return (
         <div
             className={styles.npcs}
             style={{
-                position: {
-                    x: npcposition.x,
-                    y: npcposition.y
-                }, 
+                position,
                 top: marginTop,
                 left: marginLeft
             }}
