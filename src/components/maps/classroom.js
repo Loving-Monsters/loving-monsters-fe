@@ -1,8 +1,10 @@
 import { misscreech } from '../NPCs/misscreech';
+import { frog } from '../Items/frog';
 export const classroom = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
+    items: [frog],
     npcs: [misscreech],
     portals: [{
         type: 'portal',

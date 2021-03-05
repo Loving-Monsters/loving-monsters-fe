@@ -5,6 +5,7 @@ export const hallway3 = {
     transformPositionX: 0,
     transformPositionY: 250,
     npcs: [],
+    items: [],
     portals: [{
         type: 'portal',
         position: {

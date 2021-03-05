@@ -4,6 +4,7 @@ import { cal } from '../NPCs/cal';
 export const hallway2 = {
     mapImage: '/hallway/MessyHallway.png',
     npcs: [cal],
+    items: [],
     transformPositionX: 0,
     transformPositionY: 250,
     portals: [{

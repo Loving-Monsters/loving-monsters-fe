@@ -4,6 +4,7 @@ export const classroom2 = {
     transformPositionX: 0,
     transformPositionY: 150,
     npcs: [],
+    items: [],
     portals: [{
         type: 'portal',
         position: {

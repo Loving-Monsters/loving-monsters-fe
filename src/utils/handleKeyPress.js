@@ -2,7 +2,7 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction) {
+export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction) {
     e.preventDefault();
 
     // const currentUser = useSelector(getUser);
@@ -14,7 +14,7 @@ export default function(e, currentUser, currentMap, setDisableKeys, disableKeys,
 
         const newPosition = changePosition(position, speed, e.key);
 
-        const checkCollisionResult = checkCollision([...currentMap.current.objectArray, ...currentMap.current.portals, ...currentMap.current.npcs], newPosition, dimension);
+        const checkCollisionResult = checkCollision([...currentMap.current.objectArray, ...currentMap.current.portals, ...currentMap.current.npcs, ...currentMap.current.items], newPosition, dimension);
 
         if (checkCollisionResult === true) {
             const dir = e.key.split('Arrow')[1].toLowerCase();
@@ -27,6 +27,8 @@ export default function(e, currentUser, currentMap, setDisableKeys, disableKeys,
             handleMapChange(checkCollisionResult.nextMap);
         } else if (checkCollisionResult.type === 'npc') {
             handleNPCInteraction(checkCollisionResult.name);
+        } else if (checkCollisionResult.type === 'item') {
+            handleItemInteraction(checkCollisionResult.name);
         }
     }
 }
