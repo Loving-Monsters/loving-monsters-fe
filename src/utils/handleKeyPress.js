@@ -4,6 +4,7 @@ import checkCollision from './collisionChecker';
 
 export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction) {
     e.preventDefault();
+
     // const currentUser = useSelector(getUser);
 
     if (currentUser.current && !disableKeys) {

@@ -45,6 +45,7 @@ export default function Engine({ currentUser, socket }) {
     const currentMap = useRef(hallway);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
+    // const idle = useRef(currentUser.current.idle)
     // const [npcArray] = useState([npcArr]);
 
     useEffect(() => {
@@ -58,7 +59,7 @@ export default function Engine({ currentUser, socket }) {
             setDisableKeys(false);
         });
     }, [socket]);
-
+    console.log(userArray);
     useEffect(() => {
         socket.emit('CREATE_USER', null);
 
@@ -70,14 +71,20 @@ export default function Engine({ currentUser, socket }) {
 
 
     }, []);
-
+    console.log(currentUser.current);
     useEffect(() => {
-
         window.addEventListener('keydown', (e) => {
+            currentUser.current.idle = false;
+            setTimeout(() => {
+                currentUser.current.idle = true;
+            }, 500);
+
+
             if (validKeyPress.includes(e.key)) {
                 handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction);
             }
         });
+
         return function cleanup() {
             window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction));
         };
@@ -123,6 +130,7 @@ export default function Engine({ currentUser, socket }) {
             direction={user.dir}
             avatar={user.avatar}
             userName={user.userName}
+            idle={user.idle}
         />
         );
     };
@@ -131,14 +139,13 @@ export default function Engine({ currentUser, socket }) {
 
         <div className={styles.view} >
             {loading ? <div>loading...</div>
-
                 : currentUser.current.position ?
                     <div>
                         <div className={styles.map}
                             style={{
                                 transform:
                                     `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
-                                -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
+                                    -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
                             }}>
                             {renderNPCs()}
                             {currentMap.current ?
@@ -148,15 +155,14 @@ export default function Engine({ currentUser, socket }) {
                             }
                             {renderUsers()}
                         </div>
-
                         <Player
+                            idle={currentUser.current.idle}
                             key={currentUser.current.id}
                             position={currentUser.current.position}
                             direction={currentUser.current.dir}
                             avatar={currentUser.current.avatar}
                             userName={currentUser.current.userName}
                         />
-
                     </div>
                     : null
             }

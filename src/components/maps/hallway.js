@@ -46,15 +46,6 @@ export const hallway = {
                 x: 800, y: 325
             },
         },
-        // {
-        //     name: 'EastWall',
-        //     position: {
-        //         x: 725, y: 0
-        //     },
-        //     dimension: {
-        //         x: 10, y: 640
-        //     }
-        // },
         {
             type: 'object',
             name: 'SouthWall',

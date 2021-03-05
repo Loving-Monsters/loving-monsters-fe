@@ -3,7 +3,6 @@
 import React from 'react';
 import styles from './Maps.css';
 
-
 const Maps = ({ currentMap }) => {
     const renderWalls = objectArray => {
         return objectArray.map(({ position, dimension }, index) => {
