@@ -1,10 +1,11 @@
+import { swampscum } from '../Items/swampscum'
 
 export const classroom3 = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
     npcs: [],
-    items: [],
+    items: [swampscum],
     portals: [{
         type: 'portal',
         position: {

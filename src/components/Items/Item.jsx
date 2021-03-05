@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from './items.css';
 
-export default function Item({ name, img, position, marginTop, marginLeft }) {
+export default function Item({ name, img, position, marginTop, marginLeft, display }) {
 
     return (
         <div className={styles.items}
@@ -11,7 +11,8 @@ export default function Item({ name, img, position, marginTop, marginLeft }) {
             style={{
                 position,
                 top: marginTop,
-                left: marginLeft
+                left: marginLeft,
+                display
             }}
         >
             <span>{name}</span>

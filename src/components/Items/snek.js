@@ -1,18 +1,18 @@
-export const frog = {
+export const snek = {
     type: 'item',
-    name: 'frog',
-    img: '/items/Frog.png',
-    map: 'classroom',
+    name: 'snek',
+    img: '/items/Snek.png',
+    map: 'hallway',
     display: '',
     position: {
         x: 125,
-        y: 225
+        y: 400
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '400px',
+    marginTop: '600px',
     marginLeft: '200px',
 
 };

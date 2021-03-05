@@ -1,7 +1,7 @@
-export const frog = {
+export const nightlight = {
     type: 'item',
-    name: 'frog',
-    img: '/items/Frog.png',
+    name: 'nightlight',
+    img: '/items/Nightlight.png',
     map: 'classroom',
     display: '',
     position: {

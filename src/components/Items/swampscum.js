@@ -1,18 +1,18 @@
-export const frog = {
+export const swampscum = {
     type: 'item',
-    name: 'frog',
-    img: '/items/Frog.png',
+    name: 'swampscum',
+    img: '/items/swampscum.png',
     map: 'classroom',
     display: '',
     position: {
         x: 125,
-        y: 225
+        y: 350
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '400px',
+    marginTop: '600px',
     marginLeft: '200px',
 
 };

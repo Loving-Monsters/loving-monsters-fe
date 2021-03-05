@@ -8,7 +8,12 @@ import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
 import styles from './Containers.css';
 
-import { frog } from '../components/Items/frog'
+import { frog } from '../components/Items/frog';
+import { snek } from '../components/Items/snek';
+import { ooze } from '../components/Items/ooze';
+import { nightlight } from '../components/Items/nightlight';
+import { swampscum } from '../components/Items/swampscum';
+import { pancakes } from '../components/Items/pancakes';
 import { barker } from '../components/NPCs/barker';
 import { cal } from '../components/NPCs/cal';
 import { misscreech } from '../components/NPCs/misscreech';
@@ -43,7 +48,12 @@ const npcArr = {
     cal
 };
 const itemObj = {
-    frog
+    frog,
+    snek,
+    ooze,
+    nightlight,
+    swampscum,
+    pancakes
 };
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
@@ -54,7 +64,7 @@ export default function Engine({ currentUser, socket }) {
     const [currentNpc, setNpc] = useState(false);
     // const idle = useRef(currentUser.current.idle)
     // const [npcArray] = useState([npcArr]);
-
+    console.log(currentUser.current)
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
@@ -118,7 +128,10 @@ export default function Engine({ currentUser, socket }) {
     const handleItemInteraction = (itemName) => {
 
         console.log(itemObj[itemName]);
-        currentUser.current.inventory.push(itemObj[itemName])
+        currentUser.current.inventory.push(itemObj[itemName]);
+        itemObj[itemName].display = 'none';
+        itemObj[itemName].dimension.x = '0px';
+        itemObj[itemName].dimension.y = '0px';
     };
 
     // const npcArray = npcArr.filter(npc => npc.name === currentMap.current.npc);
@@ -156,6 +169,7 @@ export default function Engine({ currentUser, socket }) {
                 img={item.img}
                 marginTop={item.marginTop}
                 marginLeft={item.marginLeft}
+                display={item.display}
             // rotate={item.rotate}
             />
         );

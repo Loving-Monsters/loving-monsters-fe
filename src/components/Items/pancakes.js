@@ -1,18 +1,18 @@
-export const frog = {
+export const pancakes = {
     type: 'item',
-    name: 'frog',
-    img: '/items/Frog.png',
+    name: 'pancakes',
+    img: '/items/pancakes.png',
     map: 'classroom',
     display: '',
     position: {
         x: 125,
-        y: 225
+        y: 400
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '400px',
+    marginTop: '600px',
     marginLeft: '200px',
 
 };
