@@ -13,7 +13,7 @@ import { barker } from '../components/NPCs/barker';
 import { cal } from '../components/NPCs/cal';
 import { misscreech } from '../components/NPCs/misscreech';
 import NPC from '../components/NPCs/NPC.jsx';
-
+import DialogueBox from '../components/DialogueBox'
 import { hallway } from '../components/maps/hallway';
 import { hallway2 } from '../components/maps/hallway2';
 import { hallway3 } from '../components/maps/hallway3';
@@ -186,16 +186,9 @@ export default function Engine({ currentUser, socket }) {
 
             }
             {boxOpen ?
-                <div style={{
-                    height: '250px',
-                    width: '100%',
-                    border: 'solid black',
-                    position: 'absolute',
-                    backgroundColor: 'white',
-                    zIndex: 1,
-                    bottom: 0
-
-                }}>{currentNpc.name} <button onClick={handleClose}>close</button></div>
+                <DialogueBox
+                    currentNpc={currentNpc}
+                    handleClose={handleClose} />
 
                 : null}
 
