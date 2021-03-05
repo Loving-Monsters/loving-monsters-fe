@@ -3,7 +3,9 @@ export const courtyard = {
     mapImage: '',
     transformPositionX: 0,
     transformPositionY: 150,
+    npcs: [],
     portals: [{
+        type: 'portal',
         position: {
             x: 25,
             y: 375
@@ -20,6 +22,7 @@ export const courtyard = {
     }],
     objectArray: [
         {
+            type: 'object',
             name: 'NorthWall',
             position: {
                 x: 0, y: 0
@@ -29,6 +32,7 @@ export const courtyard = {
             }
         },
         {
+            type: 'object',
             name: 'EastWall',
             position: {
                 x: 350, y: 0
@@ -38,6 +42,7 @@ export const courtyard = {
             }
         },
         {
+            type: 'object',
             name: 'SouthWall',
             position: {
                 x: 0, y: 400
@@ -47,6 +52,7 @@ export const courtyard = {
             }
         },
         {
+            type: 'object',
             name: 'WestWall',
             position: {
                 x: -25, y: 0

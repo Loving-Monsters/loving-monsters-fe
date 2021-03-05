@@ -1,12 +1,17 @@
 /* eslint-disable max-len */
 export const barker = {
+    type: 'npc',
     name: 'barker',
     displayName: 'Barker',
     img: '/npcs/Barker.png',
     map: 'hallway',
-    npcposition: {
-        x: 200,
-        y: 350
+    position: {
+        x: 425,
+        y: 275
+    },
+    dimension: {
+        x: 50,
+        y: 50
     },
     marginTop: '350px',
     marginLeft: '800px',

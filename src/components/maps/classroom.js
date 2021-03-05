@@ -1,13 +1,14 @@
-
+import { misscreech } from '../NPCs/misscreech';
 export const classroom = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
-    npc: 'misscreech',
+    npcs: [misscreech],
     portals: [{
+        type: 'portal',
         position: {
             x: 25,
-            y: 375
+            y: 425
         },
         dimension: {
             x: 25,
@@ -21,6 +22,7 @@ export const classroom = {
     }],
     objectArray: [
         {
+            type: 'object',
             name: 'NorthWall',
             position: {
                 x: 0, y: 0
@@ -30,6 +32,7 @@ export const classroom = {
             }
         },
         {
+            type: 'object',
             name: 'EastWall',
             position: {
                 x: 350, y: 0
@@ -39,15 +42,17 @@ export const classroom = {
             }
         },
         {
+            type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 400
+                x: 0, y: 425
             },
             dimension: {
                 x: 600, y: 150
             }
         },
         {
+            type: 'object',
             name: 'WestWall',
             position: {
                 x: -25, y: 0

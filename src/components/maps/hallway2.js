@@ -1,25 +1,28 @@
 /* eslint-disable max-len */
+import { cal } from '../NPCs/cal';
 
 export const hallway2 = {
     mapImage: '/hallway/MessyHallway.png',
-    npc: 'cal',
+    npcs: [cal],
     transformPositionX: 0,
     transformPositionY: 250,
     portals: [{
+        type: 'portal',
         position: {
             x: 275,
-            y: 325
+            y: 300
         },
         dimension: {
-            x: 25,
+            x: 50,
             y: 25
         },
         nextMap: 'classroom2',
         startingPosition: {
             x: 25,
-            y: 350
+            y: 375
         }
     }, {
+        type: 'portal',
         position: {
             x: -25, y: 0
         },
@@ -32,7 +35,7 @@ export const hallway2 = {
             y: 350
         }
     }, {
-
+        type: 'portal',
         position: {
             x: 725, y: 0
         },
@@ -48,6 +51,7 @@ export const hallway2 = {
 
     objectArray: [
         {
+            type: 'object',
             name: 'NorthWall',
             position: {
                 x: 0, y: 0
@@ -66,6 +70,7 @@ export const hallway2 = {
         //     }
         // },
         {
+            type: 'object',
             name: 'SouthWall',
             position: {
                 x: 0, y: 475
@@ -84,6 +89,7 @@ export const hallway2 = {
         //     }
         // },
         {
+            type: 'object',
             name: 'Lockers1',
             position: {
                 x: 0, y: 325
@@ -93,6 +99,7 @@ export const hallway2 = {
             }
         },
         {
+            type: 'object',
             name: 'Lockers2',
             position: {
                 x: 500, y: 325
