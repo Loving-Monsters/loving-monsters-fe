@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const MessageList = ({ messageObj, selectUser }) => {
+const MessageList = ({ messageObj, selectUserDetail }) => {
     const [keyArray, setKeyArray] = useState([]);
 
     useEffect(() => {
@@ -8,7 +8,7 @@ const MessageList = ({ messageObj, selectUser }) => {
     }, []);
 
     const renderListItem = (listItem, userName) => {
-        <li onClick={selectUser(userName)}>
+        <li onClick={selectUserDetail(userName)}>
             <p>{userName}</p>
             <p>{listItem.text}</p>
             <hr />
