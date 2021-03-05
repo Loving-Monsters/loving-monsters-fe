@@ -13,7 +13,7 @@ import { barker } from '../components/NPCs/barker';
 import { cal } from '../components/NPCs/cal';
 import { misscreech } from '../components/NPCs/misscreech';
 import NPC from '../components/NPCs/NPC.jsx';
-
+import DialogueBox from '../components/DialogueBox';
 import { hallway } from '../components/maps/hallway';
 import { hallway2 } from '../components/maps/hallway2';
 import { hallway3 } from '../components/maps/hallway3';
@@ -36,17 +36,19 @@ const mapObj = {
     courtyard
 };
 
-const npcArr = [
+const npcArr = {
     barker,
     misscreech,
     cal
-];
+};
 
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
     const currentMap = useRef(hallway);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
+    const [boxOpen, setBoxOpen] = useState(false);
+    const [currentNpc, setNpc] = useState(false);
     // const idle = useRef(currentUser.current.idle)
     // const [npcArray] = useState([npcArr]);
 
@@ -61,9 +63,10 @@ export default function Engine({ currentUser, socket }) {
             setDisableKeys(false);
         });
     }, [socket]);
-
+    
     useEffect(() => {
         socket.emit('CREATE_USER', null);
+
         setInterval(() => {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
@@ -82,12 +85,12 @@ export default function Engine({ currentUser, socket }) {
 
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction));
         };
     }, []);
 
@@ -103,15 +106,22 @@ export default function Engine({ currentUser, socket }) {
         setLoading(false);
     };
 
-    const filteredNPCArray = npcArr.filter(npc => npc.name === currentMap.current.npc);
+    const handleNPCInteraction = (npcName) => {
+        console.log(npcArr[npcName]);
+        setBoxOpen(true);
+        setNpc(npcArr[npcName]);
+
+    };
+
+    // const npcArray = npcArr.filter(npc => npc.name === currentMap.current.npc);
 
     const renderNPCs = () => {
-        return filteredNPCArray.map(npc =>
+        return currentMap.current.npcs.map(npc =>
             <NPC
                 key={npc.name}
                 name={npc.displayName}
                 img={npc.img}
-                npcposition={npc.npcposition}
+                npcposition={npc.position}
                 marginTop={npc.marginTop}
                 marginLeft={npc.marginLeft}
             />
@@ -143,12 +153,18 @@ export default function Engine({ currentUser, socket }) {
         );
     };
 
+    const handleClose = () => setBoxOpen(false);
+
     return (
 
         <div className={styles.view} >
+
+
             {loading ? <div>loading...</div>
                 : currentUser.current.position ?
                     <div>
+
+
                         <div className={styles.map}
                             style={{
                                 transform:
@@ -158,12 +174,15 @@ export default function Engine({ currentUser, socket }) {
                             {renderNPCs()}
                             {renderArrows()}
                             {currentMap.current ?
-                                <Maps currentMap={currentMap.current} />
+                                <Maps currentMap={currentMap.current}
+                                />
+
                                 :
                                 null
                             }
                             {renderUsers()}
                         </div>
+
                         <Player
                             idle={currentUser.current.idle}
                             key={currentUser.current.id}
@@ -171,10 +190,22 @@ export default function Engine({ currentUser, socket }) {
                             direction={currentUser.current.dir}
                             avatar={currentUser.current.avatar}
                             userName={currentUser.current.userName}
+                            boxOpen={boxOpen}
+                            handleClose={handleClose}
                         />
+
+
                     </div>
                     : null
+
             }
+            {boxOpen ?
+                <DialogueBox
+                    currentNpc={currentNpc}
+                    handleClose={handleClose} />
+
+                : null}
+
         </div >
     );
 }

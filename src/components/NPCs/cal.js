@@ -1,12 +1,17 @@
 /* eslint-disable max-len */
 export const cal = {
+    type: 'npc',
     name: 'cal',
     displayName: 'Cal',
     img: '/npcs/Cal.png',
     map: 'hallway2',
-    npcposition: {
-        x: 100,
-        y: 350
+    position: {
+        x: 425,
+        y: 275
+    },
+    dimension: {
+        x: 50,
+        y: 50
     },
     marginTop: '350px',
     marginLeft: '800px',
