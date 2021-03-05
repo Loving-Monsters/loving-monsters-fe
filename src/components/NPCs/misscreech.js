@@ -2,7 +2,7 @@
 export const misscreech = {
     type: 'npc',
     name: 'misscreech',
-    displayName: 'Barker',
+    displayName: 'Miss Creech',
     img: '/npcs/Teacher.png',
     map: 'classroom',
     position: {

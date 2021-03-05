@@ -13,7 +13,7 @@ import { barker } from '../components/NPCs/barker';
 import { cal } from '../components/NPCs/cal';
 import { misscreech } from '../components/NPCs/misscreech';
 import NPC from '../components/NPCs/NPC.jsx';
-import DialogueBox from '../components/DialogueBox'
+import DialogueBox from '../components/DialogueBox';
 import { hallway } from '../components/maps/hallway';
 import { hallway2 } from '../components/maps/hallway2';
 import { hallway3 } from '../components/maps/hallway3';
@@ -21,6 +21,8 @@ import { classroom } from '../components/maps/classroom';
 import { classroom2 } from '../components/maps/classroom2';
 import { classroom3 } from '../components/maps/classroom3';
 import { courtyard } from '../components/maps/courtyard';
+
+import Arrow from '../components/arrows/Arrow';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
@@ -45,8 +47,8 @@ export default function Engine({ currentUser, socket }) {
     const currentMap = useRef(hallway);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
-    const [boxOpen, setBoxOpen] = useState(false)
-    const [currentNpc, setNpc] = useState(false)
+    const [boxOpen, setBoxOpen] = useState(false);
+    const [currentNpc, setNpc] = useState(false);
     // const idle = useRef(currentUser.current.idle)
     // const [npcArray] = useState([npcArr]);
 
@@ -61,6 +63,7 @@ export default function Engine({ currentUser, socket }) {
             setDisableKeys(false);
         });
     }, [socket]);
+    
     useEffect(() => {
         socket.emit('CREATE_USER', null);
 
@@ -72,6 +75,7 @@ export default function Engine({ currentUser, socket }) {
 
 
     }, []);
+
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false;
@@ -104,8 +108,8 @@ export default function Engine({ currentUser, socket }) {
 
     const handleNPCInteraction = (npcName) => {
         console.log(npcArr[npcName]);
-        setBoxOpen(true)
-        setNpc(npcArr[npcName])
+        setBoxOpen(true);
+        setNpc(npcArr[npcName]);
 
     };
 
@@ -115,11 +119,22 @@ export default function Engine({ currentUser, socket }) {
         return currentMap.current.npcs.map(npc =>
             <NPC
                 key={npc.name}
-                name={npc.name}
+                name={npc.displayName}
                 img={npc.img}
                 npcposition={npc.position}
                 marginTop={npc.marginTop}
                 marginLeft={npc.marginLeft}
+            />
+        );
+    };
+
+    const renderArrows = () => {
+        return currentMap.current.arrows.map(arrow => 
+            <Arrow
+                key={arrow.location}
+                marginTop={arrow.marginTop}
+                marginLeft={arrow.marginLeft}
+                rotate={arrow.rotate}
             />
         );
     };
@@ -157,6 +172,7 @@ export default function Engine({ currentUser, socket }) {
                                     -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
                             }}>
                             {renderNPCs()}
+                            {renderArrows()}
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
                                 />
