@@ -51,6 +51,8 @@ const Phone = ({ currentUser, socket }) => {
         />,
         messaging: <Messaging
             handleHome={handleHome}
+            currentUser={currentUser}
+            socket={socket}
         />,
         online: <Online
             handleHome={handleHome}
