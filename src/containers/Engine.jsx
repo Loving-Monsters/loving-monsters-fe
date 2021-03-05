@@ -45,6 +45,8 @@ export default function Engine({ currentUser, socket }) {
     const currentMap = useRef(hallway);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
+    const [boxOpen, setBoxOpen] = useState(false)
+    const [currentNpc, setNpc] = useState(false)
     // const idle = useRef(currentUser.current.idle)
     // const [npcArray] = useState([npcArr]);
 
@@ -104,6 +106,9 @@ export default function Engine({ currentUser, socket }) {
 
     const handleNPCInteraction = (npcName) => {
         console.log(npcArr[npcName]);
+        setBoxOpen(true)
+        setNpc(npcArr[npcName])
+
     };
 
     // const npcArray = npcArr.filter(npc => npc.name === currentMap.current.npc);
@@ -135,12 +140,18 @@ export default function Engine({ currentUser, socket }) {
         );
     };
 
+    const handleClose = () => setBoxOpen(false);
+
     return (
 
         <div className={styles.view} >
+
+
             {loading ? <div>loading...</div>
                 : currentUser.current.position ?
                     <div>
+
+
                         <div className={styles.map}
                             style={{
                                 transform:
@@ -149,12 +160,15 @@ export default function Engine({ currentUser, socket }) {
                             }}>
                             {renderNPCs()}
                             {currentMap.current ?
-                                <Maps currentMap={currentMap.current} />
+                                <Maps currentMap={currentMap.current}
+                                />
+
                                 :
                                 null
                             }
                             {renderUsers()}
                         </div>
+
                         <Player
                             idle={currentUser.current.idle}
                             key={currentUser.current.id}
@@ -162,10 +176,29 @@ export default function Engine({ currentUser, socket }) {
                             direction={currentUser.current.dir}
                             avatar={currentUser.current.avatar}
                             userName={currentUser.current.userName}
+                            boxOpen={boxOpen}
+                            handleClose={handleClose}
                         />
+
+
                     </div>
                     : null
+
             }
+            {boxOpen ?
+                <div style={{
+                    height: '250px',
+                    width: '100%',
+                    border: 'solid black',
+                    position: 'absolute',
+                    backgroundColor: 'white',
+                    zIndex: 1,
+                    bottom: 0
+
+                }}>{currentNpc.name} <button onClick={handleClose}>close</button></div>
+
+                : null}
+
         </div >
     );
 }
