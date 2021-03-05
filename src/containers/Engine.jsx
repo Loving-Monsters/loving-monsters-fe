@@ -13,7 +13,7 @@ import { barker } from '../components/NPCs/barker';
 import { cal } from '../components/NPCs/cal';
 import { misscreech } from '../components/NPCs/misscreech';
 import NPC from '../components/NPCs/NPC.jsx';
-
+import DialogueBox from '../components/DialogueBox';
 import { hallway } from '../components/maps/hallway';
 import { hallway2 } from '../components/maps/hallway2';
 import { hallway3 } from '../components/maps/hallway3';
@@ -21,6 +21,8 @@ import { classroom } from '../components/maps/classroom';
 import { classroom2 } from '../components/maps/classroom2';
 import { classroom3 } from '../components/maps/classroom3';
 import { courtyard } from '../components/maps/courtyard';
+
+import Arrow from '../components/arrows/Arrow';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
@@ -45,6 +47,8 @@ export default function Engine({ currentUser, socket }) {
     const currentMap = useRef(hallway);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
+    const [boxOpen, setBoxOpen] = useState(false);
+    const [currentNpc, setNpc] = useState(false);
     // const idle = useRef(currentUser.current.idle)
     // const [npcArray] = useState([npcArr]);
 
@@ -104,6 +108,9 @@ export default function Engine({ currentUser, socket }) {
 
     const handleNPCInteraction = (npcName) => {
         console.log(npcArr[npcName]);
+        setBoxOpen(true);
+        setNpc(npcArr[npcName]);
+
     };
 
     // const npcArray = npcArr.filter(npc => npc.name === currentMap.current.npc);
@@ -112,11 +119,22 @@ export default function Engine({ currentUser, socket }) {
         return currentMap.current.npcs.map(npc =>
             <NPC
                 key={npc.name}
-                name={npc.name}
+                name={npc.displayName}
                 img={npc.img}
                 npcposition={npc.position}
                 marginTop={npc.marginTop}
                 marginLeft={npc.marginLeft}
+            />
+        );
+    };
+
+    const renderArrows = () => {
+        return currentMap.current.arrows.map(arrow =>
+            <Arrow
+                key={arrow.location}
+                marginTop={arrow.marginTop}
+                marginLeft={arrow.marginLeft}
+                rotate={arrow.rotate}
             />
         );
     };
@@ -135,12 +153,18 @@ export default function Engine({ currentUser, socket }) {
         );
     };
 
+    const handleClose = () => setBoxOpen(false);
+
     return (
 
         <div className={styles.view} >
+
+
             {loading ? <div>loading...</div>
                 : currentUser.current.position ?
                     <div>
+
+
                         <div className={styles.map}
                             style={{
                                 transform:
@@ -148,13 +172,17 @@ export default function Engine({ currentUser, socket }) {
                                     -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
                             }}>
                             {renderNPCs()}
+                            {renderArrows()}
                             {currentMap.current ?
-                                <Maps currentMap={currentMap.current} />
+                                <Maps currentMap={currentMap.current}
+                                />
+
                                 :
                                 null
                             }
                             {renderUsers()}
                         </div>
+
                         <Player
                             idle={currentUser.current.idle}
                             key={currentUser.current.id}
@@ -162,10 +190,22 @@ export default function Engine({ currentUser, socket }) {
                             direction={currentUser.current.dir}
                             avatar={currentUser.current.avatar}
                             userName={currentUser.current.userName}
+                            boxOpen={boxOpen}
+                            handleClose={handleClose}
                         />
+
+
                     </div>
                     : null
+
             }
+            {boxOpen ?
+                <DialogueBox
+                    currentNpc={currentNpc}
+                    handleClose={handleClose} />
+
+                : null}
+
         </div >
     );
 }

@@ -2,7 +2,7 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction) {
+export default function(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction) {
     e.preventDefault();
 
     // const currentUser = useSelector(getUser);
@@ -28,8 +28,6 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
         } else if (checkCollisionResult.type === 'npc') {
             handleNPCInteraction(checkCollisionResult.name);
         }
-
-
     }
 }
 

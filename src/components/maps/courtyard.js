@@ -20,6 +20,12 @@ export const courtyard = {
             y: 350
         }
     }],
+    arrows: [{
+        location: 'courtyardarrow1',
+        marginTop: '650px',
+        marginLeft: '5px',
+        rotate: 270
+    }],
     objectArray: [
         {
             type: 'object',

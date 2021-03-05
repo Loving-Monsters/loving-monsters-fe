@@ -20,6 +20,12 @@ export const classroom3 = {
             y: 350
         }
     }],
+    arrows: [{
+        location: 'classroomarrow1',
+        marginTop: '650px',
+        marginLeft: '5px',
+        rotate: 180
+    }],
     objectArray: [
         {
             type: 'object',
