@@ -188,7 +188,20 @@ export default function Engine({ currentUser, socket }) {
         />
         );
     };
+    const handleGiveItem = (npcName) => {
+        const npc = npcArr[npcName];
+        currentUser.current.inventory.forEach(item => {
+            if (item.name === npc.item) {
+                const index = currentUser.current.inventory.indexOf(item);
+                if (index !== -1) {
+                    currentUser.current.inventory.splice(index, 1);
+                }
+            }
+        });
 
+
+
+    };
     const handleClose = () => setBoxOpen(false);
 
     return (
@@ -239,7 +252,8 @@ export default function Engine({ currentUser, socket }) {
             {boxOpen ?
                 <DialogueBox
                     currentNpc={currentNpc}
-                    handleClose={handleClose} />
+                    handleClose={handleClose}
+                    handleGiveItem={handleGiveItem} />
 
                 : null}
 
