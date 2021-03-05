@@ -176,7 +176,6 @@ export default function Engine({ currentUser, socket }) {
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
                                 />
-
                                 :
                                 null
                             }
