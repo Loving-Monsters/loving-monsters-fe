@@ -7,7 +7,7 @@ import MessageUserDetail from '../MessageUserDetail/MessageUserDetail';
 
 const Messaging = ({ handleHome, currentUser, socket }) => {
     const [messageObj, setMessageObj] = useState([]);
-    const [selectedUser, setSelectedUser] = useState();
+    const [selectedUser, setSelectedUser] = useState('hello!');
 
     useEffect(() => {
         setMessageObj(currentUser.current.messageObj);
@@ -27,7 +27,12 @@ const Messaging = ({ handleHome, currentUser, socket }) => {
 
         if (!messageObj[user.userName]) messageObj[user.userName] = [];
 
-        setDisplayScreen(messageScreens.detail);
+        setDisplayScreen(<MessageUserDetail
+            currentUser={currentUser}
+            socket={socket}
+            messageArray={messageObj[selectedUser]}
+            selectedUser={user}
+        />);
     };
 
     const messageScreens = {
@@ -36,14 +41,7 @@ const Messaging = ({ handleHome, currentUser, socket }) => {
             socket={socket}
             selectUserDetail={selectUserDetail}
             messageObj={messageObj}
-        />,
-        detail: <MessageUserDetail
-            currentUser={currentUser}
-            socket={socket}
-            messageArray={messageObj[selectedUser]}
-            selectedUser={selectedUser}
         />
-
     };
     const [displayScreen, setDisplayScreen] = useState(messageScreens.home);
 
