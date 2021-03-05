@@ -34,14 +34,14 @@ export const hallway = {
     }],
     arrows: [{
         location: 'hallwayarrow1',
-        marginTop: '400px',
-        marginLeft: '800px',
+        marginTop: '250px',
+        marginLeft: '545px',
         rotate: 0
     },
     {
         location: 'hallwayarrow2',
-        marginTop: '350px',
-        marginLeft: '500px',
+        marginTop: '500px',
+        marginLeft: '1300px',
         rotate: 90
     }
     ],
