@@ -61,7 +61,6 @@ export default function Engine({ currentUser, socket }) {
             setDisableKeys(false);
         });
     }, [socket]);
-    console.log(userArray);
     useEffect(() => {
         socket.emit('CREATE_USER', null);
 
@@ -73,7 +72,6 @@ export default function Engine({ currentUser, socket }) {
 
 
     }, []);
-    console.log(currentUser.current);
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false;
