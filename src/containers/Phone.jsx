@@ -46,6 +46,7 @@ const Phone = ({ currentUser, socket }) => {
         />,
         inventory: <Inventory
             handleHome={handleHome}
+            currentUser={currentUser}
         />,
         messaging: <Messaging
             handleHome={handleHome}

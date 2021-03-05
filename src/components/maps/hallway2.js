@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 import { cal } from '../NPCs/cal';
-
+import { ooze } from '../Items/ooze'
 export const hallway2 = {
     mapImage: '/hallway/MessyHallway.png',
     npcs: [cal],
+    items: [ooze],
     transformPositionX: 0,
     transformPositionY: 250,
     portals: [{

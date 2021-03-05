@@ -1,0 +1,18 @@
+.items {
+    position: absolute;
+    text-align: center;
+    font-family: dogica;
+    font-size: 9pt;
+    font-weight: 900;
+    width: 200px;
+    z-index: 1;
+}
+
+.items span {
+    color: black;
+    text-shadow: 1px 1px 10px white;
+}
+
+.items img {
+    height: 50px;
+}

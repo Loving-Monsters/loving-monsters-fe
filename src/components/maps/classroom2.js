@@ -1,9 +1,11 @@
+import { nightlight } from '../Items/nightlight'
 
 export const classroom2 = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
     npcs: [],
+    items: [nightlight],
     portals: [{
         type: 'portal',
         position: {
