@@ -26,18 +26,21 @@ import { swampscum } from '../components/Items/swampscum';
 import { pancakes } from '../components/Items/pancakes';
 import DialogueBox from '../components/DialogueBox';
 import styles from './Containers.css';
+import mapObj from '../components/maps/hallway';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
-const mapObj = {
-    hallway,
-    classroom,
-    classroom2,
-    hallway2,
-    hallway3,
-    classroom3,
-    courtyard
-};
+// const mapObj = {
+//     hallway,
+//     classroom,
+//     classroom2,
+//     hallway2,
+//     hallway3,
+//     classroom3,
+//     courtyard
+// };
+
+console.log(mapObj);
 
 const npcObj = {
     barker,
@@ -55,7 +58,7 @@ const itemObj = {
 
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
-    const currentMap = useRef(hallway);
+    const currentMap = useRef(mapObj.hallway);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
     const [boxOpen, setBoxOpen] = useState(false);

@@ -1,4 +1,4 @@
-import { swampscum } from '../Items/swampscum'
+import { swampscum } from '../Items/swampscum';
 
 export const classroom3 = {
     mapImage: '/classroom/Workroom.png',

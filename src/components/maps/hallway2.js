@@ -80,15 +80,6 @@ export const hallway2 = {
                 x: 800, y: 325
             },
         },
-        // {
-        //     name: 'EastWall',
-        //     position: {
-        //         x: 725, y: 0
-        //     },
-        //     dimension: {
-        //         x: 10, y: 640
-        //     }
-        // },
         {
             type: 'object',
             name: 'SouthWall',
@@ -99,15 +90,6 @@ export const hallway2 = {
                 x: 800, y: 10
             }
         },
-        // {
-        //     name: 'WestWall',
-        //     position: {
-        //         x: -25, y: 0
-        //     },
-        //     dimension: {
-        //         x: 10, y: 625
-        //     }
-        // },
         {
             type: 'object',
             name: 'Lockers1',
