@@ -190,17 +190,22 @@ export default function Engine({ currentUser, socket }) {
         />
         );
     };
-    const handleGiveItem = (npcName) => {
-        const npc = npcArr[npcName];
-        currentUser.current.inventory.forEach(item => {
-            if (item.name === npc.item) {
-                const index = currentUser.current.inventory.indexOf(item);
+    const handleGiveItem = (npc, item) => {
+        // const npc = npcArr[npcName];
+        currentUser.current.inventory.forEach(userItem => {
+
+            if (userItem.name === item.name) {
+
+
+                const index = currentUser.current.inventory.indexOf(userItem);
+
                 if (index !== -1) {
                     currentUser.current.inventory.splice(index, 1);
                 }
-                npcArr[npcName].friendship = 10;
+                npc.friendship += item.friendship;
 
             }
+
         });
 
 

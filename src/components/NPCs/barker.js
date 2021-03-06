@@ -6,7 +6,14 @@ export const barker = {
     img: '/npcs/Barker.png',
     map: 'hallway',
     friendship: 0,
-    item: 'frog',
+    items: [{
+        name: 'frog',
+        friendship: 10
+    },
+    {
+        name: 'snek',
+        friendship: -10
+    }],
     position: {
         x: 425,
         y: 275

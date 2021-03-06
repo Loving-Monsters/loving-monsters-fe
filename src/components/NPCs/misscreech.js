@@ -5,7 +5,14 @@ export const misscreech = {
     displayName: 'Miss Creech',
     img: '/npcs/Teacher.png',
     map: 'classroom',
-    item: 'pancakes',
+    items: [{
+        name: 'frog',
+        friendship: -10
+    },
+    {
+        name: 'snek',
+        friendship: -10
+    }],
     friendship: 0,
     position: {
         x: 250,

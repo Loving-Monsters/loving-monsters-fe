@@ -14,8 +14,17 @@ export default function DialogueBox({ currentNpc, handleClose, handleGiveItem })
         >
             {currentNpc.name}
             <button onClick={handleClose}>Close</button>
-            <button onClick={() => handleGiveItem(currentNpc.name)}>
-                Give {currentNpc.item}</button>
-        </ div>
+            <div>
+
+                {currentNpc ?
+                    currentNpc.items.map(item => {
+
+                        return < button
+                            key={item.name}
+                            onClick={() => handleGiveItem(currentNpc, item)}>
+                            Give {item.name}</button>
+                    })
+                    : 'Your mom'}</div>
+        </ div >
     );
 }
