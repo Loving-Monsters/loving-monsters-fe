@@ -1,20 +1,12 @@
 /* eslint-disable max-len */
-import { barker } from '../NPCs/barker';
-import { cal } from '../NPCs/cal';
-import { misscreech } from '../NPCs/misscreech';
 import itemObj from '../Items/fullItems';
-import { pancakes } from '../Items/pancakes';
-import { snek } from '../Items/snek';
-import { ooze } from '../Items/ooze';
-import { frog } from '../Items/frog';
-import { nightlight } from '../Items/nightlight';
-import { swampscum } from '../Items/swampscum';
+import npcObj from '../NPCs/fullNPCs';
 
 const hallway = {
     mapImage: '/hallway/MessyHallway.png',
     transformPositionX: 0,
     transformPositionY: 250,
-    npcs: [barker],
+    npcs: [npcObj.barker],
     items: [itemObj.snek],
     portals: [{
         type: 'portal',
@@ -114,7 +106,7 @@ const hallway = {
 
 const hallway2 = {
     mapImage: '/hallway/MessyHallway2.png',
-    npcs: [cal],
+    npcs: [npcObj.cal],
     items: [itemObj.ooze],
     transformPositionX: 0,
     transformPositionY: 250,
@@ -338,7 +330,7 @@ const classroom = {
     transformPositionX: 0,
     transformPositionY: 150,
     items: [itemObj.frog],
-    npcs: [misscreech],
+    npcs: [npcObj.misscreech],
     portals: [{
         type: 'portal',
         position: {

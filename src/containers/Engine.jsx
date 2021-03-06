@@ -7,22 +7,14 @@ import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
 import Arrow from '../components/arrows/Arrow';
 import NPC from '../components/NPCs/NPC.jsx';
-import { barker } from '../components/NPCs/barker';
-import { cal } from '../components/NPCs/cal';
-import { misscreech } from '../components/NPCs/misscreech';
 import Item from '../components/Items/Item';
 import DialogueBox from '../components/DialogueBox';
 import styles from './Containers.css';
 import mapObj from '../components/maps/fullMaps';
 import itemObj from '../components/Items/fullItems';
+import npcObj from '../components/NPCs/fullNPCs';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
-
-const npcObj = {
-    barker,
-    misscreech,
-    cal
-};
 
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
