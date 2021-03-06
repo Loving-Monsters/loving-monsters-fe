@@ -2,6 +2,7 @@
 import { barker } from '../NPCs/barker';
 import { cal } from '../NPCs/cal';
 import { misscreech } from '../NPCs/misscreech';
+import itemObj from '../Items/fullItems';
 import { pancakes } from '../Items/pancakes';
 import { snek } from '../Items/snek';
 import { ooze } from '../Items/ooze';
@@ -14,7 +15,7 @@ const hallway = {
     transformPositionX: 0,
     transformPositionY: 250,
     npcs: [barker],
-    items: [snek],
+    items: [itemObj.snek],
     portals: [{
         type: 'portal',
         position: {
@@ -114,7 +115,7 @@ const hallway = {
 const hallway2 = {
     mapImage: '/hallway/MessyHallway2.png',
     npcs: [cal],
-    items: [ooze],
+    items: [itemObj.ooze],
     transformPositionX: 0,
     transformPositionY: 250,
     portals: [{
@@ -227,7 +228,7 @@ const hallway3 = {
     transformPositionX: 0,
     transformPositionY: 250,
     npcs: [],
-    items: [pancakes],
+    items: [itemObj.pancakes],
     portals: [{
         type: 'portal',
         position: {
@@ -336,7 +337,7 @@ const classroom = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
-    items: [frog],
+    items: [itemObj.frog],
     npcs: [misscreech],
     portals: [{
         type: 'portal',
@@ -409,7 +410,7 @@ const classroom2 = {
     transformPositionX: 0,
     transformPositionY: 150,
     npcs: [],
-    items: [nightlight],
+    items: [itemObj.nightlight],
     portals: [{
         type: 'portal',
         position: {
@@ -481,7 +482,7 @@ const classroom3 = {
     transformPositionX: 0,
     transformPositionY: 150,
     npcs: [],
-    items: [swampscum],
+    items: [itemObj.swampscum],
     portals: [{
         type: 'portal',
         position: {

@@ -5,55 +5,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
-import { hallway } from '../components/maps/hallway';
-import { hallway2 } from '../components/maps/hallway2';
-import { hallway3 } from '../components/maps/hallway3';
-import { classroom } from '../components/maps/classroom';
-import { classroom2 } from '../components/maps/classroom2';
-import { classroom3 } from '../components/maps/classroom3';
-import { courtyard } from '../components/maps/courtyard';
 import Arrow from '../components/arrows/Arrow';
 import NPC from '../components/NPCs/NPC.jsx';
 import { barker } from '../components/NPCs/barker';
 import { cal } from '../components/NPCs/cal';
 import { misscreech } from '../components/NPCs/misscreech';
 import Item from '../components/Items/Item';
-import { frog } from '../components/Items/frog';
-import { snek } from '../components/Items/snek';
-import { ooze } from '../components/Items/ooze';
-import { nightlight } from '../components/Items/nightlight';
-import { swampscum } from '../components/Items/swampscum';
-import { pancakes } from '../components/Items/pancakes';
 import DialogueBox from '../components/DialogueBox';
 import styles from './Containers.css';
-import mapObj from '../components/maps/hallway';
+import mapObj from '../components/maps/fullMaps';
+import itemObj from '../components/Items/fullItems';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
-
-// const mapObj = {
-//     hallway,
-//     classroom,
-//     classroom2,
-//     hallway2,
-//     hallway3,
-//     classroom3,
-//     courtyard
-// };
-
-console.log(mapObj);
 
 const npcObj = {
     barker,
     misscreech,
     cal
-};
-const itemObj = {
-    frog,
-    snek,
-    ooze,
-    nightlight,
-    swampscum,
-    pancakes
 };
 
 export default function Engine({ currentUser, socket }) {
