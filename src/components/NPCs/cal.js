@@ -5,6 +5,15 @@ export const cal = {
     displayName: 'Cal',
     img: '/npcs/Cal.png',
     map: 'hallway2',
+    friendship: 0,
+    items: [{
+        name: 'frog',
+        friendship: -10
+    },
+    {
+        name: 'snek',
+        friendship: -10
+    }],
     position: {
         x: 425,
         y: 275

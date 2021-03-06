@@ -18,6 +18,8 @@ export default function checkCollision(objectArray, proposedMove, playerDimensio
 
                         if (object.type === 'portal') {
                             returnValue = { type: 'portal', nextMap: object.nextMap };
+                        } else if (object.type === 'item') {
+                            returnValue = { type: 'item', name: object.name }
                         }
                         else if (object.type === 'npc') {
                             returnValue = { type: 'npc', name: object.name };

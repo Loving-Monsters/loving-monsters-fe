@@ -1,10 +1,12 @@
 /* eslint-disable max-len */
+import { pancakes } from '../Items/pancakes';
 
 export const hallway3 = {
     mapImage: '/hallway/MessyHallway.png',
     transformPositionX: 0,
     transformPositionY: 250,
     npcs: [],
+    items: [pancakes],
     portals: [{
         type: 'portal',
         position: {

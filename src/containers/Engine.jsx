@@ -8,12 +8,18 @@ import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
 import styles from './Containers.css';
 
-
+import { frog } from '../components/Items/frog';
+import { snek } from '../components/Items/snek';
+import { ooze } from '../components/Items/ooze';
+import { nightlight } from '../components/Items/nightlight';
+import { swampscum } from '../components/Items/swampscum';
+import { pancakes } from '../components/Items/pancakes';
 import { barker } from '../components/NPCs/barker';
 import { cal } from '../components/NPCs/cal';
 import { misscreech } from '../components/NPCs/misscreech';
 import NPC from '../components/NPCs/NPC.jsx';
 import DialogueBox from '../components/DialogueBox';
+import Item from '../components/Items/Item'
 import { hallway } from '../components/maps/hallway';
 import { hallway2 } from '../components/maps/hallway2';
 import { hallway3 } from '../components/maps/hallway3';
@@ -41,7 +47,14 @@ const npcArr = {
     misscreech,
     cal
 };
-
+const itemObj = {
+    frog,
+    snek,
+    ooze,
+    nightlight,
+    swampscum,
+    pancakes
+};
 export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
     const currentMap = useRef(hallway);
@@ -51,7 +64,6 @@ export default function Engine({ currentUser, socket }) {
     const [currentNpc, setNpc] = useState(false);
     // const idle = useRef(currentUser.current.idle)
     // const [npcArray] = useState([npcArr]);
-
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
@@ -77,6 +89,7 @@ export default function Engine({ currentUser, socket }) {
     }, []);
 
     useEffect(() => {
+
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false;
             setTimeout(() => {
@@ -85,12 +98,12 @@ export default function Engine({ currentUser, socket }) {
 
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction));
         };
     }, []);
 
@@ -111,6 +124,15 @@ export default function Engine({ currentUser, socket }) {
         setBoxOpen(true);
         setNpc(npcArr[npcName]);
 
+
+    };
+    const handleItemInteraction = (itemName) => {
+
+        console.log(itemObj[itemName]);
+        currentUser.current.inventory.push(itemObj[itemName]);
+        itemObj[itemName].display = 'none';
+        itemObj[itemName].dimension.x = '0px';
+        itemObj[itemName].dimension.y = '0px';
     };
 
     // const npcArray = npcArr.filter(npc => npc.name === currentMap.current.npc);
@@ -121,6 +143,7 @@ export default function Engine({ currentUser, socket }) {
                 key={npc.name}
                 name={npc.displayName}
                 img={npc.img}
+                npc={npc}
                 npcposition={npc.position}
                 marginTop={npc.marginTop}
                 marginLeft={npc.marginLeft}
@@ -138,6 +161,21 @@ export default function Engine({ currentUser, socket }) {
             />
         );
     };
+    const renderItems = () => {
+        return currentMap.current.items.map(item =>
+            <Item
+
+                position={item.position}
+                name={item.name}
+                key={item.name}
+                img={item.img}
+                marginTop={item.marginTop}
+                marginLeft={item.marginLeft}
+                display={item.display}
+            // rotate={item.rotate}
+            />
+        );
+    };
 
     const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom);
 
@@ -152,7 +190,27 @@ export default function Engine({ currentUser, socket }) {
         />
         );
     };
+    const handleGiveItem = (npc, item) => {
+        // const npc = npcArr[npcName];
+        currentUser.current.inventory.forEach(userItem => {
 
+            if (userItem.name === item.name) {
+
+
+                const index = currentUser.current.inventory.indexOf(userItem);
+
+                if (index !== -1) {
+                    currentUser.current.inventory.splice(index, 1);
+                }
+                npc.friendship += item.friendship;
+
+            }
+
+        });
+
+
+
+    };
     const handleClose = () => setBoxOpen(false);
 
     return (
@@ -171,12 +229,13 @@ export default function Engine({ currentUser, socket }) {
                                     `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
                                     -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
                             }}>
+                            {renderItems()}
                             {renderNPCs()}
                             {renderArrows()}
+
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
                                 />
-
                                 :
                                 null
                             }
@@ -202,7 +261,8 @@ export default function Engine({ currentUser, socket }) {
             {boxOpen ?
                 <DialogueBox
                     currentNpc={currentNpc}
-                    handleClose={handleClose} />
+                    handleClose={handleClose}
+                    handleGiveItem={handleGiveItem} />
 
                 : null}
 

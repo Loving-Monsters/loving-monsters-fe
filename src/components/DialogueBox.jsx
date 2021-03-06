@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function DialogueBox({ currentNpc, handleClose }) {
+export default function DialogueBox({ currentNpc, handleClose, handleGiveItem }) {
     return (
         <div style={{
             height: '250px',
@@ -14,6 +14,17 @@ export default function DialogueBox({ currentNpc, handleClose }) {
         >
             {currentNpc.name}
             <button onClick={handleClose}>Close</button>
-        </ div>
+            <div>
+
+                {currentNpc ?
+                    currentNpc.items.map(item => {
+
+                        return < button
+                            key={item.name}
+                            onClick={() => handleGiveItem(currentNpc, item)}>
+                            Give {item.name}</button>
+                    })
+                    : 'Your mom'}</div>
+        </ div >
     );
 }

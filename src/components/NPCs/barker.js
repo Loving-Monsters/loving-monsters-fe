@@ -5,6 +5,15 @@ export const barker = {
     displayName: 'Barker',
     img: '/npcs/Barker.png',
     map: 'hallway',
+    friendship: 0,
+    items: [{
+        name: 'frog',
+        friendship: 10
+    },
+    {
+        name: 'snek',
+        friendship: -10
+    }],
     position: {
         x: 425,
         y: 275

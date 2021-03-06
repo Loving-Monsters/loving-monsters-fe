@@ -1,21 +1,21 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styles from './NPCs.css';
+import styles from './items.css';
 
-export default function NPC({ name, img, position, marginTop, marginLeft, npc, storyBeats }) {
+export default function Item({ name, img, position, marginTop, marginLeft, display }) {
 
     return (
-        <div
-            className={styles.npcs}
+        <div className={styles.items}
+
             style={{
                 position,
                 top: marginTop,
-                left: marginLeft
+                left: marginLeft,
+                display
             }}
         >
             <span>{name}</span>
-            <div>friendship: {npc.friendship}</div>
             <br />
             <img src={`${img}`} />
         </div>
