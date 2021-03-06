@@ -1,3 +1,5 @@
+
+
 # Loving Monsters
 
 Loving Monsters blends life simulators, game logic, and a splash of the supernatural to crate a unique collaborative group environment. Explore custom-drawn environments, find hidden items, and become friends with our spooky NPCs! Multiple users can interact in real time and work on projects together using Loving Monster's virtual kanban board, asynchronous messaging, and one-on-one chat features.
@@ -17,6 +19,7 @@ Evan Finkelstein
 
 
 
+![Screen Shot 2021-03-05 at 5 20 32 PM](https://user-images.githubusercontent.com/66223664/110191457-6626df00-7ddd-11eb-8e83-6d28e777066f.png)
 
 
 
