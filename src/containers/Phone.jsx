@@ -17,8 +17,14 @@ const Phone = ({ currentUser, socket }) => {
         socket.on('RECIEVE_BULLETIN', bulletinObj => {
             currentUser.current.bulletinArray = [...currentUser.current.bulletinArray, bulletinObj];
         });
-    }, [socket]);
 
+        socket.on('RECIEVE_MESSAGE', messageObj => {
+            // console.log('message recieved!');
+            currentUser.current.messageObj = messageObj;
+            currentUser.current.keyArray = Object.keys(messageObj);
+            // console.log(messageObj);
+        });
+    }, [socket]);
 
     const handleAppChange = (appName) => {
         setDisplayScreen(phoneApps[appName]);
@@ -50,6 +56,8 @@ const Phone = ({ currentUser, socket }) => {
         />,
         messaging: <Messaging
             handleHome={handleHome}
+            currentUser={currentUser}
+            socket={socket}
         />,
         online: <Online
             handleHome={handleHome}

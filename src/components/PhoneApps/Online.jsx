@@ -17,7 +17,6 @@ const Online = ({ handleHome, socket }) => {
 
     useEffect(() => {
         socket.on('USERS_ONLINE', onlineUsers => {
-            console.log(onlineUsers);
             setOnlineUsers(onlineUsers);
         });
     }, [socket]);
