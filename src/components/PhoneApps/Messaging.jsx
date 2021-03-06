@@ -1,26 +1,59 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from '../../containers/Containers.css';
+import MessageHome from '../MessageHome/MessageHome';
+import MessageHeader from '../MessageHeader/MessageHeader';
+import MessageUserDetail from '../MessageUserDetail/MessageUserDetail';
 
-const Messaging = ({ handleHome }) => {
-    // const [messageArray, setMessageArray] = useState([]);
 
-    // useEffect(() => {
-    //     socket.on('GET_ALL_MESSAGES', returnedMessageArray => {
-    //         setMessageArray(returnedMessageArray);
-    //         console.log(messageArray);
-    //     });
-    // }, [socket]);
+const Messaging = ({ handleHome, currentUser, socket }) => {
+    const [messageObj, setMessageObj] = useState([]);
+    const selectedUser = useRef('');
+    const [displayScreen, setDisplayScreen] = useState('home');
 
-    // useEffect(() => {
-    //     socket.emit('GET_ALL_MESSAGES', currentUser.id);
-    // }, []);
+    useEffect(() => {
+        setMessageObj(currentUser.current.messageObj);
+        currentUser.current.keyArray = Object.keys(currentUser.current.messageObj);
+
+        console.log(currentUser.current.messageObj);
+        setDisplayScreen('home');
+
+        const messageTimer = setInterval(() => {
+            socket.emit('GET_ALL_MESSAGES', currentUser.current.id);
+            setMessageObj(currentUser.current.messageObj);
+
+        }, 500);
+
+        return () => clearInterval(messageTimer);
+    }, []);
+
+    const selectUserDetail = (user) => {
+        // console.log('selectUserDetail');
+        // console.log(user);
+        selectedUser.current = user;
+
+        if (!messageObj[user.userName]) messageObj[user.userName] = [];
+        setDisplayScreen('detail');
+    };
+
 
     return (
         <div className={styles.screen}>
-
-            <button onClick={handleHome} >HOME</button>
-
-            {'This is the Messaging Page'}
+            <MessageHeader handleHome={handleHome} />
+            {displayScreen === 'home' ?
+                <MessageHome
+                    currentUser={currentUser}
+                    socket={socket}
+                    selectUserDetail={selectUserDetail}
+                    messageObj={messageObj}
+                />
+                :
+                <MessageUserDetail
+                    currentUser={currentUser}
+                    socket={socket}
+                    messageArray={messageObj[selectedUser.current.userName]}
+                    selectedUser={selectedUser}
+                />
+            }
         </div>
     );
 };

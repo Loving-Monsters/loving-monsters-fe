@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 import { cal } from '../NPCs/cal';
-import { ooze } from '../Items/ooze'
+import { ooze } from '../Items/ooze';
+
 export const hallway2 = {
-    mapImage: '/hallway/MessyHallway.png',
+    mapImage: '/hallway/MessyHallway2.png',
     npcs: [cal],
     items: [ooze],
     transformPositionX: 0,
@@ -114,14 +115,14 @@ export const hallway2 = {
                 x: 0, y: 325
             },
             dimension: {
-                x: 150, y: 10
+                x: 225, y: 10
             }
         },
         {
             type: 'object',
             name: 'Lockers2',
             position: {
-                x: 500, y: 325
+                x: 550, y: 325
             },
             dimension: {
                 x: 250, y: 10

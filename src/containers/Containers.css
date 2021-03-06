@@ -54,10 +54,13 @@
 
 .screen {
     background-color: white;
+    overflow: hidden;
 }
 
 .homescreen {
     background-image: url('/public/phone/PhoneBkgd.png');
+    overflow: hidden;
+
 }
 
 .apps {
