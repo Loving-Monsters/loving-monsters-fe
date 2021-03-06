@@ -1,30 +1,31 @@
 import React, { useState } from 'react';
 import MessageInput from '../MessageInput/MessageInput';
+import MessageDetailList from '../MessageDetailList/MessageDetailList';
 
 const MessageUserDetail = ({ currentUser, socket, messageArray, selectedUser }) => {
-    const [input, setInput] = useState('');
-
 
     const handleSendMessage = (text) => {
-        console.log(text);
-        console.log(currentUser.current);
-        console.log(selectedUser);
-
+        console.log(selectedUser.current);
         const newMessage = {
             senderId: currentUser.current.id,
             senderName: currentUser.current.userName,
-            recieverId: selectedUser.id,
-            recieverName: selectedUser.userName,
+            recieverId: selectedUser.current.id,
+            recieverName: selectedUser.current.userName,
             text,
         };
 
-        console.log(newMessage);
+        socket.emit('SEND_MESSAGE', ({ userId: currentUser.current.id, newMessage }));
     };
-    return (
-        <MessageInput
-            handleSendMessage={handleSendMessage}
-        />
 
+    return (
+        <div>
+            <MessageInput
+                handleSendMessage={handleSendMessage}
+            />
+            <MessageDetailList
+                messageArray={messageArray}
+            />
+        </div>
     );
 };
 

@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-const MessageList = ({ messageObj, selectUserDetail }) => {
-    const [keyArray, setKeyArray] = useState([]);
+const MessageList = ({ currentUser, messageObj, selectUserDetail }) => {
 
-    useEffect(() => {
-        setKeyArray(Object.keys(messageObj));
-    }, []);
 
     const renderListItem = (listItem, userName) => {
-        <li onClick={selectUserDetail(userName)}>
-            <p>{userName}</p>
-            <p>{listItem.text}</p>
-            <hr />
+        if (listItem) {
+            return (
+                <li key={userName} onClick={() => selectUserDetail(userName)} >
+                    <p key={userName}>{userName}</p>
+                    <p key={userName}>{listItem.text}</p>
+                </li>
+            );
+        }
+        return <li>
+            "Butts"
         </li>;
     };
 
     return (
         <ul>
-            {messageObj ?
-                keyArray.map(key => {
-                    renderListItem(messageObj[key], key);
-                })
+            {messageObj && currentUser.current.keyArray ?
+                currentUser.current.keyArray.map(key => renderListItem(messageObj[key], key))
                 :
                 null
             }

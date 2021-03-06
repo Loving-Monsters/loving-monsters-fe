@@ -12,7 +12,7 @@ const MessageHome = ({ currentUser, socket, selectUserDetail, messageObj }) => {
     useEffect(() => {
         socket.on('USERS_ONLINE', onlineUsers => {
             const filteredUsers = onlineUsers.filter(user => user.id !== currentUser.current.id);
-            console.log(filteredUsers);
+
             setOnlineUsers(filteredUsers);
         });
     }, [socket]);
@@ -42,6 +42,7 @@ const MessageHome = ({ currentUser, socket, selectUserDetail, messageObj }) => {
                     <MessageList
                         selectUserDetail={selectUserDetail}
                         messageObj={messageObj}
+                        currentUser={currentUser}
                     />
                     :
                     null
