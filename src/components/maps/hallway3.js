@@ -2,7 +2,7 @@
 import { pancakes } from '../Items/pancakes';
 
 export const hallway3 = {
-    mapImage: '/hallway/MessyHallway.png',
+    mapImage: '/hallway/MessyHallway3.png',
     transformPositionX: 0,
     transformPositionY: 250,
     npcs: [],
@@ -95,14 +95,14 @@ export const hallway3 = {
                 x: 0, y: 325
             },
             dimension: {
-                x: 150, y: 10
+                x: 225, y: 10
             }
         },
         {
             type: 'object',
             name: 'Lockers2',
             position: {
-                x: 500, y: 325
+                x: 425, y: 325
             },
             dimension: {
                 x: 250, y: 10
