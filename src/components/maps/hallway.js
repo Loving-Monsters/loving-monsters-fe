@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { barker } from '../NPCs/barker';
-import { snek } from '../Items/snek'
+import { snek } from '../Items/snek';
+
 export const hallway = {
     mapImage: '/hallway/MessyHallway.png',
     transformPositionX: 0,

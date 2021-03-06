@@ -1,4 +1,4 @@
-import { nightlight } from '../Items/nightlight'
+import { nightlight } from '../Items/nightlight';
 
 export const classroom2 = {
     mapImage: '/classroom/Workroom.png',
