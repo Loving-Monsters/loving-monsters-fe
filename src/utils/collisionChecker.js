@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 export default function checkCollision(objectArray, proposedMove, playerDimension) {
     let returnValue = true;
-    for (const object of objectArray) {
+    for(const object of objectArray) {
         const { position, dimension } = object;
 
         if (position.y < proposedMove.y + playerDimension.y) {
@@ -19,7 +19,7 @@ export default function checkCollision(objectArray, proposedMove, playerDimensio
                         if (object.type === 'portal') {
                             returnValue = { type: 'portal', nextMap: object.nextMap };
                         } else if (object.type === 'item') {
-                            returnValue = { type: 'item', name: object.name }
+                            returnValue = { type: 'item', name: object.name };
                         }
                         else if (object.type === 'npc') {
                             returnValue = { type: 'npc', name: object.name };
