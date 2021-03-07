@@ -40,14 +40,11 @@
     background-image: linear-gradient(#0f0d0f, #141114);
 }
 
-.homescreen, .screen {
+.homescreen, .bulletin, .screen {
     position: absolute;
     margin-top: 5px;
-    padding-top: 30px;
-    padding-right: 15px;
-    padding-left: 15px;
-    height: 600px;
-    width: 270px;
+    height: 630px;
+    width: 300px;
     border-radius: 20px;
     overflow: scroll;
 }
@@ -60,10 +57,106 @@
 .homescreen {
     background-image: url('/public/phone/PhoneBkgd.png');
     overflow: hidden;
+}
 
+.bulletin {
+    background-color: #242424;
+}
+
+.back, .send {
+    background-color: transparent;
+    border: none;
+    font-family: dogica;
+    letter-spacing: -1pt;
+    color: aqua;
+}
+
+.back {
+    margin-top: 15px;
+    margin-left: 5px;
+    font-size: 24pt;
+}
+
+.send {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 4px;
+    font-size: 12pt;
+}
+
+.backspan {
+    position: absolute;
+    margin-top: 23px;
+    margin-left: -5px;
+    font-family: dogica;
+    font-size: 12pt;
+    color: aqua;
+}
+
+.backbackground {
+    padding-bottom: 10px;
+    border-bottom: solid 2px white;
+}
+
+.bulletin input {
+    width: 200px;
+    height: 14pt;
+    border: solid 2px aqua;
+    background-color: #1A1A1A;
+    color: white;
+    font-family: dogica;
+    font-size: 12px;
+    letter-spacing: -1pt;
+}
+
+.bulletin form {
+    position: absolute;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    bottom: 0;
+}
+
+.formBack {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    border-top: solid 2px white;
+}
+
+.bullList {
+    margin-top: 15px;
+    height: 510px;
+    overflow: scroll;
+}
+
+.bullItem {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: solid 1px white;
+}
+
+.bullText {
+    font-family: dogica;
+    font-size: 10pt;
+    letter-spacing: -1pt;
+    color: white;
+    line-height: 16pt;
+    word-wrap: break-word;
+}
+
+.timestamp {
+    font-family: dogica;
+    font-size: 8pt;
+    letter-spacing: -1pt;
+    color: aqua;
 }
 
 .apps {
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;

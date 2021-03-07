@@ -4,6 +4,7 @@ const barker = {
     type: 'npc',
     name: 'barker',
     displayName: 'Barker',
+    avatarImg: '/npcs/BarkerAv.png',
     img: '/npcs/Barker.png',
     map: 'hallway',
     friendship: 0,
@@ -34,6 +35,7 @@ const cal = {
     type: 'npc',
     name: 'cal',
     displayName: 'Cal',
+    avatarImg: '/npcs/CalAv.png',
     img: '/npcs/Cal.png',
     map: 'hallway2',
     friendship: 0,
@@ -64,6 +66,7 @@ const misscreech = {
     type: 'npc',
     name: 'misscreech',
     displayName: 'Miss Creech',
+    avatarImg: '/npcs/Teacher.png',
     img: '/npcs/Teacher.png',
     map: 'classroom',
     items: [{

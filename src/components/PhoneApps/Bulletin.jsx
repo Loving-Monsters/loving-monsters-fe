@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import styles from '../../containers/Containers.css';
 
@@ -24,9 +26,9 @@ const Bulletin = ({ currentUser, handleHome, socket }) => {
         const timestamp = new Date(bulletin.timestamp).toLocaleString();
 
         return (
-            <div key={bulletin.timestamp}>
-                <p>{bulletin.text}</p>
-                <p>{timestamp}</p>
+            <div className={styles.bullItem} key={bulletin.timestamp}>
+                <span className={styles.timestamp}>{timestamp}</span>
+                <p className={styles.bullText}>{bulletin.text}</p>
             </div>
         );
     };
@@ -38,20 +40,26 @@ const Bulletin = ({ currentUser, handleHome, socket }) => {
     }, []);
 
     return (
-        <div className={styles.screen}>
-            <button onClick={handleHome} >HOME</button>
-
-            <form onSubmit={(event) => handleSendBulletin(event)}>
-                <input
-                    value={input}
-                    type="text"
-                    onChange={(event) => handleInputChange(event)} />
-                <button>SEND</button>
-            </form>
-            {localBulletinArray ?
-                localBulletinArray.map(bulletin => renderBulletin(bulletin))
-                : null
-            }
+        <div className={styles.bulletin}>
+            <div className={styles.backbackground}>
+                <button className={styles.back} onClick={handleHome}>&#60;</button>
+                <span className={styles.backspan}>Back</span>
+            </div>
+            <div className={styles.bullList}>
+                {localBulletinArray ?
+                    localBulletinArray.map(bulletin => renderBulletin(bulletin))
+                    : null
+                }
+            </div>
+            <div className={styles.formBack}>
+                <form onSubmit={(event) => handleSendBulletin(event)}>
+                    <input
+                        value={input}
+                        type="text"
+                        onChange={(event) => handleInputChange(event)} />
+                    <button className={styles.send}>SEND</button>
+                </form>
+            </div>
         </div>
     );
 };
