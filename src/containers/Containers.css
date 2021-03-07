@@ -40,7 +40,33 @@
     background-image: linear-gradient(#0f0d0f, #141114);
 }
 
-.homescreen, .bulletin, .screen {
+.apps {
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    image-rendering: pixelated;
+}
+
+.apps img {
+    height: 100px;
+}
+
+.icon {
+    text-align: center;
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.icon span {
+    font-family: dogica;
+    font-size: 8pt;
+    margin-bottom: 15px;
+}
+
+.homescreen, .bulletin, .friendships, .screen {
     position: absolute;
     margin-top: 5px;
     height: 630px;
@@ -59,7 +85,7 @@
     overflow: hidden;
 }
 
-.bulletin {
+.bulletin, .friendships {
     background-color: #242424;
 }
 
@@ -153,28 +179,25 @@
     color: aqua;
 }
 
-.apps {
-    margin-top: 30px;
-    margin-left: 15px;
-    margin-right: 15px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    image-rendering: pixelated;
+.npcFriendship {
+    margin-top: 20px;
+    margin-left: 10px;  
 }
 
-.apps img {
+.friendships img {
+    width: 100px;
     height: 100px;
+    object-fit: cover;
+    image-rendering: pixelated;
+    border: solid 1px white;
 }
 
-.icon {
-    text-align: center;
-    width: 120px;
-    margin-bottom: 15px;
-}
-
-.icon span {
+.friendships p {
+    position: absolute;
+    margin-left: 110px;
+    margin-top: -60px;
     font-family: dogica;
-    font-size: 8pt;
-    margin-bottom: 15px;
+    font-size: 10pt;
+    letter-spacing: -1pt;
+    color: aqua;
 }

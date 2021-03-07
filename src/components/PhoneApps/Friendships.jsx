@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styles from '../../containers/Containers.css';
@@ -6,12 +7,15 @@ import npcObj from '../NPCs/fullNPCs';
 const Friendships = ({ handleHome }) => {
     const npcArr = [npcObj.barker, npcObj.cal, npcObj.misscreech];
     return (
-        <div className={styles.screen}>
-            <button onClick={handleHome}>HOME</button>
+        <div className={styles.friendships}>
+            <div className={styles.backbackground}>
+                <button className={styles.back} onClick={handleHome}>&#60;</button>
+                <span className={styles.backspan}>Back</span>
+            </div>
             {npcArr.map(npc =>
-                <div key={npc.displayName}>
+                <div className={styles.npcFriendship} key={npc.displayName}>
                     <img src={npc.avatarImg} />
-                    <div>friendship: {npc.friendship}</div>
+                    <p>friendship: {npc.friendship}</p>
                 </div>
             )}
         </div>
