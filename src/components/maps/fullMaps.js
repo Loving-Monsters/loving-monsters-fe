@@ -6,6 +6,8 @@ const hallway = {
     mapImage: '/hallway/MessyHallway.png',
     transformPositionX: 0,
     transformPositionY: 300,
+    playerOffsetX: 200,
+    playerOffsetY: 100,
     npcs: [npcObj.barker],
     items: [itemObj.snek],
     portals: [{
@@ -20,8 +22,8 @@ const hallway = {
         },
         nextMap: 'classroom',
         startingPosition: {
-            x: 0,
-            y: 375
+            x: 25,
+            y: 550
         }
     }, {
         type: 'portal',
@@ -108,7 +110,7 @@ const hallway2 = {
     mapImage: '/hallway/MessyHallway2.png',
     npcs: [npcObj.cal],
     items: [itemObj.ooze],
-    transformPositionX: 0,
+    transformPositionX: 250,
     transformPositionY: 250,
     portals: [{
         type: 'portal',
@@ -329,13 +331,15 @@ const classroom = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
+    playerOffsetX: 0,
+    playerOffsetY: 0,
     items: [itemObj.frog],
     npcs: [npcObj.misscreech],
     portals: [{
         type: 'portal',
         position: {
             x: 25,
-            y: 425
+            y: 625
         },
         dimension: {
             x: 25,
@@ -343,7 +347,7 @@ const classroom = {
         },
         nextMap: 'hallway',
         startingPosition: {
-            x: 275,
+            x: 375,
             y: 350
         }
     }],
@@ -368,17 +372,17 @@ const classroom = {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 350, y: 0
+                x: 625, y: 0
             },
             dimension: {
-                x: 10, y: 400
+                x: 10, y: 600
             }
         },
         {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 425
+                x: 0, y: 625
             },
             dimension: {
                 x: 600, y: 150
@@ -391,7 +395,7 @@ const classroom = {
                 x: -25, y: 0
             },
             dimension: {
-                x: 10, y: 400
+                x: 10, y: 600
             }
         },
     ],

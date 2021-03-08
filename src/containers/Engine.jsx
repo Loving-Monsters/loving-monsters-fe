@@ -184,6 +184,8 @@ export default function Engine({ currentUser, socket }) {
                                 idle={currentUser.current.idle}
                                 key={currentUser.current.id}
                                 position={currentUser.current.position}
+                                xOffset={currentMap.current.playerOffsetX}
+                                yOffset={currentMap.current.playerOffsetY}
                                 direction={currentUser.current.dir}
                                 avatar={currentUser.current.avatar}
                                 userName={currentUser.current.userName}

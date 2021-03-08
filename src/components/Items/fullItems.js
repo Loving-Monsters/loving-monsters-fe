@@ -5,15 +5,15 @@ const frog = {
     map: 'classroom',
     display: '',
     position: {
-        x: 125,
-        y: 225
+        x: 25,
+        y: 150
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '400px',
-    marginLeft: '200px',
+    marginTop: '225px',
+    marginLeft: '-25px',
 };
 
 const nightlight = {

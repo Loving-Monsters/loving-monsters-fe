@@ -79,12 +79,12 @@ const misscreech = {
     }],
     friendship: 0,
     position: {
-        x: 250,
+        x: 450,
         y: 175
     },
     dimension: {
-        x: 75,
-        y: 25
+        x: 150,
+        y: 75
     },
     marginTop: '150px',
     marginLeft: '475px',
