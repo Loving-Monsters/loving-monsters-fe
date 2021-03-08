@@ -80,3 +80,5 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
         </div>
     );
 };
+
+export default WhiteBoard;

@@ -1,12 +1,12 @@
 import React from 'react';
-// import styles from './WhiteBoardTodo.css';
+//import styles from './WhiteBoardInProgress.css';
 
-const WhiteBoardTodo = ({ socket, todoTasks }) => {
+const WhiteBoardInProgress = ({ socket, inProgressTasks }) => {
 
     const handleInProgress = (task) => {
         const updatedTask = {
             ...task,
-            status: 'inProgress'
+            status: 'completed'
         };
 
         socket.emit('UPDATE_TASK', updatedTask);
@@ -23,7 +23,7 @@ const WhiteBoardTodo = ({ socket, todoTasks }) => {
                     {task.text}
                 </div>
                 <button onClick={() => handleInProgress(task)}>
-                    IN PROGRESS
+                    COMPLETED
                 </button>
                 <hr />
             </li>
@@ -33,8 +33,8 @@ const WhiteBoardTodo = ({ socket, todoTasks }) => {
     return (
         <div>
             <ul>
-                {todoTasks.length > 0 ?
-                    todoTasks.map(task => renderTask(task))
+                {inProgressTasks.length > 0 ?
+                    inProgressTasks.map(task => renderTask(task))
                     :
                     <li>
                         NO TASKS TO DO!
@@ -45,4 +45,7 @@ const WhiteBoardTodo = ({ socket, todoTasks }) => {
     );
 };
 
-export default WhiteBoardTodo;
+}
+;
+
+export default WhiteBoardInProgress;

@@ -1,9 +1,6 @@
 import React from 'react';
 import styles from './WhiteBoardHeader.css';
 const WhiteBoardHeader = ({ handleHome, handleTabChange }) => {
-
-
-
     return (
         <div className={styles.header}>
             <div>
@@ -29,3 +26,4 @@ const WhiteBoardHeader = ({ handleHome, handleTabChange }) => {
     );
 };
 
+export default WhiteBoardHeader;
