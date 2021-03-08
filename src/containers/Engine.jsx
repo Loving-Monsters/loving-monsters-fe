@@ -23,6 +23,8 @@ export default function Engine({ currentUser, socket }) {
     const [disableKeys, setDisableKeys] = useState(false);
     const [boxOpen, setBoxOpen] = useState(false);
     const [currentNpc, setNpc] = useState(false);
+    const storyIndex = useRef(0);
+
 
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
@@ -82,8 +84,14 @@ export default function Engine({ currentUser, socket }) {
     };
 
     const handleNPCInteraction = (npcName) => {
+
         setBoxOpen(true);
         setNpc(npcObj[npcName]);
+        if (storyIndex.current < 2) {
+            storyIndex.current += 1;
+        } else {
+            storyIndex.current = 0;
+        }
     };
 
     const handleItemInteraction = (itemName) => {
@@ -145,7 +153,6 @@ export default function Engine({ currentUser, socket }) {
         />
         );
     };
-
     const handleGiveItem = (npc, item) => {
         currentUser.current.inventory.forEach(userItem => {
 
@@ -155,7 +162,7 @@ export default function Engine({ currentUser, socket }) {
                 if (index !== -1) {
                     currentUser.current.inventory.splice(index, 1);
                 }
-                npc.friendship += item.friendship;
+                npc.friendship += item.friendship[npc.name];
             }
         });
     };
@@ -165,18 +172,14 @@ export default function Engine({ currentUser, socket }) {
     return (
 
         <div className={styles.view} >
-
-
             {loading ? <div>loading...</div>
                 : currentUser.current.position ?
                     <div>
-
-
                         <div className={styles.map}
                             style={{
                                 transform:
-                                    `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
-                                    -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
+                                    `translate3d(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
+                                    -${currentUser.current.position.y - currentMap.current.transformPositionY}px, 0)`
                             }}>
                             {renderItems()}
                             {renderNPCs()}
@@ -189,32 +192,31 @@ export default function Engine({ currentUser, socket }) {
                                 null
                             }
                             {renderUsers()}
+                            <Player
+                                idle={currentUser.current.idle}
+                                key={currentUser.current.id}
+                                position={currentUser.current.position}
+                                xOffset={currentMap.current.playerOffsetX}
+                                yOffset={currentMap.current.playerOffsetY}
+                                direction={currentUser.current.dir}
+                                avatar={currentUser.current.avatar}
+                                userName={currentUser.current.userName}
+                                boxOpen={boxOpen}
+                                handleClose={handleClose}
+                            />
                         </div>
-
-                        <Player
-                            idle={currentUser.current.idle}
-                            key={currentUser.current.id}
-                            position={currentUser.current.position}
-                            direction={currentUser.current.dir}
-                            avatar={currentUser.current.avatar}
-                            userName={currentUser.current.userName}
-                            boxOpen={boxOpen}
-                            handleClose={handleClose}
-                        />
-
-
                     </div>
                     : null
 
             }
             {boxOpen ?
                 <DialogueBox
+                    storyIndex={storyIndex}
+                    currentUser={currentUser}
                     currentNpc={currentNpc}
                     handleClose={handleClose}
                     handleGiveItem={handleGiveItem} />
-
                 : null}
-
         </div >
     );
 }

@@ -4,16 +4,21 @@ const frog = {
     img: '/items/Frog.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 0,
+        barker: -1,
+        cal: 1
+    },
     position: {
-        x: 125,
-        y: 225
+        x: 25,
+        y: 150
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '400px',
-    marginLeft: '200px',
+    marginTop: '225px',
+    marginLeft: '-25px',
 };
 
 const nightlight = {
@@ -22,16 +27,21 @@ const nightlight = {
     img: '/items/Nightlight.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 0,
+        barker: 1,
+        cal: -1
+    },
     position: {
-        x: 125,
-        y: 225
+        x: 550,
+        y: 150
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '400px',
-    marginLeft: '200px',
+    marginTop: '200px',
+    marginLeft: '550px',
 };
 
 const ooze = {
@@ -40,16 +50,21 @@ const ooze = {
     img: '/items/Ooze.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 1,
+        barker: 0,
+        cal: 1
+    },
     position: {
-        x: 125,
-        y: 400
+        x: 575,
+        y: 475
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '600px',
-    marginLeft: '200px',
+    marginTop: '650px',
+    marginLeft: '730px',
 };
 
 const pancakes = {
@@ -58,16 +73,21 @@ const pancakes = {
     img: '/items/pancakes.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 0,
+        barker: 1,
+        cal: -1
+    },
     position: {
-        x: 125,
-        y: 400
+        x: 800,
+        y: 325
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '600px',
-    marginLeft: '200px',
+    marginTop: '500px',
+    marginLeft: '950px',
 };
 
 const snek = {
@@ -76,16 +96,21 @@ const snek = {
     img: '/items/Snek.png',
     map: 'hallway',
     display: '',
+    friendship: {
+        misscreech: -1,
+        barker: 1,
+        cal: 1
+    },
     position: {
         x: 125,
-        y: 400
+        y: 275
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '600px',
-    marginLeft: '200px',
+    marginTop: '425px',
+    marginLeft: '270px',
 };
 
 const swampscum = {
@@ -94,6 +119,11 @@ const swampscum = {
     img: '/items/swampscum.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 0,
+        barker: 0,
+        cal: 1
+    },
     position: {
         x: 125,
         y: 350
