@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function DialogueBox({ currentNpc, handleClose, handleGiveItem, currentUser, storyIndex }) {
+export default function DialogueBox({ currentNpc, handleClose, handleGiveItem, currentUser, storyIndex, thanks }) {
     const handleBeat = () => {
         if (currentNpc.friendship === 0) {
             return currentNpc.storyBeats1[storyIndex.current]
@@ -11,7 +11,7 @@ export default function DialogueBox({ currentNpc, handleClose, handleGiveItem, c
         }
         console.log(currentNpc)
     };
-    console.log(handleBeat)
+    console.log(thanks)
 
     return (
         <div style={{
@@ -41,8 +41,9 @@ export default function DialogueBox({ currentNpc, handleClose, handleGiveItem, c
                     : null}</div>
             <div>
                 {currentNpc ?
+                    thanks ? <div>{thanks}</div>
 
-                    handleBeat()
+                        : handleBeat()
 
                     : null}
             </div>

@@ -28,9 +28,9 @@ const nightlight = {
     map: 'classroom',
     display: '',
     friendship: {
-        misscreech: 1,
-        barker: 1,
-        cal: 1
+        misscreech: -1,
+        barker: -1,
+        cal: -1
     },
     position: {
         x: 125,
@@ -97,9 +97,9 @@ const snek = {
     map: 'hallway',
     display: '',
     friendship: {
-        misscreech: 1,
-        barker: 1,
-        cal: 1
+        misscreech: -1,
+        barker: -1,
+        cal: -1
     },
     position: {
         x: 125,
