@@ -57,25 +57,30 @@ export default function Engine({ currentUser, socket }) {
             }, 500);
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction));
         };
     }, []);
 
-    const handleMapChange = (nextMap) => {
+    const handleMapChange = (mapName) => {
         setLoading(true);
 
-        currentUser.current.position = currentMap.current.portals.filter(portal => portal.nextMap === nextMap)[0].startingPosition;
+        currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
 
-        currentMap.current = mapObj[nextMap];
-        socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: nextMap });
-        currentUser.current.currentRoom = nextMap;
+        currentMap.current = mapObj[mapName];
+        socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: mapName });
+        currentUser.current.currentRoom = mapName;
 
         setLoading(false);
+    };
+
+    const handleWhiteBoardInteraction = (name) => {
+        console.log('🚀 ~ file: Engine.jsx ~ line 80 ~ handleWhiteBoardInteraction ~ name', name);
+        socket.emit('OPEN_WHITEBOARD', name);
     };
 
     const handleNPCInteraction = (npcName) => {
