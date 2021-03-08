@@ -8,14 +8,7 @@ const barker = {
     img: '/npcs/Barker.png',
     map: 'hallway',
     friendship: 0,
-    items: [{
-        name: 'frog',
-        friendship: 10
-    },
-    {
-        name: 'snek',
-        friendship: -10
-    }],
+
     position: {
         x: 650,
         y: 275
@@ -26,8 +19,12 @@ const barker = {
     },
     marginTop: '350px',
     marginLeft: '800px',
-    storyBeats: [
-        'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'
+    storyBeats1: [
+        'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'],
+    storyBeats2: [
+        'hi', 'your mom', 'bye'],
+    storyBeats3: [
+        'lol?', 'smurf', 'tabernacle'
     ]
 };
 
@@ -39,16 +36,9 @@ const cal = {
     img: '/npcs/Cal.png',
     map: 'hallway2',
     friendship: 0,
-    items: [{
-        name: 'frog',
-        friendship: -10
-    },
-    {
-        name: 'snek',
-        friendship: -10
-    }],
+
     position: {
-        x: 425,
+        x: 650,
         y: 275
     },
     dimension: {
@@ -57,8 +47,12 @@ const cal = {
     },
     marginTop: '350px',
     marginLeft: '800px',
-    storyBeats: [
-        'You\'re gross', 'Why is your skin so dry', 'I can\'t be seen talking to you.'
+    storyBeats1: [
+        'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'],
+    storyBeats2: [
+        'hi', 'your mom', 'bye'],
+    storyBeats3: [
+        'lol?', 'smurf', 'tabernacle'
     ]
 };
 
@@ -69,14 +63,7 @@ const misscreech = {
     avatarImg: '/npcs/Teacher.png',
     img: '/npcs/Teacher.png',
     map: 'classroom',
-    items: [{
-        name: 'frog',
-        friendship: -10
-    },
-    {
-        name: 'snek',
-        friendship: -10
-    }],
+
     friendship: 0,
     position: {
         x: 450,
@@ -88,8 +75,12 @@ const misscreech = {
     },
     marginTop: '150px',
     marginLeft: '475px',
-    storyBeats: [
-        'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'
+    storyBeats1: [
+        'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'],
+    storyBeats2: [
+        'hi', 'your mom', 'bye'],
+    storyBeats3: [
+        'lol?', 'smurf', 'tabernacle'
     ]
 };
 
