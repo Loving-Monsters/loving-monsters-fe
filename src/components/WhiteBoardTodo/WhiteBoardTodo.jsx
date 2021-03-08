@@ -7,7 +7,6 @@ const WhiteBoardTodo = ({ socket, currentUser }) => {
     useEffect(() => {
         const taskTimer = setInterval(() => {
             setTodoTasks(currentUser.current.taskObj.todo);
-            console.log('🚀 ~ file: WhiteBoardTodo.jsx ~ line 20 ~ useEffect ~ currentUser.current.taskObj.todo', currentUser.current.taskObj.todo);
         }, 1000);
 
 

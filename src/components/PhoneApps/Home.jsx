@@ -1,8 +1,24 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 import styles from '../../containers/Containers.css';
 
-const Home = ({ handleAppChange }) => {
+const Home = ({ handleAppChange, socket, currentUser }) => {
+    const [inClassroom, setInClassroom] = useState(false);
+
+    useEffect(() => {
+        socket.on('CHANGE_ROOM', newRoom => {
+            newRoom.includes('classroom') ? setInClassroom(true) : setInClassroom(false);
+        });
+    }, [socket]);
+
+    useEffect(() => {
+        const currentRoom = currentUser.current.currentRoom;
+        if (currentRoom) {
+            currentRoom.includes('classroom') ? setInClassroom(true) : setInClassroom(false);
+        }
+    }, []);
+
+
     return (
         <div className={styles.homescreen}>
             <div className={styles.apps}>
@@ -44,6 +60,15 @@ const Home = ({ handleAppChange }) => {
                     <img src="/phone/Online.png" />
                     <br /><span>Online</span>
                 </div>
+                {inClassroom ?
+                    <div
+                        className={styles.icon}
+                        onClick={() => handleAppChange('whiteBoard')}
+                    >
+                        <img src="/phone/Tasks.png" />
+                        <br /><span>White Board</span>
+                    </div>
+                    : null}
             </div>
         </div>
     );
