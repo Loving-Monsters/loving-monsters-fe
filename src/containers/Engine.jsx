@@ -87,9 +87,8 @@ export default function Engine({ currentUser, socket }) {
         } else {
             storyIndex.current = 0;
         }
-
-
     };
+
     const handleItemInteraction = (itemName) => {
         currentUser.current.inventory.push(itemObj[itemName]);
         itemObj[itemName].display = 'none';
