@@ -43,8 +43,16 @@ export default function DialogueBox({ currentNpc, handleClose, handleGiveItem, c
                 {currentNpc ?
 
                     handleBeat()
+
                     : null}
             </div>
+            {currentNpc ? <div><img src={currentNpc.avatarImg} style={{
+                height: '250px',
+                width: '50%',
+                border: 'solid black'
+
+            }} /></div>
+                : null}
         </ div >
     );
 }
