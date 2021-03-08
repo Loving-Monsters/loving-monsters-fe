@@ -18,7 +18,7 @@ const hallway = {
             x: 50,
             y: 25
         },
-        nextMap: 'classroom',
+        name: 'classroom',
         startingPosition: {
             x: 25,
             y: 375
@@ -31,7 +31,7 @@ const hallway = {
         dimension: {
             x: 10, y: 640
         },
-        nextMap: 'hallway2',
+        name: 'hallway2',
         startingPosition: {
             x: 25,
             y: 350
@@ -120,7 +120,7 @@ const hallway2 = {
             x: 50,
             y: 25
         },
-        nextMap: 'classroom2',
+        name: 'classroom2',
         startingPosition: {
             x: 25,
             y: 375
@@ -133,7 +133,7 @@ const hallway2 = {
         dimension: {
             x: 10, y: 625
         },
-        nextMap: 'hallway',
+        name: 'hallway',
         startingPosition: {
             x: 700,
             y: 350
@@ -146,7 +146,7 @@ const hallway2 = {
         dimension: {
             x: 10, y: 640
         },
-        nextMap: 'hallway3',
+        name: 'hallway3',
         startingPosition: {
             x: 25,
             y: 350
@@ -231,7 +231,7 @@ const hallway3 = {
             x: 50,
             y: 25
         },
-        nextMap: 'classroom3',
+        name: 'classroom3',
         startingPosition: {
             x: 25,
             y: 375
@@ -244,7 +244,7 @@ const hallway3 = {
         dimension: {
             x: 10, y: 625
         },
-        nextMap: 'hallway2',
+        name: 'hallway2',
         startingPosition: {
             x: 700,
             y: 350
@@ -257,7 +257,7 @@ const hallway3 = {
         dimension: {
             x: 10, y: 640
         },
-        nextMap: 'courtyard',
+        name: 'courtyard',
         startingPosition: {
             x: 25,
             y: 350
@@ -331,6 +331,18 @@ const classroom = {
     transformPositionY: 150,
     items: [itemObj.frog],
     npcs: [npcObj.misscreech],
+    whiteBoard: {
+        type: 'whiteBoard',
+        name: 'classroom',
+        position: {
+            x: 50,
+            y: 100
+        },
+        dimension: {
+            x: 175,
+            y: 50
+        }
+    },
     portals: [{
         type: 'portal',
         position: {
@@ -341,7 +353,7 @@ const classroom = {
             x: 25,
             y: 25
         },
-        nextMap: 'hallway',
+        name: 'hallway',
         startingPosition: {
             x: 275,
             y: 350
@@ -403,6 +415,18 @@ const classroom2 = {
     transformPositionY: 150,
     npcs: [],
     items: [itemObj.nightlight],
+    whiteBoard: {
+        type: 'whiteBoard',
+        name: 'classroom',
+        position: {
+            x: 50,
+            y: 100
+        },
+        dimension: {
+            x: 175,
+            y: 50
+        }
+    },
     portals: [{
         type: 'portal',
         position: {
@@ -413,7 +437,7 @@ const classroom2 = {
             x: 25,
             y: 25
         },
-        nextMap: 'hallway2',
+        name: 'hallway2',
         startingPosition: {
             x: 275,
             y: 350
@@ -475,6 +499,18 @@ const classroom3 = {
     transformPositionY: 150,
     npcs: [],
     items: [itemObj.swampscum],
+    whiteBoard: {
+        type: 'whiteBoard',
+        name: 'classroom',
+        position: {
+            x: 50,
+            y: 100
+        },
+        dimension: {
+            x: 175,
+            y: 50
+        }
+    },
     portals: [{
         type: 'portal',
         position: {
@@ -485,7 +521,7 @@ const classroom3 = {
             x: 25,
             y: 25
         },
-        nextMap: 'hallway3',
+        name: 'hallway3',
         startingPosition: {
             x: 275,
             y: 350
@@ -557,7 +593,7 @@ const courtyard = {
             x: 25,
             y: 25
         },
-        nextMap: 'hallway3',
+        name: 'hallway3',
         startingPosition: {
             x: 600,
             y: 350
