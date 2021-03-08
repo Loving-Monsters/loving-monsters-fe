@@ -335,7 +335,7 @@ const classroom = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
-    playerOffsetX: 0,
+    playerOffsetX: 50,
     playerOffsetY: 0,
     items: [itemObj.frog],
     npcs: [npcObj.misscreech],
