@@ -23,6 +23,8 @@ export default function Engine({ currentUser, socket }) {
     const [disableKeys, setDisableKeys] = useState(false);
     const [boxOpen, setBoxOpen] = useState(false);
     const [currentNpc, setNpc] = useState(false);
+    const storyIndex = useRef(0);
+
 
     useEffect(() => {
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
@@ -77,10 +79,17 @@ export default function Engine({ currentUser, socket }) {
     };
 
     const handleNPCInteraction = (npcName) => {
+
         setBoxOpen(true);
         setNpc(npcObj[npcName]);
-    };
+        if (storyIndex.current < 2) {
+            storyIndex.current += 1;
+        } else {
+            storyIndex.current = 0;
+        }
 
+
+    };
     const handleItemInteraction = (itemName) => {
         currentUser.current.inventory.push(itemObj[itemName]);
         itemObj[itemName].display = 'none';
@@ -140,7 +149,6 @@ export default function Engine({ currentUser, socket }) {
         />
         );
     };
-
     const handleGiveItem = (npc, item) => {
         currentUser.current.inventory.forEach(userItem => {
 
@@ -150,7 +158,7 @@ export default function Engine({ currentUser, socket }) {
                 if (index !== -1) {
                     currentUser.current.inventory.splice(index, 1);
                 }
-                npc.friendship += item.friendship;
+                npc.friendship += item.friendship[npc.name];
             }
         });
     };
@@ -204,6 +212,8 @@ export default function Engine({ currentUser, socket }) {
             }
             {boxOpen ?
                 <DialogueBox
+                    storyIndex={storyIndex}
+                    currentUser={currentUser}
                     currentNpc={currentNpc}
                     handleClose={handleClose}
                     handleGiveItem={handleGiveItem} />

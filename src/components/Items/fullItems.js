@@ -4,6 +4,11 @@ const frog = {
     img: '/items/Frog.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 1,
+        barker: 1,
+        cal: 1
+    },
     position: {
         x: 125,
         y: 225
@@ -22,6 +27,11 @@ const nightlight = {
     img: '/items/Nightlight.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 1,
+        barker: 1,
+        cal: 1
+    },
     position: {
         x: 125,
         y: 225
@@ -40,6 +50,11 @@ const ooze = {
     img: '/items/Ooze.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 1,
+        barker: 1,
+        cal: 1
+    },
     position: {
         x: 125,
         y: 400
@@ -58,6 +73,11 @@ const pancakes = {
     img: '/items/pancakes.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 1,
+        barker: 1,
+        cal: 1
+    },
     position: {
         x: 125,
         y: 400
@@ -76,6 +96,11 @@ const snek = {
     img: '/items/Snek.png',
     map: 'hallway',
     display: '',
+    friendship: {
+        misscreech: 1,
+        barker: 1,
+        cal: 1
+    },
     position: {
         x: 125,
         y: 400
@@ -94,6 +119,11 @@ const swampscum = {
     img: '/items/swampscum.png',
     map: 'classroom',
     display: '',
+    friendship: {
+        misscreech: 1,
+        barker: 1,
+        cal: 1
+    },
     position: {
         x: 125,
         y: 350
