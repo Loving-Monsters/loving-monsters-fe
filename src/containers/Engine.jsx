@@ -179,6 +179,7 @@ export default function Engine({ currentUser, socket }) {
                                 :
                                 null
                             }
+                            {renderUsers()}
                             <Player
                                 idle={currentUser.current.idle}
                                 key={currentUser.current.id}
@@ -189,7 +190,6 @@ export default function Engine({ currentUser, socket }) {
                                 boxOpen={boxOpen}
                                 handleClose={handleClose}
                             />
-                            {renderUsers()}
                         </div>
                     </div>
                     : null

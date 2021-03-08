@@ -78,14 +78,14 @@ const snek = {
     display: '',
     position: {
         x: 125,
-        y: 400
+        y: 275
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '600px',
-    marginLeft: '200px',
+    marginTop: '425px',
+    marginLeft: '270px',
 };
 
 const swampscum = {

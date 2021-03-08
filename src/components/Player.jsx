@@ -28,7 +28,7 @@ export default function Player({ position, direction, userName, avatar, idle }) 
         <div
             className={styles.char}
             style={{
-                transform: `translate3d(${position.x}px, ${position.y}px, 0)`
+                transform: `translate3d(${position.x + 200}px, ${position.y + 100}px, 0)`
             }}
         >
             <span>{userName}</span>

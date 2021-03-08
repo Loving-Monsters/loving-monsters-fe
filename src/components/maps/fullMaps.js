@@ -4,15 +4,15 @@ import npcObj from '../NPCs/fullNPCs';
 
 const hallway = {
     mapImage: '/hallway/MessyHallway.png',
-    transformPositionX: 375,
-    transformPositionY: 250,
+    transformPositionX: 0,
+    transformPositionY: 300,
     npcs: [npcObj.barker],
     items: [itemObj.snek],
     portals: [{
         type: 'portal',
         position: {
-            x: 275,
-            y: 300
+            x: 375,
+            y: 275
         },
         dimension: {
             x: 50,
@@ -20,21 +20,21 @@ const hallway = {
         },
         nextMap: 'classroom',
         startingPosition: {
-            x: 25,
+            x: 0,
             y: 375
         }
     }, {
         type: 'portal',
         position: {
-            x: 725, y: 0
+            x: 1000, y: 0
         },
         dimension: {
             x: 10, y: 640
         },
         nextMap: 'hallway2',
         startingPosition: {
-            x: 25,
-            y: 350
+            x: 0,
+            y: 500
         }
     }],
     arrows: [{
@@ -58,17 +58,17 @@ const hallway = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 800, y: 325
+                x: 1100, y: 250
             },
         },
         {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 475
+                x: 0, y: 525
             },
             dimension: {
-                x: 800, y: 10
+                x: 1100, y: 10
             }
         },
         {
@@ -85,20 +85,20 @@ const hallway = {
             type: 'object',
             name: 'Lockers1',
             position: {
-                x: 0, y: 325
+                x: 25, y: 250
             },
             dimension: {
-                x: 150, y: 10
+                x: 100, y: 75
             }
         },
         {
             type: 'object',
             name: 'Lockers2',
             position: {
-                x: 500, y: 325
+                x: 750, y: 250
             },
             dimension: {
-                x: 250, y: 10
+                x: 500, y: 75
             }
         }
     ],

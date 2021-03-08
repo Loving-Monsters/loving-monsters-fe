@@ -17,7 +17,7 @@ const barker = {
         friendship: -10
     }],
     position: {
-        x: 425,
+        x: 650,
         y: 275
     },
     dimension: {
