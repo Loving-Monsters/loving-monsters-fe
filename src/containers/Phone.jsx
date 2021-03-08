@@ -10,8 +10,16 @@ import Friendships from '../components/PhoneApps/Friendships';
 import Inventory from '../components/PhoneApps/Inventory';
 import Messaging from '../components/PhoneApps/Messaging';
 import Online from '../components/PhoneApps/Online';
+import WhiteBoard from '../components/PhoneApps/WhiteBoard';
+
 
 const Phone = ({ currentUser, socket }) => {
+
+    const handleAppChange = (appName) => {
+        setDisplayScreen(phoneApps[appName]);
+    };
+
+    const [displayScreen, setDisplayScreen] = useState(<Home handleAppChange={handleAppChange} />);
 
     useEffect(() => {
         socket.on('RECIEVE_BULLETIN', bulletinObj => {
@@ -22,19 +30,17 @@ const Phone = ({ currentUser, socket }) => {
             currentUser.current.messageObj = messageObj;
             currentUser.current.keyArray = Object.keys(messageObj);
         });
+
+        socket.on('OPEN_WHITEBOARD', taskObj => {
+            currentUser.current.taskObj = taskObj;
+            handleAppChange(phoneApps.whiteBoard);
+        });
     }, [socket]);
 
-    const handleAppChange = (appName) => {
-        setDisplayScreen(phoneApps[appName]);
-    };
-
-    const [displayScreen, setDisplayScreen] = useState(<Home handleAppChange={handleAppChange} />);
 
     const handleHome = () => {
         setDisplayScreen(phoneApps.home);
     };
-
-
 
     const phoneApps = {
         home: <Home
@@ -60,6 +66,11 @@ const Phone = ({ currentUser, socket }) => {
         online: <Online
             handleHome={handleHome}
             socket={socket}
+        />,
+        whiteBoard: <WhiteBoard
+            handleHome={handleHome}
+            socket={socket}
+            currentUser={currentUser}
         />
     };
 

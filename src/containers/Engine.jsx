@@ -76,6 +76,11 @@ export default function Engine({ currentUser, socket, handleWhiteBoardInteractio
         setLoading(false);
     };
 
+    const handleWhiteBoardInteraction = (name) => {
+        console.log("🚀 ~ file: Engine.jsx ~ line 80 ~ handleWhiteBoardInteraction ~ name", name)
+        socket.emit('OPEN_WHITEBOARD', name);
+    };
+
     const handleNPCInteraction = (npcName) => {
         setBoxOpen(true);
         setNpc(npcObj[npcName]);
