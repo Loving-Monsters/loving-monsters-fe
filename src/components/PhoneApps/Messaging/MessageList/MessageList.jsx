@@ -1,4 +1,7 @@
-import React, { useEffect } from 'react';
+/* eslint-disable max-len */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import styles from '../../../../containers/Containers.css';
 
 const MessageList = ({ currentUser, messageObj, selectUserDetail }) => {
 
@@ -14,25 +17,25 @@ const MessageList = ({ currentUser, messageObj, selectUserDetail }) => {
             }
 
             return (
-                <li
+                <span
                     key={`${userName}li`}
                     onClick={() => selectUserDetail(selectedUser)} >
-                    <p key={userName}>{userName}</p>
+                    <p className={styles.messageName} key={userName}>{userName}</p>
                     <p key={`${listItem.text}${listItem.id}`}>{listItem.text}</p>
-                </li>
+                </span>
             );
         }
         return null;
     };
 
     return (
-        <ul>
+        <div className={styles.messageList}>
             {messageObj && currentUser.current.keyArray ?
                 currentUser.current.keyArray.map(key => renderListItem(messageObj[key], key))
                 :
                 null
             }
-        </ul>
+        </div>
     );
 };
 

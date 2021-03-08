@@ -25,8 +25,6 @@ const Inventory = ({ handleHome, currentUser }) => {
                     <img className={styles.itemImg} src={item.img} />
                     {item.name}
                 </div>
-
-
             )}
         </div>
     );
