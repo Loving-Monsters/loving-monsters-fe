@@ -112,11 +112,8 @@
 
 .backspan {
     position: absolute;
-    margin-top: 23px;
-    margin-left: -5px;
-    font-family: dogica;
+    margin-top: 8px;
     font-size: 12pt;
-    color: aqua;
 }
 
 .backbackground {

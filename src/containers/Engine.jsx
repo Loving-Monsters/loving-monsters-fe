@@ -176,18 +176,14 @@ export default function Engine({ currentUser, socket }) {
     return (
 
         <div className={styles.view} >
-
-
             {loading ? <div>loading...</div>
                 : currentUser.current.position ?
                     <div>
-
-
                         <div className={styles.map}
                             style={{
                                 transform:
-                                    `translate(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
-                                    -${currentUser.current.position.y - currentMap.current.transformPositionY}px)`
+                                    `translate3d(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
+                                    -${currentUser.current.position.y - currentMap.current.transformPositionY}px, 0)`
                             }}>
                             {renderItems()}
                             {renderNPCs()}
@@ -200,20 +196,19 @@ export default function Engine({ currentUser, socket }) {
                                 null
                             }
                             {renderUsers()}
+                            <Player
+                                idle={currentUser.current.idle}
+                                key={currentUser.current.id}
+                                position={currentUser.current.position}
+                                xOffset={currentMap.current.playerOffsetX}
+                                yOffset={currentMap.current.playerOffsetY}
+                                direction={currentUser.current.dir}
+                                avatar={currentUser.current.avatar}
+                                userName={currentUser.current.userName}
+                                boxOpen={boxOpen}
+                                handleClose={handleClose}
+                            />
                         </div>
-
-                        <Player
-                            idle={currentUser.current.idle}
-                            key={currentUser.current.id}
-                            position={currentUser.current.position}
-                            direction={currentUser.current.dir}
-                            avatar={currentUser.current.avatar}
-                            userName={currentUser.current.userName}
-                            boxOpen={boxOpen}
-                            handleClose={handleClose}
-                        />
-
-
                     </div>
                     : null
 
@@ -226,9 +221,7 @@ export default function Engine({ currentUser, socket }) {
                     currentNpc={currentNpc}
                     handleClose={handleClose}
                     handleGiveItem={handleGiveItem} />
-
                 : null}
-
         </div >
     );
 }

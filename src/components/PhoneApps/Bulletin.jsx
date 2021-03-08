@@ -42,8 +42,8 @@ const Bulletin = ({ currentUser, handleHome, socket }) => {
     return (
         <div className={styles.bulletin}>
             <div className={styles.backbackground}>
-                <button className={styles.back} onClick={handleHome}>&#60;</button>
-                <span className={styles.backspan}>Back</span>
+                <button className={styles.back} onClick={handleHome}>&#60;
+                    <span className={styles.backspan}>Back</span></button>
             </div>
             <div className={styles.bullList}>
                 {localBulletinArray ?

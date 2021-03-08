@@ -9,8 +9,8 @@ const Friendships = ({ handleHome }) => {
     return (
         <div className={styles.friendships}>
             <div className={styles.backbackground}>
-                <button className={styles.back} onClick={handleHome}>&#60;</button>
-                <span className={styles.backspan}>Back</span>
+                <button className={styles.back} onClick={handleHome}>&#60;
+                    <span className={styles.backspan}>Back</span></button>
             </div>
             {npcArr.map(npc =>
                 <div className={styles.npcFriendship} key={npc.displayName}>
