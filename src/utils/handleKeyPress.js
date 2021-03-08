@@ -2,33 +2,52 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction) {
+export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction) {
     e.preventDefault();
-
-    // const currentUser = useSelector(getUser);
 
     if (currentUser.current && !disableKeys) {
         setDisableKeys(true);
 
         const { position, speed, dimension } = currentUser.current;
+        const { objectArray, portals, npcs, items, whiteBoard } = currentMap.current;
 
         const newPosition = changePosition(position, speed, e.key);
 
-        const checkCollisionResult = checkCollision([...currentMap.current.objectArray, ...currentMap.current.portals, ...currentMap.current.npcs, ...currentMap.current.items], newPosition, dimension);
+        const collisionObjects = [
+            ...objectArray,
+            ...portals,
+            ...npcs,
+            ...items
+        ];
 
-        if (checkCollisionResult === true) {
-            const dir = e.key.split('Arrow')[1].toLowerCase();
-            currentUser.current = {
-                ...currentUser.current,
-                position: newPosition,
-                dir
-            };
-        } else if (checkCollisionResult.type === 'portal') {
-            handleMapChange(checkCollisionResult.nextMap);
-        } else if (checkCollisionResult.type === 'npc') {
-            handleNPCInteraction(checkCollisionResult.name);
-        } else if (checkCollisionResult.type === 'item') {
-            handleItemInteraction(checkCollisionResult.name);
+        if (whiteBoard) collisionObjects.push(whiteBoard);
+
+        const checkCollisionResult = checkCollision(collisionObjects, newPosition, dimension);
+
+        switch (checkCollisionResult.type) {
+            case false:
+                const dir = e.key.split('Arrow')[1].toLowerCase();
+                currentUser.current = {
+                    ...currentUser.current,
+                    position: newPosition,
+                    dir
+                };
+                break;
+            case 'portal':
+                handleMapChange(checkCollisionResult.name);
+                break;
+
+            case 'npc':
+                handleNPCInteraction(checkCollisionResult.name);
+                break;
+
+            case 'item':
+                handleItemInteraction(checkCollisionResult.name);
+                break;
+
+            case 'whiteBoard':
+                handleWhiteBoardInteraction(checkCollisionResult.name);
+                break;
         }
     }
 }
