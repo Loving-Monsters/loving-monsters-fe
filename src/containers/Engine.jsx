@@ -23,10 +23,12 @@ export default function Engine({ currentUser, socket }) {
     const [disableKeys, setDisableKeys] = useState(false);
     const [boxOpen, setBoxOpen] = useState(false);
     const [currentNpc, setNpc] = useState(false);
+    const [thanks, setThanks] = useState('');
     const storyIndex = useRef(0);
 
 
     useEffect(() => {
+        false
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
             currentUser.current = newUser;
@@ -84,7 +86,7 @@ export default function Engine({ currentUser, socket }) {
     };
 
     const handleNPCInteraction = (npcName) => {
-
+        setThanks('');
         setBoxOpen(true);
         setNpc(npcObj[npcName]);
         if (storyIndex.current < 2) {
@@ -146,6 +148,8 @@ export default function Engine({ currentUser, socket }) {
         return filteredUserArray.map(user => <Player
             key={user.id}
             position={user.position}
+            xOffset={currentMap.current.playerOffsetX}
+            yOffset={currentMap.current.playerOffsetY}
             direction={user.dir}
             avatar={user.avatar}
             userName={user.userName}
@@ -164,7 +168,15 @@ export default function Engine({ currentUser, socket }) {
                 }
                 npc.friendship += item.friendship[npc.name];
             }
+            if (item.friendship[npc.name] > 0) {
+                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2} ${item.name}`);
+            } else if (item.friendship[npc.name] < 0) {
+                setThanks(`${npc.negativeReaction} ${item.name} ${npc.negativeReaction2} `)
+            } else {
+                setThanks(`${npc.neutralReaction} ${item.name} ${npc.neutralReaction2} `)
+            }
         });
+
     };
 
     const handleClose = () => setBoxOpen(false);
@@ -184,6 +196,7 @@ export default function Engine({ currentUser, socket }) {
                             {renderItems()}
                             {renderNPCs()}
                             {renderArrows()}
+                            {renderUsers()}
 
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
@@ -191,7 +204,7 @@ export default function Engine({ currentUser, socket }) {
                                 :
                                 null
                             }
-                            {renderUsers()}
+
                             <Player
                                 idle={currentUser.current.idle}
                                 key={currentUser.current.id}
@@ -211,6 +224,7 @@ export default function Engine({ currentUser, socket }) {
             }
             {boxOpen ?
                 <DialogueBox
+                    thanks={thanks}
                     storyIndex={storyIndex}
                     currentUser={currentUser}
                     currentNpc={currentNpc}

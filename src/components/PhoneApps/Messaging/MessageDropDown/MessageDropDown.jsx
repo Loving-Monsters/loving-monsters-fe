@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import styles from '../../../../containers/Containers.css';
 
 const MessageDropDown = ({ onlineUsers, selectUserDetail }) => {
     const [chosenUser, setChosenUser] = useState(onlineUsers[0]);
@@ -24,7 +26,7 @@ const MessageDropDown = ({ onlineUsers, selectUserDetail }) => {
     };
 
     return (
-        <div>
+        <div className={styles.messageDropdown}>
             <form onSubmit={(event) => handleSubmit(event)}>
                 <label htmlFor={'onlineUsers'}>ONLINE USERS</label>
                 <br />
@@ -33,17 +35,12 @@ const MessageDropDown = ({ onlineUsers, selectUserDetail }) => {
                     id={'onlineUsers'}
                     value={chosenUser.id}
                     onChange={({ target }) => handleInput(target.value)}>
-
                     {onlineUsers.map(user => renderUsers(user))}
                 </select>
                 <button>Message</button>
             </form>
         </div >
     );
-}
-    ;
-
-
-
+};
 
 export default MessageDropDown;

@@ -8,7 +8,7 @@ import Home from '../components/PhoneApps/Home';
 import Bulletin from '../components/PhoneApps/Bulletin';
 import Friendships from '../components/PhoneApps/Friendships';
 import Inventory from '../components/PhoneApps/Inventory';
-import Messaging from '../components/PhoneApps/Messaging';
+import Messaging from '../components/PhoneApps/Messaging/Messaging';
 import Online from '../components/PhoneApps/Online';
 import WhiteBoard from '../components/PhoneApps/WhiteBoard';
 
@@ -86,8 +86,6 @@ const Phone = ({ currentUser, socket }) => {
             {displayScreen}
         </div>
     );
-
-
 };
 
 export default Phone;

@@ -66,7 +66,7 @@
     margin-bottom: 15px;
 }
 
-.homescreen, .bulletin, .friendships, .inventory, .screen {
+.homescreen, .bulletin, .friendships, .inventory, .online, .messaging, .screen {
     position: absolute;
     margin-top: 5px;
     height: 630px;
@@ -85,7 +85,7 @@
     overflow: hidden;
 }
 
-.bulletin, .friendships, .inventory {
+.bulletin, .friendships, .inventory, .online, .messaging {
     background-color: #242424;
 }
 
@@ -121,7 +121,7 @@
     border-bottom: solid 2px white;
 }
 
-.bulletin input {
+.bulletin input, .messageForm input {
     width: 200px;
     height: 14pt;
     border: solid 2px aqua;
@@ -132,7 +132,7 @@
     letter-spacing: -1pt;
 }
 
-.bulletin form {
+.bulletin form, .messageForm {
     position: absolute;
     margin-left: 15px;
     margin-bottom: 15px;
@@ -210,4 +210,55 @@
     image-rendering: pixelated;
     margin-right: 10px;
     height: 40px;
+}
+
+.online {
+    font-family: dogica;
+    color: aqua;
+}
+
+.messageDropdown {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: dogica;
+    text-align: center;
+    color: aqua;
+}
+
+.messageDropdown select {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 16pt;
+    width: 60%;
+    font-family: dogica;
+    background-color: #1A1A1A;
+    color: aqua;
+}
+
+.messageDropdown button {
+    background-color: transparent;
+    border: none;
+    font-family: dogica;
+    letter-spacing: -1pt;
+    color: aqua;
+}
+
+.messageList {
+    font-family: dogica;
+    color: black;
+}
+
+.messageName {
+    background-color: aqua;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.messageUserDetail {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: dogica;
+    background-color: aqua;
 }

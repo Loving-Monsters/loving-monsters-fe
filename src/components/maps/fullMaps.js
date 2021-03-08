@@ -252,7 +252,7 @@ const hallway3 = {
         },
         name: 'hallway2',
         startingPosition: {
-            x: 700,
+            x: 900,
             y: 350
         }
     }, {
@@ -607,7 +607,7 @@ const courtyard = {
         },
         name: 'hallway3',
         startingPosition: {
-            x: 600,
+            x: 900,
             y: 350
         }
     }],

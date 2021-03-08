@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import MessageDropDown from '../MessageDropDown/MessageDropDown';
 import MessageList from '../MessageList/MessageList';
@@ -26,9 +28,10 @@ const MessageHome = ({ currentUser, socket, selectUserDetail, messageObj }) => {
     }, []);
 
 
-    useEffect(() => {
-        console.log('are you rerendering?');
-    });
+    // useEffect(() => {
+    //     console.log('are you rerendering?');
+    // });
+
     return (
         <div>
             {

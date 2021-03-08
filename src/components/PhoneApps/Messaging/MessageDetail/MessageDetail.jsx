@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 
 const MessageDetail = ({ socket, currentUser, messageArray, recieverName }) => {
@@ -11,7 +12,6 @@ const MessageDetail = ({ socket, currentUser, messageArray, recieverName }) => {
 
     const handleSendMessage = (event) => {
         event.preventDefault();
-        console.log(event.target.value);
 
         const newMessage = {
             senderId: currentUser.current.id,
