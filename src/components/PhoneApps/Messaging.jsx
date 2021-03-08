@@ -7,34 +7,29 @@ import MessageUserDetail from '../MessageUserDetail/MessageUserDetail';
 
 const Messaging = ({ handleHome, currentUser, socket }) => {
     const [messageObj, setMessageObj] = useState([]);
-    const selectedUser = useRef('');
+    const selectedUser = useRef({});
     const [displayScreen, setDisplayScreen] = useState('home');
 
     useEffect(() => {
         setMessageObj(currentUser.current.messageObj);
         currentUser.current.keyArray = Object.keys(currentUser.current.messageObj);
 
-        console.log(currentUser.current.messageObj);
-        setDisplayScreen('home');
-
         const messageTimer = setInterval(() => {
             socket.emit('GET_ALL_MESSAGES', currentUser.current.id);
             setMessageObj(currentUser.current.messageObj);
 
-        }, 500);
+        }, 1000);
 
         return () => clearInterval(messageTimer);
     }, []);
 
     const selectUserDetail = (user) => {
-        // console.log('selectUserDetail');
-        // console.log(user);
+        console.log(user);
         selectedUser.current = user;
 
         if (!messageObj[user.userName]) messageObj[user.userName] = [];
         setDisplayScreen('detail');
     };
-
 
     return (
         <div className={styles.screen}>
