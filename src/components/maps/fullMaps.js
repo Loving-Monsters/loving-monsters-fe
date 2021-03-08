@@ -4,7 +4,7 @@ import npcObj from '../NPCs/fullNPCs';
 
 const hallway = {
     mapImage: '/hallway/MessyHallway.png',
-    transformPositionX: 0,
+    transformPositionX: 375,
     transformPositionY: 250,
     npcs: [npcObj.barker],
     items: [itemObj.snek],
