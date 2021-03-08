@@ -141,6 +141,8 @@ export default function Engine({ currentUser, socket }) {
         return filteredUserArray.map(user => <Player
             key={user.id}
             position={user.position}
+            xOffset={currentMap.current.playerOffsetX}
+            yOffset={currentMap.current.playerOffsetY}
             direction={user.dir}
             avatar={user.avatar}
             userName={user.userName}
