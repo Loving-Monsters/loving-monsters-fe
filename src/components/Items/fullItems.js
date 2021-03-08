@@ -5,8 +5,8 @@ const frog = {
     map: 'classroom',
     display: '',
     friendship: {
-        misscreech: 1,
-        barker: 1,
+        misscreech: 0,
+        barker: -1,
         cal: 1
     },
     position: {
@@ -28,8 +28,8 @@ const nightlight = {
     map: 'classroom',
     display: '',
     friendship: {
-        misscreech: -1,
-        barker: -1,
+        misscreech: 0,
+        barker: 1,
         cal: -1
     },
     position: {
@@ -52,7 +52,7 @@ const ooze = {
     display: '',
     friendship: {
         misscreech: 1,
-        barker: 1,
+        barker: 0,
         cal: 1
     },
     position: {
@@ -74,9 +74,9 @@ const pancakes = {
     map: 'classroom',
     display: '',
     friendship: {
-        misscreech: 1,
+        misscreech: 0,
         barker: 1,
-        cal: 1
+        cal: -1
     },
     position: {
         x: 800,
@@ -98,8 +98,8 @@ const snek = {
     display: '',
     friendship: {
         misscreech: -1,
-        barker: -1,
-        cal: -1
+        barker: 1,
+        cal: 1
     },
     position: {
         x: 125,
@@ -120,8 +120,8 @@ const swampscum = {
     map: 'classroom',
     display: '',
     friendship: {
-        misscreech: 1,
-        barker: 1,
+        misscreech: 0,
+        barker: 0,
         cal: 1
     },
     position: {

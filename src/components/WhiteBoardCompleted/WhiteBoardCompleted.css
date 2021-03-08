@@ -1,0 +1,24 @@
+.listContainer {
+    overflow-y: scroll;
+    margin: 0px;
+    padding: 5px;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.timestamp{
+    font-weight: light;
+    font-size: .5em;
+}
+
+.text {
+    font-weight: light
+}

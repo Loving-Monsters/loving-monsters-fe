@@ -59,25 +59,30 @@ export default function Engine({ currentUser, socket }) {
             }, 500);
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction));
         };
     }, []);
 
-    const handleMapChange = (nextMap) => {
+    const handleMapChange = (mapName) => {
         setLoading(true);
 
-        currentUser.current.position = currentMap.current.portals.filter(portal => portal.nextMap === nextMap)[0].startingPosition;
+        currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
 
-        currentMap.current = mapObj[nextMap];
-        socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: nextMap });
-        currentUser.current.currentRoom = nextMap;
+        currentMap.current = mapObj[mapName];
+        socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: mapName });
+        currentUser.current.currentRoom = mapName;
 
         setLoading(false);
+    };
+
+    const handleWhiteBoardInteraction = (name) => {
+        console.log('🚀 ~ file: Engine.jsx ~ line 80 ~ handleWhiteBoardInteraction ~ name', name);
+        socket.emit('OPEN_WHITEBOARD', name);
     };
 
     const handleNPCInteraction = (npcName) => {
@@ -89,9 +94,8 @@ export default function Engine({ currentUser, socket }) {
         } else {
             storyIndex.current = 0;
         }
-
-
     };
+
     const handleItemInteraction = (itemName) => {
         currentUser.current.inventory.push(itemObj[itemName]);
         itemObj[itemName].display = 'none';
@@ -163,9 +167,11 @@ export default function Engine({ currentUser, socket }) {
                 npc.friendship += item.friendship[npc.name];
             }
             if (item.friendship[npc.name] > 0) {
-                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2}`);
-            } else {
+                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2} ${item.name}`);
+            } else if (item.friendship[npc.name] < 0) {
                 setThanks(`${npc.negativeReaction} ${item.name} ${npc.negativeReaction2} `)
+            } else {
+                setThanks(`${npc.neutralReaction} ${item.name} ${npc.neutralReaction2} `)
             }
         });
 
