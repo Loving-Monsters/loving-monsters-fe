@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import WhiteBoardHeader from '../WhiteBoardHeader/WhiteBoardHeader';
 import WhiteBoardTodo from '../WhiteBoardTodo/WhiteBoardTodo';
