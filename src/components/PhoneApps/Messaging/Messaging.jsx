@@ -32,9 +32,17 @@ const Messaging = ({ handleHome, currentUser, socket }) => {
         setDisplayScreen('detail');
     };
 
+    const handleMessageHome = () => {
+        setDisplayScreen('home');
+    };
+
     return (
         <div className={styles.messaging}>
-            <MessageHeader handleHome={handleHome} />
+            <MessageHeader
+                handleHome={handleHome}
+                handleMessageHome={handleMessageHome}
+                displayScreen={displayScreen}
+            />
             {displayScreen === 'home' ?
                 <MessageHome
                     currentUser={currentUser}
