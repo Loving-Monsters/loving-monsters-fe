@@ -19,7 +19,7 @@ const Phone = ({ currentUser, socket }) => {
         setDisplayScreen(phoneApps[appName]);
     };
 
-    const [displayScreen, setDisplayScreen] = useState(<Home handleAppChange={handleAppChange} />);
+    const [displayScreen, setDisplayScreen] = useState(<Home handleAppChange={handleAppChange} socket={socket} currentUser={currentUser} />);
 
     useEffect(() => {
         socket.on('RECIEVE_BULLETIN', bulletinObj => {
@@ -50,6 +50,8 @@ const Phone = ({ currentUser, socket }) => {
     const phoneApps = {
         home: <Home
             handleAppChange={handleAppChange}
+            socket={socket}
+            currentUser={currentUser}
         />,
         bulletin: <Bulletin
             handleHome={handleHome}
