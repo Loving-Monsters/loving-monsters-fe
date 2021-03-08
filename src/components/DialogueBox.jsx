@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function DialogueBox({ currentNpc, handleClose, handleGiveItem, currentUser, storyIndex, thanks }) {
     const handleBeat = () => {
-        if (currentNpc.friendship === 0) {
+        if (currentNpc.friendship <= 0) {
             return currentNpc.storyBeats1[storyIndex.current]
         } else if (currentNpc.friendship === 1) {
             return currentNpc.storyBeats2[storyIndex.current]

@@ -252,7 +252,7 @@ const hallway3 = {
         },
         nextMap: 'hallway2',
         startingPosition: {
-            x: 700,
+            x: 900,
             y: 350
         }
     }, {
@@ -571,7 +571,7 @@ const courtyard = {
         },
         nextMap: 'hallway3',
         startingPosition: {
-            x: 600,
+            x: 900,
             y: 350
         }
     }],

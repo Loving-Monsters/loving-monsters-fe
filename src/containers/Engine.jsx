@@ -81,7 +81,7 @@ export default function Engine({ currentUser, socket }) {
     };
 
     const handleNPCInteraction = (npcName) => {
-        setThanks('')
+        setThanks('');
         setBoxOpen(true);
         setNpc(npcObj[npcName]);
         if (storyIndex.current < 2) {
@@ -163,9 +163,9 @@ export default function Engine({ currentUser, socket }) {
                 npc.friendship += item.friendship[npc.name];
             }
             if (item.friendship[npc.name] > 0) {
-                setThanks(`Thank you for ${item.name}`);
+                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2}`);
             } else {
-                setThanks(`How dare you give me ${item.name}`)
+                setThanks(`${npc.negativeReaction} ${item.name} ${npc.negativeReaction2} `)
             }
         });
 
@@ -188,6 +188,7 @@ export default function Engine({ currentUser, socket }) {
                             {renderItems()}
                             {renderNPCs()}
                             {renderArrows()}
+                            {renderUsers()}
 
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
@@ -195,7 +196,7 @@ export default function Engine({ currentUser, socket }) {
                                 :
                                 null
                             }
-                            {renderUsers()}
+
                             <Player
                                 idle={currentUser.current.idle}
                                 key={currentUser.current.id}
