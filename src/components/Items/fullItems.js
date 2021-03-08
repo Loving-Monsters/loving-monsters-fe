@@ -79,15 +79,15 @@ const pancakes = {
         cal: 1
     },
     position: {
-        x: 125,
-        y: 400
+        x: 800,
+        y: 325
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '600px',
-    marginLeft: '200px',
+    marginTop: '500px',
+    marginLeft: '950px',
 };
 
 const snek = {

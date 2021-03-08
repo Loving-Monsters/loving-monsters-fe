@@ -222,14 +222,16 @@ const hallway2 = {
 const hallway3 = {
     mapImage: '/hallway/MessyHallway3.png',
     transformPositionX: 0,
-    transformPositionY: 250,
+    transformPositionY: 300,
+    playerOffsetX: 200,
+    playerOffsetY: 100,
     npcs: [],
     items: [itemObj.pancakes],
     portals: [{
         type: 'portal',
         position: {
-            x: 275,
-            y: 300
+            x: 350,
+            y: 250
         },
         dimension: {
             x: 50,
@@ -238,7 +240,7 @@ const hallway3 = {
         nextMap: 'classroom3',
         startingPosition: {
             x: 25,
-            y: 375
+            y: 550
         }
     }, {
         type: 'portal',
@@ -256,7 +258,7 @@ const hallway3 = {
     }, {
         type: 'portal',
         position: {
-            x: 725, y: 0
+            x: 1000, y: 0
         },
         dimension: {
             x: 10, y: 640
@@ -310,20 +312,20 @@ const hallway3 = {
             type: 'object',
             name: 'Lockers1',
             position: {
-                x: 0, y: 325
+                x: 0, y: 250
             },
             dimension: {
-                x: 225, y: 10
+                x: 250, y: 75
             }
         },
         {
             type: 'object',
             name: 'Lockers2',
             position: {
-                x: 425, y: 325
+                x: 575, y: 250
             },
             dimension: {
-                x: 250, y: 10
+                x: 700, y: 75
             }
         }
     ],
@@ -484,7 +486,7 @@ const classroom3 = {
     playerOffsetX: 0,
     playerOffsetY: 0,
     npcs: [],
-    items: [itemObj.swampscum],
+    items: [],
     portals: [{
         type: 'portal',
         position: {
@@ -556,7 +558,7 @@ const courtyard = {
     transformPositionX: 0,
     transformPositionY: 150,
     npcs: [],
-    items: [],
+    items: [itemObj.swampscum],
     portals: [{
         type: 'portal',
         position: {
