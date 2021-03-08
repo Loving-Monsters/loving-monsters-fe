@@ -43,6 +43,13 @@ const Home = ({ handleAppChange }) => {
                     <img src="/phone/Online.png" />
                     <br /><span>Online</span>
                 </div>
+                <div
+                    className={styles.icon}
+                    onClick={() => handleAppChange('whiteBoard')}
+                >
+                    <img src="/phone/Tasks.png" />
+                    <br /><span>White Board</span>
+                </div>
             </div>
         </div>
     );
