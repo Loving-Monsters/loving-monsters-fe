@@ -4,8 +4,6 @@ import MessageList from '../MessageList/MessageList';
 
 
 const MessageHome = ({ currentUser, socket, selectUserDetail, messageObj }) => {
-    // const [reciever, setReciever] = useState();
-    const [messageDetail, setMessageDetail] = useState();
     const [onlineUsers, setOnlineUsers] = useState([]);
 
 
@@ -27,6 +25,10 @@ const MessageHome = ({ currentUser, socket, selectUserDetail, messageObj }) => {
         return () => clearInterval(onlineUserTimer);
     }, []);
 
+
+    useEffect(() => {
+        console.log('are you rerendering?');
+    });
     return (
         <div>
             {

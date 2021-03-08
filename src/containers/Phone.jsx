@@ -19,10 +19,8 @@ const Phone = ({ currentUser, socket }) => {
         });
 
         socket.on('RECIEVE_MESSAGE', messageObj => {
-            // console.log('message recieved!');
             currentUser.current.messageObj = messageObj;
             currentUser.current.keyArray = Object.keys(messageObj);
-            // console.log(messageObj);
         });
     }, [socket]);
 

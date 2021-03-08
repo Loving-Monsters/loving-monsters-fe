@@ -2,19 +2,27 @@ import React, { useEffect } from 'react';
 
 const MessageList = ({ currentUser, messageObj, selectUserDetail }) => {
 
-
     const renderListItem = (listItem, userName) => {
         if (listItem) {
+
+            const selectedUser = { userName };
+            if (userName === listItem[0].recieverName) {
+                selectedUser.id = listItem[0].recieverId;
+
+            } else {
+                selectedUser.id = listItem[0].senderId;
+            }
+
             return (
-                <li key={userName} onClick={() => selectUserDetail(userName)} >
+                <li
+                    key={`${userName}li`}
+                    onClick={() => selectUserDetail(selectedUser)} >
                     <p key={userName}>{userName}</p>
-                    <p key={userName}>{listItem.text}</p>
+                    <p key={`${listItem.text}${listItem.id}`}>{listItem.text}</p>
                 </li>
             );
         }
-        return <li>
-            "Butts"
-        </li>;
+        return null;
     };
 
     return (

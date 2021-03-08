@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MessageInput from '../MessageInput/MessageInput';
 import MessageDetailList from '../MessageDetailList/MessageDetailList';
 
@@ -17,8 +17,15 @@ const MessageUserDetail = ({ currentUser, socket, messageArray, selectedUser }) 
         socket.emit('SEND_MESSAGE', ({ userId: currentUser.current.id, newMessage }));
     };
 
+    useEffect(() => {
+        // console.log(messageArray, selectedUser.current);
+    });
+
     return (
         <div>
+            <div>
+                {selectedUser.current.userName}
+            </div>
             <MessageInput
                 handleSendMessage={handleSendMessage}
             />

@@ -9,7 +9,6 @@ const MessageDropDown = ({ onlineUsers, selectUserDetail }) => {
     };
 
     const handleInput = (userId) => {
-
         const chosenUser = onlineUsers.find(user => user.id === Number(userId));
 
         setChosenUser(chosenUser);

@@ -6,6 +6,7 @@ const MessageInput = ({ handleSendMessage }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         handleSendMessage(input);
+        setInput('');
     };
     return (
         <form
