@@ -121,7 +121,7 @@
     border-bottom: solid 2px white;
 }
 
-.bulletin input {
+.bulletin input, .messageForm input {
     width: 200px;
     height: 14pt;
     border: solid 2px aqua;
@@ -132,7 +132,7 @@
     letter-spacing: -1pt;
 }
 
-.bulletin form {
+.bulletin form, .messageForm {
     position: absolute;
     margin-left: 15px;
     margin-bottom: 15px;
@@ -223,7 +223,6 @@
     font-family: dogica;
     text-align: center;
     color: aqua;
-
 }
 
 .messageDropdown select {

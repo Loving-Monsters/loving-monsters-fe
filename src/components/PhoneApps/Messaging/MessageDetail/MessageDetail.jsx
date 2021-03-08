@@ -12,7 +12,6 @@ const MessageDetail = ({ socket, currentUser, messageArray, recieverName }) => {
 
     const handleSendMessage = (event) => {
         event.preventDefault();
-        console.log(event.target.value);
 
         const newMessage = {
             senderId: currentUser.current.id,
