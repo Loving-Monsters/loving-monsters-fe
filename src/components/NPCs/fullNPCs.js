@@ -19,6 +19,12 @@ const barker = {
     },
     marginTop: '350px',
     marginLeft: '800px',
+    positiveReaction: 'Thank you for',
+    positiveReaction2: 'I love',
+    neutralReaction: 'I care not for',
+    neutralReaction2: ' ',
+    negativeReaction: 'I hate',
+    negativeReaction2: 'and I hate you for give me ',
     storyBeats1: [
         'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'],
     storyBeats2: [
@@ -47,6 +53,12 @@ const cal = {
     },
     marginTop: '350px',
     marginLeft: '800px',
+    positiveReaction: 'ooooohhhh a',
+    positiveReaction2: 'I would kill for',
+    negativeReaction: 'I hate',
+    negativeReaction2: '',
+    neutralReaction: 'I care not for',
+    neutralReaction2: ' ',
     storyBeats1: [
         'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'],
     storyBeats2: [
@@ -75,6 +87,12 @@ const misscreech = {
     },
     marginTop: '150px',
     marginLeft: '475px',
+    positiveReaction: 'wow a ',
+    positiveReaction2: 'Ive always wanted a',
+    negativeReaction: 'I hate',
+    negativeReaction2: '',
+    neutralReaction: 'I care not for',
+    neutralReaction2: ' ',
     storyBeats1: [
         'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'],
     storyBeats2: [
