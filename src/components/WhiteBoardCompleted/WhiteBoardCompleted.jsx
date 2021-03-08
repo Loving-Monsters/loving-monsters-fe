@@ -1,45 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import styles from './WhiteBoardCompleted.css';
 
-const WhiteBoardCompleted = ({ socket, completedTasks }) => {
+const WhiteBoardCompleted = ({ socket, currentUser }) => {
+    const [completedTasks, setCompletedTasks] = useState(currentUser.current.taskObj.completed);
 
-    const handleInProgress = (taskId) => {
+    useEffect(() => {
+        const taskTimer = setInterval(() => {
+            setCompletedTasks(currentUser.current.taskObj.completed);
+        }, 500);
 
+        return () => clearInterval(taskTimer);
+    });
+
+    const handleDelete = (taskId) => {
         socket.emit('DELETE_TASK', taskId);
     };
 
     const renderTask = (task) => {
-        const displayTimestamp = new Date(task.timestamp).toLocaleString();
+        const displayTimestamp = new Date(Number(task.timestamp)).toLocaleString();
 
         return (
-            <li>
-                <div>
+            <li key={task.id} className={styles.listItem}>
+                <div className={styles.authorName}>
                     {task.authorName}
+                </div>
+                <div className={styles.timestamp}>
                     {displayTimestamp}
+                </div>
+                <div className={styles.text}>
                     {task.text}
                 </div>
-                <button onClick={() => handleInProgress(task.id)}>
+                <button onClick={() => handleDelete(task.id)}>
                     DELETE
                 </button>
                 <hr />
-            </li>
+            </li >
         );
     };
 
     return (
         <div>
-            <ul>
-                {todoTasks.length > 0 ?
-                    todoTasks.map(task => renderTask(task))
+            <div>
+                TODO
+            </div>
+            <ul className={styles.listContainer}>
+                {completedTasks && completedTasks.length > 0 ?
+                    completedTasks.map(task => renderTask(task))
                     :
                     <li>
-                        NO TASKS TO DO!
+                        NO TASKS COMPLETED!
                     </li>
                 }
             </ul>
         </div>
     );
-};
-
 };
 
 export default WhiteBoardCompleted;

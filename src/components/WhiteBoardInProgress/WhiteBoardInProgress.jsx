@@ -1,7 +1,16 @@
-import React from 'react';
-//import styles from './WhiteBoardInProgress.css';
+import React, { useState, useEffect } from 'react';
+import styles from './WhiteBoardInProgress.css';
 
-const WhiteBoardInProgress = ({ socket, inProgressTasks }) => {
+const WhiteBoardInProgress = ({ socket, currentUser }) => {
+    const [inProgressTasks, setInProgressTasks] = useState(currentUser.current.taskObj.inProgress);
+
+    useEffect(() => {
+        const taskTimer = setInterval(() => {
+            setInProgressTasks(currentUser.current.taskObj.inProgress);
+        }, 500);
+
+        return () => clearInterval(taskTimer);
+    });
 
     const handleInProgress = (task) => {
         const updatedTask = {
@@ -13,31 +22,38 @@ const WhiteBoardInProgress = ({ socket, inProgressTasks }) => {
     };
 
     const renderTask = (task) => {
-        const displayTimestamp = new Date(task.timestamp).toLocaleString();
+        const displayTimestamp = new Date(Number(task.timestamp)).toLocaleString();
 
         return (
-            <li>
-                <div>
+            <li key={task.id} className={styles.listItem}>
+                <div className={styles.authorName}>
                     {task.authorName}
+                </div>
+                <div className={styles.timestamp}>
                     {displayTimestamp}
+                </div>
+                <div className={styles.text}>
                     {task.text}
                 </div>
                 <button onClick={() => handleInProgress(task)}>
                     COMPLETED
                 </button>
                 <hr />
-            </li>
+            </li >
         );
     };
 
     return (
         <div>
-            <ul>
-                {inProgressTasks.length > 0 ?
+            <div>
+                TODO
+            </div>
+            <ul className={styles.listContainer}>
+                {inProgressTasks && inProgressTasks.length > 0 ?
                     inProgressTasks.map(task => renderTask(task))
                     :
                     <li>
-                        NO TASKS TO DO!
+                        NO TASKS IN PROGRESS!
                     </li>
                 }
             </ul>
@@ -45,7 +61,5 @@ const WhiteBoardInProgress = ({ socket, inProgressTasks }) => {
     );
 };
 
-}
-;
 
 export default WhiteBoardInProgress;

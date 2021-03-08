@@ -1,7 +1,19 @@
-import React from 'react';
-// import styles from './WhiteBoardTodo.css';
+import React, { useEffect, useState } from 'react';
+import styles from './WhiteBoardTodo.css';
 
-const WhiteBoardTodo = ({ socket, todoTasks }) => {
+const WhiteBoardTodo = ({ socket, currentUser }) => {
+    const [todoTasks, setTodoTasks] = useState(currentUser.current.taskObj.todo);
+
+    useEffect(() => {
+        const taskTimer = setInterval(() => {
+            setTodoTasks(currentUser.current.taskObj.todo);
+            console.log('🚀 ~ file: WhiteBoardTodo.jsx ~ line 20 ~ useEffect ~ currentUser.current.taskObj.todo', currentUser.current.taskObj.todo);
+        }, 1000);
+
+
+        return () => clearInterval(taskTimer);
+
+    });
 
     const handleInProgress = (task) => {
         const updatedTask = {
@@ -13,27 +25,34 @@ const WhiteBoardTodo = ({ socket, todoTasks }) => {
     };
 
     const renderTask = (task) => {
-        const displayTimestamp = new Date(task.timestamp).toLocaleString();
+        const displayTimestamp = new Date(Number(task.timestamp)).toLocaleString();
 
         return (
-            <li>
-                <div>
+            <li key={task.id} className={styles.listItem}>
+                <div className={styles.authorName}>
                     {task.authorName}
+                </div>
+                <div className={styles.timestamp}>
                     {displayTimestamp}
+                </div>
+                <div className={styles.text}>
                     {task.text}
                 </div>
                 <button onClick={() => handleInProgress(task)}>
                     IN PROGRESS
                 </button>
                 <hr />
-            </li>
+            </li >
         );
     };
 
     return (
         <div>
-            <ul>
-                {todoTasks.length > 0 ?
+            <div>
+                TODO
+            </div>
+            <ul className={styles.listContainer}>
+                {todoTasks && todoTasks.length > 0 ?
                     todoTasks.map(task => renderTask(task))
                     :
                     <li>

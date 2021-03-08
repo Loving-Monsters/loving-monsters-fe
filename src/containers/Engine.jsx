@@ -16,7 +16,7 @@ import npcObj from '../components/NPCs/fullNPCs';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
-export default function Engine({ currentUser, socket, handleWhiteBoardInteraction }) {
+export default function Engine({ currentUser, socket }) {
     const [userArray, setUserArray] = useState([]);
     const currentMap = useRef(mapObj.hallway);
     const [loading, setLoading] = useState(false);
@@ -77,7 +77,7 @@ export default function Engine({ currentUser, socket, handleWhiteBoardInteractio
     };
 
     const handleWhiteBoardInteraction = (name) => {
-        console.log("🚀 ~ file: Engine.jsx ~ line 80 ~ handleWhiteBoardInteraction ~ name", name)
+        console.log('🚀 ~ file: Engine.jsx ~ line 80 ~ handleWhiteBoardInteraction ~ name', name);
         socket.emit('OPEN_WHITEBOARD', name);
     };
 

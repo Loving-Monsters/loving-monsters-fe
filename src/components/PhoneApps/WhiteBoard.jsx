@@ -10,16 +10,14 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
     const [taskObj, setTaskObj] = useState({});
     const [taskDisplay, setTaskDisplay] = useState(
         <WhiteBoardTodo
-            todoTasks={taskObj.todo}
+            currentUser={currentUser}
             socket={socket}
         />
     );
 
     useEffect(() => {
-        setTaskObj(currentUser.current.taskObj);
-
-        taskTimer = setInterval(() => {
-            socket.emit('GET_TASKS', currentUser.current.currenRoom);
+        const taskTimer = setInterval(() => {
+            socket.emit('GET_TASKS', currentUser.current.currentRoom);
         }, 1000);
 
         return () => clearInterval(taskTimer);
@@ -27,7 +25,6 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
 
     useEffect(() => {
         socket.on('GET_TASKS', allTasks => {
-            console.log('🚀 ~ file: WhiteBoard.jsx ~ line 19 ~ useEffect ~ allTasks', allTasks);
             setTaskObj(allTasks);
         });
     }, [socket]);
@@ -37,7 +34,7 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
             case 'todo':
                 setTaskDisplay(
                     <WhiteBoardTodo
-                        todoTasks={taskObj.todo}
+                        currentUser={currentUser}
                         socket={socket}
                     />
                 );
@@ -46,7 +43,7 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
             case 'inProgress':
                 setTaskDisplay(
                     <WhiteBoardInProgress
-                        inProgressTasks={taskObj.inProgress}
+                        currentUser={currentUser}
                         socket={socket}
                     />
                 );
@@ -55,7 +52,7 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
             case 'completed':
                 setTaskDisplay(
                     <WhiteBoardCompleted
-                        completedTasks={taskObj.completed}
+                        currentUser={currentUser}
                         socket={socket}
                     />
                 );
@@ -77,6 +74,7 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
                 handleHome={handleHome}
                 handleTabChange={handleTabChange}
             />
+            {taskDisplay}
         </div>
     );
 };

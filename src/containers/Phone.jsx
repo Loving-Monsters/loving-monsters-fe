@@ -33,7 +33,12 @@ const Phone = ({ currentUser, socket }) => {
 
         socket.on('OPEN_WHITEBOARD', taskObj => {
             currentUser.current.taskObj = taskObj;
-            handleAppChange(phoneApps.whiteBoard);
+            handleAppChange('whiteBoard');
+        });
+
+        socket.on('GET_TASKS', taskObj => {
+            currentUser.current.taskObj = taskObj;
+
         });
     }, [socket]);
 
