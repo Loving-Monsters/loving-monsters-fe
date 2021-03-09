@@ -100,10 +100,7 @@ export default function Engine({ currentUser }) {
         }
     };
     const handleBallInteraction = (direction, up, down, left, right) => {
-        // console.log('up', up)
-        // console.log('down', down)
-        // console.log('left', left)
-        // console.log('right', right)
+
         if (direction === 'ArrowRight') {
             if (right.type === 'portal') {
                 currentMap.current.balls.display = false;
