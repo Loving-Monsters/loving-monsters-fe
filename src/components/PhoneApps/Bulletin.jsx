@@ -1,9 +1,12 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from '../../containers/Containers.css';
+import { SocketContext } from '../../utils/socketController';
 
-const Bulletin = ({ currentUser, handleHome, socket }) => {
+const Bulletin = ({ currentUser, handleHome }) => {
+    const socket = useContext(SocketContext);
+
     const [input, setInput] = useState('');
     const [localBulletinArray, setLocalBulletinArray] = useState([]);
 

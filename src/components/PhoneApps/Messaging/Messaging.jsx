@@ -1,16 +1,19 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import styles from '../../../containers/Containers.css';
 import MessageHome from './MessageHome/MessageHome';
 import MessageHeader from './MessageHeader/MessageHeader';
 import MessageUserDetail from './MessageUserDetail/MessageUserDetail';
+import { SocketContext } from '../../../utils/socketController';
 
 
-const Messaging = ({ handleHome, currentUser, socket }) => {
+
+const Messaging = ({ handleHome, currentUser }) => {
     const [messageObj, setMessageObj] = useState([]);
     const selectedUser = useRef({});
     const [displayScreen, setDisplayScreen] = useState('home');
+    const socket = useContext(SocketContext);
 
     useEffect(() => {
         setMessageObj(currentUser.current.messageObj);
@@ -32,9 +35,17 @@ const Messaging = ({ handleHome, currentUser, socket }) => {
         setDisplayScreen('detail');
     };
 
+    const handleMessageHome = () => {
+        setDisplayScreen('home');
+    };
+
     return (
         <div className={styles.messaging}>
-            <MessageHeader handleHome={handleHome} />
+            <MessageHeader
+                handleHome={handleHome}
+                handleMessageHome={handleMessageHome}
+                displayScreen={displayScreen}
+            />
             {displayScreen === 'home' ?
                 <MessageHome
                     currentUser={currentUser}

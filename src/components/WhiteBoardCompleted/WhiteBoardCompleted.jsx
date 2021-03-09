@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './WhiteBoardCompleted.css';
+import { SocketContext } from '../../utils/socketController';
 
-const WhiteBoardCompleted = ({ socket, currentUser }) => {
+const WhiteBoardCompleted = ({ currentUser }) => {
+    const socket = useContext(SocketContext);
+
     const [completedTasks, setCompletedTasks] = useState(currentUser.current.taskObj.completed);
 
     useEffect(() => {

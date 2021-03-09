@@ -1,9 +1,11 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styles from '../../containers/Containers.css';
+import { SocketContext } from '../../utils/socketController';
 
-const Home = ({ handleAppChange, socket, currentUser }) => {
+const Home = ({ handleAppChange, currentUser }) => {
     const [inClassroom, setInClassroom] = useState(false);
+    const socket = useContext(SocketContext);
 
     useEffect(() => {
         socket.on('CHANGE_ROOM', newRoom => {
