@@ -7,6 +7,7 @@ import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
 import Arrow from '../components/arrows/Arrow';
 import NPC from '../components/NPCs/NPC.jsx';
+import Ball from '../components/Ball';
 import Item from '../components/Items/Item';
 import DialogueBox from '../components/DialogueBox';
 import styles from './Containers.css';
@@ -28,7 +29,7 @@ export default function Engine({ currentUser }) {
     const [currentNpc, setNpc] = useState(false);
     const [thanks, setThanks] = useState('');
     const storyIndex = useRef(0);
-
+    // const [transform, setTransform] = useState(currentMap.current.balls.position)
 
     useEffect(() => {
         socket.on('GAME_STATE', response => {
@@ -59,12 +60,12 @@ export default function Engine({ currentUser }) {
             }, 500);
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction));
         };
     }, []);
 
@@ -93,6 +94,115 @@ export default function Engine({ currentUser }) {
         } else {
             storyIndex.current = 0;
         }
+    };
+    const handleBallInteraction = (direction, up, down, left, right) => {
+
+        if (direction === 'ArrowRight') {
+            if (right.type === 'portal') {
+                currentMap.current.balls.display = false;
+                currentMap.current.balls.dimension.x = 0;
+                currentMap.current.balls.dimension.y = 0;
+                currentMap.current.balls.location.x -= 100;
+                currentMap.current.balls.position.x -= 100;
+                mapObj[right.name].balls.display = true;
+                mapObj[right.name].balls.dimension.x = 50;
+                mapObj[right.name].balls.dimension.y = 50;
+            } else
+                if (right.type === false) {
+                    currentMap.current.balls.location.x += 50;
+                    currentMap.current.balls.position.x += 50;
+                    currentMap.current.balls.rotate += 35;
+
+
+
+                } else
+                    if (right.type !== false) {
+                        currentMap.current.balls.location.x -= 50;
+                        currentMap.current.balls.position.x -= 50;
+                        currentMap.current.balls.rotate -= 35;
+
+
+                    }
+        }
+        if (direction === 'ArrowLeft') {
+            if (left.type === 'portal') {
+                currentMap.current.balls.display = false;
+                currentMap.current.balls.dimension.x = 0;
+                currentMap.current.balls.dimension.y = 0;
+                currentMap.current.balls.location.x += 100;
+                currentMap.current.balls.position.x += 100;
+                mapObj[left.name].balls.dimension.x = 50;
+                mapObj[left.name].balls.dimension.y = 50;
+                mapObj[left.name].balls.display = true;
+            } else
+                if (left.type === false) {
+                    currentMap.current.balls.location.x -= 50;
+                    currentMap.current.balls.position.x -= 50;
+                    currentMap.current.balls.rotate -= 35;
+
+
+                } else
+                    if (left.type !== false) {
+                        currentMap.current.balls.location.x += 50;
+                        currentMap.current.balls.position.x += 50;
+                        currentMap.current.balls.rotate += 35;
+
+
+                    }
+        }
+        if (direction === 'ArrowUp') {
+            if (up.type === 'portal') {
+                currentMap.current.balls.display = false;
+                currentMap.current.balls.dimension.x = 0;
+                currentMap.current.balls.dimension.y = 0;
+                currentMap.current.balls.location.y += 50;
+                currentMap.current.balls.position.y += 50;
+                mapObj[up.name].balls.display = true;
+                mapObj[up.name].balls.dimension.x = 50;
+                mapObj[up.name].balls.dimension.y = 50;
+            } else
+                if (up.type === false) {
+                    currentMap.current.balls.location.y -= 50;
+                    currentMap.current.balls.position.y -= 50;
+                    currentMap.current.balls.rotate += 35;
+
+
+                } else
+                    if (up.type !== false) {
+                        currentMap.current.balls.location.y += 50;
+                        currentMap.current.balls.position.y += 50;
+                        currentMap.current.balls.rotate += 35;
+
+
+                    }
+        }
+        if (direction === 'ArrowDown') {
+            if (down.type === 'portal') {
+                currentMap.current.balls.display = false;
+                currentMap.current.balls.dimension.x = 0;
+                currentMap.current.balls.dimension.y = 0;
+                currentMap.current.balls.location.y -= 50;
+                currentMap.current.balls.position.y -= 50;
+                mapObj[down.name].balls.display = true;
+                mapObj[down.name].balls.dimension.x = 50;
+                mapObj[down.name].balls.dimension.y = 50;
+            } else
+                if (down.type === false) {
+                    currentMap.current.balls.location.y += 50;
+                    currentMap.current.balls.position.y += 50;
+                    currentMap.current.balls.rotate += 35;
+
+
+                } else
+                    if (down.type !== false) {
+                        currentMap.current.balls.location.y -= 50;
+                        currentMap.current.balls.position.y -= 50;
+                        currentMap.current.balls.rotate += 35;
+
+
+                    }
+        }
+
     };
 
     const handleItemInteraction = (itemName) => {
@@ -125,6 +235,18 @@ export default function Engine({ currentUser }) {
                 rotate={arrow.rotate}
             />
         );
+    };
+    const renderBalls = () => {
+        if (currentMap.current.balls.display === true) {
+            return < Ball
+                key={currentMap.current.balls.position}
+                position={currentMap.current.balls.location}
+                rotate={currentMap.current.balls.rotate}
+            />;
+
+
+        }
+
     };
 
     const renderItems = () => {
@@ -196,7 +318,7 @@ export default function Engine({ currentUser }) {
                             {renderNPCs()}
                             {renderArrows()}
                             {renderUsers()}
-
+                            {renderBalls()}
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
                                 />

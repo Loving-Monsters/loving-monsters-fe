@@ -54,6 +54,10 @@
     height: 100px;
 }
 
+.apps img:hover {
+    cursor: pointer;
+}
+
 .icon {
     text-align: center;
     width: 120px;
@@ -66,18 +70,12 @@
     margin-bottom: 15px;
 }
 
-.homescreen, .bulletin, .friendships, .inventory, .online, .messaging, .screen {
+.homescreen, .bulletin, .friendships, .inventory, .online, .messaging, .whiteboard {
     position: absolute;
     margin-top: 5px;
     height: 630px;
     width: 300px;
     border-radius: 20px;
-    overflow: scroll;
-}
-
-.screen {
-    background-color: white;
-    overflow: hidden;
 }
 
 .homescreen {
@@ -85,7 +83,7 @@
     overflow: hidden;
 }
 
-.bulletin, .friendships, .inventory, .online, .messaging {
+.bulletin, .friendships, .inventory, .online, .messaging, .whiteboard {
     background-color: #242424;
 }
 
@@ -95,6 +93,10 @@
     font-family: dogica;
     letter-spacing: -1pt;
     color: aqua;
+}
+
+.back:hover, .send:hover {
+    cursor: pointer;
 }
 
 .back {
@@ -121,7 +123,7 @@
     border-bottom: solid 2px white;
 }
 
-.bulletin input, .messageForm input {
+.bulletin input, .messageForm input, .createTask input {
     width: 200px;
     height: 14pt;
     border: solid 2px aqua;
@@ -132,7 +134,7 @@
     letter-spacing: -1pt;
 }
 
-.bulletin form, .messageForm {
+.bulletin form, .messageForm, .createTask form {
     position: absolute;
     margin-left: 15px;
     margin-bottom: 15px;
@@ -145,22 +147,23 @@
     height: 50px;
     width: 100%;
     border-top: solid 2px white;
+    background-color: #1A1A1A;
 }
 
-.bullList {
+.bullList, .messageList {
     margin-top: 15px;
     height: 510px;
     overflow: scroll;
 }
 
-.bullItem {
+.bullItem, .messageItem {
     margin-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
     border-bottom: solid 1px white;
 }
 
-.bullText {
+.bullText, .messageText {
     font-family: dogica;
     font-size: 10pt;
     letter-spacing: -1pt;
@@ -236,7 +239,7 @@
     color: aqua;
 }
 
-.messageDropdown button {
+.messageDropdown button, .createTask button {
     background-color: transparent;
     border: none;
     font-family: dogica;
@@ -244,7 +247,16 @@
     color: aqua;
 }
 
+.createTask button {
+    font-size: 9pt;
+}
+
+.messageDropdown button:hover {
+    cursor: pointer;
+}
+
 .messageList {
+    margin-top: 15px;
     font-family: dogica;
     color: black;
 }
@@ -261,4 +273,82 @@
     text-align: center;
     font-family: dogica;
     background-color: aqua;
+}
+
+.messageName:hover {
+    cursor: pointer;
+}
+
+.messageItems {
+    height: 480px;
+    overflow: scroll;
+}
+
+.createTaskButton, .todoButton, .inProgressButton, .completeButton {
+    background-color: transparent;
+    margin-top: 5px;
+    border: none;
+    font-family: dogica;
+    font-size: 10pt;
+    color: aqua;
+    line-height: 12pt;
+}
+
+.todoButton, .inProgressButton, .completeButton {
+    color: white;
+    text-decoration: underline;
+}
+
+.whiteboard {
+    overflow: auto;
+}
+
+.todoTask {
+    margin-top: 10px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.todoTask span {
+    margin-top: 10px;
+    font-family: dogica;
+    color: white;
+}
+
+.todoItem {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: dogica;
+    color: white;
+    border-bottom: solid 2px white;
+}
+
+.authorName, .todoTimestamp {
+    font-family: dogica;
+    font-size: 7pt;
+    color: white;
+}
+
+.todoText {
+    line-height: 14pt;
+    color: aqua;
+}
+
+h2 {
+    font-family: dogica;
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    color: aqua;
+}
+
+.todoItem button {
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: solid 2px aqua;
+    background-color: transparent;
+    font-family: dogica;
+    color: aqua;
 }

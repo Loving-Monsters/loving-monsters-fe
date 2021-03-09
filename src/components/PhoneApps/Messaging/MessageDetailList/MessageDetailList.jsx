@@ -9,16 +9,16 @@ const MessageDetailList = ({ messageArray }) => {
         if (text) {
             const displayTimestamp = new Date(Number(timestamp)).toLocaleString();
             return (
-                <div className={styles.bullItem} key={timestamp}>
+                <div className={styles.messageItem} key={timestamp}>
                     <span className={styles.timestamp}>{displayTimestamp}</span>
-                    <p className={styles.bullText}>{`${senderName}: ${text}`}</p>
+                    <p className={styles.messageText}>{`${senderName}: ${text}`}</p>
                 </div>
             );
         }
     };
 
     return (
-        <div>
+        <div className={styles.messageItems}>
             {messageArray && messageArray.length > 0 ?
                 messageArray.map(message => renderMessage(message))
                 :

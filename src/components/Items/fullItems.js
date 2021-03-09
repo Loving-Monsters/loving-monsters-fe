@@ -33,15 +33,15 @@ const nightlight = {
         cal: -1
     },
     position: {
-        x: 100,
-        y: 250
+        x: 625,
+        y: 125
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '425px',
-    marginLeft: '350px',
+    marginTop: '300px',
+    marginLeft: '880px',
 };
 
 const ooze = {
@@ -102,15 +102,15 @@ const snek = {
         cal: 1
     },
     position: {
-        x: 400,
-        y: 300
+        x: 450,
+        y: 275
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '475px',
-    marginLeft: '630px',
+    marginTop: '425px',
+    marginLeft: '680px',
 };
 
 const swampscum = {
@@ -125,15 +125,15 @@ const swampscum = {
         cal: 1
     },
     position: {
-        x: 125,
-        y: 350
+        x: 825,
+        y: 1625
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '600px',
-    marginLeft: '200px',
+    marginTop: '1600px',
+    marginLeft: '1080px',
 };
 
 const itemObj = { frog, nightlight, ooze, pancakes, snek, swampscum };
