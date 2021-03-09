@@ -392,7 +392,7 @@ const classroom = {
                 x: 0, y: 25
             },
             dimension: {
-                x: 600, y: 125
+                x: 1000, y: 125
             }
         },
         {
@@ -480,7 +480,7 @@ const classroom2 = {
                 x: 0, y: 25
             },
             dimension: {
-                x: 600, y: 125
+                x: 1000, y: 125
             }
         },
         {
@@ -568,7 +568,7 @@ const classroom3 = {
                 x: 0, y: 25
             },
             dimension: {
-                x: 600, y: 125
+                x: 1000, y: 125
             }
         },
         {
