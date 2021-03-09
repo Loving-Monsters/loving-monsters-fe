@@ -223,7 +223,7 @@ const hallway2 = {
     ],
 };
 const hallway3 = {
-    mapImage: '/hallway/MessyHallway2.png',
+    mapImage: '/hallway/MessyHallway3.png',
     npcs: [],
     items: [itemObj.pancakes],
     transformPositionX: 0,
@@ -235,7 +235,7 @@ const hallway3 = {
     portals: [{
         type: 'portal',
         position: {
-            x: 200,
+            x: 225,
             y: 300
         },
         dimension: {
@@ -328,7 +328,7 @@ const hallway3 = {
             type: 'object',
             name: 'Lockers2',
             position: {
-                x: 700, y: 250
+                x: 450, y: 250
             },
             dimension: {
                 x: 250, y: 75
