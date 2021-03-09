@@ -6,49 +6,51 @@ const hallway = {
     mapImage: '/hallway/MessyHallway.png',
     transformPositionX: 0,
     transformPositionY: 300,
-    playerOffsetX: 200,
+    playerOffsetX: 300,
     playerOffsetY: 100,
+    left: 350,
+    top: 0,
     npcs: [npcObj.barker],
     items: [itemObj.snek],
     portals: [{
         type: 'portal',
         position: {
-            x: 375,
-            y: 275
+            x: 600,
+            y: 300
         },
         dimension: {
             x: 50,
-            y: 25
+            y: 0
         },
         name: 'classroom',
         startingPosition: {
-            x: 25,
+            x: 75,
             y: 550
         }
     }, {
         type: 'portal',
         position: {
-            x: 1000, y: 0
+            x: 1380, y: 0
         },
         dimension: {
             x: 10, y: 640
         },
         name: 'hallway2',
         startingPosition: {
-            x: 25,
+            x: 0,
             y: 375
         }
     }],
     arrows: [{
         location: 'hallwayarrow1',
         marginTop: '250px',
-        marginLeft: '545px',
+        marginLeft: '895px',
         rotate: 0
     },
     {
         location: 'hallwayarrow2',
         marginTop: '500px',
-        marginLeft: '1300px',
+        marginLeft: '1750px',
         rotate: 90
     }
     ],
@@ -60,7 +62,7 @@ const hallway = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 1100, y: 250
+                x: 1100, y: 275
             },
         },
         {
@@ -87,17 +89,17 @@ const hallway = {
             type: 'object',
             name: 'Lockers1',
             position: {
-                x: 25, y: 250
+                x: 25, y: 300
             },
             dimension: {
-                x: 100, y: 75
+                x: 325, y: 50
             }
         },
         {
             type: 'object',
             name: 'Lockers2',
             position: {
-                x: 750, y: 250
+                x: 1000, y: 250
             },
             dimension: {
                 x: 500, y: 75
@@ -112,13 +114,15 @@ const hallway2 = {
     items: [itemObj.ooze],
     transformPositionX: 0,
     transformPositionY: 300,
-    playerOffsetX: 200,
+    playerOffsetX: 350,
+    left: 0,
+    top: 0,
     playerOffsetY: 100,
     portals: [{
         type: 'portal',
         position: {
-            x: 350,
-            y: 275
+            x: 200,
+            y: 300
         },
         dimension: {
             x: 50,
@@ -126,7 +130,7 @@ const hallway2 = {
         },
         name: 'classroom2',
         startingPosition: {
-            x: 25,
+            x: 75,
             y: 550
         }
     }, {
@@ -183,7 +187,7 @@ const hallway2 = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 1100, y: 250
+                x: 1100, y: 300
             },
         },
         {
@@ -203,14 +207,14 @@ const hallway2 = {
                 x: 0, y: 250
             },
             dimension: {
-                x: 250, y: 75
+                x: 100, y: 75
             }
         },
         {
             type: 'object',
             name: 'Lockers2',
             position: {
-                x: 850, y: 250
+                x: 700, y: 250
             },
             dimension: {
                 x: 250, y: 75
@@ -218,20 +222,21 @@ const hallway2 = {
         }
     ],
 };
-
 const hallway3 = {
     mapImage: '/hallway/MessyHallway3.png',
-    transformPositionX: 0,
-    transformPositionY: 300,
-    playerOffsetX: 200,
-    playerOffsetY: 100,
     npcs: [],
     items: [itemObj.pancakes],
+    transformPositionX: 0,
+    transformPositionY: 300,
+    playerOffsetX: 350,
+    left: 0,
+    top: 0,
+    playerOffsetY: 100,
     portals: [{
         type: 'portal',
         position: {
-            x: 350,
-            y: 250
+            x: 200,
+            y: 300
         },
         dimension: {
             x: 50,
@@ -239,7 +244,7 @@ const hallway3 = {
         },
         name: 'classroom3',
         startingPosition: {
-            x: 25,
+            x: 75,
             y: 550
         }
     }, {
@@ -252,7 +257,7 @@ const hallway3 = {
         },
         name: 'hallway2',
         startingPosition: {
-            x: 900,
+            x: 950,
             y: 350
         }
     }, {
@@ -286,7 +291,8 @@ const hallway3 = {
         marginTop: '500px',
         marginLeft: '30px',
         rotate: 270
-    }],
+    }
+    ],
     objectArray: [
         {
             type: 'object',
@@ -295,7 +301,7 @@ const hallway3 = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 1100, y: 250
+                x: 1100, y: 300
             },
         },
         {
@@ -315,35 +321,40 @@ const hallway3 = {
                 x: 0, y: 250
             },
             dimension: {
-                x: 250, y: 75
+                x: 100, y: 75
             }
         },
         {
             type: 'object',
             name: 'Lockers2',
             position: {
-                x: 575, y: 250
+                x: 700, y: 250
             },
             dimension: {
-                x: 700, y: 75
+                x: 250, y: 75
             }
         }
     ],
 };
 
+
+
 const classroom = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
-    playerOffsetX: 0,
-    playerOffsetY: 0,
+    playerOffsetX: 300,
+    playerOffsetY: 100,
+    left: 350,
+    top: 100,
+
     items: [itemObj.frog],
     npcs: [npcObj.misscreech],
     whiteBoard: {
         type: 'whiteBoard',
         name: 'classroom',
         position: {
-            x: 50,
+            x: 150,
             y: 100
         },
         dimension: {
@@ -354,8 +365,8 @@ const classroom = {
     portals: [{
         type: 'portal',
         position: {
-            x: 25,
-            y: 625
+            x: 75,
+            y: 575
         },
         dimension: {
             x: 25,
@@ -369,8 +380,8 @@ const classroom = {
     }],
     arrows: [{
         location: 'classroomarrow1',
-        marginTop: '650px',
-        marginLeft: '5px',
+        marginTop: '750px',
+        marginLeft: '355px',
         rotate: 180
     }],
     objectArray: [
@@ -378,20 +389,20 @@ const classroom = {
             type: 'object',
             name: 'NorthWall',
             position: {
-                x: 0, y: 0
+                x: 0, y: 25
             },
             dimension: {
-                x: 600, y: 150
+                x: 600, y: 125
             }
         },
         {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 625, y: 0
+                x: 725, y: 0
             },
             dimension: {
-                x: 10, y: 600
+                x: 10, y: 800
             }
         },
         {
@@ -401,14 +412,14 @@ const classroom = {
                 x: 0, y: 625
             },
             dimension: {
-                x: 600, y: 150
+                x: 1000, y: 150
             }
         },
         {
             type: 'object',
             name: 'WestWall',
             position: {
-                x: -25, y: 0
+                x: 25, y: 0
             },
             dimension: {
                 x: 10, y: 600
@@ -416,20 +427,22 @@ const classroom = {
         },
     ],
 };
-
 const classroom2 = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
-    playerOffsetX: 0,
-    playerOffsetY: 0,
-    npcs: [],
+    playerOffsetX: 300,
+    playerOffsetY: 100,
+    left: 350,
+    top: 100,
+
     items: [itemObj.nightlight],
+    npcs: [],
     whiteBoard: {
         type: 'whiteBoard',
         name: 'classroom',
         position: {
-            x: 50,
+            x: 150,
             y: 100
         },
         dimension: {
@@ -440,8 +453,8 @@ const classroom2 = {
     portals: [{
         type: 'portal',
         position: {
-            x: 25,
-            y: 625
+            x: 75,
+            y: 575
         },
         dimension: {
             x: 25,
@@ -455,8 +468,8 @@ const classroom2 = {
     }],
     arrows: [{
         location: 'classroomarrow1',
-        marginTop: '650px',
-        marginLeft: '5px',
+        marginTop: '750px',
+        marginLeft: '355px',
         rotate: 180
     }],
     objectArray: [
@@ -464,20 +477,20 @@ const classroom2 = {
             type: 'object',
             name: 'NorthWall',
             position: {
-                x: 0, y: 0
+                x: 0, y: 25
             },
             dimension: {
-                x: 600, y: 150
+                x: 600, y: 125
             }
         },
         {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 625, y: 0
+                x: 725, y: 0
             },
             dimension: {
-                x: 10, y: 600
+                x: 10, y: 800
             }
         },
         {
@@ -487,14 +500,14 @@ const classroom2 = {
                 x: 0, y: 625
             },
             dimension: {
-                x: 600, y: 150
+                x: 1000, y: 150
             }
         },
         {
             type: 'object',
             name: 'WestWall',
             position: {
-                x: -25, y: 0
+                x: 25, y: 0
             },
             dimension: {
                 x: 10, y: 600
@@ -502,20 +515,22 @@ const classroom2 = {
         },
     ],
 };
-
 const classroom3 = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
     transformPositionY: 150,
-    playerOffsetX: 0,
-    playerOffsetY: 0,
-    npcs: [],
+    playerOffsetX: 300,
+    playerOffsetY: 100,
+    left: 350,
+    top: 100,
+
     items: [],
+    npcs: [],
     whiteBoard: {
         type: 'whiteBoard',
         name: 'classroom',
         position: {
-            x: 50,
+            x: 150,
             y: 100
         },
         dimension: {
@@ -526,8 +541,8 @@ const classroom3 = {
     portals: [{
         type: 'portal',
         position: {
-            x: 25,
-            y: 625
+            x: 75,
+            y: 575
         },
         dimension: {
             x: 25,
@@ -541,8 +556,8 @@ const classroom3 = {
     }],
     arrows: [{
         location: 'classroomarrow1',
-        marginTop: '650px',
-        marginLeft: '5px',
+        marginTop: '750px',
+        marginLeft: '355px',
         rotate: 180
     }],
     objectArray: [
@@ -550,20 +565,20 @@ const classroom3 = {
             type: 'object',
             name: 'NorthWall',
             position: {
-                x: 0, y: 0
+                x: 0, y: 25
             },
             dimension: {
-                x: 600, y: 150
+                x: 600, y: 125
             }
         },
         {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 625, y: 0
+                x: 725, y: 0
             },
             dimension: {
-                x: 10, y: 600
+                x: 10, y: 800
             }
         },
         {
@@ -573,14 +588,14 @@ const classroom3 = {
                 x: 0, y: 625
             },
             dimension: {
-                x: 600, y: 150
+                x: 1000, y: 150
             }
         },
         {
             type: 'object',
             name: 'WestWall',
             position: {
-                x: -25, y: 0
+                x: 25, y: 0
             },
             dimension: {
                 x: 10, y: 600
@@ -589,10 +604,15 @@ const classroom3 = {
     ],
 };
 
+
+//
+
 const courtyard = {
     mapImage: '',
     transformPositionX: 0,
     transformPositionY: 150,
+    left: 50,
+    top: 50,
     npcs: [],
     items: [itemObj.swampscum],
     portals: [{

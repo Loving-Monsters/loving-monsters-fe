@@ -66,8 +66,7 @@
     margin-bottom: 15px;
 }
 
-.homescreen, .bulletin, .friendships, .inventory, .online, .messaging, .whiteboard
-{
+.homescreen, .bulletin, .friendships, .inventory, .online, .messaging, .whiteboard {
     position: absolute;
     margin-top: 5px;
     height: 630px;
@@ -263,4 +262,14 @@
 .messageItems {
     height: 480px;
     overflow: scroll;
+}
+
+.createTaskButton, .todoButton, .inProgressButton, .completeButton {
+    background-color: transparent;
+    margin-top: 5px;
+    border: none;
+    font-family: dogica;
+    font-size: 10pt;
+    color: aqua;
+    line-height: 12pt;
 }

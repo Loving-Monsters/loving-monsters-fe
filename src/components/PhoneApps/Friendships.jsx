@@ -1,10 +1,20 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../../containers/Containers.css';
 import npcObj from '../NPCs/fullNPCs';
 
 const Friendships = ({ handleHome }) => {
+    const [count, setCount] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCount(count + 1)
+        }, 500);
+
+
+        return () => clearInterval(interval);
+    }, [count]);
     const npcArr = [npcObj.barker, npcObj.cal, npcObj.misscreech];
     return (
         <div className={styles.friendships}>

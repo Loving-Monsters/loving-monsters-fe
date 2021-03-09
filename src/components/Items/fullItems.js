@@ -10,15 +10,15 @@ const frog = {
         cal: 1
     },
     position: {
-        x: 25,
-        y: 150
+        x: 100,
+        y: 250
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '225px',
-    marginLeft: '-25px',
+    marginTop: '425px',
+    marginLeft: '350px',
 };
 
 const nightlight = {
@@ -33,15 +33,15 @@ const nightlight = {
         cal: -1
     },
     position: {
-        x: 550,
-        y: 150
+        x: 100,
+        y: 250
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '200px',
-    marginLeft: '550px',
+    marginTop: '425px',
+    marginLeft: '350px',
 };
 
 const ooze = {
@@ -56,7 +56,7 @@ const ooze = {
         cal: 1
     },
     position: {
-        x: 575,
+        x: 425,
         y: 475
     },
     dimension: {
@@ -79,7 +79,7 @@ const pancakes = {
         cal: -1
     },
     position: {
-        x: 800,
+        x: 650,
         y: 325
     },
     dimension: {
@@ -102,15 +102,15 @@ const snek = {
         cal: 1
     },
     position: {
-        x: 125,
-        y: 275
+        x: 400,
+        y: 300
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '425px',
-    marginLeft: '270px',
+    marginTop: '475px',
+    marginLeft: '630px',
 };
 
 const swampscum = {

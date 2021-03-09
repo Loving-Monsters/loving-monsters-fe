@@ -17,17 +17,16 @@ const WhiteBoardHeader = ({ handleHome, handleTabChange }) => {
             </div>
             <div>
                 <button className={styles.todoButton} onClick={() => handleTabChange('todo')}>
-                    TODO
+                    TO-DO
                 </button>
-                <button className={styles.inProgressButton}onClick={() => handleTabChange('inProgress')}>
+                <br /><button className={styles.inProgressButton}onClick={() => handleTabChange('inProgress')}>
                     IN PROGRESS
                 </button>
-                <button className={styles.completeButton} onClick={() => handleTabChange('completed')}>
+                <br /><button className={styles.completeButton} onClick={() => handleTabChange('completed')}>
                     COMPLETED
                 </button>
             </div>
         </div>
-
     );
 };
 
