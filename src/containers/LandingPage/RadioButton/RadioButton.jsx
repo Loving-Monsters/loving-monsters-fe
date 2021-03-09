@@ -1,6 +1,6 @@
 import React from 'react';
 import SpriteExample from '../SpriteExample/SpriteExample';
-import styles from '../LandingPage.css';
+import styles from '../CreateUser/CreateUser.css';
 
 const RadioButton = ({ spriteNum, spriteDirection, spriteChecked, handleSpriteChange }) => {
     return (

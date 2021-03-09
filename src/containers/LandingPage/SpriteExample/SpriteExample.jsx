@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../LandingPage.css';
+import styles from '../CreateUser/CreateUser.css';
 
 const SpriteExample = ({ spriteNum, direction }) => {
     const [frame, setFrame] = useState(1);
     const [sprite, setSprite] = useState(`/sprites/${spriteNum}/${direction}1.png`);
+    const [userControl, setUserControl] = useState(true);
     const runDirections = ['up', 'down', 'left', 'right'];
 
     useEffect(() => {
@@ -15,6 +16,14 @@ const SpriteExample = ({ spriteNum, direction }) => {
         return () => clearTimeout(animationTimer);
 
     }, [frame]);
+
+    // useEffect(() => {
+    //     if (!userControl) {
+    //         const spriteTimer = setInterval(() => {
+
+    //         }, 1000);
+    //     }
+    // }, [userControl]);
 
     const runAnimation = () => {
         frame < 4 ? setFrame(frame + 1) : setFrame(1);

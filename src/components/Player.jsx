@@ -15,7 +15,7 @@ export default function Player({ position, xOffset, yOffset, direction, userName
             }
         }, 200);
 
-        return () => clearTimeout(animationTimer);
+        // return () => clearTimeout(animationTimer);
     }, [frame, idle]);
 
     const runAnimation = () => {
