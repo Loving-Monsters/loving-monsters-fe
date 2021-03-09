@@ -10,15 +10,15 @@ const barker = {
     friendship: 0,
 
     position: {
-        x: 650,
-        y: 275
+        x: 850,
+        y: 250
     },
     dimension: {
         x: 50,
         y: 50
     },
     marginTop: '350px',
-    marginLeft: '800px',
+    marginLeft: '1100px',
     positiveReaction: 'Thank you for',
     positiveReaction2: 'I love',
     neutralReaction: 'I care not for',
@@ -44,8 +44,8 @@ const cal = {
     friendship: 0,
 
     position: {
-        x: 650,
-        y: 275
+        x: 500,
+        y: 250
     },
     dimension: {
         x: 50,
@@ -78,15 +78,15 @@ const misscreech = {
 
     friendship: 0,
     position: {
-        x: 450,
-        y: 175
+        x: 550,
+        y: 75
     },
     dimension: {
         x: 150,
         y: 75
     },
-    marginTop: '150px',
-    marginLeft: '475px',
+    marginTop: '200px',
+    marginLeft: '840px',
     positiveReaction: 'wow a ',
     positiveReaction2: 'Ive always wanted a',
     negativeReaction: 'I hate',
