@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { SocketContext } from '../../../../utils/socketController';
 
 const MessageDetail = ({ socket, currentUser, messageArray, recieverName }) => {
     const [input, setInput] = useState('');
     const [recieverId, setRecieverId] = useState();
+    const socket = useContext(SocketContext);
 
     const handleInputChange = (event) => {
         event.preventDefault();

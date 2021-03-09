@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import MessageInput from '../MessageInput/MessageInput';
 import MessageDetailList from '../MessageDetailList/MessageDetailList';
 import styles from '../../../../containers/Containers.css';
+import { SocketContext } from '../../../../utils/socketController';
 
-const MessageUserDetail = ({ currentUser, socket, messageArray, selectedUser }) => {
+
+const MessageUserDetail = ({ currentUser, messageArray, selectedUser }) => {
+    const socket = useContext(SocketContext);
+
 
     const handleSendMessage = (text) => {
         const newMessage = {

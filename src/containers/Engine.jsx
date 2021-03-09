@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import Player from '../components/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/Maps.jsx';
@@ -13,10 +13,13 @@ import styles from './Containers.css';
 import mapObj from '../components/maps/fullMaps';
 import itemObj from '../components/Items/fullItems';
 import npcObj from '../components/NPCs/fullNPCs';
+import { SocketContext } from '../utils/socketController';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
-export default function Engine({ currentUser, socket }) {
+export default function Engine({ currentUser }) {
+    const socket = useContext(SocketContext);
+
     const [userArray, setUserArray] = useState([]);
     const currentMap = useRef(mapObj.hallway);
     const [loading, setLoading] = useState(false);
@@ -28,7 +31,7 @@ export default function Engine({ currentUser, socket }) {
 
 
     useEffect(() => {
-        false
+        false;
         socket.on('CREATE_USER', ({ newUser, userArray }) => {
             setUserArray(userArray);
             currentUser.current = newUser;
@@ -171,9 +174,9 @@ export default function Engine({ currentUser, socket }) {
             if (item.friendship[npc.name] > 0) {
                 setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2} ${item.name}`);
             } else if (item.friendship[npc.name] < 0) {
-                setThanks(`${npc.negativeReaction} ${item.name} ${npc.negativeReaction2} `)
+                setThanks(`${npc.negativeReaction} ${item.name} ${npc.negativeReaction2} `);
             } else {
-                setThanks(`${npc.neutralReaction} ${item.name} ${npc.neutralReaction2} `)
+                setThanks(`${npc.neutralReaction} ${item.name} ${npc.neutralReaction2} `);
             }
         });
 

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { SocketContext } from '../../utils/socketController';
 
-const WhiteBoardCreate = ({ socket, currentUser }) => {
+const WhiteBoardCreate = ({ currentUser }) => {
     const [input, setInput] = useState('');
+    const socket = useContext(SocketContext);
+
 
     const handleSubmit = (event) => {
         event.preventDefault();

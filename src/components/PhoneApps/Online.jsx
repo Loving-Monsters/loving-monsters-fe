@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from '../../containers/Containers.css';
+import { SocketContext } from '../../utils/socketController';
 
-const Online = ({ handleHome, socket }) => {
+const Online = ({ handleHome }) => {
+    const socket = useContext(SocketContext);
+
     const [onlineUsers, setOnlineUsers] = useState([]);
 
     const renderListItem = ({ userName }) => {
@@ -12,9 +15,7 @@ const Online = ({ handleHome, socket }) => {
             </li>
         );
     };
-    // const retrieveUsers = () => {
-    //     socket.emit('USERS_ONLINE', null);
-    // };
+
 
     useEffect(() => {
         socket.on('USERS_ONLINE', onlineUsers => {

@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styles from './WhiteBoardTodo.css';
+import { SocketContext } from '../../utils/socketController';
 
-const WhiteBoardTodo = ({ socket, currentUser }) => {
+
+const WhiteBoardTodo = ({ currentUser }) => {
     const [todoTasks, setTodoTasks] = useState(currentUser.current.taskObj.todo);
+    const socket = useContext(SocketContext);
+
 
     useEffect(() => {
         const taskTimer = setInterval(() => {

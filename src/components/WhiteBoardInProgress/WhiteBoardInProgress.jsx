@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './WhiteBoardInProgress.css';
+import { SocketContext } from '../../utils/socketController';
 
-const WhiteBoardInProgress = ({ socket, currentUser }) => {
+
+const WhiteBoardInProgress = ({ currentUser }) => {
     const [inProgressTasks, setInProgressTasks] = useState(currentUser.current.taskObj.inProgress);
+    const socket = useContext(SocketContext);
+
 
     useEffect(() => {
         const taskTimer = setInterval(() => {
