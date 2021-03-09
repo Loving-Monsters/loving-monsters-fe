@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import WhiteBoardHeader from '../WhiteBoardHeader/WhiteBoardHeader';
-import WhiteBoardTodo from '../WhiteBoardTodo/WhiteBoardTodo';
-import WhiteBoardInProgress from '../WhiteBoardInProgress/WhiteBoardInProgress';
-import WhiteBoardCompleted from '../WhiteBoardCompleted/WhiteBoardCompleted';
-import WhiteBoardCreate from '../WhiteBoardCreate/WhiteBoardCreate';
-import styles from '../../containers/Containers.css';
+import WhiteBoardHeader from './WhiteBoardHeader/WhiteBoardHeader';
+import WhiteBoardTodo from './WhiteBoardTodo/WhiteBoardTodo';
+import WhiteBoardInProgress from './WhiteBoardInProgress/WhiteBoardInProgress';
+import WhiteBoardCompleted from './WhiteBoardCompleted/WhiteBoardCompleted';
+import WhiteBoardCreate from './WhiteBoardCreate/WhiteBoardCreate';
+import styles from '../../../containers/Containers.css';
 
 const WhiteBoard = ({ handleHome, socket, currentUser }) => {
     const [taskObj, setTaskObj] = useState({});
@@ -31,7 +31,7 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
     }, [socket]);
 
     const handleTabChange = (tabName) => {
-        switch (tabName) {
+        switch(tabName) {
             case 'todo':
                 setTaskDisplay(
                     <WhiteBoardTodo
@@ -70,7 +70,7 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
     };
 
     return (
-        <div className={styles.screen}>
+        <div className={styles.whiteboard}>
             <WhiteBoardHeader
                 handleHome={handleHome}
                 handleTabChange={handleTabChange}

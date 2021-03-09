@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import styles from './WhiteBoardCompleted.css';
 
