@@ -608,9 +608,11 @@ const classroom3 = {
 //
 
 const courtyard = {
-    mapImage: '',
+    mapImage: '/courtyard.png',
     transformPositionX: 0,
     transformPositionY: 150,
+    playerOffsetX: 300,
+    playerOffsetY: 100,
     left: 50,
     top: 50,
     npcs: [],

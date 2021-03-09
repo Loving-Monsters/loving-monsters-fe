@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 
 import React, { useState, useEffect, useContext } from 'react';
-import { SocketContext } from '../../utils/socketController';
+import { SocketContext } from '../../../../utils/socketController';
 import styles from '../../../../containers/Containers.css';
 
 

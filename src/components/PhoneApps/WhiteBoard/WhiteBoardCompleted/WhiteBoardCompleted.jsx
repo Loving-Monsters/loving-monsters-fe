@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect, useContext } from 'react';
 import styles from '../../../../containers/Containers.css';
-import { SocketContext } from '../../utils/socketController';
+import { SocketContext } from '../../../../utils/socketController';
 
 const WhiteBoardCompleted = ({ currentUser }) => {
     const socket = useContext(SocketContext);

@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 
 import React, { useEffect, useState, useContext } from 'react';
-import { SocketContext } from '../../utils/socketController';
+import { SocketContext } from '../../../../utils/socketController';
 import styles from '../../../../containers/Containers.css';
 
 const WhiteBoardTodo = ({ currentUser }) => {
