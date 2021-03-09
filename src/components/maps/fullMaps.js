@@ -374,8 +374,8 @@ const classroom = {
         },
         name: 'hallway',
         startingPosition: {
-            x: 375,
-            y: 350
+            x: 625,
+            y: 325
         }
     }],
     arrows: [{
@@ -462,8 +462,8 @@ const classroom2 = {
         },
         name: 'hallway2',
         startingPosition: {
-            x: 375,
-            y: 350
+            x: 225,
+            y: 325
         }
     }],
     arrows: [{
@@ -550,8 +550,8 @@ const classroom3 = {
         },
         name: 'hallway3',
         startingPosition: {
-            x: 375,
-            y: 350
+            x: 225,
+            y: 325
         }
     }],
     arrows: [{
