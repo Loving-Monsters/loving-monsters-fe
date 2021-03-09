@@ -331,6 +331,7 @@
 }
 
 .todoText {
+    line-height: 14pt;
     color: aqua;
 }
 
