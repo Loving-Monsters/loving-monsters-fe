@@ -72,14 +72,14 @@ const hallway = {
                 x: 0, y: 525
             },
             dimension: {
-                x: 1100, y: 10
+                x: 1600, y: 10
             }
         },
         {
             type: 'object',
             name: 'WestWall',
             position: {
-                x: -25, y: 0
+                x: 25, y: 0
             },
             dimension: {
                 x: 10, y: 625
@@ -143,7 +143,7 @@ const hallway2 = {
         },
         name: 'hallway',
         startingPosition: {
-            x: 950,
+            x: 1300,
             y: 350
         }
     }, {
@@ -156,7 +156,7 @@ const hallway2 = {
         },
         name: 'hallway3',
         startingPosition: {
-            x: 25,
+            x: 0,
             y: 350
         }
     }],
@@ -175,7 +175,7 @@ const hallway2 = {
     {
         location: 'hallwayarrow3',
         marginTop: '500px',
-        marginLeft: '30px',
+        marginLeft: '200px',
         rotate: 270
     }
     ],
@@ -197,7 +197,7 @@ const hallway2 = {
                 x: 0, y: 525
             },
             dimension: {
-                x: 1100, y: 10
+                x: 1500, y: 10
             }
         },
         {
@@ -235,7 +235,7 @@ const hallway3 = {
     portals: [{
         type: 'portal',
         position: {
-            x: 200,
+            x: 225,
             y: 300
         },
         dimension: {
@@ -289,7 +289,7 @@ const hallway3 = {
     {
         location: 'hallwayarrow3',
         marginTop: '500px',
-        marginLeft: '30px',
+        marginLeft: '200px',
         rotate: 270
     }
     ],
@@ -311,7 +311,7 @@ const hallway3 = {
                 x: 0, y: 525
             },
             dimension: {
-                x: 1100, y: 10
+                x: 1500, y: 10
             }
         },
         {
@@ -328,7 +328,7 @@ const hallway3 = {
             type: 'object',
             name: 'Lockers2',
             position: {
-                x: 700, y: 250
+                x: 450, y: 250
             },
             dimension: {
                 x: 250, y: 75
@@ -374,8 +374,8 @@ const classroom = {
         },
         name: 'hallway',
         startingPosition: {
-            x: 375,
-            y: 350
+            x: 625,
+            y: 325
         }
     }],
     arrows: [{
@@ -462,8 +462,8 @@ const classroom2 = {
         },
         name: 'hallway2',
         startingPosition: {
-            x: 375,
-            y: 350
+            x: 225,
+            y: 325
         }
     }],
     arrows: [{
@@ -550,8 +550,8 @@ const classroom3 = {
         },
         name: 'hallway3',
         startingPosition: {
-            x: 375,
-            y: 350
+            x: 225,
+            y: 325
         }
     }],
     arrows: [{
