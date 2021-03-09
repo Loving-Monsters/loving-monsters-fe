@@ -33,15 +33,15 @@ const nightlight = {
         cal: -1
     },
     position: {
-        x: 100,
-        y: 250
+        x: 625,
+        y: 125
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '425px',
-    marginLeft: '350px',
+    marginTop: '300px',
+    marginLeft: '880px',
 };
 
 const ooze = {
