@@ -24,6 +24,7 @@ const Maps = ({ currentMap }) => {
                         style={{
                             top: `${currentMap.top}px`,
                             left: `${currentMap.left}px`,
+                            height: `${currentMap.height}px`
                         }} />
 
                 </div>

@@ -10,6 +10,7 @@ const hallway = {
     playerOffsetY: 100,
     left: 350,
     top: 0,
+    height: 750,
     npcs: [npcObj.barker],
     items: [itemObj.snek],
     portals: [{
@@ -117,6 +118,7 @@ const hallway2 = {
     playerOffsetX: 350,
     left: 0,
     top: 0,
+    height: 750,
     playerOffsetY: 100,
     portals: [{
         type: 'portal',
@@ -231,6 +233,7 @@ const hallway3 = {
     playerOffsetX: 350,
     left: 0,
     top: 0,
+    height: 750,
     playerOffsetY: 100,
     portals: [{
         type: 'portal',
@@ -270,8 +273,8 @@ const hallway3 = {
         },
         name: 'courtyard',
         startingPosition: {
-            x: 25,
-            y: 350
+            x: 50,
+            y: 1175
         }
     }],
     arrows: [{
@@ -347,7 +350,7 @@ const classroom = {
     playerOffsetY: 100,
     left: 350,
     top: 100,
-
+    height: 750,
     items: [itemObj.frog],
     npcs: [npcObj.misscreech],
     whiteBoard: {
@@ -435,7 +438,7 @@ const classroom2 = {
     playerOffsetY: 100,
     left: 350,
     top: 100,
-
+    height: 750,
     items: [itemObj.nightlight],
     npcs: [],
     whiteBoard: {
@@ -523,7 +526,7 @@ const classroom3 = {
     playerOffsetY: 100,
     left: 350,
     top: 100,
-
+    height: 750,
     items: [],
     npcs: [],
     whiteBoard: {
@@ -610,18 +613,19 @@ const classroom3 = {
 const courtyard = {
     mapImage: '/courtyard.png',
     transformPositionX: 0,
-    transformPositionY: 150,
+    transformPositionY: 200,
     playerOffsetX: 300,
-    playerOffsetY: 100,
-    left: 50,
-    top: 50,
+    playerOffsetY: -100,
+    left: 300,
+    top: 300,
+    height: 2000,
     npcs: [],
     items: [itemObj.swampscum],
     portals: [{
         type: 'portal',
         position: {
-            x: 25,
-            y: 375
+            x: 0,
+            y: 1175
         },
         dimension: {
             x: 25,
@@ -644,40 +648,50 @@ const courtyard = {
             type: 'object',
             name: 'NorthWall',
             position: {
-                x: 0, y: 0
+                x: 0, y: 325
             },
             dimension: {
-                x: 600, y: 150
+                x: 1925, y: 25
             }
         },
         {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 350, y: 0
+                x: 1925, y: 325
             },
             dimension: {
-                x: 10, y: 400
+                x: 25, y: 2275
             }
         },
         {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 400
+                x: 0, y: 2225
             },
             dimension: {
-                x: 600, y: 150
+                x: 1925, y: 25
             }
         },
         {
             type: 'object',
             name: 'WestWall',
             position: {
-                x: -25, y: 0
+                x: 0, y: 0
             },
             dimension: {
-                x: 10, y: 400
+                x: 25, y: 2275
+            }
+        },
+        {
+            type: 'object',
+            name: 'Fountain',
+            position: {
+                x: 425, y: 875
+            },
+            dimension: {
+                x: 1025, y: 725
             }
         },
     ],
