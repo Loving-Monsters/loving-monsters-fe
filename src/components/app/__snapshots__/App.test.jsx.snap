@@ -2,8 +2,79 @@
 
 exports[`App component renders App 1`] = `
 <DocumentFragment>
-  <h1>
-    Hello World
-  </h1>
+  <div
+    class="container"
+  >
+    <div
+      class="view"
+    />
+    <div
+      class="phone"
+    >
+      <div
+        class="homescreen"
+      >
+        <div
+          class="apps"
+        >
+          <div
+            class="icon"
+          >
+            <img
+              src="/phone/Messaging.png"
+            />
+            <br />
+            <span>
+              Messaging
+            </span>
+          </div>
+          <div
+            class="icon"
+          >
+            <img
+              src="/phone/Bulletin.png"
+            />
+            <br />
+            <span>
+              Bulletin
+            </span>
+          </div>
+          <div
+            class="icon"
+          >
+            <img
+              src="/phone/Friendships.png"
+            />
+            <br />
+            <span>
+              Friendships
+            </span>
+          </div>
+          <div
+            class="icon"
+          >
+            <img
+              src="/phone/Inventory.png"
+            />
+            <br />
+            <span>
+              Inventory
+            </span>
+          </div>
+          <div
+            class="icon"
+          >
+            <img
+              src="/phone/Online.png"
+            />
+            <br />
+            <span>
+              Online
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;
