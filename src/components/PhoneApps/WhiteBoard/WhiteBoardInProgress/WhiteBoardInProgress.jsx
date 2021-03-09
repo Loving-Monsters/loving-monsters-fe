@@ -27,7 +27,7 @@ const WhiteBoardInProgress = ({ socket, currentUser }) => {
         const displayTimestamp = new Date(Number(task.timestamp)).toLocaleString();
 
         return (
-            <li key={task.id} className={styles.listItem}>
+            <div key={task.id} className={styles.listItem}>
                 <div className={styles.authorName}>
                     {task.authorName}
                 </div>
@@ -41,7 +41,7 @@ const WhiteBoardInProgress = ({ socket, currentUser }) => {
                     COMPLETED
                 </button>
                 <hr />
-            </li >
+            </div >
         );
     };
 
