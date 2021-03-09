@@ -1,5 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
+
 import React, { useState, useEffect, useContext } from 'react';
-import styles from './WhiteBoardCompleted.css';
+import styles from '../../../../containers/Containers.css';
 import { SocketContext } from '../../utils/socketController';
 
 const WhiteBoardCompleted = ({ currentUser }) => {
@@ -23,38 +26,35 @@ const WhiteBoardCompleted = ({ currentUser }) => {
         const displayTimestamp = new Date(Number(task.timestamp)).toLocaleString();
 
         return (
-            <li key={task.id} className={styles.listItem}>
-                <div className={styles.authorName}>
+            <div key={task.id} className={styles.todoItem}>
+                <p className={styles.authorName}>
                     {task.authorName}
-                </div>
-                <div className={styles.timestamp}>
+                </p>
+                <p className={styles.todoTimestamp}>
                     {displayTimestamp}
-                </div>
-                <div className={styles.text}>
+                </p>
+                <p className={styles.todoText}>
                     {task.text}
-                </div>
+                </p>
                 <button onClick={() => handleDelete(task.id)}>
                     DELETE
                 </button>
-                <hr />
-            </li >
+            </div >
         );
     };
 
     return (
-        <div>
+        <div className={styles.todoTask}>
+            <h2>COMPLETED</h2>
             <div>
-                TODO
-            </div>
-            <ul className={styles.listContainer}>
                 {completedTasks && completedTasks.length > 0 ?
                     completedTasks.map(task => renderTask(task))
                     :
-                    <li>
+                    <span>
                         NO TASKS COMPLETED!
-                    </li>
+                    </span>
                 }
-            </ul>
+            </div>
         </div>
     );
 };

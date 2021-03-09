@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 import React, { useState, useEffect, useContext } from 'react';
 import WhiteBoardHeader from '../WhiteBoardHeader/WhiteBoardHeader';
 import WhiteBoardTodo from '../WhiteBoardTodo/WhiteBoardTodo';
@@ -33,7 +34,7 @@ const WhiteBoard = ({ handleHome, currentUser }) => {
     }, [socket]);
 
     const handleTabChange = (tabName) => {
-        switch (tabName) {
+        switch(tabName) {
             case 'todo':
                 setTaskDisplay(
                     <WhiteBoardTodo
@@ -68,7 +69,7 @@ const WhiteBoard = ({ handleHome, currentUser }) => {
     };
 
     return (
-        <div className={styles.screen}>
+        <div className={styles.whiteboard}>
             <WhiteBoardHeader
                 handleHome={handleHome}
                 handleTabChange={handleTabChange}

@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
-import styles from './WhiteBoardTodo.css';
-import { SocketContext } from '../../utils/socketController';
+/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
 
+import React, { useEffect, useState, useContext } from 'react';
+import { SocketContext } from '../../utils/socketController';
+import styles from '../../../../containers/Containers.css';
 
 const WhiteBoardTodo = ({ currentUser }) => {
     const [todoTasks, setTodoTasks] = useState(currentUser.current.taskObj.todo);
@@ -13,9 +15,7 @@ const WhiteBoardTodo = ({ currentUser }) => {
             setTodoTasks(currentUser.current.taskObj.todo);
         }, 1000);
 
-
         return () => clearInterval(taskTimer);
-
     });
 
     const handleInProgress = (task) => {
@@ -31,38 +31,35 @@ const WhiteBoardTodo = ({ currentUser }) => {
         const displayTimestamp = new Date(Number(task.timestamp)).toLocaleString();
 
         return (
-            <li key={task.id} className={styles.listItem}>
-                <div className={styles.authorName}>
+            <div key={task.id} className={styles.todoItem}>
+                <p className={styles.authorName}>
                     {task.authorName}
-                </div>
-                <div className={styles.timestamp}>
+                </p>
+                <p className={styles.todoTimestamp}>
                     {displayTimestamp}
-                </div>
-                <div className={styles.text}>
+                </p>
+                <p className={styles.todoText}>
                     {task.text}
-                </div>
+                </p>
                 <button onClick={() => handleInProgress(task)}>
-                    IN PROGRESS
+                    MARK IN PROGRESS
                 </button>
-                <hr />
-            </li >
+            </div >
         );
     };
 
     return (
-        <div>
+        <div className={styles.todoTask}>
+            <h2>TO-DO</h2>
             <div>
-                TODO
-            </div>
-            <ul className={styles.listContainer}>
                 {todoTasks && todoTasks.length > 0 ?
                     todoTasks.map(task => renderTask(task))
                     :
-                    <li>
+                    <span>
                         NO TASKS TO DO!
-                    </li>
+                    </span>
                 }
-            </ul>
+            </div>
         </div>
     );
 };
