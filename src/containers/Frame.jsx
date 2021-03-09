@@ -3,7 +3,7 @@ import Engine from './Engine';
 import Phone from './Phone';
 import styles from './Containers.css';
 import LandingPage from './LandingPage';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 
 export default function Frame() {
     const [loggedIn, setLoggedIn] = useState(false);
