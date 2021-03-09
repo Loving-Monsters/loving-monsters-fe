@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Engine from './Engine';
 import Phone from './Phone';
 import styles from './Containers.css';
-import LandingPage from './LandingPage';
+import LandingPage from './LandingPage/LandingPage';
 import Header from '../components/Header/Header';
 
 export default function Frame() {

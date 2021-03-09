@@ -9,13 +9,12 @@ export default function Player({ position, xOffset, yOffset, direction, userName
     const runDirections = ['up', 'down', 'left', 'right'];
 
     useEffect(() => {
-
         setTimeout(() => {
             if (runDirections.includes(direction)) {
                 runAnimation();
             }
         }, 200);
-    }, [frame, idle]);
+    }, [frame]);
 
     const runAnimation = () => {
         if (idle === false) {
