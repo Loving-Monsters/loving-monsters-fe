@@ -20,7 +20,12 @@ const Maps = ({ currentMap }) => {
                     </div>
                     <img
                         className={styles.mapImg}
-                        src={currentMap.mapImage} />
+                        src={currentMap.mapImage}
+                        style={{
+                            top: `${currentMap.top}px`,
+                            left: `${currentMap.left}px`,
+                        }} />
+
                 </div>
 
             );
