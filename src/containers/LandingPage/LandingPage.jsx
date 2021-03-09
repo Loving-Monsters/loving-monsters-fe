@@ -29,12 +29,10 @@ export default function LandingPage({ handleLogIn, currentUser }) {
     useEffect(() => {
         socket.on('NAME_TAKEN', returnValue => {
             setTakenName(returnValue);
-            console.log('🚀 ~ file: LandingPage.jsx ~ line 32 ~ useEffect ~ returnValue', returnValue);
             window.alert(`${nameInput} is already taken!`);
         });
 
         socket.on('CREATE_USER', (newUser) => {
-            console.log('🚀 ~ file: LandingPage.jsx ~ line 36 ~ socket.on ~ newUser', newUser);
             currentUser.current = newUser;
             handleLogIn();
         });

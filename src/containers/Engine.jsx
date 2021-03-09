@@ -31,21 +31,23 @@ export default function Engine({ currentUser }) {
 
 
     useEffect(() => {
-
         socket.on('GAME_STATE', response => {
+            // console.log('🚀 ~ file: Engine.jsx ~ line 35 ~ useEffect ~ response ', response);
+
             setUserArray(response);
             setDisableKeys(false);
         });
     }, [socket]);
 
     useEffect(() => {
-        // socket.emit('CREATE_USER', null);
 
-        setInterval(() => {
+        const gameStateInterval = setInterval(() => {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
         }, 150);
+
+        return () => clearInterval(gameStateInterval);
     }, []);
 
     useEffect(() => {
