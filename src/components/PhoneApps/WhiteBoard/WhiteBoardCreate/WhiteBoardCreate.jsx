@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { useState, useContext } from 'react';
-import { SocketContext } from '../../utils/socketController';
+import { SocketContext } from '../../../../utils/socketController';
 import styles from '../../../../containers/Containers.css';
 
 const WhiteBoardCreate = ({ currentUser }) => {
