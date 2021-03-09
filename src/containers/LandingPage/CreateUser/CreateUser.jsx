@@ -27,13 +27,13 @@ export default function CreateUser({ handleLogIn, currentUser }) {
     }, []);
 
     useEffect(() => {
-        socket.on('NAME_TAKEN', returnValue => {
-            window.alert(`${nameInput} is already taken!`);
-        });
-
         socket.on('CREATE_USER', (newUser) => {
-            currentUser.current = newUser;
-            handleLogIn();
+            if (newUser === false) {
+                window.alert(`${nameInput} is already taken!`);
+            } else {
+                currentUser.current = newUser;
+                handleLogIn();
+            }
         });
 
     }, [socket]);
@@ -52,17 +52,6 @@ export default function CreateUser({ handleLogIn, currentUser }) {
     const handleSpriteChange = (spriteNum) => {
         setSpriteChecked(spriteNum);
     };
-
-    const handleNameChange = (event) => {
-        const nameEntry = event.target.value;
-        setNameInput(nameEntry);
-    };
-
-    const createPlayer = () => {
-
-    };
-
-
 
     return (
         <div className={styles.page}>

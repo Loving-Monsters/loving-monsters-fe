@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './WelcomeScreen.css';
 
 export default function WelcomeScreen({ handleNewUser, handleExisitingUser }) {
 
 
     return (
-        <div>
+        <div className={styles.welcomeScreen}>
             <div>
                 LOVING MONSTERS!
             </div>
