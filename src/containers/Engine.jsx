@@ -84,7 +84,6 @@ export default function Engine({ currentUser }) {
     };
 
     const handleWhiteBoardInteraction = (name) => {
-        console.log('🚀 ~ file: Engine.jsx ~ line 80 ~ handleWhiteBoardInteraction ~ name', name);
         socket.emit('OPEN_WHITEBOARD', name);
     };
 

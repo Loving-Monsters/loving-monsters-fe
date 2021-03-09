@@ -9,6 +9,7 @@ const Home = ({ handleAppChange, currentUser }) => {
 
     useEffect(() => {
         socket.on('CHANGE_ROOM', newRoom => {
+            handleAppChange('home');
             newRoom.includes('classroom') ? setInClassroom(true) : setInClassroom(false);
         });
     }, [socket]);
