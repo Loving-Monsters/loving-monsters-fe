@@ -31,11 +31,6 @@ export default function Engine({ currentUser }) {
 
 
     useEffect(() => {
-        false;
-        socket.on('CREATE_USER', ({ newUser, userArray }) => {
-            setUserArray(userArray);
-            currentUser.current = newUser;
-        });
 
         socket.on('GAME_STATE', response => {
             setUserArray(response);
@@ -44,7 +39,7 @@ export default function Engine({ currentUser }) {
     }, [socket]);
 
     useEffect(() => {
-        socket.emit('CREATE_USER', null);
+        // socket.emit('CREATE_USER', null);
 
         setInterval(() => {
             if (currentUser.current) {

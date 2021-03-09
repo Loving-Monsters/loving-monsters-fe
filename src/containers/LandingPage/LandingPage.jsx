@@ -6,7 +6,7 @@ import { handleKeyPress } from './handleKeyPress/handleKeyPress';
 
 const playerSprites = [1, 2, 3];
 
-export default function LandingPage({ handleLogIn }) {
+export default function LandingPage({ handleLogIn, currentUser }) {
     const [nameInput, setNameInput] = useState('');
     const [takenName, setTakenName] = useState(true);
     const [passwordInput, setPasswordInput] = useState('');
@@ -29,8 +29,16 @@ export default function LandingPage({ handleLogIn }) {
     useEffect(() => {
         socket.on('NAME_TAKEN', returnValue => {
             setTakenName(returnValue);
-            window.alert('User name is already taken!');
+            console.log('🚀 ~ file: LandingPage.jsx ~ line 32 ~ useEffect ~ returnValue', returnValue);
+            window.alert(`${nameInput} is already taken!`);
         });
+
+        socket.on('CREATE_USER', (newUser) => {
+            console.log('🚀 ~ file: LandingPage.jsx ~ line 36 ~ socket.on ~ newUser', newUser);
+            currentUser.current = newUser;
+            handleLogIn();
+        });
+
     }, [socket]);
 
     const handleSubmit = (event) => {
@@ -41,7 +49,7 @@ export default function LandingPage({ handleLogIn }) {
             avatar: spriteChecked
 
         };
-        socket.on('CREATE_USER', newUser);
+        socket.emit('CREATE_USER', newUser);
     };
 
     const handleSpriteChange = (spriteNum) => {

@@ -32,6 +32,7 @@ export default function Frame() {
                 :
                 <LandingPage
                     handleLogIn={handleLogIn}
+                    currentUser={currentUser}
                 />
             }
         </div>
