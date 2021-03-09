@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
+
 import React, { useState, useEffect, useContext } from 'react';
-import styles from './WhiteBoardInProgress.css';
-import { SocketContext } from '../../utils/socketController';
+import { SocketContext } from '../../../../utils/socketController';
+import styles from '../../../../containers/Containers.css';
 
 
 const WhiteBoardInProgress = ({ currentUser }) => {
@@ -29,38 +32,35 @@ const WhiteBoardInProgress = ({ currentUser }) => {
         const displayTimestamp = new Date(Number(task.timestamp)).toLocaleString();
 
         return (
-            <li key={task.id} className={styles.listItem}>
-                <div className={styles.authorName}>
+            <div key={task.id} className={styles.todoItem}>
+                <p className={styles.authorName}>
                     {task.authorName}
-                </div>
-                <div className={styles.timestamp}>
+                </p>
+                <p className={styles.todoTimestamp}>
                     {displayTimestamp}
-                </div>
-                <div className={styles.text}>
+                </p>
+                <p className={styles.todoText}>
                     {task.text}
-                </div>
+                </p>
                 <button onClick={() => handleInProgress(task)}>
-                    COMPLETED
+                    MARK COMPLETED
                 </button>
-                <hr />
-            </li >
+            </div >
         );
     };
 
     return (
-        <div>
+        <div className={styles.todoTask}>
+            <h2>IN PROGRESS</h2>
             <div>
-                TODO
-            </div>
-            <ul className={styles.listContainer}>
                 {inProgressTasks && inProgressTasks.length > 0 ?
                     inProgressTasks.map(task => renderTask(task))
                     :
-                    <li>
+                    <span>
                         NO TASKS IN PROGRESS!
-                    </li>
+                    </span>
                 }
-            </ul>
+            </div>
         </div>
     );
 };

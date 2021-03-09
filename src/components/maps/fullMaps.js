@@ -711,13 +711,15 @@ const classroom3 = {
 //
 
 const courtyard = {
-    mapImage: '/classroom/Workroom.png',
+    mapImage: '/courtyard.png',
     transformPositionX: 0,
     transformPositionY: 150,
     playerOffsetX: 300,
     playerOffsetY: 100,
-    left: 350,
-    top: 100,
+    left: 50,
+    top: 50,
+    npcs: [],
+    items: [],
     balls: {
         rotate: 0,
         display: false,
@@ -735,8 +737,6 @@ const courtyard = {
             y: 50
         }
     },
-    items: [],
-    npcs: [],
     whiteBoard: {
         type: 'whiteBoard',
         name: 'classroom',

@@ -10,7 +10,7 @@ import Friendships from '../components/PhoneApps/Friendships';
 import Inventory from '../components/PhoneApps/Inventory';
 import Messaging from '../components/PhoneApps/Messaging/Messaging';
 import Online from '../components/PhoneApps/Online';
-import WhiteBoard from '../components/PhoneApps/WhiteBoard';
+import WhiteBoard from '../components/PhoneApps/WhiteBoard/WhiteBoard';
 import { SocketContext } from '../utils/socketController';
 
 const Phone = ({ currentUser }) => {
