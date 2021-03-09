@@ -125,15 +125,15 @@ const swampscum = {
         cal: 1
     },
     position: {
-        x: 125,
-        y: 350
+        x: 825,
+        y: 1625
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '600px',
-    marginLeft: '200px',
+    marginTop: '1600px',
+    marginLeft: '1080px',
 };
 
 const itemObj = { frog, nightlight, ooze, pancakes, snek, swampscum };

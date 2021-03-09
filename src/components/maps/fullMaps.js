@@ -10,6 +10,7 @@ const hallway = {
     playerOffsetY: 100,
     left: 350,
     top: 0,
+    height: 750,
     npcs: [npcObj.barker],
     items: [itemObj.snek],
     balls: {
@@ -137,6 +138,7 @@ const hallway2 = {
     playerOffsetX: 350,
     left: 0,
     top: 0,
+    height: 750,
     playerOffsetY: 100,
     balls: {
         rotate: 0,
@@ -268,6 +270,7 @@ const hallway3 = {
     playerOffsetX: 350,
     left: 0,
     top: 0,
+    height: 750,
     playerOffsetY: 100,
     balls: {
         rotate: 0,
@@ -324,8 +327,8 @@ const hallway3 = {
         },
         name: 'courtyard',
         startingPosition: {
-            x: 200,
-            y: 200
+            x: 50,
+            y: 1175
         }
     }],
     arrows: [{
@@ -401,7 +404,7 @@ const classroom = {
     playerOffsetY: 100,
     left: 350,
     top: 100,
-
+    height: 750,
     items: [itemObj.frog],
     npcs: [npcObj.misscreech],
     whiteBoard: {
@@ -506,6 +509,7 @@ const classroom2 = {
     playerOffsetY: 100,
     left: 350,
     top: 100,
+    height: 750,
     balls: {
         rotate: 0,
         display: false,
@@ -610,6 +614,7 @@ const classroom3 = {
     playerOffsetY: 100,
     left: 350,
     top: 100,
+    height: 750,
     balls: {
         rotate: 0,
         display: false,
@@ -713,13 +718,14 @@ const classroom3 = {
 const courtyard = {
     mapImage: '/courtyard.png',
     transformPositionX: 0,
-    transformPositionY: 150,
+    transformPositionY: 200,
     playerOffsetX: 300,
-    playerOffsetY: 100,
-    left: 50,
-    top: 50,
+    playerOffsetY: -100,
+    left: 300,
+    top: 300,
+    height: 2000,
     npcs: [],
-    items: [],
+    items: [itemObj.swampscum],
     balls: {
         rotate: 0,
         display: false,
@@ -752,11 +758,11 @@ const courtyard = {
     portals: [{
         type: 'portal',
         position: {
-            x: 25,
-            y: 600
+            x: 0,
+            y: 1175
         },
         dimension: {
-            x: 100,
+            x: 25,
             y: 25
         },
         name: 'hallway3',
@@ -767,49 +773,59 @@ const courtyard = {
     }],
     arrows: [{
         location: 'classroomarrow1',
-        marginTop: '750px',
-        marginLeft: '355px',
-        rotate: 180
+        marginTop: '1100px',
+        marginLeft: '200px',
+        rotate: 270
     }],
     objectArray: [
         {
             type: 'object',
             name: 'NorthWall',
             position: {
-                x: 0, y: 25
+                x: 0, y: 325
             },
             dimension: {
-                x: 1000, y: 125
+                x: 1925, y: 25
             }
         },
         {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 725, y: 0
+                x: 1925, y: 325
             },
             dimension: {
-                x: 10, y: 800
+                x: 25, y: 2275
             }
         },
         {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 625
+                x: 0, y: 2225
             },
             dimension: {
-                x: 1000, y: 150
+                x: 1925, y: 25
             }
         },
         {
             type: 'object',
             name: 'WestWall',
             position: {
-                x: 25, y: 0
+                x: 0, y: 0
             },
             dimension: {
-                x: 10, y: 600
+                x: 25, y: 2275
+            }
+        },
+        {
+            type: 'object',
+            name: 'Fountain',
+            position: {
+                x: 425, y: 875
+            },
+            dimension: {
+                x: 1025, y: 725
             }
         },
     ],
