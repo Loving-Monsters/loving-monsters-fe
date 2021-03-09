@@ -102,15 +102,15 @@ const snek = {
         cal: 1
     },
     position: {
-        x: 400,
-        y: 300
+        x: 450,
+        y: 275
     },
     dimension: {
         x: 1,
         y: 1
     },
-    marginTop: '475px',
-    marginLeft: '630px',
+    marginTop: '425px',
+    marginLeft: '680px',
 };
 
 const swampscum = {
