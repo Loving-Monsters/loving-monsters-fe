@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
-import React, { useEffect, useState } from 'react';
+
+import React, { useEffect, useState, useContext } from 'react';
+import { SocketContext } from '../../utils/socketController';
 import styles from '../../../../containers/Containers.css';
 
-const WhiteBoardTodo = ({ socket, currentUser }) => {
+const WhiteBoardTodo = ({ currentUser }) => {
     const [todoTasks, setTodoTasks] = useState(currentUser.current.taskObj.todo);
+    const socket = useContext(SocketContext);
+
 
     useEffect(() => {
         const taskTimer = setInterval(() => {

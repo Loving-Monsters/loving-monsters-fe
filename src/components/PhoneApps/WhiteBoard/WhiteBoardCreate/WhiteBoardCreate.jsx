@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+
+import React, { useState, useContext } from 'react';
+import { SocketContext } from '../../utils/socketController';
 import styles from '../../../../containers/Containers.css';
 
-const WhiteBoardCreate = ({ socket, currentUser }) => {
+const WhiteBoardCreate = ({ currentUser }) => {
     const [input, setInput] = useState('');
+    const socket = useContext(SocketContext);
+
 
     const handleSubmit = (event) => {
         event.preventDefault();

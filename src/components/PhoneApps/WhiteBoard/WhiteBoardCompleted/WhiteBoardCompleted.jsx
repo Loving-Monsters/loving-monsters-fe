@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
-import React, { useState, useEffect } from 'react';
-import styles from '../../../../containers/Containers.css';
 
-const WhiteBoardCompleted = ({ socket, currentUser }) => {
+import React, { useState, useEffect, useContext } from 'react';
+import styles from '../../../../containers/Containers.css';
+import { SocketContext } from '../../utils/socketController';
+
+const WhiteBoardCompleted = ({ currentUser }) => {
+    const socket = useContext(SocketContext);
+
     const [completedTasks, setCompletedTasks] = useState(currentUser.current.taskObj.completed);
 
     useEffect(() => {

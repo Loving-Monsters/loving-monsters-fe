@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './Containers.css';
 
 import Home from '../components/PhoneApps/Home';
@@ -11,9 +11,10 @@ import Inventory from '../components/PhoneApps/Inventory';
 import Messaging from '../components/PhoneApps/Messaging/Messaging';
 import Online from '../components/PhoneApps/Online';
 import WhiteBoard from '../components/PhoneApps/WhiteBoard/WhiteBoard';
+import { SocketContext } from '../utils/socketController';
 
-
-const Phone = ({ currentUser, socket }) => {
+const Phone = ({ currentUser }) => {
+    const socket = useContext(SocketContext);
 
     const handleAppChange = (appName) => {
         setDisplayScreen(phoneApps[appName]);
@@ -50,13 +51,11 @@ const Phone = ({ currentUser, socket }) => {
     const phoneApps = {
         home: <Home
             handleAppChange={handleAppChange}
-            socket={socket}
             currentUser={currentUser}
         />,
         bulletin: <Bulletin
             handleHome={handleHome}
             currentUser={currentUser}
-            socket={socket}
         />,
         friendships: <Friendships
             handleHome={handleHome}
@@ -68,15 +67,12 @@ const Phone = ({ currentUser, socket }) => {
         messaging: <Messaging
             handleHome={handleHome}
             currentUser={currentUser}
-            socket={socket}
         />,
         online: <Online
             handleHome={handleHome}
-            socket={socket}
         />,
         whiteBoard: <WhiteBoard
             handleHome={handleHome}
-            socket={socket}
             currentUser={currentUser}
         />
     };

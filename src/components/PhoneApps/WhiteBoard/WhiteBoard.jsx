@@ -1,13 +1,16 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
-import WhiteBoardHeader from './WhiteBoardHeader/WhiteBoardHeader';
-import WhiteBoardTodo from './WhiteBoardTodo/WhiteBoardTodo';
-import WhiteBoardInProgress from './WhiteBoardInProgress/WhiteBoardInProgress';
-import WhiteBoardCompleted from './WhiteBoardCompleted/WhiteBoardCompleted';
-import WhiteBoardCreate from './WhiteBoardCreate/WhiteBoardCreate';
-import styles from '../../../containers/Containers.css';
 
-const WhiteBoard = ({ handleHome, socket, currentUser }) => {
+import React, { useState, useEffect, useContext } from 'react';
+import WhiteBoardHeader from '../WhiteBoardHeader/WhiteBoardHeader';
+import WhiteBoardTodo from '../WhiteBoardTodo/WhiteBoardTodo';
+import WhiteBoardInProgress from '../WhiteBoardInProgress/WhiteBoardInProgress';
+import WhiteBoardCompleted from '../WhiteBoardCompleted/WhiteBoardCompleted';
+import WhiteBoardCreate from '../WhiteBoardCreate/WhiteBoardCreate';
+import styles from '../../containers/Containers.css';
+import { SocketContext } from '../../utils/socketController';
+
+const WhiteBoard = ({ handleHome, currentUser }) => {
+    const socket = useContext(SocketContext);
     const [taskObj, setTaskObj] = useState({});
     const [taskDisplay, setTaskDisplay] = useState(
         <WhiteBoardTodo
@@ -36,7 +39,6 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
                 setTaskDisplay(
                     <WhiteBoardTodo
                         currentUser={currentUser}
-                        socket={socket}
                     />
                 );
                 break;
@@ -45,7 +47,6 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
                 setTaskDisplay(
                     <WhiteBoardInProgress
                         currentUser={currentUser}
-                        socket={socket}
                     />
                 );
                 break;
@@ -54,7 +55,6 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
                 setTaskDisplay(
                     <WhiteBoardCompleted
                         currentUser={currentUser}
-                        socket={socket}
                     />
                 );
                 break;
@@ -62,7 +62,6 @@ const WhiteBoard = ({ handleHome, socket, currentUser }) => {
             case 'create':
                 setTaskDisplay(
                     <WhiteBoardCreate
-                        socket={socket}
                         currentUser={currentUser}
                     />
                 );

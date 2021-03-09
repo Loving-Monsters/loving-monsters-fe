@@ -1,10 +1,15 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useContext } from 'react';
+import { SocketContext } from '../../utils/socketController';
 import styles from '../../../../containers/Containers.css';
 
-const WhiteBoardInProgress = ({ socket, currentUser }) => {
+
+const WhiteBoardInProgress = ({ currentUser }) => {
     const [inProgressTasks, setInProgressTasks] = useState(currentUser.current.taskObj.inProgress);
+    const socket = useContext(SocketContext);
+
 
     useEffect(() => {
         const taskTimer = setInterval(() => {
