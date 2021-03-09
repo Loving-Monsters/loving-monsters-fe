@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { SocketContext } from '../../../utils/socketController';
 import styles from './ExisitingUser.css';
 
-export default function ExisitingUser({ currentUser, handleLogIn }) {
+export default function ExisitingUser({ currentUser, handleBack, handleLogIn }) {
     const [nameInput, setNameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const socket = useContext(SocketContext);
@@ -32,23 +32,30 @@ export default function ExisitingUser({ currentUser, handleLogIn }) {
 
     return (
         <div className={styles.exisitingUser}>
+            <button onClick={handleBack}>BACK</button>
             <form
                 onSubmit={handleSubmit}
                 className={styles.form}>
-                <input
-                    className={styles.textInput}
-                    type="text"
-                    value={nameInput}
-                    onChange={({ target }) => setNameInput(target.value)}
-                    required
-                />
-                <input
-                    className={styles.textInput}
-                    type="password"
-                    value={passwordInput}
-                    onChange={({ target }) => setPasswordInput(target.value)}
-                    required
-                />
+                <div>
+                    User Name:
+                    <input
+                        className={styles.textInput}
+                        type="text"
+                        value={nameInput}
+                        onChange={({ target }) => setNameInput(target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    Password:
+                    <input
+                        className={styles.textInput}
+                        type="password"
+                        value={passwordInput}
+                        onChange={({ target }) => setPasswordInput(target.value)}
+                        required
+                    />
+                </div>
                 <button>SUBMIT</button>
             </form>
         </div>

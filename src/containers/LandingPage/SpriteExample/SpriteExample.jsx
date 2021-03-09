@@ -17,14 +17,6 @@ const SpriteExample = ({ spriteNum, direction }) => {
 
     }, [frame]);
 
-    // useEffect(() => {
-    //     if (!userControl) {
-    //         const spriteTimer = setInterval(() => {
-
-    //         }, 1000);
-    //     }
-    // }, [userControl]);
-
     const runAnimation = () => {
         frame < 4 ? setFrame(frame + 1) : setFrame(1);
         setSprite(`/sprites/${spriteNum}/${direction}${frame}.png`);
