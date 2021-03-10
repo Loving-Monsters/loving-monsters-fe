@@ -5,17 +5,17 @@ import styles from '../../containers/Containers.css';
 import npcObj from '../NPCs/fullNPCs';
 
 const Friendships = ({ handleHome }) => {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCount(count + 1)
+            setCount(count + 1);
         }, 500);
 
 
         return () => clearInterval(interval);
     }, [count]);
-    const npcArr = [npcObj.barker, npcObj.cal, npcObj.misscreech];
+    const npcArr = [npcObj.barker, npcObj.cal, npcObj.misscreech, npcObj.nvisible];
     return (
         <div className={styles.friendships}>
             <div className={styles.backbackground}>
