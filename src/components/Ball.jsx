@@ -7,8 +7,6 @@ export default function Ball({ key, position, xOffset, yOffset, avatar, idle }) 
     useEffect(() => {
         if (idle === false) {
             setTimeout(() => {
-                console.log(position);
-                console.log(avatar);
                 rollAnimation();
             }, 100);
         }
@@ -17,7 +15,7 @@ export default function Ball({ key, position, xOffset, yOffset, avatar, idle }) 
 
 
     const rollAnimation = () => {
-        rotate < 360 ? setRotate(rotate + 30) : setRotate(0);
+        rotate < 360 ? setRotate(rotate + 90) : setRotate(0);
     };
 
     return (

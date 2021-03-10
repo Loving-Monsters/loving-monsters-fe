@@ -3,7 +3,7 @@
 import React from 'react';
 import styles from '../../Containers.css';
 
-export default function WelcomeScreen({ handleNewUser, handleExisitingUser }) {
+export default function WelcomeScreen({ handleNewUser, handleExistingUser }) {
 
 
     return (
@@ -18,8 +18,8 @@ export default function WelcomeScreen({ handleNewUser, handleExisitingUser }) {
                     NEW USER
                 </button>
                 <br />
-                <button className={styles.welcomeButtons} onClick={handleExisitingUser}>
-                    EXISITING USER
+                <button className={styles.welcomeButtons} onClick={handleExistingUser}>
+                    EXISTING USER
                 </button>
             </div>
         </div>

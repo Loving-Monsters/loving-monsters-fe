@@ -55,7 +55,6 @@ const hallway = {
         rotate: 90
     }
     ],
-
     objectArray: [
         {
             type: 'object',
@@ -71,7 +70,7 @@ const hallway = {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 525
+                x: 0, y: 615
             },
             dimension: {
                 x: 1600, y: 10
@@ -91,7 +90,7 @@ const hallway = {
             type: 'object',
             name: 'Lockers1',
             position: {
-                x: 25, y: 300
+                x: 25, y: 275
             },
             dimension: {
                 x: 325, y: 50

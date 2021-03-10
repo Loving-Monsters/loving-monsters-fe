@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect, useContext } from 'react';
 import { SocketContext } from '../../../utils/socketController';
-import styles from './ExisitingUser.css';
+import styles from '../../Containers.css';
 
-export default function ExisitingUser({ currentUser, handleBack, handleLogIn }) {
+export default function ExistingUser({ currentUser, handleLogIn }) {
     const [nameInput, setNameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const socket = useContext(SocketContext);
@@ -32,32 +32,27 @@ export default function ExisitingUser({ currentUser, handleBack, handleLogIn }) 
     };
 
     return (
-        <div className={styles.exisitingUser}>
-            <button onClick={handleBack}>BACK</button>
+        <div className={styles.existingUser}>
             <form
                 onSubmit={handleSubmit}
                 className={styles.form}>
-                <div>
-                    User Name:
-                    <input
-                        className={styles.textInput}
-                        type="text"
-                        value={nameInput}
-                        onChange={({ target }) => setNameInput(target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    Password:
-                    <input
-                        className={styles.textInput}
-                        type="password"
-                        value={passwordInput}
-                        onChange={({ target }) => setPasswordInput(target.value)}
-                        required
-                    />
-                </div>
-                <button>SUBMIT</button>
+                <p>Username</p>
+                <input
+                    className={styles.textInput}
+                    type="text"
+                    value={nameInput}
+                    onChange={({ target }) => setNameInput(target.value)}
+                    required
+                />
+                <p>Password</p>
+                <input
+                    className={styles.textInput}
+                    type="password"
+                    value={passwordInput}
+                    onChange={({ target }) => setPasswordInput(target.value)}
+                    required
+                />
+                <button className={styles.submitButton}>SUBMIT</button>
             </form>
         </div>
     );
