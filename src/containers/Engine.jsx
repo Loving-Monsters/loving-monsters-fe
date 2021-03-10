@@ -170,7 +170,6 @@ export default function Engine({ currentUser }) {
                 ball.location.y -= 50;
                 ball.position.y -= 50;
                 ball.rotate += 35;
-
             }
         }
 
@@ -214,10 +213,7 @@ export default function Engine({ currentUser }) {
                 position={currentMap.current.balls.location}
                 rotate={currentMap.current.balls.rotate}
             />;
-
-
         }
-
     };
 
     const renderItems = () => {

@@ -101,6 +101,39 @@ const misscreech = {
     ]
 };
 
-const npcObj = { barker, cal, misscreech };
+const nvisible = {
+    type: 'npc',
+    name: 'nvisible',
+    displayName: 'N. Visible',
+    avatarImg: '/npcs/whitesquare.jpg',
+    img: '',
+    map: 'classroom3',
+    friendship: 0,
+    position: {
+        x: 75,
+        y: 300
+    },
+    dimension: {
+        x: 50,
+        y: 50
+    },
+    marginTop: '400px',
+    marginLeft: '350px',
+    positiveReaction: 'You got me ',
+    positiveReaction2: '? How nice!',
+    negativeReaction: 'What would I want ',
+    negativeReaction2: '?',
+    neutralReaction: 'Oh, you found ',
+    neutralReaction2: '? I\'ll just put it...over here.',
+    storyBeats1: [
+        'Watch where you\'re going!', 'Keep it down! We like to keep the study room quiet.', 'You\'re stepping on my foot!'],
+    storyBeats2: [
+        'Do you like my new tie?', 'People do strange things when they think no one\'s watching', 'Have you played oozeball with a friend in the courtyard?'],
+    storyBeats3: [
+        'You still haven\'t commented on my tie.', 'It would be easier to study if we had desks...', 'Swamps are so nasty, don\'t you think?'
+    ]
+};
+
+const npcObj = { barker, cal, misscreech, nvisible };
 
 export default npcObj;
