@@ -14,7 +14,7 @@ export default function Ball({ position, rotate }) {
             // transform: `rotate(${rotate}deg)`
 
         }}>
-            <img src="/ball.png"
+            <img src="/snotball.png"
                 style={{
                     width: '50px',
                     height: '50px',
