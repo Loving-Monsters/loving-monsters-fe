@@ -8,14 +8,11 @@ export default function Ball({ key, position, avatar }) {
     useEffect(() => {
         if (ballIdle === true) {
             setTimeout(() => {
+                console.log(position);
                 rollAnimation();
             }, 200);
         }
     }, [rotate, ballIdle]);
-
-    useEffect(() => {
-
-    }, []);
 
 
 
@@ -24,8 +21,9 @@ export default function Ball({ key, position, avatar }) {
     };
 
     return (
-        <div key={key}>
+        <div key={key} className={styles.container}>
             <img src={avatar}
+                className={styles.sprite}
                 style={{
                     transform: `translate3d(${position.x}px, 
                     ${position.y}px, 0) rotate(${rotate}deg)`

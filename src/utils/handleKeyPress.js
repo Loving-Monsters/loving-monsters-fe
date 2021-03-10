@@ -12,7 +12,6 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
         const { objectArray, portals, npcs, items, whiteBoard } = currentMap.current;
 
         const newPosition = changePosition(position, speed, e.key);
-        console.log('🚀 ~ file: handleKeyPress.js ~ line 15 ~ newPosition', newPosition);
 
         const collisionObjects = [
             ...objectArray,
@@ -32,8 +31,6 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
                     position: newPosition,
                     dir: e.key.split('Arrow')[1].toLowerCase()
                 };
-
-                console.log('🚀 ~ file: handleKeyPress.js ~ line 31 ~ currentUser.current', currentUser.current);
                 break;
             case 'portal':
                 handleMapChange(checkCollisionResult.name);

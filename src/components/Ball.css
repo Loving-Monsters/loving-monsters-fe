@@ -1,7 +1,10 @@
 .container {
-zIndex: '1';
-position: 'absolute';
-overflow: hidden;
+    z-index: 100;
+    position: 'absolute';
+    overflow: hidden;
+    height: 50px;
+    width: 50px;
+    background-color: chartreuse;
 }
 
 .sprite {
