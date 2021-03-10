@@ -9,7 +9,7 @@ import Arrow from '../components/arrows/Arrow';
 import NPC from '../components/NPCs/NPC.jsx';
 import Ball from '../components/Ball';
 import Item from '../components/Items/Item';
-import DialogueBox from '../components/DialogueBox';
+import DialogueBox from '../components/NPCs/DialogueBox';
 import styles from './Containers.css';
 import mapObj from '../components/maps/fullMaps';
 import itemObj from '../components/Items/fullItems';
@@ -112,21 +112,21 @@ export default function Engine({ currentUser }) {
                 mapObj[right.name].balls.dimension.x = 50;
                 mapObj[right.name].balls.dimension.y = 50;
             } else
-                if (right.type === false) {
-                    currentMap.current.balls.location.x += 50;
-                    currentMap.current.balls.position.x += 50;
-                    currentMap.current.balls.rotate += 35;
+            if (right.type === false) {
+                currentMap.current.balls.location.x += 50;
+                currentMap.current.balls.position.x += 50;
+                currentMap.current.balls.rotate += 35;
 
 
 
-                } else
-                    if (right.type !== false) {
-                        currentMap.current.balls.location.x -= 50;
-                        currentMap.current.balls.position.x -= 50;
-                        currentMap.current.balls.rotate -= 35;
+            } else
+            if (right.type !== false) {
+                currentMap.current.balls.location.x -= 50;
+                currentMap.current.balls.position.x -= 50;
+                currentMap.current.balls.rotate -= 35;
 
 
-                    }
+            }
         }
         if (direction === 'ArrowLeft') {
             if (left.type === 'portal') {
@@ -139,20 +139,20 @@ export default function Engine({ currentUser }) {
                 mapObj[left.name].balls.dimension.y = 50;
                 mapObj[left.name].balls.display = true;
             } else
-                if (left.type === false) {
-                    currentMap.current.balls.location.x -= 50;
-                    currentMap.current.balls.position.x -= 50;
-                    currentMap.current.balls.rotate -= 35;
+            if (left.type === false) {
+                currentMap.current.balls.location.x -= 50;
+                currentMap.current.balls.position.x -= 50;
+                currentMap.current.balls.rotate -= 35;
 
 
-                } else
-                    if (left.type !== false) {
-                        currentMap.current.balls.location.x += 50;
-                        currentMap.current.balls.position.x += 50;
-                        currentMap.current.balls.rotate += 35;
+            } else
+            if (left.type !== false) {
+                currentMap.current.balls.location.x += 50;
+                currentMap.current.balls.position.x += 50;
+                currentMap.current.balls.rotate += 35;
 
 
-                    }
+            }
         }
         if (direction === 'ArrowUp') {
             if (up.type === 'portal') {
@@ -165,20 +165,20 @@ export default function Engine({ currentUser }) {
                 mapObj[up.name].balls.dimension.x = 50;
                 mapObj[up.name].balls.dimension.y = 50;
             } else
-                if (up.type === false) {
-                    currentMap.current.balls.location.y -= 50;
-                    currentMap.current.balls.position.y -= 50;
-                    currentMap.current.balls.rotate += 35;
+            if (up.type === false) {
+                currentMap.current.balls.location.y -= 50;
+                currentMap.current.balls.position.y -= 50;
+                currentMap.current.balls.rotate += 35;
 
 
-                } else
-                    if (up.type !== false) {
-                        currentMap.current.balls.location.y += 50;
-                        currentMap.current.balls.position.y += 50;
-                        currentMap.current.balls.rotate += 35;
+            } else
+            if (up.type !== false) {
+                currentMap.current.balls.location.y += 50;
+                currentMap.current.balls.position.y += 50;
+                currentMap.current.balls.rotate += 35;
 
 
-                    }
+            }
         }
         if (direction === 'ArrowDown') {
             if (down.type === 'portal') {
@@ -191,20 +191,18 @@ export default function Engine({ currentUser }) {
                 mapObj[down.name].balls.dimension.x = 50;
                 mapObj[down.name].balls.dimension.y = 50;
             } else
-                if (down.type === false) {
-                    currentMap.current.balls.location.y += 50;
-                    currentMap.current.balls.position.y += 50;
-                    currentMap.current.balls.rotate += 35;
+            if (down.type === false) {
+                currentMap.current.balls.location.y += 50;
+                currentMap.current.balls.position.y += 50;
+                currentMap.current.balls.rotate += 35;
 
 
-                } else
-                    if (down.type !== false) {
-                        currentMap.current.balls.location.y -= 50;
-                        currentMap.current.balls.position.y -= 50;
-                        currentMap.current.balls.rotate += 35;
-
-
-                    }
+            } else
+            if (down.type !== false) {
+                currentMap.current.balls.location.y -= 50;
+                currentMap.current.balls.position.y -= 50;
+                currentMap.current.balls.rotate += 35;
+            }
         }
 
     };
@@ -294,9 +292,9 @@ export default function Engine({ currentUser }) {
                 npc.friendship += item.friendship[npc.name];
             }
             if (item.friendship[npc.name] > 0) {
-                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2} ${item.name}`);
+                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2}`);
             } else if (item.friendship[npc.name] < 0) {
-                setThanks(`${npc.negativeReaction} ${item.name} ${npc.negativeReaction2} `);
+                setThanks(`${npc.negativeReaction} ${item.name}${npc.negativeReaction2} `);
             } else {
                 setThanks(`${npc.neutralReaction} ${item.name} ${npc.neutralReaction2} `);
             }
