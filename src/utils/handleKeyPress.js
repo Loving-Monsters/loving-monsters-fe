@@ -20,31 +20,16 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
             ...items,
 
         ];
-
-        if (balls) collisionObjects.push(balls);
+        const ballPosition = changePosition(newPosition, 75, e.key)
+        if (balls.display) collisionObjects.push(balls);
         if (whiteBoard) collisionObjects.push(whiteBoard);
 
         const checkCollisionResult = checkCollision(collisionObjects, newPosition, dimension);
-        const ballUp = {
-            x: newPosition.x,
-            y: newPosition.y - 75
-        }
-        const ballDown = {
-            x: newPosition.x,
-            y: 75 + newPosition.y
-        }
-        const ballLeft = {
-            x: newPosition.x - 75,
-            y: newPosition.y
-        }
-        const ballRight = {
-            x: 75 + newPosition.x,
-            y: newPosition.y
-        }
-        const up = checkCollision(collisionObjects, ballUp, (dimension));
-        const down = checkCollision(collisionObjects, ballDown, (dimension));
-        const left = checkCollision(collisionObjects, ballLeft, (dimension));
-        const right = checkCollision(collisionObjects, ballRight, (dimension));
+
+        const ballCollision = checkCollision(collisionObjects, ballPosition, (dimension));
+
+        console.log(ballCollision)
+
         switch (checkCollisionResult.type) {
             case false:
                 const dir = e.key.split('Arrow')[1].toLowerCase();
@@ -70,7 +55,7 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
                 handleWhiteBoardInteraction(checkCollisionResult.name);
                 break;
             case 'ball':
-                handleBallInteraction(e.key, up, down, left, right);
+                handleBallInteraction(e.key, ballCollision);
                 break;
         }
     }
