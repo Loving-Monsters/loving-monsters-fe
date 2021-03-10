@@ -9,7 +9,7 @@ import Arrow from '../components/arrows/Arrow';
 import NPC from '../components/NPCs/NPC.jsx';
 import Ball from '../components/Ball';
 import Item from '../components/Items/Item';
-import DialogueBox from '../components/DialogueBox';
+import DialogueBox from '../components/NPCs/DialogueBox';
 import styles from './Containers.css';
 import mapObj from '../components/maps/fullMaps';
 import itemObj from '../components/Items/fullItems';
@@ -100,7 +100,7 @@ export default function Engine({ currentUser }) {
         }
     };
     const handleBallInteraction = (direction, ballCollision) => {
-        const ball = currentMap.current.balls
+        const ball = currentMap.current.balls;
 
         if (ballCollision.type === 'portal') {
             ball.display = false;
@@ -257,9 +257,9 @@ export default function Engine({ currentUser }) {
                 npc.friendship += item.friendship[npc.name];
             }
             if (item.friendship[npc.name] > 0) {
-                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2} ${item.name}`);
+                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2}`);
             } else if (item.friendship[npc.name] < 0) {
-                setThanks(`${npc.negativeReaction} ${item.name} ${npc.negativeReaction2} `);
+                setThanks(`${npc.negativeReaction} ${item.name}${npc.negativeReaction2} `);
             } else {
                 setThanks(`${npc.neutralReaction} ${item.name} ${npc.neutralReaction2} `);
             }
