@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Ball.css';
 
-export default function Ball({ key, position, xOffset, yOffset, avatar }) {
+export default function Ball({ key, position, xOffset, yOffset, avatar, idle }) {
     const [rotate, setRotate] = useState(0);
-    const [ballIdle, setBallIdle] = useState(true);
 
     useEffect(() => {
-        if (ballIdle === true) {
+        if (idle === false) {
             setTimeout(() => {
                 console.log(position);
                 console.log(avatar);
                 rollAnimation();
-            }, 200);
+            }, 100);
         }
-    }, [rotate, ballIdle]);
+    }, [rotate, idle]);
 
 
 

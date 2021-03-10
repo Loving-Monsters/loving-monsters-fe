@@ -47,7 +47,7 @@ export default function Engine({ currentUser }) {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
-        }, 120);
+        }, 100);
 
         return () => clearInterval(gameStateInterval);
     }, []);
@@ -137,6 +137,7 @@ export default function Engine({ currentUser }) {
                 yOffset={currentMap.current.playerOffsetY}
                 position={ball.position}
                 avatar={ball.avatar}
+                idle={ball.idle}
             />
             );
         }
