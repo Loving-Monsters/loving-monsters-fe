@@ -630,7 +630,7 @@ const classroom3 = {
         }
     },
     items: [],
-    npcs: [],
+    npcs: [npcObj.nvisible],
     whiteBoard: {
         type: 'whiteBoard',
         name: 'classroom',
