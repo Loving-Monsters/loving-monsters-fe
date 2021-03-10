@@ -99,109 +99,74 @@ export default function Engine({ currentUser }) {
             storyIndex.current = 0;
         }
     };
-    const handleBallInteraction = (direction, up, down, left, right) => {
+    const handleBallInteraction = (direction, ballCollision) => {
+        const ball = currentMap.current.balls;
 
-        if (direction === 'ArrowRight') {
-            if (right.type === 'portal') {
-                currentMap.current.balls.display = false;
-                currentMap.current.balls.dimension.x = 0;
-                currentMap.current.balls.dimension.y = 0;
-                currentMap.current.balls.location.x -= 100;
-                currentMap.current.balls.position.x -= 100;
-                mapObj[right.name].balls.display = true;
-                mapObj[right.name].balls.dimension.x = 50;
-                mapObj[right.name].balls.dimension.y = 50;
-            } else
-            if (right.type === false) {
-                currentMap.current.balls.location.x += 50;
-                currentMap.current.balls.position.x += 50;
-                currentMap.current.balls.rotate += 35;
+        if (ballCollision.type === 'portal') {
+            ball.display = false;
+            ball.dimension.x = 0;
+            ball.dimension.y = 0;
+            ball.location.x -= 75;
+            ball.position.x -= 75;
+            mapObj[ballCollision.name].balls.display = true;
+            mapObj[ballCollision.name].balls.dimension.x = 50;
+            mapObj[ballCollision.name].balls.dimension.y = 50;
 
+        } else if (direction === 'ArrowRight') {
 
+            if (ballCollision.type === false) {
+                ball.location.x += 50;
+                ball.position.x += 50;
+                ball.rotate += 35;
 
-            } else
-            if (right.type !== false) {
-                currentMap.current.balls.location.x -= 50;
-                currentMap.current.balls.position.x -= 50;
-                currentMap.current.balls.rotate -= 35;
+            } else if (ballCollision.type !== false) {
+                ball.location.x -= 50;
+                ball.position.x -= 50;
+                ball.rotate -= 35;
+            }
+        }
 
+        else if (direction === 'ArrowLeft') {
+
+            if (ballCollision.type === false) {
+                ball.location.x -= 50;
+                ball.position.x -= 50;
+                ball.rotate -= 35;
+
+            } else if (ballCollision.type !== false) {
+                ball.location.x += 50;
+                ball.position.x += 50;
+                ball.rotate += 35;
+            }
+        }
+
+        else if (direction === 'ArrowUp') {
+
+            if (ballCollision.type === false) {
+                ball.location.y -= 50;
+                ball.position.y -= 50;
+                ball.rotate += 35;
+
+            } else if (ballCollision.type !== false) {
+                ball.location.y += 50;
+                ball.position.y += 50;
+                ball.rotate += 35;
 
             }
         }
-        if (direction === 'ArrowLeft') {
-            if (left.type === 'portal') {
-                currentMap.current.balls.display = false;
-                currentMap.current.balls.dimension.x = 0;
-                currentMap.current.balls.dimension.y = 0;
-                currentMap.current.balls.location.x += 100;
-                currentMap.current.balls.position.x += 100;
-                mapObj[left.name].balls.dimension.x = 50;
-                mapObj[left.name].balls.dimension.y = 50;
-                mapObj[left.name].balls.display = true;
-            } else
-            if (left.type === false) {
-                currentMap.current.balls.location.x -= 50;
-                currentMap.current.balls.position.x -= 50;
-                currentMap.current.balls.rotate -= 35;
+        else if (direction === 'ArrowDown') {
+
+            if (ballCollision.type === false) {
+                ball.location.y += 50;
+                ball.position.y += 50;
+                ball.rotate += 35;
 
 
-            } else
-            if (left.type !== false) {
-                currentMap.current.balls.location.x += 50;
-                currentMap.current.balls.position.x += 50;
-                currentMap.current.balls.rotate += 35;
+            } else if (ballCollision.type !== false) {
+                ball.location.y -= 50;
+                ball.position.y -= 50;
+                ball.rotate += 35;
 
-
-            }
-        }
-        if (direction === 'ArrowUp') {
-            if (up.type === 'portal') {
-                currentMap.current.balls.display = false;
-                currentMap.current.balls.dimension.x = 0;
-                currentMap.current.balls.dimension.y = 0;
-                currentMap.current.balls.location.y += 50;
-                currentMap.current.balls.position.y += 50;
-                mapObj[up.name].balls.display = true;
-                mapObj[up.name].balls.dimension.x = 50;
-                mapObj[up.name].balls.dimension.y = 50;
-            } else
-            if (up.type === false) {
-                currentMap.current.balls.location.y -= 50;
-                currentMap.current.balls.position.y -= 50;
-                currentMap.current.balls.rotate += 35;
-
-
-            } else
-            if (up.type !== false) {
-                currentMap.current.balls.location.y += 50;
-                currentMap.current.balls.position.y += 50;
-                currentMap.current.balls.rotate += 35;
-
-
-            }
-        }
-        if (direction === 'ArrowDown') {
-            if (down.type === 'portal') {
-                currentMap.current.balls.display = false;
-                currentMap.current.balls.dimension.x = 0;
-                currentMap.current.balls.dimension.y = 0;
-                currentMap.current.balls.location.y -= 50;
-                currentMap.current.balls.position.y -= 50;
-                mapObj[down.name].balls.display = true;
-                mapObj[down.name].balls.dimension.x = 50;
-                mapObj[down.name].balls.dimension.y = 50;
-            } else
-            if (down.type === false) {
-                currentMap.current.balls.location.y += 50;
-                currentMap.current.balls.position.y += 50;
-                currentMap.current.balls.rotate += 35;
-
-
-            } else
-            if (down.type !== false) {
-                currentMap.current.balls.location.y -= 50;
-                currentMap.current.balls.position.y -= 50;
-                currentMap.current.balls.rotate += 35;
             }
         }
 
@@ -239,7 +204,7 @@ export default function Engine({ currentUser }) {
         );
     };
     const renderBalls = () => {
-        if (currentMap.current.balls.display === true) {
+        if (currentMap.current.balls.display) {
             return < Ball
                 key={currentMap.current.balls.position}
                 position={currentMap.current.balls.location}
@@ -320,6 +285,7 @@ export default function Engine({ currentUser }) {
                             {renderNPCs()}
                             {renderArrows()}
                             {renderUsers()}
+
                             {renderBalls()}
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}

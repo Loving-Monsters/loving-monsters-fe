@@ -15,7 +15,7 @@ const hallway = {
     items: [itemObj.snek],
     balls: {
         rotate: 0,
-        display: true,
+        display: false,
         type: 'ball',
         position: {
             x: 175,
@@ -26,8 +26,8 @@ const hallway = {
             y: 600
         },
         dimension: {
-            x: 50,
-            y: 50
+            x: 0,
+            y: 0
         }
     },
 
@@ -153,8 +153,8 @@ const hallway2 = {
             y: 600
         },
         dimension: {
-            x: 50,
-            y: 50
+            x: 0,
+            y: 0
         }
     },
     portals: [{
@@ -285,8 +285,8 @@ const hallway3 = {
             y: 600
         },
         dimension: {
-            x: 50,
-            y: 50
+            x: 0,
+            y: 0
         }
     },
     portals: [{
@@ -432,8 +432,8 @@ const classroom = {
             y: 600
         },
         dimension: {
-            x: 50,
-            y: 50
+            x: 0,
+            y: 0
         }
     },
     portals: [{
@@ -523,8 +523,8 @@ const classroom2 = {
             y: 600
         },
         dimension: {
-            x: 50,
-            y: 50
+            x: 0,
+            y: 0
         }
     },
     items: [itemObj.nightlight],
@@ -628,8 +628,8 @@ const classroom3 = {
             y: 600
         },
         dimension: {
-            x: 50,
-            y: 50
+            x: 0,
+            y: 0
         }
     },
     items: [],
@@ -728,11 +728,11 @@ const courtyard = {
     items: [itemObj.swampscum],
     balls: {
         rotate: 0,
-        display: false,
+        display: true,
         type: 'ball',
         position: {
             x: 175,
-            y: 400
+            y: 600
         },
         location: {
             x: 500,
