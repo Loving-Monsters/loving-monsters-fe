@@ -32,26 +32,23 @@ export default function Engine({ currentUser }) {
     // const [transform, setTransform] = useState(currentMap.current.balls.position)
 
     useEffect(() => {
-        false;
-        socket.on('CREATE_USER', ({ newUser, userArray }) => {
-            setUserArray(userArray);
-            currentUser.current = newUser;
-        });
-
         socket.on('GAME_STATE', response => {
+            // console.log('🚀 ~ file: Engine.jsx ~ line 35 ~ useEffect ~ response ', response);
+
             setUserArray(response);
             setDisableKeys(false);
         });
     }, [socket]);
 
     useEffect(() => {
-        socket.emit('CREATE_USER', null);
 
-        setInterval(() => {
+        const gameStateInterval = setInterval(() => {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
         }, 150);
+
+        return () => clearInterval(gameStateInterval);
     }, []);
 
     useEffect(() => {
@@ -85,7 +82,6 @@ export default function Engine({ currentUser }) {
     };
 
     const handleWhiteBoardInteraction = (name) => {
-        console.log('🚀 ~ file: Engine.jsx ~ line 80 ~ handleWhiteBoardInteraction ~ name', name);
         socket.emit('OPEN_WHITEBOARD', name);
     };
 

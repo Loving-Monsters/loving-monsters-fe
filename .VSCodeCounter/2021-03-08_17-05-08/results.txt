@@ -1,0 +1,111 @@
+Date : 2021-03-08 17:05:08
+Directory : /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src
+Total : 58 files,  2852 codes, 69 comments, 420 blanks, all 3341 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         48 |      2,478 |         69 |        359 |      2,906 |
+| CSS        |          9 |        362 |          0 |         57 |        419 |
+| HTML       |          1 |         12 |          0 |          4 |         16 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                  | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                     |         58 |      2,852 |         69 |        420 |      3,341 |
+| actions                                                                                                                               |          1 |          5 |          0 |          1 |          6 |
+| components                                                                                                                            |         40 |      2,181 |         59 |        273 |      2,513 |
+| components/Items                                                                                                                      |          3 |        168 |          2 |         15 |        185 |
+| components/NPCs                                                                                                                       |          3 |        132 |          3 |         15 |        150 |
+| components/PhoneApps                                                                                                                  |         15 |        613 |         25 |        130 |        768 |
+| components/PhoneApps/Messaging                                                                                                        |          9 |        324 |         18 |         77 |        419 |
+| components/PhoneApps/Messaging/MessageDetail                                                                                          |          1 |         44 |          1 |          9 |         54 |
+| components/PhoneApps/Messaging/MessageDetailList                                                                                      |          1 |         25 |          2 |          5 |         32 |
+| components/PhoneApps/Messaging/MessageDropDown                                                                                        |          1 |         38 |          1 |          8 |         47 |
+| components/PhoneApps/Messaging/MessageHeader                                                                                          |          1 |         25 |          1 |          6 |         32 |
+| components/PhoneApps/Messaging/MessageHome                                                                                            |          1 |         45 |          5 |         15 |         65 |
+| components/PhoneApps/Messaging/MessageInput                                                                                           |          1 |         26 |          1 |          4 |         31 |
+| components/PhoneApps/Messaging/MessageList                                                                                            |          1 |         33 |          2 |          8 |         43 |
+| components/PhoneApps/Messaging/MessageUserDetail                                                                                      |          1 |         34 |          3 |          9 |         46 |
+| components/WhiteBoardCompleted                                                                                                        |          2 |         73 |          0 |         14 |         87 |
+| components/WhiteBoardCreate                                                                                                           |          1 |         34 |          0 |          7 |         41 |
+| components/WhiteBoardHeader                                                                                                           |          1 |         27 |          2 |          4 |         33 |
+| components/WhiteBoardInProgress                                                                                                       |          2 |         77 |          0 |         17 |         94 |
+| components/WhiteBoardTodo                                                                                                             |          2 |         77 |          0 |         18 |         95 |
+| components/app                                                                                                                        |          2 |         20 |          0 |          4 |         24 |
+| components/arrows                                                                                                                     |          2 |         30 |          2 |          5 |         37 |
+| components/maps                                                                                                                       |          2 |        783 |         21 |         19 |        823 |
+| containers                                                                                                                            |          5 |        521 |          4 |         94 |        619 |
+| hooks                                                                                                                                 |          2 |         14 |          0 |          7 |         21 |
+| reducers                                                                                                                              |          1 |         15 |          0 |          5 |         20 |
+| selectors                                                                                                                             |          1 |          1 |          0 |          1 |          2 |
+| utils                                                                                                                                 |          4 |         86 |          6 |         29 |        121 |
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                              | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/actions/userActions.js                                                 | JavaScript |          5 |          0 |          1 |          6 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/DialogueBox.jsx                                             | JavaScript |         51 |          0 |          9 |         60 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/Items/Item.jsx                                              | JavaScript |         18 |          2 |          4 |         24 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/Items/fullItems.js                                          | JavaScript |        134 |          0 |          9 |        143 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/Items/items.css                                             | CSS        |         16 |          0 |          2 |         18 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/Maps.css                                                    | CSS        |         10 |          0 |          1 |         11 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/Maps.jsx                                                    | JavaScript |         35 |          2 |          6 |         43 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/NPCs/NPC.jsx                                                | JavaScript |         18 |          2 |          4 |         24 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/NPCs/NPCs.css                                               | CSS        |         16 |          0 |          2 |         18 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/NPCs/fullNPCs.js                                            | JavaScript |         98 |          1 |          9 |        108 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Bulletin.jsx                                      | JavaScript |         59 |          2 |         10 |         71 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Friendships.jsx                                   | JavaScript |         28 |          2 |          6 |         36 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Home.jsx                                          | JavaScript |         69 |          0 |         11 |         80 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Inventory.jsx                                     | JavaScript |         27 |          1 |          6 |         34 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Messaging/MessageDetail/MessageDetail.jsx         | JavaScript |         44 |          1 |          9 |         54 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Messaging/MessageDetailList/MessageDetailList.jsx | JavaScript |         25 |          2 |          5 |         32 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Messaging/MessageDropDown/MessageDropDown.jsx     | JavaScript |         38 |          1 |          8 |         47 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Messaging/MessageHeader/MessageHeader.jsx         | JavaScript |         25 |          1 |          6 |         32 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Messaging/MessageHome/MessageHome.jsx             | JavaScript |         45 |          5 |         15 |         65 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Messaging/MessageInput/MessageInput.jsx           | JavaScript |         26 |          1 |          4 |         31 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Messaging/MessageList/MessageList.jsx             | JavaScript |         33 |          2 |          8 |         43 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Messaging/MessageUserDetail/MessageUserDetail.jsx | JavaScript |         34 |          3 |          9 |         46 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Messaging/Messaging.jsx                           | JavaScript |         54 |          2 |         13 |         69 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/Online.jsx                                        | JavaScript |         36 |          1 |          9 |         46 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/PhoneApps/WhiteBoard.jsx                                    | JavaScript |         70 |          1 |         11 |         82 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/Player.css                                                  | CSS        |         18 |          0 |          2 |         20 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/Player.jsx                                                  | JavaScript |         33 |          2 |          7 |         42 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/WhiteBoardCompleted/WhiteBoardCompleted.css                 | CSS        |         20 |          0 |          4 |         24 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/WhiteBoardCompleted/WhiteBoardCompleted.jsx                 | JavaScript |         53 |          0 |         10 |         63 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/WhiteBoardCreate/WhiteBoardCreate.jsx                       | JavaScript |         34 |          0 |          7 |         41 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/WhiteBoardHeader/WhiteBoardHeader.jsx                       | JavaScript |         27 |          2 |          4 |         33 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/WhiteBoardInProgress/WhiteBoardInProgress.css               | CSS        |         20 |          0 |          4 |         24 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/WhiteBoardInProgress/WhiteBoardInProgress.jsx               | JavaScript |         57 |          0 |         13 |         70 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/WhiteBoardTodo/WhiteBoardTodo.css                           | CSS        |         20 |          0 |          4 |         24 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/WhiteBoardTodo/WhiteBoardTodo.jsx                           | JavaScript |         57 |          0 |         14 |         71 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/app/App.jsx                                                 | JavaScript |         10 |          0 |          2 |         12 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/app/App.test.jsx                                            | JavaScript |         10 |          0 |          2 |         12 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/arrows/Arrow.jsx                                            | JavaScript |         16 |          2 |          3 |         21 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/arrows/Arrows.css                                           | CSS        |         14 |          0 |          2 |         16 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/maps/fullMaps.js                                            | JavaScript |        671 |          2 |         17 |        690 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/components/maps/hallway2.js                                            | JavaScript |        112 |         19 |          2 |        133 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/containers/Containers.css                                              | CSS        |        228 |          0 |         36 |        264 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/containers/Engine.jsx                                                  | JavaScript |        203 |          2 |         36 |        241 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/containers/Frame.jsx                                                   | JavaScript |         17 |          0 |          3 |         20 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/containers/LandingPage.jsx                                             | JavaScript |          3 |          0 |          3 |          6 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/containers/Phone.jsx                                                   | JavaScript |         70 |          2 |         16 |         88 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/hooks/index.js                                                         | JavaScript |          4 |          0 |          2 |          6 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/hooks/useEvent.js                                                      | JavaScript |         10 |          0 |          5 |         15 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/index.html                                                             | HTML       |         12 |          0 |          4 |         16 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/index.js                                                               | JavaScript |         11 |          0 |          2 |         13 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/reducers/userReducer.js                                                | JavaScript |         15 |          0 |          5 |         20 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/selectors/userSelector.js                                              | JavaScript |          1 |          0 |          1 |          2 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/setupTests.js                                                          | JavaScript |          1 |          0 |          1 |          2 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/store.js                                                               | JavaScript |          5 |          0 |          3 |          8 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/utils/changePosition.js                                                | JavaScript |         24 |          0 |          6 |         30 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/utils/collisionChecker.js                                              | JavaScript |         16 |          5 |          5 |         26 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/utils/handleKeyPress.js                                                | JavaScript |         41 |          1 |         13 |         55 |
+| /Users/paulstevens/alchemy/career-track/loving-monsters-fe/src/utils/socketController.js                                              | JavaScript |          5 |          0 |          5 |         10 |
+| Total                                                                                                                                 |            |      2,852 |         69 |        420 |      3,341 |
++---------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
