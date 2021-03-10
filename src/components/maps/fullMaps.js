@@ -499,7 +499,7 @@ const classroom = {
     ],
 };
 const classroom2 = {
-    mapImage: '/classroom/Workroom.png',
+    mapImage: '/classroom/classroom2.png',
     transformPositionX: 0,
     transformPositionY: 150,
     playerOffsetX: 300,
@@ -604,7 +604,7 @@ const classroom2 = {
     ],
 };
 const classroom3 = {
-    mapImage: '/classroom/Workroom.png',
+    mapImage: '/classroom/classroom3.png',
     transformPositionX: 0,
     transformPositionY: 150,
     playerOffsetX: 300,
