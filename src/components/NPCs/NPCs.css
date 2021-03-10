@@ -1,3 +1,8 @@
+@font-face {
+    font-family: dogica;
+    src: url('../../containers/fonts/dogica.otf');
+}
+
 .npcs {
     position: absolute;
     text-align: center;
@@ -15,4 +20,74 @@
 
 .npcs img {
     height: 160px;
+}
+
+.dialogueBox {
+    bottom: 0;
+    height: 150px;
+    width: 100%;
+    color: white;
+    border: solid 2px black;
+    position: absolute;
+    background-color: #1A1A1A;
+    z-Index: 1;
+}
+
+.dialogueName {
+    margin-top: 10px;
+    margin-left: 150px;
+    width: 80%;
+    font-family: dogica;
+    color: tomato;
+}
+
+h1 {
+    font-size: 12pt;
+}
+
+.avatarImg {
+    top: 5px;
+    left: 5px;
+    position: absolute;
+    height: 150px;
+}
+
+.closeButton {
+    margin-left: 78%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: transparent;
+    border: solid 2px white;
+    color: white;
+    font-family: dogica;
+}
+
+.giveItemFrame {
+    position: absolute;
+    bottom: 5px;
+    width: 80%;
+    margin-left: 150px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+}
+
+.itemButton {
+    margin-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: solid 2px white;
+    background-color: transparent;
+    color: white;
+    font-family: dogica;
+}
+
+.npcSpeak {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 150px;
+    margin-right: 10px;
+    font-family: dogica;
+    font-size: 12pt;
+    line-height: 16pt;
 }
