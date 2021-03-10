@@ -21,9 +21,9 @@ const barker = {
     marginLeft: '1100px',
     positiveReaction: 'Whoa! A ',
     positiveReaction2: ' for me? I love it!',
-    neutralReaction: 'I care not for',
-    neutralReaction2: ' ',
-    negativeReaction: 'Gross, I hate',
+    neutralReaction: 'Uh, ',
+    neutralReaction2: '? Thanks, I guess? ',
+    negativeReaction: 'Gross, I hate ',
     negativeReaction2: 's.',
     storyBeats1: [
         'Who\'re you lookin\' at?', 'Beat it, kid.', 'I don\'t talk to strangers.'],
@@ -53,18 +53,18 @@ const cal = {
     },
     marginTop: '350px',
     marginLeft: '800px',
-    positiveReaction: 'ooooohhhh a',
-    positiveReaction2: 'I would kill for',
-    negativeReaction: 'I hate',
-    negativeReaction2: '',
-    neutralReaction: 'I care not for',
-    neutralReaction2: ' ',
+    positiveReaction: 'Oh! ',
+    positiveReaction2: '! I love this!',
+    negativeReaction: 'Yuck, ',
+    negativeReaction2: '. This is super gross.',
+    neutralReaction: '',
+    neutralReaction2: '? Okay...?',
     storyBeats1: [
-        'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'],
+        'We\'re fighting the Gundam\'s next week for homecoming.', 'Um, who are you again?', 'Sorry, what?'],
     storyBeats2: [
-        'hi', 'your mom', 'bye'],
+        'I love the fountain in the courtyard. It reminds me of home.', 'I lost my favorite swampscum the other day.', 'Barker\'s cool, I guess.'],
     storyBeats3: [
-        'lol?', 'smurf', 'tabernacle'
+        'You should come by my swamp sometime!', 'Do you like the way I styled my gills today?', 'You\'ll come watch me cheer at the game, won\'t you?'
     ]
 };
 
@@ -75,7 +75,6 @@ const misscreech = {
     avatarImg: '/npcs/Teacher.png',
     img: '/npcs/Teacher.png',
     map: 'classroom',
-
     friendship: 0,
     position: {
         x: 550,
@@ -87,18 +86,18 @@ const misscreech = {
     },
     marginTop: '200px',
     marginLeft: '840px',
-    positiveReaction: 'wow a ',
-    positiveReaction2: 'Ive always wanted a',
-    negativeReaction: 'I hate',
-    negativeReaction2: '',
-    neutralReaction: 'I care not for',
-    neutralReaction2: ' ',
+    positiveReaction: 'Aha!',
+    positiveReaction2: 'Thank you for turning it in!',
+    negativeReaction: 'A ',
+    negativeReaction2: '?! Are you trying to kill me?!',
+    neutralReaction: 'You found ',
+    neutralReaction2: '? I\'ll put it in the lost and found.',
     storyBeats1: [
-        'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'],
+        'Step away from my desk.', 'They took away your desks due to budget cuts.', 'I don\'t get paid enough for what I put up with.'],
     storyBeats2: [
-        'hi', 'your mom', 'bye'],
+        'You should go out to the courtyard for some air.', 'If you find any ooze, bring it to me.', 'Class starts soon. Have you finished the reading?'],
     storyBeats3: [
-        'lol?', 'smurf', 'tabernacle'
+        'I am not your friend, I am your teacher.'
     ]
 };
 
