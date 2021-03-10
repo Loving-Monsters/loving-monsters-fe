@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
 import React from 'react';
 import SpriteExample from '../SpriteExample/SpriteExample';
 import styles from '../CreateUser/CreateUser.css';

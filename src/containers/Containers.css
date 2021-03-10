@@ -3,6 +3,15 @@
     src: url('./fonts/dogica.otf');
 }
 
+@font-face {
+    font-family: pixelfy;
+    src: url('./fonts/Kemco\ Pixel\ Bold.ttf')
+}
+
+html {
+    background-image: linear-gradient(#1A1A1A, #050505);
+}
+
 .container {
     display: block;
     margin-top: 5%;
@@ -351,4 +360,51 @@ h2 {
     background-color: transparent;
     font-family: dogica;
     color: aqua;
+}
+
+.welcomeScreen {
+    text-align: center;
+    height: 40vw;
+    border: solid 1px transparent;
+}
+
+.title {
+    position: absolute;
+    height: 30vw;
+    font-family: pixelfy;
+    font-size: 100pt;
+    color: tomato;
+    text-shadow: 4px 4px 2px white;
+    animation-name: welcome;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+.buttons {
+    margin-top: 30vw;
+    text-align: center;
+}
+
+.welcomeButtons {
+    margin-bottom: 20px;
+    width: 250px;
+    height: 75px;
+    background-color: transparent;
+    border: solid 1px white;
+    font-family: dogica;
+    font-size: 20pt;
+    line-height: 26pt;
+    color: white;
+}
+
+.welcomeButtons:hover {
+    color: tomato;
+    border: solid 1px tomato;
+    cursor: pointer;
+}
+
+@keyframes welcome {
+    0% {margin-top: 20px}
+    50% {margin-top: 30px}
+    100% {margin-top: 20px}
 }

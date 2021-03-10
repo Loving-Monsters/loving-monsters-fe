@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useContext, useState, useEffect } from 'react';
 import { SocketContext } from '../../../utils/socketController';
 import styles from './CreateUser.css';

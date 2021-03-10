@@ -1,5 +1,7 @@
+/* eslint-disable max-len */
+/* eslint-disable react/prop-types */
 import React from 'react';
-import styles from './WelcomeScreen.css';
+import styles from '../../Containers.css';
 
 export default function WelcomeScreen({ handleNewUser, handleExisitingUser }) {
 
@@ -7,14 +9,19 @@ export default function WelcomeScreen({ handleNewUser, handleExisitingUser }) {
     return (
         <div className={styles.welcomeScreen}>
             <div>
-                LOVING MONSTERS!
+                <p className={styles.title}>
+                    LOVING MONSTERS
+                </p>
             </div>
-            <button onClick={handleNewUser}>
-                NEW USER
-            </button>
-            <button onClick={handleExisitingUser}>
-                EXISITING USER
-            </button>
+            <div className={styles.buttons}>
+                <button className={styles.welcomeButtons} onClick={handleNewUser}>
+                    NEW USER
+                </button>
+                <br />
+                <button className={styles.welcomeButtons} onClick={handleExisitingUser}>
+                    EXISITING USER
+                </button>
+            </div>
         </div>
     );
 }
