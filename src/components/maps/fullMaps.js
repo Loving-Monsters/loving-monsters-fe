@@ -13,25 +13,6 @@ const hallway = {
     height: 750,
     npcs: [npcObj.barker],
     items: [itemObj.snek],
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 175,
-            y: 400
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
-
-
     portals: [{
         type: 'portal',
         position: {
@@ -140,23 +121,6 @@ const hallway2 = {
     top: 0,
     height: 750,
     playerOffsetY: 100,
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 125,
-            y: 400
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     portals: [{
         type: 'portal',
         position: {
@@ -272,23 +236,6 @@ const hallway3 = {
     top: 0,
     height: 750,
     playerOffsetY: 100,
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 125,
-            y: 400
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     portals: [{
         type: 'portal',
         position: {
@@ -419,23 +366,6 @@ const classroom = {
             y: 50
         }
     },
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 175,
-            y: 400
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     portals: [{
         type: 'portal',
         position: {
@@ -510,23 +440,6 @@ const classroom2 = {
     left: 350,
     top: 100,
     height: 750,
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 175,
-            y: 400
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     items: [itemObj.nightlight],
     npcs: [],
     whiteBoard: {
@@ -615,23 +528,6 @@ const classroom3 = {
     left: 350,
     top: 100,
     height: 750,
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 175,
-            y: 400
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     items: [],
     npcs: [],
     whiteBoard: {
@@ -726,23 +622,6 @@ const courtyard = {
     height: 2000,
     npcs: [],
     items: [itemObj.swampscum],
-    balls: {
-        rotate: 0,
-        display: true,
-        type: 'ball',
-        position: {
-            x: 175,
-            y: 600
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 50,
-            y: 50
-        }
-    },
     whiteBoard: {
         type: 'whiteBoard',
         name: 'classroom',
@@ -759,16 +638,16 @@ const courtyard = {
         type: 'portal',
         position: {
             x: 0,
-            y: 1175
+            y: 1200
         },
         dimension: {
             x: 25,
-            y: 25
+            y: 50
         },
         name: 'hallway3',
         startingPosition: {
             x: 900,
-            y: 325
+            y: 375
         }
     }],
     arrows: [{

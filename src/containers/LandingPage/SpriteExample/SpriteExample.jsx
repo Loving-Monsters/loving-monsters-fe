@@ -1,5 +1,7 @@
+/* eslint-disable max-len */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import styles from '../CreateUser/CreateUser.css';
+import styles from '../../Containers.css';
 
 const SpriteExample = ({ spriteNum, direction }) => {
     const [frame, setFrame] = useState(1);

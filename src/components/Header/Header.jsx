@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import styles from './Header.css';
 
 const Header = ({ handleLogOut }) => {
 
     return (
-        <div className={styles.Header}>
+        <div>
+            <h1>Loving Monsters</h1>
             <button onClick={handleLogOut}>LOGOUT</button>
         </div>
     );

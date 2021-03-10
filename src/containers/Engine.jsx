@@ -47,7 +47,7 @@ export default function Engine({ currentUser }) {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
-        }, 100);
+        }, 120);
 
         return () => clearInterval(gameStateInterval);
     }, []);
@@ -96,78 +96,6 @@ export default function Engine({ currentUser }) {
             storyIndex.current = 0;
         }
     };
-    // const handleBallInteraction = (direction, ballCollision) => {
-    //     const ball = currentMap.current.balls;
-
-    //     if (ballCollision.type === 'portal') {
-    //         ball.display = false;
-    //         ball.dimension.x = 0;
-    //         ball.dimension.y = 0;
-    //         ball.location.x -= 75;
-    //         ball.position.x -= 75;
-    //         mapObj[ballCollision.name].balls.display = true;
-    //         mapObj[ballCollision.name].balls.dimension.x = 50;
-    //         mapObj[ballCollision.name].balls.dimension.y = 50;
-
-    //     } else if (direction === 'ArrowRight') {
-
-    //         if (ballCollision.type === false) {
-    //             ball.location.x += 50;
-    //             ball.position.x += 50;
-    //             ball.rotate += 35;
-
-    //         } else if (ballCollision.type !== false) {
-    //             ball.location.x -= 50;
-    //             ball.position.x -= 50;
-    //             ball.rotate -= 35;
-    //         }
-    //     }
-
-    //     else if (direction === 'ArrowLeft') {
-
-    //         if (ballCollision.type === false) {
-    //             ball.location.x -= 50;
-    //             ball.position.x -= 50;
-    //             ball.rotate -= 35;
-
-    //         } else if (ballCollision.type !== false) {
-    //             ball.location.x += 50;
-    //             ball.position.x += 50;
-    //             ball.rotate += 35;
-    //         }
-    //     }
-
-    //     else if (direction === 'ArrowUp') {
-
-    //         if (ballCollision.type === false) {
-    //             ball.location.y -= 50;
-    //             ball.position.y -= 50;
-    //             ball.rotate += 35;
-
-    //         } else if (ballCollision.type !== false) {
-    //             ball.location.y += 50;
-    //             ball.position.y += 50;
-    //             ball.rotate += 35;
-
-    //         }
-    //     }
-    //     else if (direction === 'ArrowDown') {
-
-    //         if (ballCollision.type === false) {
-    //             ball.location.y += 50;
-    //             ball.position.y += 50;
-    //             ball.rotate += 35;
-
-
-    //         } else if (ballCollision.type !== false) {
-    //             ball.location.y -= 50;
-    //             ball.position.y -= 50;
-    //             ball.rotate += 35;
-
-    //         }
-    //     }
-
-    // };
 
     const handleItemInteraction = (itemName) => {
         currentUser.current.inventory.push(itemObj[itemName]);
@@ -212,7 +140,6 @@ export default function Engine({ currentUser }) {
             />
             );
         }
-
     };
 
     const renderItems = () => {
@@ -256,11 +183,11 @@ export default function Engine({ currentUser }) {
                 npc.friendship += item.friendship[npc.name];
             }
             if (item.friendship[npc.name] > 0) {
-                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2}`);
+                setThanks(`${npc.positiveReaction}${item.name}${npc.positiveReaction2}`);
             } else if (item.friendship[npc.name] < 0) {
                 setThanks(`${npc.negativeReaction} ${item.name}${npc.negativeReaction2} `);
             } else {
-                setThanks(`${npc.neutralReaction} ${item.name} ${npc.neutralReaction2} `);
+                setThanks(`${npc.neutralReaction}${item.name}${npc.neutralReaction2} `);
             }
         });
 
@@ -284,7 +211,6 @@ export default function Engine({ currentUser }) {
                             {renderNPCs()}
                             {renderArrows()}
                             {renderUsers()}
-
                             {renderBalls()}
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
