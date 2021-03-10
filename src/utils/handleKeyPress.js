@@ -28,7 +28,6 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
 
         const ballCollision = checkCollision(collisionObjects, ballPosition, (dimension));
 
-        console.log(ballCollision)
 
         switch (checkCollisionResult.type) {
             case false:
