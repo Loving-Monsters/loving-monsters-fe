@@ -205,6 +205,8 @@ export default function Engine({ currentUser }) {
         if (ballArray.length > 0) {
             return ballArray.map(ball => <Ball
                 key={ball.id}
+                xOffset={currentMap.current.playerOffsetX}
+                yOffset={currentMap.current.playerOffsetY}
                 position={ball.position}
                 avatar={ball.avatar}
             />

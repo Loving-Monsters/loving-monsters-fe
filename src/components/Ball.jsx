@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Ball.css';
 
-export default function Ball({ key, position, avatar }) {
+export default function Ball({ key, position, xOffset, yOffset, avatar }) {
     const [rotate, setRotate] = useState(0);
     const [ballIdle, setBallIdle] = useState(true);
 
@@ -25,8 +25,8 @@ export default function Ball({ key, position, avatar }) {
             <img src={avatar}
                 className={styles.sprite}
                 style={{
-                    transform: `translate3d(${position.x}px, 
-                    ${position.y}px, 0) rotate(${rotate}deg)`
+                    transform: `translate3d(${position.x + xOffset}px, 
+                    ${position.y + yOffset}px, 0) rotate(${rotate}deg)`
                 }}
             />
         </div >
