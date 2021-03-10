@@ -260,11 +260,11 @@ export default function Engine({ currentUser }) {
                 npc.friendship += item.friendship[npc.name];
             }
             if (item.friendship[npc.name] > 0) {
-                setThanks(`${npc.positiveReaction} ${item.name} ${npc.positiveReaction2}`);
+                setThanks(`${npc.positiveReaction}${item.name}${npc.positiveReaction2}`);
             } else if (item.friendship[npc.name] < 0) {
                 setThanks(`${npc.negativeReaction} ${item.name}${npc.negativeReaction2} `);
             } else {
-                setThanks(`${npc.neutralReaction} ${item.name} ${npc.neutralReaction2} `);
+                setThanks(`${npc.neutralReaction}${item.name}${npc.neutralReaction2} `);
             }
         });
 

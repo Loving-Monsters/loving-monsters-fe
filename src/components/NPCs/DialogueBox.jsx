@@ -19,8 +19,8 @@ export default function DialogueBox({ currentNpc, handleClose, handleGiveItem, c
         <div className={styles.dialogueBox}>
             <div className={styles.dialogueName}>
                 <span>{currentNpc.displayName}</span>
-                <button className={styles.closeButton} onClick={handleClose}>X</button>
             </div>
+            <button className={styles.closeButton} onClick={handleClose}>X</button>
             <div className={styles.npcSpeak}>
                 {currentNpc ?
                     thanks ? <div>{thanks}</div>

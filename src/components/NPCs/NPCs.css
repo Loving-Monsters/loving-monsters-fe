@@ -36,7 +36,6 @@
 .dialogueName {
     margin-top: 10px;
     margin-left: 150px;
-    width: 80%;
     font-family: dogica;
     color: tomato;
 }
@@ -49,11 +48,14 @@ h1 {
     top: 5px;
     left: 5px;
     position: absolute;
-    height: 150px;
+    width: 125px;
+    image-rendering: pixelated;
 }
 
 .closeButton {
-    margin-left: 78%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: transparent;
