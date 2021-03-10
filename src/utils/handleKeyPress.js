@@ -2,7 +2,7 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction) {
+export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction, setBoxOpen) {
     e.preventDefault();
 
     if (currentUser.current && !disableKeys) {
@@ -32,6 +32,7 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
 
         switch (checkCollisionResult.type) {
             case false:
+                setBoxOpen(false)
                 const dir = e.key.split('Arrow')[1].toLowerCase();
                 currentUser.current = {
                     ...currentUser.current,
