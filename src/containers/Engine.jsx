@@ -41,6 +41,7 @@ export default function Engine({ currentUser }) {
     }, [socket]);
 
     useEffect(() => {
+        console.log('🚀 ~ file: Engine.jsx ~ line 47 ~ gameStateInterval ~ currentUser.current', currentUser.current);
 
         const gameStateInterval = setInterval(() => {
             if (currentUser.current) {
@@ -60,12 +61,12 @@ export default function Engine({ currentUser }) {
             }, 500);
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction));
         };
     }, []);
 
@@ -95,78 +96,78 @@ export default function Engine({ currentUser }) {
             storyIndex.current = 0;
         }
     };
-    const handleBallInteraction = (direction, ballCollision) => {
-        const ball = currentMap.current.balls;
+    // const handleBallInteraction = (direction, ballCollision) => {
+    //     const ball = currentMap.current.balls;
 
-        if (ballCollision.type === 'portal') {
-            ball.display = false;
-            ball.dimension.x = 0;
-            ball.dimension.y = 0;
-            ball.location.x -= 75;
-            ball.position.x -= 75;
-            mapObj[ballCollision.name].balls.display = true;
-            mapObj[ballCollision.name].balls.dimension.x = 50;
-            mapObj[ballCollision.name].balls.dimension.y = 50;
+    //     if (ballCollision.type === 'portal') {
+    //         ball.display = false;
+    //         ball.dimension.x = 0;
+    //         ball.dimension.y = 0;
+    //         ball.location.x -= 75;
+    //         ball.position.x -= 75;
+    //         mapObj[ballCollision.name].balls.display = true;
+    //         mapObj[ballCollision.name].balls.dimension.x = 50;
+    //         mapObj[ballCollision.name].balls.dimension.y = 50;
 
-        } else if (direction === 'ArrowRight') {
+    //     } else if (direction === 'ArrowRight') {
 
-            if (ballCollision.type === false) {
-                ball.location.x += 50;
-                ball.position.x += 50;
-                ball.rotate += 35;
+    //         if (ballCollision.type === false) {
+    //             ball.location.x += 50;
+    //             ball.position.x += 50;
+    //             ball.rotate += 35;
 
-            } else if (ballCollision.type !== false) {
-                ball.location.x -= 50;
-                ball.position.x -= 50;
-                ball.rotate -= 35;
-            }
-        }
+    //         } else if (ballCollision.type !== false) {
+    //             ball.location.x -= 50;
+    //             ball.position.x -= 50;
+    //             ball.rotate -= 35;
+    //         }
+    //     }
 
-        else if (direction === 'ArrowLeft') {
+    //     else if (direction === 'ArrowLeft') {
 
-            if (ballCollision.type === false) {
-                ball.location.x -= 50;
-                ball.position.x -= 50;
-                ball.rotate -= 35;
+    //         if (ballCollision.type === false) {
+    //             ball.location.x -= 50;
+    //             ball.position.x -= 50;
+    //             ball.rotate -= 35;
 
-            } else if (ballCollision.type !== false) {
-                ball.location.x += 50;
-                ball.position.x += 50;
-                ball.rotate += 35;
-            }
-        }
+    //         } else if (ballCollision.type !== false) {
+    //             ball.location.x += 50;
+    //             ball.position.x += 50;
+    //             ball.rotate += 35;
+    //         }
+    //     }
 
-        else if (direction === 'ArrowUp') {
+    //     else if (direction === 'ArrowUp') {
 
-            if (ballCollision.type === false) {
-                ball.location.y -= 50;
-                ball.position.y -= 50;
-                ball.rotate += 35;
+    //         if (ballCollision.type === false) {
+    //             ball.location.y -= 50;
+    //             ball.position.y -= 50;
+    //             ball.rotate += 35;
 
-            } else if (ballCollision.type !== false) {
-                ball.location.y += 50;
-                ball.position.y += 50;
-                ball.rotate += 35;
+    //         } else if (ballCollision.type !== false) {
+    //             ball.location.y += 50;
+    //             ball.position.y += 50;
+    //             ball.rotate += 35;
 
-            }
-        }
-        else if (direction === 'ArrowDown') {
+    //         }
+    //     }
+    //     else if (direction === 'ArrowDown') {
 
-            if (ballCollision.type === false) {
-                ball.location.y += 50;
-                ball.position.y += 50;
-                ball.rotate += 35;
+    //         if (ballCollision.type === false) {
+    //             ball.location.y += 50;
+    //             ball.position.y += 50;
+    //             ball.rotate += 35;
 
 
-            } else if (ballCollision.type !== false) {
-                ball.location.y -= 50;
-                ball.position.y -= 50;
-                ball.rotate += 35;
+    //         } else if (ballCollision.type !== false) {
+    //             ball.location.y -= 50;
+    //             ball.position.y -= 50;
+    //             ball.rotate += 35;
 
-            }
-        }
+    //         }
+    //     }
 
-    };
+    // };
 
     const handleItemInteraction = (itemName) => {
         currentUser.current.inventory.push(itemObj[itemName]);
