@@ -19,18 +19,18 @@ const barker = {
     },
     marginTop: '350px',
     marginLeft: '1100px',
-    positiveReaction: 'Thank you for',
-    positiveReaction2: 'I love',
+    positiveReaction: 'Whoa! A ',
+    positiveReaction2: ' for me? I love it!',
     neutralReaction: 'I care not for',
     neutralReaction2: ' ',
-    negativeReaction: 'I hate',
-    negativeReaction2: 'and I hate you for give me ',
+    negativeReaction: 'Gross, I hate',
+    negativeReaction2: 's.',
     storyBeats1: [
-        'Who\'re you lookin\' at?', 'Beat it, kid', 'I said stop lookin\' at me!'],
+        'Who\'re you lookin\' at?', 'Beat it, kid.', 'I don\'t talk to strangers.'],
     storyBeats2: [
-        'hi', 'your mom', 'bye'],
+        'You ever just catch yourself staring at lights?', 'I could really go for some pancakes right now.', 'Miss Creech gave me an F in Monster Studies, what a pain.'],
     storyBeats3: [
-        'lol?', 'smurf', 'tabernacle'
+        'Hey, friend! How\'s it going?', 'We should go for a flight sometime. I\'ll show you the best view of the city!', 'Watch your step! Someone broke a jar of ooze nearby.'
     ]
 };
 

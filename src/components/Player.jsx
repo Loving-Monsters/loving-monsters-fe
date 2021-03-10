@@ -5,16 +5,17 @@ import styles from './Player.css';
 
 export default function Player({ position, xOffset, yOffset, direction, userName, avatar, idle }) {
     const [frame, setFrame] = useState(1);
-    const [sprite, setSprite] = useState('/sprites/1/down1.png');
+    const [sprite, setSprite] = useState(`/sprites/${avatar}/down1.png`);
     const runDirections = ['up', 'down', 'left', 'right'];
 
     useEffect(() => {
-
-        setTimeout(() => {
+        const animationTimer = setTimeout(() => {
             if (runDirections.includes(direction)) {
                 runAnimation();
             }
         }, 200);
+
+        // return () => clearTimeout(animationTimer);
     }, [frame, idle]);
 
     const runAnimation = () => {

@@ -1,0 +1,56 @@
+
+.form{
+    width: 800px;
+    height: 500px;
+    border: 1px solid magenta;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.avatarExample {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    height: 100%;
+    width: 600px;
+}
+
+.radioButton{
+    display:none;
+    height: 170px;
+}
+
+.spriteExample{
+    border: 3px solid black;
+    border-radius: 25px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: crimson;
+    margin: 35px;
+    image-rendering: pixelated;
+    height: 125px;
+    width: 125px;
+    padding: 20px;
+}
+
+label :checked + div{
+    background: #FFD700;
+    padding: 22px;
+}
+
+.textInput {
+    margin: 15px;
+    width: 50%;
+}
+
+.sprite {
+    margin: 0;
+    image-rendering: pixelated;
+    height: 125px;
+}
+
