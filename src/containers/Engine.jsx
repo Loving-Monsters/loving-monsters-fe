@@ -87,13 +87,14 @@ export default function Engine({ currentUser }) {
 
     const handleNPCInteraction = (npcName) => {
         setThanks('');
-        setBoxOpen(true);
         setNpc(npcObj[npcName]);
         if (storyIndex.current < 2) {
             storyIndex.current += 1;
         } else {
             storyIndex.current = 0;
         }
+        setBoxOpen(true);
+
     };
 
     const handleBallInteraction = (direction, ballCollision) => {
