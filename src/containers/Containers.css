@@ -408,31 +408,33 @@ h2 {
     cursor: pointer;
 }
 
-.page {
+.page, .existingUser {
+    margin-top: 100px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    border: solid 1px transparent;
 }
 
-.page p {
+.page p, .existingUser p {
     font-family: dogica;
     color: white;
 }
 
 .submitButton {
     background-color: transparent;
-    border: solid 1px white;
+    border: solid 1px #1A1A1A;
     font-family: dogica;
     font-size: 12pt;
     line-height: 26pt;
-    color: white;
+    color: #1A1A1A;
 }
 
 .submitButton:hover {
-    color: tomato;
+    color: white;
     cursor: pointer;
-    border: solid 1px tomato;
+    border: solid 1px white;
 }
 
 .form {
@@ -465,7 +467,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid tomato;
+    border: 1px solid #1A1A1A;
     border-radius: 25px;
     image-rendering: pixelated;
     height: 110px;
@@ -499,10 +501,43 @@ label :checked + div{
     height: 125px;
 }
 
+.header {
+    margin-top: 25px;
+    height: 75px;
+    width: 100%;
+    font-family: pixelfy;
+    text-align: center;
+}
+
+.headerText {
+    font-family: pixelfy;
+    font-size: 60pt;
+    color: white;
+    text-shadow: 2px 2px 2px tomato;
+}
+
+.logoutButton {
+    position: absolute;
+    top: 53px;
+    right: 80px;
+    height: 30px;
+    background-color: transparent;
+    border: solid 1px white;
+    font-family: dogica;
+    font-size: 12pt;
+    color: white;
+}
+
+.logoutButton:hover {
+    cursor: pointer;
+    color: tomato;
+    border: solid 1px tomato;
+}
+
 @keyframes welcome {
-    0% {margin-top: 40px}
-    50% {margin-top: 50px}
-    100% {margin-top: 40px}
+    0% {margin-top: 60px}
+    50% {margin-top: 70px}
+    100% {margin-top: 60px}
 }
 
 @keyframes gradient {

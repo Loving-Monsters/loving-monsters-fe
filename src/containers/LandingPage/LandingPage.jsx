@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import WelcomeScreen from './WelcomeScreen/WelcomeScreen';
 import CreateUser from './CreateUser/CreateUser';
-import ExisitingUser from './ExisitingUser/ExisitingUser';
+import ExistingUser from './ExistingUser/ExistingUser';
 
 export default function LandingPage({ handleLogIn, currentUser }) {
 
@@ -12,15 +12,15 @@ export default function LandingPage({ handleLogIn, currentUser }) {
             currentUser={currentUser} />);
     };
 
-    const handleExisitingUser = () => {
-        setDisplayScreen(<ExisitingUser
+    const handleExistingUser = () => {
+        setDisplayScreen(<ExistingUser
             currentUser={currentUser}
             handleLogIn={handleLogIn}
         />);
     };
     const [displayScreen, setDisplayScreen] = useState(<WelcomeScreen
         handleNewUser={handleNewUser}
-        handleExisitingUser={handleExisitingUser}
+        handleExistingUser={handleExistingUser}
     />);
 
     return (

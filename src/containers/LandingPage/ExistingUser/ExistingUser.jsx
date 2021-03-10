@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect, useContext } from 'react';
 import { SocketContext } from '../../../utils/socketController';
-import styles from './ExisitingUser.css';
+import styles from '../../Containers.css';
 
-export default function ExisitingUser({ currentUser, handleLogIn }) {
+export default function ExistingUser({ currentUser, handleLogIn }) {
     const [nameInput, setNameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const socket = useContext(SocketContext);
@@ -32,10 +32,11 @@ export default function ExisitingUser({ currentUser, handleLogIn }) {
     };
 
     return (
-        <div className={styles.exisitingUser}>
+        <div className={styles.existingUser}>
             <form
                 onSubmit={handleSubmit}
                 className={styles.form}>
+                <p>Username</p>
                 <input
                     className={styles.textInput}
                     type="text"
@@ -43,6 +44,7 @@ export default function ExisitingUser({ currentUser, handleLogIn }) {
                     onChange={({ target }) => setNameInput(target.value)}
                     required
                 />
+                <p>Password</p>
                 <input
                     className={styles.textInput}
                     type="password"
@@ -50,7 +52,7 @@ export default function ExisitingUser({ currentUser, handleLogIn }) {
                     onChange={({ target }) => setPasswordInput(target.value)}
                     required
                 />
-                <button>SUBMIT</button>
+                <button className={styles.submitButton}>SUBMIT</button>
             </form>
         </div>
     );
