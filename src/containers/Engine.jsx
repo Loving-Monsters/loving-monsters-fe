@@ -60,12 +60,12 @@ export default function Engine({ currentUser }) {
             }, 500);
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction, setBoxOpen);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction, setBoxOpen));
         };
     }, []);
 
@@ -95,6 +95,7 @@ export default function Engine({ currentUser }) {
             storyIndex.current = 0;
         }
     };
+
     const handleBallInteraction = (direction, ballCollision) => {
         const ball = currentMap.current.balls;
 
@@ -102,8 +103,14 @@ export default function Engine({ currentUser }) {
             ball.display = false;
             ball.dimension.x = 0;
             ball.dimension.y = 0;
-            ball.location.x -= 75;
-            ball.position.x -= 75;
+            if (direction === 'ArrowRight') {
+                ball.location.x -= 75;
+                ball.position.x -= 75;
+            }
+            if (direction === 'ArrowLeft') {
+                ball.location.x += 75;
+                ball.position.x += 75;
+            }
             mapObj[ballCollision.name].balls.display = true;
             mapObj[ballCollision.name].balls.dimension.x = 50;
             mapObj[ballCollision.name].balls.dimension.y = 50;

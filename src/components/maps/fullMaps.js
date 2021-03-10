@@ -18,11 +18,11 @@ const hallway = {
         display: false,
         type: 'ball',
         position: {
-            x: 175,
+            x: 1175,
             y: 400
         },
         location: {
-            x: 500,
+            x: 1500,
             y: 600
         },
         dimension: {
@@ -145,11 +145,11 @@ const hallway2 = {
         display: false,
         type: 'ball',
         position: {
-            x: 125,
+            x: 800,
             y: 400
         },
         location: {
-            x: 500,
+            x: 1150,
             y: 600
         },
         dimension: {
@@ -277,12 +277,12 @@ const hallway3 = {
         display: false,
         type: 'ball',
         position: {
-            x: 125,
-            y: 400
+            x: 800,
+            y: 350
         },
         location: {
-            x: 500,
-            y: 600
+            x: 1150,
+            y: 550
         },
         dimension: {
             x: 0,
@@ -759,16 +759,16 @@ const courtyard = {
         type: 'portal',
         position: {
             x: 0,
-            y: 1175
+            y: 1200
         },
         dimension: {
             x: 25,
-            y: 25
+            y: 50
         },
         name: 'hallway3',
         startingPosition: {
             x: 900,
-            y: 325
+            y: 375
         }
     }],
     arrows: [{
