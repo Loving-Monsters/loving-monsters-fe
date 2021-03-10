@@ -30,8 +30,6 @@ const hallway = {
             y: 0
         }
     },
-
-
     portals: [{
         type: 'portal',
         position: {
@@ -74,7 +72,6 @@ const hallway = {
         rotate: 90
     }
     ],
-
     objectArray: [
         {
             type: 'object',
