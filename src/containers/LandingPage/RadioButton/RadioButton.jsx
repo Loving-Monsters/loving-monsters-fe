@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
 import React from 'react';
 import SpriteExample from '../SpriteExample/SpriteExample';
-import styles from '../CreateUser/CreateUser.css';
+import styles from '../../Containers.css';
 
 const RadioButton = ({ spriteNum, spriteDirection, spriteChecked, handleSpriteChange }) => {
     return (

@@ -19,9 +19,9 @@ export default function Frame() {
 
     return (
         <div className={styles.container}>
-            <Header handleLogOut={handleLogOut} />
             {loggedIn ?
                 <div>
+                    <Header handleLogOut={handleLogOut} />
                     <Engine
                         currentUser={currentUser}
                     />

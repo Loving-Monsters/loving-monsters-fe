@@ -3,11 +3,22 @@
     src: url('./fonts/dogica.otf');
 }
 
+@font-face {
+    font-family: pixelfy;
+    src: url('./fonts/Kemco\ Pixel\ Bold.ttf')
+}
+
+html {
+    background-image: linear-gradient(to bottom right, crimson,  seagreen, darkslategray, crimson);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+}
+
 .container {
     display: block;
-    margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5%;
     width: 1250px;
     height: 800px;
 }
@@ -19,7 +30,8 @@
     width: 775px;
     height: 650px;
     overflow: hidden;
-    border: solid 5px black;
+    border: solid 5px #242424;
+    background-color: #242424;
 }
 
 .map {
@@ -351,4 +363,158 @@ h2 {
     background-color: transparent;
     font-family: dogica;
     color: aqua;
+}
+
+.welcomeScreen {
+    text-align: center;
+    height: 400px;
+    border: solid 1px transparent;
+}
+
+.title {
+    height: 300px;
+    width: 1250px;
+    font-family: pixelfy;
+    font-size: 100pt;
+    color: tomato;
+    text-shadow: 4px 4px 2px white;
+    animation-name: welcome;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite; 
+}
+
+.buttons {
+    position: absolute;
+    text-align: center;
+    width: 1250px;
+    top: 500px;
+}
+
+.welcomeButtons {
+    margin-bottom: 20px;
+    width: 250px;
+    height: 75px;
+    background-color: transparent;
+    border: solid 1px white;
+    font-family: dogica;
+    font-size: 20pt;
+    line-height: 26pt;
+    color: white;
+}
+
+.welcomeButtons:hover {
+    color: tomato;
+    border: solid 1px tomato;
+    cursor: pointer;
+}
+
+.page {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.page p {
+    font-family: dogica;
+    color: white;
+}
+
+.submitButton {
+    background-color: transparent;
+    border: solid 1px white;
+    font-family: dogica;
+    font-size: 12pt;
+    line-height: 26pt;
+    color: white;
+}
+
+.submitButton:hover {
+    color: tomato;
+    cursor: pointer;
+    border: solid 1px tomato;
+}
+
+.form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.avatarExample {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    height: 100%;
+    width: 600px;
+}
+
+.radioButton{
+    display:none;
+    height: 170px;
+}
+
+.spriteExample{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid tomato;
+    border-radius: 25px;
+    image-rendering: pixelated;
+    height: 110px;
+    width: 75px;
+    padding: 20px;
+}
+
+.spriteExample:hover {
+    cursor: pointer;
+}
+
+label :checked + div{
+    background: tomato;
+    padding: 22px;
+}
+
+.textInput {
+    margin-bottom: 20px;
+    width: 300px;
+    height: 20px;
+    color: white;
+    font-family: dogica;
+    font-size: 12pt;
+    background-color: #1A1A1A;
+    border: solid 1px tomato;
+}
+
+.sprite {
+    margin: 0;
+    image-rendering: pixelated;
+    height: 125px;
+}
+
+@keyframes welcome {
+    0% {margin-top: 40px}
+    50% {margin-top: 50px}
+    100% {margin-top: 40px}
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }

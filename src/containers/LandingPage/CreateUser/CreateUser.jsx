@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import React, { useContext, useState, useEffect } from 'react';
 import { SocketContext } from '../../../utils/socketController';
-import styles from './CreateUser.css';
+import styles from '../../Containers.css';
 import RadioButton from '../RadioButton/RadioButton';
 import { handleKeyPress } from '../handleKeyPress/handleKeyPress';
 
@@ -56,7 +57,7 @@ export default function CreateUser({ handleLogIn, currentUser }) {
     return (
         <div className={styles.page}>
             <form onSubmit={handleSubmit} className={styles.form}>
-                UserName:
+                <p>UserName:</p>
                 <input
                     className={styles.textInput}
                     type="text"
@@ -64,7 +65,7 @@ export default function CreateUser({ handleLogIn, currentUser }) {
                     onChange={({ target }) => setNameInput(target.value)}
                     required
                 />
-                    Password:
+                <p>Password:</p>
                 <input
                     className={styles.textInput}
                     type="password"
@@ -73,7 +74,7 @@ export default function CreateUser({ handleLogIn, currentUser }) {
                     required
                 />
                 <div >
-                    Avatar:
+                    <p>Avatar:</p>
                     <div className={styles.avatarExample}>
                         {playerSprites.map(spriteNum => {
                             return <RadioButton
@@ -86,7 +87,7 @@ export default function CreateUser({ handleLogIn, currentUser }) {
                         })}
                     </div>
                 </div>
-                <button>SUBMIT</button>
+                <button className={styles.submitButton}>SUBMIT</button>
             </form>
         </div>
 
