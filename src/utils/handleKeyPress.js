@@ -20,7 +20,7 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
             ...items,
 
         ];
-        const ballPosition = changePosition(newPosition, 75, e.key)
+        const ballPosition = changePosition(newPosition, 75, e.key);
         if (balls.display) collisionObjects.push(balls);
         if (whiteBoard) collisionObjects.push(whiteBoard);
 
@@ -28,7 +28,7 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
 
         const ballCollision = checkCollision(collisionObjects, ballPosition, (dimension));
 
-        console.log(ballCollision)
+        // console.log(ballCollision)
 
         switch (checkCollisionResult.type) {
             case false:

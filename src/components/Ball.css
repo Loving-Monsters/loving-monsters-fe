@@ -1,0 +1,10 @@
+.container {
+zIndex: '1';
+position: 'absolute';
+overflow: hidden;
+}
+
+.sprite {
+    width: 50px;
+    height: 50px;
+}

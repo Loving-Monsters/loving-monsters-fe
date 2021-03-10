@@ -22,6 +22,7 @@ export default function Engine({ currentUser }) {
     const socket = useContext(SocketContext);
 
     const [userArray, setUserArray] = useState([]);
+    const [ballArray, setBallArray] = useState([]);
     const currentMap = useRef(mapObj.hallway);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
@@ -32,10 +33,9 @@ export default function Engine({ currentUser }) {
     // const [transform, setTransform] = useState(currentMap.current.balls.position)
 
     useEffect(() => {
-        socket.on('GAME_STATE', response => {
-            // console.log('🚀 ~ file: Engine.jsx ~ line 35 ~ useEffect ~ response ', response);
-
-            setUserArray(response);
+        socket.on('GAME_STATE', ({ userArray, ballArray }) => {
+            setUserArray(userArray);
+            setBallArray(ballArray);
             setDisableKeys(false);
         });
     }, [socket]);
@@ -46,7 +46,7 @@ export default function Engine({ currentUser }) {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
-        }, 150);
+        }, 100);
 
         return () => clearInterval(gameStateInterval);
     }, []);
@@ -199,15 +199,15 @@ export default function Engine({ currentUser }) {
             />
         );
     };
+
     const renderBalls = () => {
-        if (currentMap.current.balls.display) {
-            return < Ball
-                key={currentMap.current.balls.position}
-                position={currentMap.current.balls.location}
-                rotate={currentMap.current.balls.rotate}
-            />;
-
-
+        if (ballArray.length > 0) {
+            return ballArray.map(ball => <Ball
+                key={ball.id}
+                position={ball.position}
+                avatar={ball.avatar}
+            />
+            );
         }
 
     };
