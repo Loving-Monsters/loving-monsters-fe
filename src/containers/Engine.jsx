@@ -106,8 +106,14 @@ export default function Engine({ currentUser }) {
             ball.display = false;
             ball.dimension.x = 0;
             ball.dimension.y = 0;
-            ball.location.x -= 75;
-            ball.position.x -= 75;
+            if (direction === 'ArrowRight') {
+                ball.location.x -= 75;
+                ball.position.x -= 75;
+            }
+            if (direction === 'ArrowLeft') {
+                ball.location.x += 75;
+                ball.position.x += 75;
+            }
             mapObj[ballCollision.name].balls.display = true;
             mapObj[ballCollision.name].balls.dimension.x = 50;
             mapObj[ballCollision.name].balls.dimension.y = 50;
