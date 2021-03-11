@@ -1,7 +1,6 @@
 const runDirections = ['up', 'down', 'left', 'right'];
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
-
 export const handleKeyPress = (e, setSpriteDirection) => {
     if (validKeyPress.includes(e.key)) {
         e.preventDefault();

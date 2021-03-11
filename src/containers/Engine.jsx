@@ -2,12 +2,12 @@
 /* eslint-disable max-len */
 
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import Player from '../components/Player';
+import Player from '../components/Player/Player';
 import handleKeyPress from '../utils/handleKeyPress';
-import Maps from '../components/Maps.jsx';
+import Maps from '../components/maps/Maps.jsx';
 import Arrow from '../components/arrows/Arrow';
 import NPC from '../components/NPCs/NPC.jsx';
-import Ball from '../components/Ball';
+import Ball from '../components/Ball/Ball';
 import Item from '../components/Items/Item';
 import DialogueBox from '../components/NPCs/DialogueBox';
 import styles from './Containers.css';
@@ -31,7 +31,6 @@ export default function Engine({ currentUser }) {
     const [currentNpc, setNpc] = useState(false);
     const [thanks, setThanks] = useState('');
     const storyIndex = useRef(0);
-    // const [transform, setTransform] = useState(currentMap.current.balls.position)
 
     useEffect(() => {
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
@@ -42,19 +41,15 @@ export default function Engine({ currentUser }) {
     }, [socket]);
 
     useEffect(() => {
-        console.log('🚀 ~ file: Engine.jsx ~ line 47 ~ gameStateInterval ~ currentUser.current', currentUser.current);
-
         const gameStateInterval = setInterval(() => {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
         }, 100);
-
         return () => clearInterval(gameStateInterval);
     }, []);
 
     useEffect(() => {
-
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false;
             setTimeout(() => {
@@ -100,7 +95,6 @@ export default function Engine({ currentUser }) {
             storyIndex.current = 0;
         }
         setBoxOpen(true);
-
     };
 
     const handleItemInteraction = (itemName) => {
@@ -178,9 +172,9 @@ export default function Engine({ currentUser }) {
         />
         );
     };
+
     const handleGiveItem = (npc, item) => {
         currentUser.current.inventory.forEach(userItem => {
-
             if (userItem.name === item.name) {
                 const index = currentUser.current.inventory.indexOf(userItem);
 
@@ -192,18 +186,16 @@ export default function Engine({ currentUser }) {
             if (item.friendship[npc.name] > 0) {
                 setThanks(`${npc.positiveReaction}${item.name}${npc.positiveReaction2}`);
             } else if (item.friendship[npc.name] < 0) {
-                setThanks(`${npc.negativeReaction} ${item.name}${npc.negativeReaction2} `);
+                setThanks(`${npc.negativeReaction}${item.name}${npc.negativeReaction2}`);
             } else {
                 setThanks(`${npc.neutralReaction}${item.name}${npc.neutralReaction2} `);
             }
         });
-
     };
 
     const handleClose = () => setBoxOpen(false);
 
     return (
-
         <div className={styles.view} >
             {loading ? <div>loading...</div>
                 : currentUser.current.position ?
@@ -225,7 +217,6 @@ export default function Engine({ currentUser }) {
                                 :
                                 null
                             }
-
                             <Player
                                 idle={currentUser.current.idle}
                                 key={currentUser.current.id}
@@ -241,7 +232,6 @@ export default function Engine({ currentUser }) {
                         </div>
                     </div>
                     : null
-
             }
             {boxOpen ?
                 <DialogueBox

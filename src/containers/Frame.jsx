@@ -6,7 +6,6 @@ import LandingPage from './LandingPage/LandingPage';
 import Header from '../components/Header/Header';
 import { SocketContext } from '../utils/socketController';
 
-
 const LOGGED_IN = 'LOGGED_IN';
 const CURRENT_USER = 'CURRENT_USER';
 

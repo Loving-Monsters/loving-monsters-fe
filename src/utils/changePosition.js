@@ -13,7 +13,6 @@ export default function(position, speed, dir) {
                 y: position.y + speed
             };
 
-
         case 'ArrowLeft':
             return {
                 x: position.x - speed,

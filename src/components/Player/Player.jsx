@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
+
 import React, { useState, useEffect } from 'react';
 import styles from './Player.css';
 
@@ -33,10 +34,8 @@ export default function Player({ position, xOffset, yOffset, direction, userName
             }}
         >
             <span>{userName}</span>
-
-            <br /><img className={styles.sprite} src={sprite} />
-            <span>{`x: ${position.x}`}</span>
-            <br /><span>{`y: ${position.y}`}</span>
+            <br />
+            <img className={styles.sprite} src={sprite} />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import styles from '../../containers/Containers.css';
+import styles from './inventory.css';
 
 const Inventory = ({ handleHome, currentUser }) => {
     const [count, setCount] = useState(0);
@@ -9,7 +9,6 @@ const Inventory = ({ handleHome, currentUser }) => {
         const interval = setInterval(() => {
             setCount(count + 1);
         }, 500);
-
 
         return () => clearInterval(interval);
     }, [count]);

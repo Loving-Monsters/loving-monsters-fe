@@ -3,8 +3,7 @@
 
 import React, { useState, useEffect, useContext } from 'react';
 import { SocketContext } from '../../../../utils/socketController';
-import styles from '../../../../containers/Containers.css';
-
+import styles from '../whiteboard.css';
 
 const WhiteBoardInProgress = ({ currentUser }) => {
     const [inProgressTasks, setInProgressTasks] = useState(currentUser.current.taskObj.inProgress);

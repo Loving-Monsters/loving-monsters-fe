@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect, useContext } from 'react';
-import styles from '../../containers/Containers.css';
-import { SocketContext } from '../../utils/socketController';
+import styles from './bulletin.css';
+import { SocketContext } from '../../../utils/socketController';
 
 const Bulletin = ({ currentUser, handleHome }) => {
     const socket = useContext(SocketContext);

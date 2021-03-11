@@ -1,16 +1,14 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
+
 import React, { useEffect, useState, useContext } from 'react';
 import MessageDropDown from '../MessageDropDown/MessageDropDown';
 import MessageList from '../MessageList/MessageList';
 import { SocketContext } from '../../../../utils/socketController';
 
-
 const MessageHome = ({ currentUser, selectUserDetail, messageObj }) => {
     const [onlineUsers, setOnlineUsers] = useState([]);
     const socket = useContext(SocketContext);
-
-
 
     useEffect(() => {
         socket.on('USERS_ONLINE', onlineUsers => {
@@ -29,11 +27,6 @@ const MessageHome = ({ currentUser, selectUserDetail, messageObj }) => {
 
         return () => clearInterval(onlineUserTimer);
     }, []);
-
-
-    // useEffect(() => {
-    //     console.log('are you rerendering?');
-    // });
 
     return (
         <div>
@@ -55,10 +48,8 @@ const MessageHome = ({ currentUser, selectUserDetail, messageObj }) => {
                     :
                     null
             }
-
         </div>
     );
-}
-    ;
+};
 
 export default MessageHome;

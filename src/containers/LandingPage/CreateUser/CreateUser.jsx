@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
+
 import React, { useContext, useState, useEffect } from 'react';
 import { SocketContext } from '../../../utils/socketController';
-import styles from '../../Containers.css';
+import styles from '../landingpage.css';
 import RadioButton from '../RadioButton/RadioButton';
 import { handleKeyPress } from '../handleKeyPress/handleKeyPress';
 
@@ -36,7 +37,6 @@ export default function CreateUser({ handleLogIn, handleExistingUser, currentUse
                 handleLogIn();
             }
         });
-
     }, [socket]);
 
     const handleSubmit = (event) => {
@@ -45,8 +45,8 @@ export default function CreateUser({ handleLogIn, handleExistingUser, currentUse
             userName: nameInput,
             password: passwordInput,
             avatar: spriteChecked
-
         };
+
         socket.emit('CREATE_USER', newUser);
     };
 
@@ -94,6 +94,5 @@ export default function CreateUser({ handleLogIn, handleExistingUser, currentUse
                 <button className={styles.redirectButton} onClick={handleExistingUser}>Already have an account?</button>
             </div>
         </div>
-
     );
 }

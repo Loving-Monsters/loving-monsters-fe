@@ -1,0 +1,101 @@
+.bullItem {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: solid 1px white;
+}
+
+.timestamp {
+    font-family: dogica;
+    font-size: 8pt;
+    letter-spacing: -1pt;
+    color: aqua;
+}
+
+.bullText {
+    font-family: dogica;
+    font-size: 10pt;
+    letter-spacing: -1pt;
+    color: white;
+    line-height: 16pt;
+    word-wrap: break-word;
+}
+
+.bulletin {
+    position: absolute;
+    margin-top: 5px;
+    height: 630px;
+    width: 300px;
+    border-radius: 20px;
+    overflow: auto;
+    background-color: #242424;
+}
+
+.bulletin input {
+    width: 200px;
+    height: 14pt;
+    border: solid 2px aqua;
+    background-color: #1A1A1A;
+    color: white;
+    font-family: dogica;
+    font-size: 12px;
+    letter-spacing: -1pt;
+}
+
+.bulletin form {
+    position: absolute;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    bottom: 0;
+}
+
+.backbackground {
+    padding-bottom: 10px;
+    border-bottom: solid 2px white;
+}
+
+.back, .send {
+    background-color: transparent;
+    border: none;
+    font-family: dogica;
+    letter-spacing: -1pt;
+    color: aqua;
+}
+
+.back:hover, .send:hover {
+    cursor: pointer;
+}
+
+.back {
+    margin-top: 15px;
+    margin-left: 5px;
+    font-size: 24pt;
+}
+
+.send {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 4px;
+    font-size: 12pt;
+}
+
+.backspan {
+    position: absolute;
+    margin-top: 8px;
+    font-size: 12pt;
+}
+
+.bullList {
+    margin-top: 15px;
+    height: 510px;
+    overflow: scroll;
+}
+
+.formBack {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    border-top: solid 2px white;
+    background-color: #1A1A1A;
+}

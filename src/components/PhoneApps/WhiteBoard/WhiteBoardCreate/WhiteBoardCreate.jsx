@@ -2,7 +2,7 @@
 
 import React, { useState, useContext } from 'react';
 import { SocketContext } from '../../../../utils/socketController';
-import styles from '../../../../containers/Containers.css';
+import styles from '../whiteboard.css';
 
 const WhiteBoardCreate = ({ currentUser }) => {
     const [input, setInput] = useState('');

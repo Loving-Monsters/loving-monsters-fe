@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 
 import React, { useState, useEffect, useContext } from 'react';
-import styles from '../../../../containers/Containers.css';
+import styles from '../whiteboard.css';
 import { SocketContext } from '../../../../utils/socketController';
 
 const WhiteBoardCompleted = ({ currentUser }) => {

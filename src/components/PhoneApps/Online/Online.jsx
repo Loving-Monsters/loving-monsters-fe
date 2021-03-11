@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect, useContext } from 'react';
-import styles from '../../containers/Containers.css';
-import { SocketContext } from '../../utils/socketController';
+import styles from './online.css';
+import { SocketContext } from '../../../utils/socketController';
 
 const Online = ({ handleHome }) => {
     const socket = useContext(SocketContext);
@@ -15,7 +15,6 @@ const Online = ({ handleHome }) => {
             </li>
         );
     };
-
 
     useEffect(() => {
         socket.on('USERS_ONLINE', onlineUsers => {
