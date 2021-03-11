@@ -8,7 +8,7 @@ const Header = ({ handleLogOut }) => {
     return (
         <div className={styles.header}>
             <span className={styles.headerText}>Loving Monsters</span>
-            <span><button className={styles.logoutButton} onClick={handleLogOut}>LOGOUT</button></span>
+            <br /><button className={styles.logoutButton} onClick={handleLogOut}>LOGOUT</button>
         </div>
     );
 };

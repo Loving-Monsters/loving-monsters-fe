@@ -1,9 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect, useContext } from 'react';
 import { SocketContext } from '../../../utils/socketController';
 import styles from '../../Containers.css';
 
-export default function ExistingUser({ currentUser, handleLogIn }) {
+export default function ExistingUser({ currentUser, handleNewUser, handleLogIn }) {
     const [nameInput, setNameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const socket = useContext(SocketContext);
@@ -36,7 +38,7 @@ export default function ExistingUser({ currentUser, handleLogIn }) {
             <form
                 onSubmit={handleSubmit}
                 className={styles.form}>
-                <p>Username</p>
+                <p>Username:</p>
                 <input
                     className={styles.textInput}
                     type="text"
@@ -44,7 +46,7 @@ export default function ExistingUser({ currentUser, handleLogIn }) {
                     onChange={({ target }) => setNameInput(target.value)}
                     required
                 />
-                <p>Password</p>
+                <p>Password:</p>
                 <input
                     className={styles.textInput}
                     type="password"
@@ -54,6 +56,9 @@ export default function ExistingUser({ currentUser, handleLogIn }) {
                 />
                 <button className={styles.submitButton}>SUBMIT</button>
             </form>
+            <div>
+                <button className={styles.redirectButton} onClick={handleNewUser}>Don't have an account?</button>
+            </div>
         </div>
     );
 }
