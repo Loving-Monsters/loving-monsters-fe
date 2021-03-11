@@ -9,16 +9,16 @@ export default function Player({ position, xOffset, yOffset, direction, userName
     const runDirections = ['up', 'down', 'left', 'right'];
 
     useEffect(() => {
-        const animationTimer = setTimeout(() => {
+        setTimeout(() => {
             if (runDirections.includes(direction)) {
                 runAnimation();
             }
-        }, 200);
+        }, 120);
 
-        // return () => clearTimeout(animationTimer);
     }, [frame, idle]);
 
     const runAnimation = () => {
+
         if (idle === false) {
             frame < 4 ? setFrame(frame + 1) : setFrame(1);
             setSprite(`/sprites/${avatar}/${direction}${frame}.png`);

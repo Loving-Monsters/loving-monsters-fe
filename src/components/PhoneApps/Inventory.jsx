@@ -3,17 +3,17 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../containers/Containers.css';
 
 const Inventory = ({ handleHome, currentUser }) => {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCount(count + 1)
+            setCount(count + 1);
         }, 500);
 
 
         return () => clearInterval(interval);
     }, [count]);
-    console.log(count)
+
     return (
         <div className={styles.inventory}>
             <div className={styles.backbackground}>

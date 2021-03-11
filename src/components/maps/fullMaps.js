@@ -13,28 +13,11 @@ const hallway = {
     height: 750,
     npcs: [npcObj.barker],
     items: [itemObj.snek],
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 1175,
-            y: 400
-        },
-        location: {
-            x: 1500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     portals: [{
         type: 'portal',
         position: {
             x: 575,
-            y: 300
+            y: 250
         },
         dimension: {
             x: 100,
@@ -87,7 +70,7 @@ const hallway = {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 525
+                x: 0, y: 615
             },
             dimension: {
                 x: 1600, y: 10
@@ -107,7 +90,7 @@ const hallway = {
             type: 'object',
             name: 'Lockers1',
             position: {
-                x: 25, y: 300
+                x: 25, y: 275
             },
             dimension: {
                 x: 325, y: 50
@@ -137,28 +120,11 @@ const hallway2 = {
     top: 0,
     height: 750,
     playerOffsetY: 100,
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 800,
-            y: 400
-        },
-        location: {
-            x: 1150,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     portals: [{
         type: 'portal',
         position: {
             x: 175,
-            y: 300
+            y: 225
         },
         dimension: {
             x: 100,
@@ -223,17 +189,17 @@ const hallway2 = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 1100, y: 300
+                x: 1100, y: 250
             },
         },
         {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 525
+                x: 0, y: 615
             },
             dimension: {
-                x: 1500, y: 10
+                x: 1500, y: 25
             }
         },
         {
@@ -269,28 +235,11 @@ const hallway3 = {
     top: 0,
     height: 750,
     playerOffsetY: 100,
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 800,
-            y: 350
-        },
-        location: {
-            x: 1150,
-            y: 550
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     portals: [{
         type: 'portal',
         position: {
             x: 200,
-            y: 300
+            y: 225
         },
         dimension: {
             x: 100,
@@ -355,14 +304,14 @@ const hallway3 = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 1100, y: 300
+                x: 1100, y: 250
             },
         },
         {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 525
+                x: 0, y: 625
             },
             dimension: {
                 x: 1500, y: 10
@@ -413,31 +362,14 @@ const classroom = {
         },
         dimension: {
             x: 175,
-            y: 50
-        }
-    },
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 175,
-            y: 400
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
+            y: 25
         }
     },
     portals: [{
         type: 'portal',
         position: {
             x: 50,
-            y: 600
+            y: 700
         },
         dimension: {
             x: 75,
@@ -463,7 +395,7 @@ const classroom = {
                 x: 0, y: 25
             },
             dimension: {
-                x: 1000, y: 125
+                x: 1000, y: 100
             }
         },
         {
@@ -480,7 +412,7 @@ const classroom = {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 625
+                x: 0, y: 700
             },
             dimension: {
                 x: 1000, y: 150
@@ -493,7 +425,7 @@ const classroom = {
                 x: 25, y: 0
             },
             dimension: {
-                x: 10, y: 600
+                x: 50, y: 600
             }
         },
     ],
@@ -507,23 +439,6 @@ const classroom2 = {
     left: 350,
     top: 100,
     height: 750,
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 175,
-            y: 400
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     items: [itemObj.nightlight],
     npcs: [],
     whiteBoard: {
@@ -612,23 +527,6 @@ const classroom3 = {
     left: 350,
     top: 100,
     height: 750,
-    balls: {
-        rotate: 0,
-        display: false,
-        type: 'ball',
-        position: {
-            x: 175,
-            y: 400
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 0,
-            y: 0
-        }
-    },
     items: [],
     npcs: [npcObj.nvisible],
     whiteBoard: {
@@ -723,23 +621,6 @@ const courtyard = {
     height: 2000,
     npcs: [],
     items: [itemObj.swampscum],
-    balls: {
-        rotate: 0,
-        display: true,
-        type: 'ball',
-        position: {
-            x: 175,
-            y: 600
-        },
-        location: {
-            x: 500,
-            y: 600
-        },
-        dimension: {
-            x: 50,
-            y: 50
-        }
-    },
     whiteBoard: {
         type: 'whiteBoard',
         name: 'classroom',

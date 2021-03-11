@@ -17,12 +17,14 @@ import npcObj from '../components/NPCs/fullNPCs';
 import { SocketContext } from '../utils/socketController';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+const CURRENT_USER = 'CURRENT_USER';
 
 export default function Engine({ currentUser }) {
     const socket = useContext(SocketContext);
 
     const [userArray, setUserArray] = useState([]);
-    const currentMap = useRef(mapObj.hallway);
+    const [ballArray, setBallArray] = useState([]);
+    const currentMap = useRef(mapObj[currentUser.current.currentRoom]);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
     const [boxOpen, setBoxOpen] = useState(false);
@@ -32,21 +34,21 @@ export default function Engine({ currentUser }) {
     // const [transform, setTransform] = useState(currentMap.current.balls.position)
 
     useEffect(() => {
-        socket.on('GAME_STATE', response => {
-            // console.log('🚀 ~ file: Engine.jsx ~ line 35 ~ useEffect ~ response ', response);
-
-            setUserArray(response);
+        socket.on('GAME_STATE', ({ userArray, ballArray }) => {
+            setUserArray(userArray);
+            setBallArray(ballArray);
             setDisableKeys(false);
         });
     }, [socket]);
 
     useEffect(() => {
+        console.log('🚀 ~ file: Engine.jsx ~ line 47 ~ gameStateInterval ~ currentUser.current', currentUser.current);
 
         const gameStateInterval = setInterval(() => {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
             }
-        }, 150);
+        }, 100);
 
         return () => clearInterval(gameStateInterval);
     }, []);
@@ -60,12 +62,12 @@ export default function Engine({ currentUser }) {
             }, 500);
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction, setBoxOpen);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction, setBoxOpen));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction));
         };
     }, []);
 
@@ -77,6 +79,10 @@ export default function Engine({ currentUser }) {
         currentMap.current = mapObj[mapName];
         socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: mapName });
         currentUser.current.currentRoom = mapName;
+
+        setBallArray([]);
+        setUserArray([]);
+        localStorage.setItem(CURRENT_USER, JSON.stringify(currentUser.current));
 
         setLoading(false);
     };
@@ -94,84 +100,6 @@ export default function Engine({ currentUser }) {
             storyIndex.current = 0;
         }
         setBoxOpen(true);
-
-    };
-
-    const handleBallInteraction = (direction, ballCollision) => {
-        const ball = currentMap.current.balls;
-
-        if (ballCollision.type === 'portal') {
-            ball.display = false;
-            ball.dimension.x = 0;
-            ball.dimension.y = 0;
-            if (direction === 'ArrowRight') {
-                ball.location.x -= 75;
-                ball.position.x -= 75;
-            }
-            if (direction === 'ArrowLeft') {
-                ball.location.x += 75;
-                ball.position.x += 75;
-            }
-            mapObj[ballCollision.name].balls.display = true;
-            mapObj[ballCollision.name].balls.dimension.x = 50;
-            mapObj[ballCollision.name].balls.dimension.y = 50;
-
-        } else if (direction === 'ArrowRight') {
-
-            if (ballCollision.type === false) {
-                ball.location.x += 50;
-                ball.position.x += 50;
-                ball.rotate += 35;
-
-            } else if (ballCollision.type !== false) {
-                ball.location.x -= 50;
-                ball.position.x -= 50;
-                ball.rotate -= 35;
-            }
-        }
-
-        else if (direction === 'ArrowLeft') {
-
-            if (ballCollision.type === false) {
-                ball.location.x -= 50;
-                ball.position.x -= 50;
-                ball.rotate -= 35;
-
-            } else if (ballCollision.type !== false) {
-                ball.location.x += 50;
-                ball.position.x += 50;
-                ball.rotate += 35;
-            }
-        }
-
-        else if (direction === 'ArrowUp') {
-
-            if (ballCollision.type === false) {
-                ball.location.y -= 50;
-                ball.position.y -= 50;
-                ball.rotate += 35;
-
-            } else if (ballCollision.type !== false) {
-                ball.location.y += 50;
-                ball.position.y += 50;
-                ball.rotate += 35;
-
-            }
-        }
-        else if (direction === 'ArrowDown') {
-
-            if (ballCollision.type === false) {
-                ball.location.y += 50;
-                ball.position.y += 50;
-                ball.rotate += 35;
-
-
-            } else if (ballCollision.type !== false) {
-                ball.location.y -= 50;
-                ball.position.y -= 50;
-                ball.rotate += 35;
-            }
-        }
 
     };
 
@@ -206,13 +134,18 @@ export default function Engine({ currentUser }) {
             />
         );
     };
+
     const renderBalls = () => {
-        if (currentMap.current.balls.display) {
-            return < Ball
-                key={currentMap.current.balls.position}
-                position={currentMap.current.balls.location}
-                rotate={currentMap.current.balls.rotate}
-            />;
+        if (ballArray.length > 0) {
+            return ballArray.map(ball => <Ball
+                key={ball.id}
+                xOffset={currentMap.current.playerOffsetX}
+                yOffset={currentMap.current.playerOffsetY}
+                position={ball.position}
+                avatar={ball.avatar}
+                idle={ball.idle}
+            />
+            );
         }
     };
 
@@ -285,7 +218,6 @@ export default function Engine({ currentUser }) {
                             {renderNPCs()}
                             {renderArrows()}
                             {renderUsers()}
-
                             {renderBalls()}
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}

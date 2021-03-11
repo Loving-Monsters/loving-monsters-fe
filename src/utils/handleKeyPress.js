@@ -2,14 +2,14 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleBallInteraction, setBoxOpen) {
+export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction) {
     e.preventDefault();
 
     if (currentUser.current && !disableKeys) {
         setDisableKeys(true);
 
         const { position, speed, dimension } = currentUser.current;
-        const { objectArray, portals, npcs, items, whiteBoard, balls } = currentMap.current;
+        const { objectArray, portals, npcs, items, whiteBoard } = currentMap.current;
 
         const newPosition = changePosition(position, speed, e.key);
 
@@ -18,24 +18,18 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
             ...portals,
             ...npcs,
             ...items,
-
         ];
-        const ballPosition = changePosition(newPosition, 75, e.key)
-        if (balls.display) collisionObjects.push(balls);
+
         if (whiteBoard) collisionObjects.push(whiteBoard);
 
         const checkCollisionResult = checkCollision(collisionObjects, newPosition, dimension);
 
-        const ballCollision = checkCollision(collisionObjects, ballPosition, (dimension));
-
         switch (checkCollisionResult.type) {
             case false:
-                setBoxOpen(false)
-                const dir = e.key.split('Arrow')[1].toLowerCase();
                 currentUser.current = {
                     ...currentUser.current,
                     position: newPosition,
-                    dir
+                    dir: e.key.split('Arrow')[1].toLowerCase()
                 };
                 break;
             case 'portal':
@@ -52,9 +46,6 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
 
             case 'whiteBoard':
                 handleWhiteBoardInteraction(checkCollisionResult.name);
-                break;
-            case 'ball':
-                handleBallInteraction(e.key, ballCollision);
                 break;
         }
     }

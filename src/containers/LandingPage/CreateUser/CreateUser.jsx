@@ -8,7 +8,11 @@ import { handleKeyPress } from '../handleKeyPress/handleKeyPress';
 
 const playerSprites = [1, 2, 3];
 
+<<<<<<< HEAD
+export default function CreateUser({ handleLogIn, handleBack, currentUser }) {
+=======
 export default function CreateUser({ handleLogIn, handleExistingUser, currentUser }) {
+>>>>>>> a6c68ad5a77c00939870bd46885a4b29a341f1b8
     const [nameInput, setNameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const [spriteDirection, setSpriteDirection] = useState('down');
@@ -18,20 +22,19 @@ export default function CreateUser({ handleLogIn, handleExistingUser, currentUse
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
             handleKeyPress(e, setSpriteDirection);
-        });
+        }, true);
 
         return function cleanup() {
             window.removeEventListener('keydown', (e) => {
                 handleKeyPress(e, setSpriteDirection);
             });
         };
-
     }, []);
 
     useEffect(() => {
         socket.on('CREATE_USER', (newUser) => {
             if (newUser === false) {
-                window.alert(`${nameInput} is already taken!`);
+                window.alert('User name is already taken!');
             } else {
                 currentUser.current = newUser;
                 handleLogIn();
@@ -57,6 +60,7 @@ export default function CreateUser({ handleLogIn, handleExistingUser, currentUse
 
     return (
         <div className={styles.page}>
+            <button onClick={handleBack}>BACK</button>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <p>Username:</p>
                 <input
