@@ -8,7 +8,7 @@ import { handleKeyPress } from '../handleKeyPress/handleKeyPress';
 
 const playerSprites = [1, 2, 3];
 
-export default function CreateUser({ handleLogIn, handleExistingUser, currentUser }) {
+export default function CreateUser({ handleLogIn, handleBack, handleExistingUser, currentUser }) {
     const [nameInput, setNameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const [spriteDirection, setSpriteDirection] = useState('down');
@@ -56,7 +56,6 @@ export default function CreateUser({ handleLogIn, handleExistingUser, currentUse
 
     return (
         <div className={styles.page}>
-            <button onClick={handleBack}>BACK</button>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <p>Username:</p>
                 <input
