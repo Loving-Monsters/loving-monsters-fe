@@ -88,6 +88,7 @@ html {
     height: 630px;
     width: 300px;
     border-radius: 20px;
+    overflow: auto;
 }
 
 .homescreen {
