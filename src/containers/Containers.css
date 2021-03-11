@@ -477,6 +477,7 @@ h2 {
 
 .spriteExample:hover {
     cursor: pointer;
+    border: 1px solid tomato;
 }
 
 label :checked + div{
@@ -504,7 +505,7 @@ label :checked + div{
 .header {
     margin-top: 25px;
     height: 75px;
-    width: 100%;
+    width: 1200px;
     font-family: pixelfy;
     text-align: center;
 }
@@ -517,9 +518,8 @@ label :checked + div{
 }
 
 .logoutButton {
+    margin-top: 10px;
     position: absolute;
-    top: 53px;
-    right: 80px;
     height: 30px;
     background-color: transparent;
     border: solid 1px white;
@@ -532,6 +532,22 @@ label :checked + div{
     cursor: pointer;
     color: tomato;
     border: solid 1px tomato;
+}
+
+.redirectButton {
+    margin-top: 100px;
+    height: 30px;
+    background-color: transparent;
+    border: solid 1px black;
+    font-family: dogica;
+    font-size: 12pt;
+    color: black;
+}
+
+.redirectButton:hover {
+    cursor: pointer;
+    color: white;
+    border: solid 1px white;
 }
 
 @keyframes welcome {
