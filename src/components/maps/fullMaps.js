@@ -239,7 +239,7 @@ const hallway3 = {
         type: 'portal',
         position: {
             x: 200,
-            y: 300
+            y: 225
         },
         dimension: {
             x: 100,
@@ -304,14 +304,14 @@ const hallway3 = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 1100, y: 300
+                x: 1100, y: 250
             },
         },
         {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 525
+                x: 0, y: 625
             },
             dimension: {
                 x: 1500, y: 10
