@@ -362,14 +362,14 @@ const classroom = {
         },
         dimension: {
             x: 175,
-            y: 50
+            y: 25
         }
     },
     portals: [{
         type: 'portal',
         position: {
             x: 50,
-            y: 600
+            y: 700
         },
         dimension: {
             x: 75,
@@ -395,7 +395,7 @@ const classroom = {
                 x: 0, y: 25
             },
             dimension: {
-                x: 1000, y: 125
+                x: 1000, y: 100
             }
         },
         {
@@ -412,7 +412,7 @@ const classroom = {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 625
+                x: 0, y: 700
             },
             dimension: {
                 x: 1000, y: 150
@@ -425,7 +425,7 @@ const classroom = {
                 x: 25, y: 0
             },
             dimension: {
-                x: 10, y: 600
+                x: 50, y: 600
             }
         },
     ],
