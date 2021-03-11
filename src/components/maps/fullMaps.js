@@ -334,7 +334,7 @@ const hallway3 = {
                 x: 450, y: 250
             },
             dimension: {
-                x: 250, y: 75
+                x: 1000, y: 75
             }
         }
     ],
