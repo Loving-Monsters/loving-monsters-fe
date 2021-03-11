@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React from 'react';
-import styles from './arrows.css';
+import styles from './Arrows.css';
 
 export default function Arrow({ marginTop, marginLeft, rotate }) {
 
@@ -11,7 +11,7 @@ export default function Arrow({ marginTop, marginLeft, rotate }) {
             style={{
                 top: marginTop,
                 left: marginLeft,
-                transform: `rotate(${rotate})` 
+                transform: `rotate(${rotate})`
             }}
         >
             <img src="/Arrow.png" style={{ transform: `rotate(${rotate}deg)` }} />
