@@ -88,7 +88,7 @@
 .bullList {
     margin-top: 15px;
     height: 510px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .formBack {

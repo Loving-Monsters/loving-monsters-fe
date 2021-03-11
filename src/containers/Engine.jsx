@@ -79,7 +79,9 @@ export default function Engine({ currentUser }) {
         setUserArray([]);
         localStorage.setItem(CURRENT_USER, JSON.stringify(currentUser.current));
 
-        setLoading(false);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
     };
 
     const handleWhiteBoardInteraction = (name) => {
@@ -197,7 +199,7 @@ export default function Engine({ currentUser }) {
 
     return (
         <div className={styles.view} >
-            {loading ? <div>loading...</div>
+            {loading ? <div className={styles.loading}>Loading...</div>
                 : currentUser.current.position ?
                     <div>
                         <div className={styles.map}
