@@ -18,6 +18,7 @@ const MessageInput = ({ handleSendMessage }) => {
             >
                 <input
                     type="text"
+                    maxLength="144"
                     value={input}
                     onChange={({ target }) => setInput(target.value)}
                 />

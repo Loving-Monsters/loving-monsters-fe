@@ -42,6 +42,7 @@ const MessageDetail = ({ socket, currentUser, messageArray, recieverName }) => {
         >
             <input
                 type="text"
+                maxLength="144"
                 value={input}
                 onChange={(event) => handleInputChange(event)}
             />

@@ -59,6 +59,7 @@ const Bulletin = ({ currentUser, handleHome }) => {
                     <input
                         value={input}
                         type="text"
+                        maxLength="144"
                         onChange={(event) => handleInputChange(event)} />
                     <button className={styles.send}>SEND</button>
                 </form>
