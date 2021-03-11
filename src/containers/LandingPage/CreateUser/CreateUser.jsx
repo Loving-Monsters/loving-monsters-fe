@@ -8,11 +8,7 @@ import { handleKeyPress } from '../handleKeyPress/handleKeyPress';
 
 const playerSprites = [1, 2, 3];
 
-<<<<<<< HEAD
-export default function CreateUser({ handleLogIn, handleBack, currentUser }) {
-=======
 export default function CreateUser({ handleLogIn, handleExistingUser, currentUser }) {
->>>>>>> a6c68ad5a77c00939870bd46885a4b29a341f1b8
     const [nameInput, setNameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const [spriteDirection, setSpriteDirection] = useState('down');
