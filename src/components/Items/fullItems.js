@@ -60,7 +60,7 @@ const ooze = {
     },
     position: {
         x: 425,
-        y: 475
+        y: 525
     },
     dimension: {
         x: 1,
