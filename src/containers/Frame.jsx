@@ -12,7 +12,7 @@ const CURRENT_USER = 'CURRENT_USER';
 export default function Frame() {
     const socket = useContext(SocketContext);
     const storedLogIn = localStorage.getItem(LOGGED_IN);
-    const storedUser = JSON.parse(localStorage.getItem(CURRENT_USER));
+    const storedUser = JSON.parse((localStorage.getItem(CURRENT_USER)));
     const [loggedIn, setLoggedIn] = useState(storedLogIn || false);
     const currentUser = useRef(storedUser || {});
 
@@ -24,7 +24,7 @@ export default function Frame() {
 
     const handleLogOut = () => {
         setLoggedIn(false);
-        localStorage.setItem(LOGGED_IN, false);
+        localStorage.clear();
     };
 
     useEffect(() => {

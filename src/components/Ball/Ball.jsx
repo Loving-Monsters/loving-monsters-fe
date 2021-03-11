@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ball.css';
 
-export default function Ball({ key, position, xOffset, yOffset, avatar, idle }) {
+export default function Ball({ position, xOffset, yOffset, avatar, idle }) {
     const [rotate, setRotate] = useState(0);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export default function Ball({ key, position, xOffset, yOffset, avatar, idle }) 
     };
 
     return (
-        <div key={key}
+        <div
             className={styles.container}
             style={{
                 transform: `translate3d(${position.x + xOffset}px, ${position.y + yOffset}px, 0)

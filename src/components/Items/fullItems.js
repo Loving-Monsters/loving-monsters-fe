@@ -36,7 +36,7 @@ const nightlight = {
     },
     position: {
         x: 625,
-        y: 125
+        y: 150
     },
     dimension: {
         x: 1,

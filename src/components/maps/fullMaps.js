@@ -335,7 +335,7 @@ const hallway3 = {
                 x: 450, y: 250
             },
             dimension: {
-                x: 250, y: 75
+                x: 1000, y: 75
             }
         }
     ],
@@ -446,7 +446,7 @@ const classroom2 = {
         name: 'classroom',
         position: {
             x: 150,
-            y: 100
+            y: 75
         },
         dimension: {
             x: 175,
@@ -457,7 +457,7 @@ const classroom2 = {
         type: 'portal',
         position: {
             x: 0,
-            y: 600
+            y: 700
         },
         dimension: {
             x: 100,
@@ -490,17 +490,17 @@ const classroom2 = {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 725, y: 0
+                x: 715, y: 0
             },
             dimension: {
-                x: 10, y: 800
+                x: 25, y: 800
             }
         },
         {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 625
+                x: 0, y: 700
             },
             dimension: {
                 x: 1000, y: 150
@@ -513,7 +513,7 @@ const classroom2 = {
                 x: 25, y: 0
             },
             dimension: {
-                x: 10, y: 600
+                x: 50, y: 600
             }
         },
     ],
@@ -535,7 +535,7 @@ const classroom3 = {
         name: 'classroom',
         position: {
             x: 150,
-            y: 100
+            y: 75
         },
         dimension: {
             x: 175,
@@ -546,7 +546,7 @@ const classroom3 = {
         type: 'portal',
         position: {
             x: 25,
-            y: 600
+            y: 700
         },
         dimension: {
             x: 100,
@@ -572,7 +572,7 @@ const classroom3 = {
                 x: 0, y: 25
             },
             dimension: {
-                x: 1000, y: 125
+                x: 1000, y: 100
             }
         },
         {
@@ -589,7 +589,7 @@ const classroom3 = {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 625
+                x: 0, y: 700
             },
             dimension: {
                 x: 1000, y: 150
@@ -602,7 +602,7 @@ const classroom3 = {
                 x: 25, y: 0
             },
             dimension: {
-                x: 10, y: 600
+                x: 50, y: 600
             }
         },
     ],
@@ -638,7 +638,7 @@ const courtyard = {
             y: 1200
         },
         dimension: {
-            x: 25,
+            x: 0,
             y: 50
         },
         name: 'hallway3',
@@ -678,7 +678,7 @@ const courtyard = {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 2225
+                x: 0, y: 2350
             },
             dimension: {
                 x: 1925, y: 25
@@ -691,17 +691,17 @@ const courtyard = {
                 x: 0, y: 0
             },
             dimension: {
-                x: 25, y: 2275
+                x: 0, y: 2275
             }
         },
         {
             type: 'object',
             name: 'Fountain',
             position: {
-                x: 425, y: 875
+                x: 425, y: 985
             },
             dimension: {
-                x: 1025, y: 725
+                x: 1025, y: 625
             }
         },
     ],
