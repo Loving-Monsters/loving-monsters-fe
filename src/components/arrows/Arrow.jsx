@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React from 'react';
-import styles from './Arrows.css';
+import styles from './arrows.css';
 
 export default function Arrow({ marginTop, marginLeft, rotate }) {
 

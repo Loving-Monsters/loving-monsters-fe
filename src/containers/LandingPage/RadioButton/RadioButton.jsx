@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import SpriteExample from '../SpriteExample/SpriteExample';
-import styles from '../../Containers.css';
+import styles from '../landingpage.css';
 
 const RadioButton = ({ spriteNum, spriteDirection, spriteChecked, handleSpriteChange }) => {
     return (

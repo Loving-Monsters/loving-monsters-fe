@@ -1,0 +1,154 @@
+.messaging {
+    position: absolute;
+    margin-top: 5px;
+    height: 630px;
+    width: 300px;
+    border-radius: 20px;
+    overflow: auto;
+    background-color: #242424;
+}
+
+.messageItem {
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: solid 1px white;
+}
+
+.timestamp {
+    font-family: dogica;
+    font-size: 8pt;
+    letter-spacing: -1pt;
+    color: aqua;
+}
+
+.messageText {
+    font-family: dogica;
+    font-size: 10pt;
+    letter-spacing: -1pt;
+    color: white;
+    line-height: 16pt;
+    word-wrap: break-word;
+}
+
+.messageItems {
+    height: 480px;
+    overflow: scroll;
+}
+
+.messageDropdown {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: dogica;
+    text-align: center;
+    color: aqua;
+}
+
+.messageDropdown select {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 16pt;
+    width: 60%;
+    font-family: dogica;
+    background-color: #1A1A1A;
+    color: aqua;
+}
+
+.messageDropdown button {
+    background-color: transparent;
+    border: none;
+    font-family: dogica;
+    letter-spacing: -1pt;
+    color: aqua;
+}
+
+.messageDropdown button:hover {
+    cursor: pointer;
+}
+
+.backbackground {
+    padding-bottom: 10px;
+    border-bottom: solid 2px white;
+}
+
+.back, .send {
+    background-color: transparent;
+    border: none;
+    font-family: dogica;
+    letter-spacing: -1pt;
+    color: aqua;
+}
+
+.back {
+    margin-top: 15px;
+    margin-left: 5px;
+    font-size: 24pt;
+}
+
+.send {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 4px;
+    font-size: 12pt;
+}
+
+.back:hover, .send:hover, .messageName:hover {
+    cursor: pointer
+}
+
+.backspan {
+    position: absolute;
+    margin-top: 8px;
+    font-size: 12pt;
+}
+
+.messageForm {
+    position: absolute;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    bottom: 0;
+}
+
+.messageForm input {
+    width: 200px;
+    height: 14pt;
+    border: solid 2px aqua;
+    background-color: #1A1A1A;
+    color: white;
+    font-family: dogica;
+    font-size: 12px;
+    letter-spacing: -1pt;
+}
+
+.formBack {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    border-top: solid 2px white;
+    background-color: #1A1A1A;
+}
+
+.messageName {
+    background-color: aqua;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.messageList {
+    margin-top: 15px;
+    height: 510px;
+    overflow: scroll;
+    margin-top: 15px;
+    font-family: dogica;
+    color: black;
+}
+
+.messageUserDetail {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: dogica;
+    background-color: aqua;
+}

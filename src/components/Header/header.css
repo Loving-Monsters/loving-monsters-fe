@@ -1,0 +1,31 @@
+.header {
+    margin-top: 25px;
+    height: 75px;
+    width: 1200px;
+    font-family: pixelfy;
+    text-align: center;
+}
+
+.headerText {
+    font-family: pixelfy;
+    font-size: 60pt;
+    color: white;
+    text-shadow: 2px 2px 2px tomato;
+}
+
+.logoutButton {
+    margin-top: 10px;
+    position: absolute;
+    height: 30px;
+    background-color: transparent;
+    border: solid 1px white;
+    font-family: dogica;
+    font-size: 12pt;
+    color: white;
+}
+
+.logoutButton:hover {
+    cursor: pointer;
+    color: tomato;
+    border: solid 1px tomato;
+}

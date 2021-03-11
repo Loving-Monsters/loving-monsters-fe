@@ -22,7 +22,7 @@ const barker = {
     positiveReaction: 'Whoa! A ',
     positiveReaction2: ' for me? I love it!',
     neutralReaction: 'Uh, ',
-    neutralReaction2: '? Thanks, I guess? ',
+    neutralReaction2: '? Thanks, I guess?',
     negativeReaction: 'Gross, I hate ',
     negativeReaction2: 's.',
     storyBeats1: [
@@ -121,7 +121,7 @@ const nvisible = {
     marginLeft: '350px',
     positiveReaction: 'You got me ',
     positiveReaction2: '? How nice!',
-    negativeReaction: 'What would I want ',
+    negativeReaction: 'Why would I want ',
     negativeReaction2: '?',
     neutralReaction: 'Oh, you found ',
     neutralReaction2: '? I\'ll just put it...over here.',

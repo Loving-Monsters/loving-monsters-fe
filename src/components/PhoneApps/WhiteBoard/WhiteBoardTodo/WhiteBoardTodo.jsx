@@ -3,12 +3,11 @@
 
 import React, { useEffect, useState, useContext } from 'react';
 import { SocketContext } from '../../../../utils/socketController';
-import styles from '../../../../containers/Containers.css';
+import styles from '../whiteboard.css';
 
 const WhiteBoardTodo = ({ currentUser }) => {
     const [todoTasks, setTodoTasks] = useState(currentUser.current.taskObj.todo);
     const socket = useContext(SocketContext);
-
 
     useEffect(() => {
         const taskTimer = setInterval(() => {

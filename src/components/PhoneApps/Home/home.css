@@ -1,0 +1,39 @@
+.homescreen {
+    position: absolute;
+    margin-top: 5px;
+    height: 630px;
+    width: 300px;
+    border-radius: 20px;
+    background-image: url('/public/phone/PhoneBkgd.png');
+    overflow: hidden;
+}
+
+.apps {
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    image-rendering: pixelated;
+}
+
+.apps img {
+    height: 100px;
+}
+
+.apps img:hover {
+    cursor: pointer;
+}
+
+.icon {
+    text-align: center;
+    width: 120px;
+    margin-bottom: 15px;
+}
+
+.icon span {
+    font-family: dogica;
+    font-size: 8pt;
+    margin-bottom: 15px;
+}

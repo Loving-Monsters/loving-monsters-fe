@@ -1,5 +1,8 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable max-len */
+
 import React, { useState, useEffect } from 'react';
-import styles from './Ball.css';
+import styles from './ball.css';
 
 export default function Ball({ key, position, xOffset, yOffset, avatar, idle }) {
     const [rotate, setRotate] = useState(0);
@@ -11,8 +14,6 @@ export default function Ball({ key, position, xOffset, yOffset, avatar, idle }) 
             }, 100);
         }
     }, [rotate, idle]);
-
-
 
     const rollAnimation = () => {
         rotate < 360 ? setRotate(rotate + 90) : setRotate(0);

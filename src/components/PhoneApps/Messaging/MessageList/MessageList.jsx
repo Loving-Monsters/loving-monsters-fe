@@ -1,14 +1,15 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
+
 import React from 'react';
-import styles from '../../../../containers/Containers.css';
+import styles from '../messaging.css';
 
 const MessageList = ({ currentUser, messageObj, selectUserDetail }) => {
 
     const renderListItem = (listItem, userName) => {
         if (listItem) {
-
             const selectedUser = { userName };
+
             if (userName === listItem[0].recieverName) {
                 selectedUser.id = listItem[0].recieverId;
 

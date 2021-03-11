@@ -6,7 +6,7 @@ import WhiteBoardTodo from './WhiteBoardTodo/WhiteBoardTodo';
 import WhiteBoardInProgress from './WhiteBoardInProgress/WhiteBoardInProgress';
 import WhiteBoardCompleted from './WhiteBoardCompleted/WhiteBoardCompleted';
 import WhiteBoardCreate from './WhiteBoardCreate/WhiteBoardCreate';
-import styles from '../../../containers/Containers.css';
+import styles from './whiteboard.css';
 import { SocketContext } from '../../../utils/socketController.js';
 
 const WhiteBoard = ({ handleHome, currentUser }) => {

@@ -1,0 +1,48 @@
+.inventory {
+    position: absolute;
+    margin-top: 5px;
+    height: 630px;
+    width: 300px;
+    border-radius: 20px;
+    overflow: auto;
+    background-color: #242424;
+}
+
+.back {
+    margin-top: 15px;
+    margin-left: 5px;
+    font-size: 24pt;
+    background-color: transparent;
+    border: none;
+    font-family: dogica;
+    letter-spacing: -1pt;
+    color: aqua;
+}
+
+.back:hover {
+    cursor: pointer;
+}
+
+.backspan {
+    position: absolute;
+    margin-top: 8px;
+    font-size: 12pt;
+}
+
+.backbackground {
+    padding-bottom: 10px;
+    border-bottom: solid 2px white;
+}
+
+.item {
+    margin-top: 25px;
+    font-family: dogica;
+    text-align: center;
+    color: aqua;
+}
+
+.itemImg {
+    image-rendering: pixelated;
+    margin-right: 10px;
+    height: 40px;
+}
