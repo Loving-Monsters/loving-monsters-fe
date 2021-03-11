@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
+
 import React, { useState, useEffect } from 'react';
-import styles from '../../containers/Containers.css';
-import npcObj from '../NPCs/fullNPCs';
+import styles from './friendships.css';
+import npcObj from '../../NPCs/fullNPCs';
 
 const Friendships = ({ handleHome }) => {
     const [count, setCount] = useState(0);
@@ -12,10 +13,10 @@ const Friendships = ({ handleHome }) => {
             setCount(count + 1);
         }, 500);
 
-
         return () => clearInterval(interval);
     }, [count]);
     const npcArr = [npcObj.barker, npcObj.cal, npcObj.misscreech, npcObj.nvisible];
+
     return (
         <div className={styles.friendships}>
             <div className={styles.backbackground}>

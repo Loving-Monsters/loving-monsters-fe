@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import styles from '../../../containers/Containers.css';
+import styles from './messaging.css';
 import MessageHome from './MessageHome/MessageHome';
 import MessageHeader from './MessageHeader/MessageHeader';
 import MessageUserDetail from './MessageUserDetail/MessageUserDetail';

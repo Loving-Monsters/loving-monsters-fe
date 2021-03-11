@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 import React, { useState } from 'react';
 import WelcomeScreen from './WelcomeScreen/WelcomeScreen';
 import CreateUser from './CreateUser/CreateUser';
@@ -20,6 +21,7 @@ export default function LandingPage({ handleLogIn, currentUser }) {
             handleNewUser={handleNewUser}
         />);
     };
+    
     const [displayScreen, setDisplayScreen] = useState(<WelcomeScreen
         handleNewUser={handleNewUser}
         handleExistingUser={handleExistingUser}

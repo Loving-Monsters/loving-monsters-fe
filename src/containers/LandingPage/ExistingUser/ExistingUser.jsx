@@ -3,13 +3,12 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect, useContext } from 'react';
 import { SocketContext } from '../../../utils/socketController';
-import styles from '../../Containers.css';
+import styles from '../landingpage.css';
 
 export default function ExistingUser({ currentUser, handleNewUser, handleLogIn }) {
     const [nameInput, setNameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const socket = useContext(SocketContext);
-
 
     useEffect(() => {
         socket.on('LOG_IN', userInfo => {
@@ -42,6 +41,7 @@ export default function ExistingUser({ currentUser, handleNewUser, handleLogIn }
                 <input
                     className={styles.textInput}
                     type="text"
+                    maxLength="16"
                     value={nameInput}
                     onChange={({ target }) => setNameInput(target.value)}
                     required

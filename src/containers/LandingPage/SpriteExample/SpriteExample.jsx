@@ -1,12 +1,11 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import styles from '../../Containers.css';
+import styles from '../landingpage.css';
 
 const SpriteExample = ({ spriteNum, direction }) => {
     const [frame, setFrame] = useState(1);
     const [sprite, setSprite] = useState(`/sprites/${spriteNum}/${direction}1.png`);
-    const [userControl, setUserControl] = useState(true);
     const runDirections = ['up', 'down', 'left', 'right'];
 
     useEffect(() => {
@@ -16,7 +15,6 @@ const SpriteExample = ({ spriteNum, direction }) => {
             }
         }, 200);
         return () => clearTimeout(animationTimer);
-
     }, [frame]);
 
     const runAnimation = () => {
@@ -30,6 +28,5 @@ const SpriteExample = ({ spriteNum, direction }) => {
         </div>
     );
 };
-
 
 export default SpriteExample;

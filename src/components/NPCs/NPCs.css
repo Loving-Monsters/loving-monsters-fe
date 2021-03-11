@@ -1,8 +1,3 @@
-@font-face {
-    font-family: dogica;
-    src: url('../../containers/fonts/dogica.otf');
-}
-
 .npcs {
     position: absolute;
     text-align: center;

@@ -224,6 +224,7 @@ const hallway2 = {
         }
     ],
 };
+
 const hallway3 = {
     mapImage: '/hallway/MessyHallway3.png',
     npcs: [],
@@ -340,8 +341,6 @@ const hallway3 = {
     ],
 };
 
-
-
 const classroom = {
     mapImage: '/classroom/Workroom.png',
     transformPositionX: 0,
@@ -430,6 +429,7 @@ const classroom = {
         },
     ],
 };
+
 const classroom2 = {
     mapImage: '/classroom/classroom2.png',
     transformPositionX: 0,
@@ -518,6 +518,7 @@ const classroom2 = {
         },
     ],
 };
+
 const classroom3 = {
     mapImage: '/classroom/classroom3.png',
     transformPositionX: 0,
@@ -606,9 +607,6 @@ const classroom3 = {
         },
     ],
 };
-
-
-//
 
 const courtyard = {
     mapImage: '/courtyard.png',
@@ -708,7 +706,6 @@ const courtyard = {
         },
     ],
 };
-
 
 const mapObj = { hallway, hallway2, hallway3, classroom, classroom2, classroom3, courtyard };
 

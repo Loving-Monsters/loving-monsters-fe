@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React from 'react';
-import styles from '../../../../containers/Containers.css';
+import styles from '../messaging.css';
 
 const MessageDetailList = ({ messageArray }) => {
 

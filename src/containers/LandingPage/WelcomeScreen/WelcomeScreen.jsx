@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styles from '../../Containers.css';
+import styles from '../landingpage.css';
 
 export default function WelcomeScreen({ handleNewUser, handleExistingUser }) {
 

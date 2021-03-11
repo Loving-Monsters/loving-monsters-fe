@@ -1,7 +1,9 @@
+/* eslint-disable max-len */
+/* eslint-disable react/prop-types */
 
 import React, { useEffect, useState, useContext } from 'react';
-import styles from '../../containers/Containers.css';
-import { SocketContext } from '../../utils/socketController';
+import styles from './home.css';
+import { SocketContext } from '../../../utils/socketController';
 
 const Home = ({ handleAppChange, currentUser }) => {
     const [inClassroom, setInClassroom] = useState(false);
@@ -20,7 +22,6 @@ const Home = ({ handleAppChange, currentUser }) => {
             currentRoom.includes('classroom') ? setInClassroom(true) : setInClassroom(false);
         }
     }, []);
-
 
     return (
         <div className={styles.homescreen}>
@@ -56,6 +57,7 @@ const Home = ({ handleAppChange, currentUser }) => {
                     <img src="/phone/Inventory.png" />
                     <br /><span>Inventory</span>
                 </div>
+
                 <div
                     className={styles.icon}
                     onClick={() => handleAppChange('online')}
@@ -63,6 +65,7 @@ const Home = ({ handleAppChange, currentUser }) => {
                     <img src="/phone/Online.png" />
                     <br /><span>Online</span>
                 </div>
+                
                 {inClassroom ?
                     <div
                         className={styles.icon}

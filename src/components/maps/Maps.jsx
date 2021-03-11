@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React from 'react';
-import styles from './Maps.css';
+import styles from './maps.css';
 
 const Maps = ({ currentMap }) => {
     const renderWalls = objectArray => {
@@ -26,9 +26,7 @@ const Maps = ({ currentMap }) => {
                             left: `${currentMap.left}px`,
                             height: `${currentMap.height}px`
                         }} />
-
                 </div>
-
             );
         });
     };

@@ -3,13 +3,12 @@
 
 import React, { useState, useEffect, useContext } from 'react';
 import styles from './Containers.css';
-
-import Home from '../components/PhoneApps/Home';
-import Bulletin from '../components/PhoneApps/Bulletin';
-import Friendships from '../components/PhoneApps/Friendships';
-import Inventory from '../components/PhoneApps/Inventory';
+import Home from '../components/PhoneApps/Home/Home';
+import Bulletin from '../components/PhoneApps/Bulletin/Bulletin';
+import Friendships from '../components/PhoneApps/Friendship/Friendships';
+import Inventory from '../components/PhoneApps/Inventory/Inventory';
 import Messaging from '../components/PhoneApps/Messaging/Messaging';
-import Online from '../components/PhoneApps/Online';
+import Online from '../components/PhoneApps/Online/Online';
 import WhiteBoard from '../components/PhoneApps/WhiteBoard/WhiteBoard';
 import { SocketContext } from '../utils/socketController';
 
@@ -42,7 +41,6 @@ const Phone = ({ currentUser }) => {
 
         });
     }, [socket]);
-
 
     const handleHome = () => {
         setDisplayScreen(phoneApps.home);

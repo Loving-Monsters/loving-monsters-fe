@@ -2,7 +2,7 @@
 
 import React, { useState, useContext } from 'react';
 import { SocketContext } from '../../../../utils/socketController';
-import styles from '../../../../containers/Containers.css';
+import styles from '../whiteboard.css';
 
 const WhiteBoardCreate = ({ currentUser }) => {
     const [input, setInput] = useState('');
@@ -28,6 +28,7 @@ const WhiteBoardCreate = ({ currentUser }) => {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
+                    maxLength="144"
                     onChange={({ target }) => setInput(target.value)}
                     value={input}
                 />

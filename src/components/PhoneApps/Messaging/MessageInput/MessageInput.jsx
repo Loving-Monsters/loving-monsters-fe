@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import styles from '../../../../containers/Containers.css';
+import styles from '../messaging.css';
 
 const MessageInput = ({ handleSendMessage }) => {
     const [input, setInput] = useState('');
@@ -18,6 +18,7 @@ const MessageInput = ({ handleSendMessage }) => {
             >
                 <input
                     type="text"
+                    maxLength="144"
                     value={input}
                     onChange={({ target }) => setInput(target.value)}
                 />
