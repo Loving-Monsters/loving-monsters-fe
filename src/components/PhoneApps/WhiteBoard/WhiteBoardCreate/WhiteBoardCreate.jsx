@@ -28,6 +28,7 @@ const WhiteBoardCreate = ({ currentUser }) => {
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
+                    maxLength="144"
                     onChange={({ target }) => setInput(target.value)}
                     value={input}
                 />

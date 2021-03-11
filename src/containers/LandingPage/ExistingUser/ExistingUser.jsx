@@ -42,6 +42,7 @@ export default function ExistingUser({ currentUser, handleNewUser, handleLogIn }
                 <input
                     className={styles.textInput}
                     type="text"
+                    maxLength="16"
                     value={nameInput}
                     onChange={({ target }) => setNameInput(target.value)}
                     required
