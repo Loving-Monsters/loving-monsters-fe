@@ -446,7 +446,7 @@ const classroom2 = {
         name: 'classroom',
         position: {
             x: 150,
-            y: 100
+            y: 75
         },
         dimension: {
             x: 175,
@@ -457,7 +457,7 @@ const classroom2 = {
         type: 'portal',
         position: {
             x: 0,
-            y: 600
+            y: 700
         },
         dimension: {
             x: 100,
@@ -483,24 +483,24 @@ const classroom2 = {
                 x: 0, y: 25
             },
             dimension: {
-                x: 1000, y: 125
+                x: 1000, y: 100
             }
         },
         {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 725, y: 0
+                x: 715, y: 0
             },
             dimension: {
-                x: 10, y: 800
+                x: 25, y: 800
             }
         },
         {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 625
+                x: 0, y: 700
             },
             dimension: {
                 x: 1000, y: 150
@@ -513,7 +513,7 @@ const classroom2 = {
                 x: 25, y: 0
             },
             dimension: {
-                x: 10, y: 600
+                x: 50, y: 600
             }
         },
     ],
@@ -545,7 +545,7 @@ const classroom3 = {
         type: 'portal',
         position: {
             x: 25,
-            y: 600
+            y: 700
         },
         dimension: {
             x: 100,

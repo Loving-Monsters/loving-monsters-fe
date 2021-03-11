@@ -42,7 +42,6 @@ export default function Engine({ currentUser }) {
     }, [socket]);
 
     useEffect(() => {
-        console.log('🚀 ~ file: Engine.jsx ~ line 47 ~ gameStateInterval ~ currentUser.current', currentUser.current);
 
         const gameStateInterval = setInterval(() => {
             if (currentUser.current) {
