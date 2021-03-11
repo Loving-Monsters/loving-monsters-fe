@@ -17,13 +17,14 @@ import npcObj from '../components/NPCs/fullNPCs';
 import { SocketContext } from '../utils/socketController';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+const CURRENT_USER = 'CURRENT_USER';
 
 export default function Engine({ currentUser }) {
     const socket = useContext(SocketContext);
 
     const [userArray, setUserArray] = useState([]);
     const [ballArray, setBallArray] = useState([]);
-    const currentMap = useRef(mapObj.hallway);
+    const currentMap = useRef(mapObj[currentUser.current.currentRoom]);
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
     const [boxOpen, setBoxOpen] = useState(false);
@@ -78,6 +79,10 @@ export default function Engine({ currentUser }) {
         currentMap.current = mapObj[mapName];
         socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: mapName });
         currentUser.current.currentRoom = mapName;
+
+        setBallArray([]);
+        setUserArray([]);
+        localStorage.setItem(CURRENT_USER, JSON.stringify(currentUser.current));
 
         setLoading(false);
     };
