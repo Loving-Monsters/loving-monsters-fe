@@ -10,22 +10,14 @@ export default function LandingPage({ handleLogIn, currentUser }) {
         setDisplayScreen(<CreateUser
             handleLogIn={handleLogIn}
             currentUser={currentUser}
-            handleBack={handleBack}
-        />);
+            handleExistingUser={handleExistingUser} />);
     };
 
     const handleExistingUser = () => {
         setDisplayScreen(<ExistingUser
             currentUser={currentUser}
             handleLogIn={handleLogIn}
-            handleBack={handleBack}
-        />);
-    };
-
-    const handleBack = () => {
-        setDisplayScreen(<WelcomeScreen
             handleNewUser={handleNewUser}
-            handleExisitingUser={handleExisitingUser}
         />);
     };
     const [displayScreen, setDisplayScreen] = useState(<WelcomeScreen

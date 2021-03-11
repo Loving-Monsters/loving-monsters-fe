@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useContext, useState, useEffect } from 'react';
 import { SocketContext } from '../../../utils/socketController';
@@ -7,7 +8,11 @@ import { handleKeyPress } from '../handleKeyPress/handleKeyPress';
 
 const playerSprites = [1, 2, 3];
 
+<<<<<<< HEAD
 export default function CreateUser({ handleLogIn, handleBack, currentUser }) {
+=======
+export default function CreateUser({ handleLogIn, handleExistingUser, currentUser }) {
+>>>>>>> a6c68ad5a77c00939870bd46885a4b29a341f1b8
     const [nameInput, setNameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const [spriteDirection, setSpriteDirection] = useState('down');
@@ -57,7 +62,7 @@ export default function CreateUser({ handleLogIn, handleBack, currentUser }) {
         <div className={styles.page}>
             <button onClick={handleBack}>BACK</button>
             <form onSubmit={handleSubmit} className={styles.form}>
-                <p>UserName:</p>
+                <p>Username:</p>
                 <input
                     className={styles.textInput}
                     type="text"
@@ -89,6 +94,9 @@ export default function CreateUser({ handleLogIn, handleBack, currentUser }) {
                 </div>
                 <button className={styles.submitButton}>SUBMIT</button>
             </form>
+            <div>
+                <button className={styles.redirectButton} onClick={handleExistingUser}>Already have an account?</button>
+            </div>
         </div>
 
     );

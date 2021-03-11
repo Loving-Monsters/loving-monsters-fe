@@ -7,7 +7,8 @@ const frog = {
     friendship: {
         misscreech: 0,
         barker: -1,
-        cal: 1
+        cal: 1,
+        nvisible: 0
     },
     position: {
         x: 100,
@@ -30,7 +31,8 @@ const nightlight = {
     friendship: {
         misscreech: 0,
         barker: 1,
-        cal: -1
+        cal: -1,
+        nvisible: 1
     },
     position: {
         x: 625,
@@ -53,7 +55,8 @@ const ooze = {
     friendship: {
         misscreech: 1,
         barker: 0,
-        cal: 1
+        cal: 1,
+        nvisible: 1
     },
     position: {
         x: 425,
@@ -76,7 +79,8 @@ const pancakes = {
     friendship: {
         misscreech: 0,
         barker: 1,
-        cal: -1
+        cal: -1,
+        nvisible: -1
     },
     position: {
         x: 650,
@@ -99,7 +103,8 @@ const snek = {
     friendship: {
         misscreech: -1,
         barker: 1,
-        cal: 1
+        cal: 1,
+        nvisible: -1
     },
     position: {
         x: 450,
@@ -122,7 +127,8 @@ const swampscum = {
     friendship: {
         misscreech: 0,
         barker: 0,
-        cal: 1
+        cal: 1,
+        nvisible: -1
     },
     position: {
         x: 825,
