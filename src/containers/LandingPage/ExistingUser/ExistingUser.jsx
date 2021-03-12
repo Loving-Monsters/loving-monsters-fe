@@ -19,6 +19,10 @@ export default function ExistingUser({ currentUser, handleNewUser, handleLogIn }
                 handleLogIn();
             }
         });
+
+        socket.on('DUPLICATE_USER', () => {
+            window.alert('user already signed in');
+        });
     }, [socket]);
 
     const handleSubmit = (event) => {
