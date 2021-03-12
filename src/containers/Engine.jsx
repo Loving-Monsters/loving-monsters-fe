@@ -5,10 +5,6 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import Player from '../components/Player/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/maps/Maps.jsx';
-import Arrow from '../components/arrows/Arrow';
-import NPC from '../components/NPCs/NPC.jsx';
-import Ball from '../components/Ball/Ball';
-import Item from '../components/Items/Item';
 import DialogueBox from '../components/NPCs/DialogueBox';
 import styles from './Containers.css';
 import mapObj from '../components/maps/fullMaps';
@@ -18,6 +14,11 @@ import WinBox from '../components/frogger/WinBox';
 import LoseBox from '../components/frogger/LoseBox';
 import { SocketContext } from '../utils/socketController';
 
+import renderUsers from '../components/Renders/renderUsers';
+import renderBalls from '../components/Renders/renderBalls';
+import renderArrows from '../components/Renders/renderArrows';
+import renderItems from '../components/Renders/renderItems';
+import renderNPCs from '../components/Renders/renderNPCs';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 const CURRENT_USER = 'CURRENT_USER';
@@ -36,7 +37,7 @@ export default function Engine({ currentUser }) {
     const winBox = useRef(false);
     const [winsBox, setWinBox] = useState(false);
     const [currentNpc, setNpc] = useState(false);
-    const [user, setUser] = useState(false)
+    const [user, setUser] = useState(false);
     const [thanks, setThanks] = useState('');
     const [count, setCount] = useState(0);
     const storyIndex = useRef(0);
@@ -44,7 +45,7 @@ export default function Engine({ currentUser }) {
     const frogger = useRef(false);
     const gameStart = useRef(false);
     const winningPad = useRef(false);
-    // const disable = useRef(false)
+
     useEffect(() => {
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
@@ -63,37 +64,37 @@ export default function Engine({ currentUser }) {
     }, []);
 
     useEffect(() => {
-        if (frogger.current === true) {
-            currentUser.current.avatar = 'frog';
-        } else { currentUser.current.avatar = avatar; }
-    }, [currentUser.current.position]);
-
-    useEffect(() => {
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false;
-
 
             setTimeout(() => {
                 currentUser.current.idle = true;
             }, 500);
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleLaunchFrogger, setBoxOpen, loading);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen));
+            window.removeEventListener('keydown', (e) => {
+                currentUser.current.idle = false;
+
+                setTimeout(() => {
+                    currentUser.current.idle = true;
+                }, 500);
+
+                if (validKeyPress.includes(e.key)) {
+                    handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleLaunchFrogger, setBoxOpen, loading);
+                }
+            });
         };
     }, []);
 
     useEffect(() => {
-        // if (disable.current) setDisableKeys(true)
-        // console.log('winBox', winBox.current)
-        // console.log('loseBox', loseBox.current)
-        if (winBox.current) setWinBox(true)
-        if (loseBox.current) setLoseBox(true)
-        // console.log(disableKeys);
+        if (winBox.current) setWinBox(true);
+        if (loseBox.current) setLoseBox(true);
+
         if (frogger.current) {
             const interval = setInterval(() => {
 
@@ -126,8 +127,8 @@ export default function Engine({ currentUser }) {
                                 // setWinBox(true)
                                 winBox.current = true;
 
-                                console.log('YouWin');
-                                console.log('winBox', winBox.current)
+                                // console.log('YouWin');
+                                // console.log('winBox', winBox.current);
 
                             }
                         }
@@ -140,8 +141,9 @@ export default function Engine({ currentUser }) {
                     }
 
                     if (gameStart.current === true && onPad.current === false) {
+                        setDisableKeys(true);
                         loseBox.current = true;
-                        // disable.current = true
+
                     }
                 }
             }, 150);
@@ -151,10 +153,14 @@ export default function Engine({ currentUser }) {
         }
     }, [frogger.current]);
 
+    const handleLaunchFrogger = () => {
+        frogger.current = true;
+        currentUser.current.avatar = 'frog';
+        handleMapChange('frogger');
+    };
+
     const handleMapChange = (mapName) => {
-        if (mapName === 'frogger') { frogger.current = true; }
-        if (mapName !== 'frogger') { frogger.current = false; }
-        console.log(frogger.current);
+
         setLoading(true);
 
         currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
@@ -177,7 +183,6 @@ export default function Engine({ currentUser }) {
     };
 
     const handleNPCInteraction = (npcName) => {
-        setThanks('');
         setNpc(npcObj[npcName]);
         if (storyIndex.current < 2) {
             storyIndex.current += 1;
@@ -196,18 +201,23 @@ export default function Engine({ currentUser }) {
     const handleReset = () => {
         currentUser.current.position.x = 600;
         currentUser.current.position.y = 1200;
-        loseBox.current = false
-        winBox.current = false
+        loseBox.current = false;
+        winBox.current = false;
         onPad.current = false;
         gameStart.current = false;
+        setDisableKeys(false);
     };
     const handleEndGame = () => {
         handleMapChange('courtyard');
-        loseBox.current = false
-        winBox.current = false
+        loseBox.current = false;
+        winBox.current = false;
         onPad.current = false;
         gameStart.current = false;
-    }
+        frogger.current = false;
+        currentUser.current.avatar = avatar;
+        setDisableKeys(false);
+    };
+
     const renderPads = () => {
         return currentMap.current.pads.map(pad =>
             <div key={pad.name}
@@ -221,94 +231,8 @@ export default function Engine({ currentUser }) {
             </div>
         );
     };
-    const renderNPCs = () => {
-        return currentMap.current.npcs.map(npc =>
-            <NPC
-                key={npc.name}
-                name={npc.displayName}
-                img={npc.img}
-                npc={npc}
-                npcposition={npc.position}
-                marginTop={npc.marginTop}
-                marginLeft={npc.marginLeft}
-            />
-        );
-    };
-
-    const renderArrows = () => {
-        return currentMap.current.arrows.map(arrow =>
-            <Arrow
-                key={arrow.location}
-                marginTop={arrow.marginTop}
-                marginLeft={arrow.marginLeft}
-                rotate={arrow.rotate}
-            />
-        );
-    };
-
-    const renderBalls = () => {
-        if (ballArray.length > 0) {
-            return ballArray.map(ball => <Ball
-                key={ball.id}
-                xOffset={currentMap.current.playerOffsetX}
-                yOffset={currentMap.current.playerOffsetY}
-                position={ball.position}
-                avatar={ball.avatar}
-                idle={ball.idle}
-            />
-            );
-        }
-    };
-
-    const renderItems = () => {
-        return currentMap.current.items.map(item =>
-            <Item
-                position={item.position}
-                name={item.name}
-                key={item.name}
-                img={item.img}
-                marginTop={item.marginTop}
-                marginLeft={item.marginLeft}
-                display={item.display}
-            />
-        );
-    };
 
     const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom);
-
-    const renderUsers = () => {
-        return filteredUserArray.map(user => <Player
-            key={user.id}
-            position={user.position}
-            xOffset={currentMap.current.playerOffsetX}
-            yOffset={currentMap.current.playerOffsetY}
-            direction={user.dir}
-            avatar={user.avatar}
-            userName={user.userName}
-            idle={user.idle}
-        />
-        );
-    };
-
-    const handleGiveItem = (npc, item) => {
-        currentUser.current.inventory.forEach(userItem => {
-            if (userItem.name === item.name) {
-                const index = currentUser.current.inventory.indexOf(userItem);
-
-                if (index !== -1) {
-                    currentUser.current.inventory.splice(index, 1);
-                }
-                npc.friendship += item.friendship[npc.name];
-            }
-            if (item.friendship[npc.name] > 0) {
-                setThanks(`${npc.positiveReaction}${item.name}${npc.positiveReaction2}`);
-            } else if (item.friendship[npc.name] < 0) {
-                setThanks(`${npc.negativeReaction}${item.name}${npc.negativeReaction2}`);
-            } else {
-                setThanks(`${npc.neutralReaction}${item.name}${npc.neutralReaction2} `);
-            }
-        });
-    };
 
     const handleClose = () => setBoxOpen(false);
 
@@ -323,11 +247,11 @@ export default function Engine({ currentUser }) {
                                     `translate3d(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
                                     -${currentUser.current.position.y - currentMap.current.transformPositionY}px, 0)`
                             }}>
-                            {renderItems()}
-                            {renderNPCs()}
-                            {renderArrows()}
-                            {renderUsers()}
-                            {renderBalls()}
+                            {renderItems(currentMap)}
+                            {renderNPCs(currentMap)}
+                            {renderArrows(currentMap)}
+                            {renderUsers(filteredUserArray, currentMap)}
+                            {renderBalls(ballArray, currentMap)}
                             {frogger.current ? renderPads() : null}
 
                             {currentMap.current ?
@@ -355,15 +279,18 @@ export default function Engine({ currentUser }) {
             }
             {boxOpen ?
                 <DialogueBox
-                    thanks={thanks}
                     storyIndex={storyIndex}
                     currentUser={currentUser}
                     currentNpc={currentNpc}
                     handleClose={handleClose}
-                    handleGiveItem={handleGiveItem} />
+                />
                 : null}
-            {loseBox.current && frogger.current ? <LoseBox handleEndGame={handleEndGame}
-                handleReset={handleReset} />
+            {loseBox.current && frogger.current ? <LoseBox
+                handleEndGame={handleEndGame}
+                handleReset={handleReset}
+                setDisableKeys={setDisableKeys}
+
+            />
                 : null}
             {winBox.current && frogger.current ? <WinBox handleEndGame={handleEndGame}
                 handleReset={handleReset} />
