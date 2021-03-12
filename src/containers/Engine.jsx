@@ -10,6 +10,8 @@ import styles from './Containers.css';
 import mapObj from '../components/maps/fullMaps';
 import itemObj from '../components/Items/fullItems';
 import npcObj from '../components/NPCs/fullNPCs';
+import WinBox from '../components/frogger/WinBox';
+import LoseBox from '../components/frogger/LoseBox';
 import { SocketContext } from '../utils/socketController';
 
 import renderUsers from '../components/Renders/renderUsers';
@@ -30,13 +32,19 @@ export default function Engine({ currentUser }) {
     const [loading, setLoading] = useState(false);
     const [disableKeys, setDisableKeys] = useState(false);
     const [boxOpen, setBoxOpen] = useState(false);
+    const [losesBox, setLoseBox] = useState(false);
+    const loseBox = useRef(false);
+    const winBox = useRef(false);
+    const [winsBox, setWinBox] = useState(false);
     const [currentNpc, setNpc] = useState(false);
-    // const [user, setUser] = useState(false)
+    const [user, setUser] = useState(false);
+    const [thanks, setThanks] = useState('');
     const [count, setCount] = useState(0);
     const storyIndex = useRef(0);
     const onPad = useRef(false);
     const frogger = useRef(false);
     const gameStart = useRef(false);
+    const winningPad = useRef(false);
     useEffect(() => {
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
@@ -80,7 +88,11 @@ export default function Engine({ currentUser }) {
     }, []);
 
     useEffect(() => {
-
+        // console.log('winBox', winBox.current)
+        // console.log('loseBox', loseBox.current)
+        if (winBox.current) setWinBox(true);
+        if (loseBox.current) setLoseBox(true);
+        console.log('winning pad', winningPad.current);
         if (frogger.current) {
             const interval = setInterval(() => {
 
@@ -108,6 +120,15 @@ export default function Engine({ currentUser }) {
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -75) {
                             onPad.current = true;
                             gameStart.current = true;
+                            if (pad.win) {
+                                winningPad.current = true;
+                                // setWinBox(true)
+                                winBox.current = true;
+
+                                console.log('YouWin');
+                                console.log('winBox', winBox.current);
+
+                            }
                         }
 
                     }
@@ -118,10 +139,12 @@ export default function Engine({ currentUser }) {
                     }
 
                     if (gameStart.current === true && onPad.current === false) {
-                        console.log('loser');
+                        loseBox.current = true;
+                        console.log('loseBox', loseBox.current);
+
                     }
                 }
-            }, 250);
+            }, 150);
 
 
             return () => clearInterval(interval);
@@ -164,7 +187,8 @@ export default function Engine({ currentUser }) {
         } else {
             storyIndex.current = 0;
         }
-        setBoxOpen(true);
+        // setBoxOpen(true);
+        winBox.current = true;
     };
 
     const handleItemInteraction = (itemName) => {
@@ -173,7 +197,21 @@ export default function Engine({ currentUser }) {
         itemObj[itemName].dimension.x = '0px';
         itemObj[itemName].dimension.y = '0px';
     };
-
+    const handleReset = () => {
+        currentUser.current.position.x = 600;
+        currentUser.current.position.y = 1200;
+        loseBox.current = false;
+        winBox.current = false;
+        onPad.current = false;
+        gameStart.current = false;
+    };
+    const handleEndGame = () => {
+        handleMapChange('courtyard');
+        loseBox.current = false;
+        winBox.current = false;
+        onPad.current = false;
+        gameStart.current = false;
+    };
     const renderPads = () => {
         return currentMap.current.pads.map(pad =>
             <div key={pad.name}
@@ -209,12 +247,14 @@ export default function Engine({ currentUser }) {
                             {renderUsers(filteredUserArray, currentMap)}
                             {renderBalls(ballArray, currentMap)}
                             {frogger.current ? renderPads() : null}
+
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
                                 />
                                 :
                                 null
                             }
+
                             <Player
                                 idle={currentUser.current.idle}
                                 key={currentUser.current.id}
@@ -239,6 +279,13 @@ export default function Engine({ currentUser }) {
                     handleClose={handleClose}
                 />
                 : null}
+            {loseBox.current && frogger.current ? <LoseBox handleEndGame={handleEndGame}
+                handleReset={handleReset} />
+                : null}
+            {winBox.current && frogger.current ? <WinBox handleEndGame={handleEndGame}
+                handleReset={handleReset} />
+                : null}
+
         </div >
     );
 }
