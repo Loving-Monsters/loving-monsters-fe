@@ -123,12 +123,7 @@ export default function Engine({ currentUser }) {
                             gameStart.current = true;
                             if (pad.win) {
                                 winningPad.current = true;
-                                // setWinBox(true)
                                 winBox.current = true;
-
-                                // console.log('YouWin');
-                                // console.log('winBox', winBox.current);
-
                             }
                         }
 
@@ -260,7 +255,6 @@ export default function Engine({ currentUser }) {
                                 :
                                 null
                             }
-
                             <Player
                                 idle={currentUser.current.idle}
                                 key={currentUser.current.id}
@@ -289,7 +283,6 @@ export default function Engine({ currentUser }) {
                 handleEndGame={handleEndGame}
                 handleReset={handleReset}
                 setDisableKeys={setDisableKeys}
-
             />
                 : null}
             {winBox.current && frogger.current ? <WinBox handleEndGame={handleEndGame}
