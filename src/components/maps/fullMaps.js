@@ -734,22 +734,22 @@ const frogger = {
     npcs: [],
     items: [],
     portals: [
-        {
-            type: 'portal',
-            position: {
-                x: 50,
-                y: 950
-            },
-            dimension: {
-                x: 100,
-                y: 25
-            },
-            name: 'courtyard',
-            startingPosition: {
-                x: 1200,
-                y: 550
-            }
-        },
+        // {
+        //     type: 'portal',
+        //     position: {
+        //         x: 50,
+        //         y: 950
+        //     },
+        //     dimension: {
+        //         x: 100,
+        //         y: 25
+        //     },
+        //     name: 'courtyard',
+        //     startingPosition: {
+        //         x: 1200,
+        //         y: 550
+        //     }
+        // },
         // {
         //     type: 'portal',
         //     position: {
@@ -771,6 +771,7 @@ const frogger = {
 
         {
             type: 'object',
+
             name: 'SouthWall',
             position: {
                 x: 0, y: 1400
@@ -802,24 +803,387 @@ const frogger = {
 
     ], pads: [
         {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '1',
+            position: {
+                x: 575, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '2',
+            position: {
+                x: 675, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '3',
+            position: {
+                x: 775, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '4',
+            position: {
+                x: 875, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '5',
+            position: {
+                x: 975, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '6',
+            position: {
+                x: 1075, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '7',
+            position: {
+                x: 1175, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '8',
+            position: {
+                x: 1275, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '9',
+            position: {
+                x: 1375, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '11',
+            position: {
+                x: 1475, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '12',
+            position: {
+                x: 1575, y: 1120
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
             speed: 20,
+            win: false,
+            img: '/lilypad.png',
             type: 'pad',
-            name: 'pad',
+            name: '13',
             position: {
-                x: 525, y: 475
+                x: 575, y: 1020
             },
 
             dimension: {
                 x: 50, y: 50
             }
-        },
-        {
+        }, {
+            speed: 20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '14',
+            position: {
+                x: 775, y: 1020
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: -20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '15',
+            position: {
+                x: 1275, y: 920
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: -20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '16',
+            position: {
+                x: 1075, y: 920
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: -20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '17',
+            position: {
+                x: 975, y: 920
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '18',
+            position: {
+                x: 975, y: 820
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '19',
+            position: {
+                x: 875, y: 820
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '20',
+            position: {
+                x: 475, y: 820
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
             speed: 30,
+            win: false,
+            img: '/lilypad.png',
             type: 'pad',
-            name: 'pad',
+            name: '21',
             position: {
-                x: 450,
-                y: 275
+                x: 675, y: 720
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 30,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '22',
+            position: {
+                x: 575, y: 720
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 30,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '23',
+            position: {
+                x: 1075, y: 720
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: -20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '24',
+            position: {
+                x: 1075, y: 620
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: -20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '25',
+            position: {
+                x: 1175, y: 620
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: -20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '26',
+            position: {
+                x: 675, y: 620
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '27',
+            position: {
+                x: 875, y: 520
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '29',
+            position: {
+                x: 975, y: 520
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 20,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '30',
+            position: {
+                x: 775, y: 520
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+
+        }, {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '31',
+            position: {
+                x: 575, y: 420
             },
 
             dimension: {
@@ -827,17 +1191,140 @@ const frogger = {
             }
         },
         {
-            speed: 40,
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
             type: 'pad',
-            name: 'pad',
+            name: '32',
             position: {
-                x: 700, y: 625
+                x: 675, y: 420
             },
 
             dimension: {
                 x: 50, y: 50
             }
         },
+
+        {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '33',
+            position: {
+                x: 775, y: 420
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '34',
+            position: {
+                x: 875, y: 420
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '35',
+            position: {
+                x: 975, y: 420
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '36',
+            position: {
+                x: 1075, y: 420
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '37',
+            position: {
+                x: 1175, y: 420
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '38',
+            position: {
+                x: 1275, y: 420
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '39',
+            position: {
+                x: 1375, y: 420
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '41',
+            position: {
+                x: 1475, y: 420
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        }, {
+            speed: 0,
+            win: true,
+            img: '/winninglily.png',
+            type: 'pad',
+            name: '42',
+            position: {
+                x: 1575, y: 420
+            },
+        }
     ],
 };
 

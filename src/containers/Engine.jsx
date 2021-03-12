@@ -86,7 +86,8 @@ export default function Engine({ currentUser }) {
                 if (frogger.current) {
                     onPad.current = false
                     currentMap.current.pads.forEach(pad => {
-                        if (pad.position.x > 1150 + currentMap.current.playerOffsetX) pad.position.x = currentMap.current.playerOffsetX;
+                        if (pad.speed > 0 && pad.position.x > 1150 + currentMap.current.playerOffsetX) pad.position.x = currentMap.current.playerOffsetX;
+                        if (pad.speed < 0 && pad.position.x < 0 + currentMap.current.playerOffsetX) pad.position.x = 1150 + currentMap.current.playerOffsetX;
 
                         pad.position.x += pad.speed;
                         setCount(pad.position.x);
@@ -97,6 +98,13 @@ export default function Engine({ currentUser }) {
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -50) {
 
                             currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX)
+                            // onPad.current = true
+                            // gameStart.current = true
+                        }
+                        if (pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) < 75 &&
+                            pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) > -75
+                            && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 75
+                            && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -75) {
                             onPad.current = true
                             gameStart.current = true
                         }
@@ -164,13 +172,13 @@ export default function Engine({ currentUser }) {
 
     const renderPads = () => {
         return currentMap.current.pads.map(pad =>
-            <div key={pad.position.y + pad.position.x}
+            <div key={pad.name}
                 style={{
                     position: 'absolute',
                     zIndex: 1,
                     transform: `translate3d(${pad.position.x}px, ${pad.position.y}px, 0)`
                 }}>
-                <img src="/lilypad.png" />
+                <img src={pad.img} />
 
             </div>
         );
