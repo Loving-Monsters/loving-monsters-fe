@@ -31,6 +31,21 @@ const hallway = {
     }, {
         type: 'portal',
         position: {
+            x: 75,
+            y: 375
+        },
+        dimension: {
+            x: 100,
+            y: 25
+        },
+        name: 'frogger',
+        startingPosition: {
+            x: 600,
+            y: 1200
+        }
+    }, {
+        type: 'portal',
+        position: {
             x: 1380, y: 0
         },
         dimension: {
@@ -706,8 +721,129 @@ const courtyard = {
         },
     ],
 };
+const frogger = {
+    mapImage: '/FroggerBkgd.png',
 
-const mapObj = { hallway, hallway2, hallway3, classroom, classroom2, classroom3, courtyard };
+    transformPositionX: -200,
+    transformPositionY: 400,
+    playerOffsetX: 500,
+    playerOffsetY: 0,
+    left: 550,
+    top: 500,
+    height: 750,
+    npcs: [],
+    items: [],
+    portals: [
+        {
+            type: 'portal',
+            position: {
+                x: 50,
+                y: 950
+            },
+            dimension: {
+                x: 100,
+                y: 25
+            },
+            name: 'courtyard',
+            startingPosition: {
+                x: 1200,
+                y: 550
+            }
+        },
+        // {
+        //     type: 'portal',
+        //     position: {
+        //         x: 1380, y: 0
+        //     },
+        //     dimension: {
+        //         x: 10, y: 640
+        //     },
+        //     name: 'hallway2',
+        //     startingPosition: {
+        //         x: 0,
+        //         y: 375
+        //     }
+        // }
+    ],
+    arrows: [
+    ],
+    objectArray: [
+
+        {
+            type: 'object',
+            name: 'SouthWall',
+            position: {
+                x: 0, y: 1400
+            },
+            dimension: {
+                x: 1600, y: 10
+            }
+        },
+        {
+            type: 'object',
+            name: 'WestWall',
+            position: {
+                x: 0, y: 0
+            },
+            dimension: {
+                x: 10, y: 1000
+            }
+        },
+        {
+            type: 'object',
+            name: 'EastWall',
+            position: {
+                x: 1225, y: 0
+            },
+            dimension: {
+                x: 10, y: 1000
+            }
+        },
+
+    ], pads: [
+        {
+            speed: 20,
+            type: 'pad',
+            name: 'pad',
+            position: {
+                x: 525, y: 475
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 30,
+            type: 'pad',
+            name: 'pad',
+            position: {
+                x: 450,
+                y: 275
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+        {
+            speed: 40,
+            type: 'pad',
+            name: 'pad',
+            position: {
+                x: 700, y: 625
+            },
+
+            dimension: {
+                x: 50, y: 50
+            }
+        },
+    ],
+};
+
+
+
+const mapObj = { hallway, hallway2, hallway3, classroom, classroom2, classroom3, courtyard, frogger };
 
 export default mapObj;
 
