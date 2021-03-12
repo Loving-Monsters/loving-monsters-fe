@@ -15,7 +15,7 @@ export default function Frame() {
 
     const handleLogOut = () => {
         setLoggedIn(false);
-        // window.location.reload(false);
+        window.location.reload(false);
     };
 
     return (
