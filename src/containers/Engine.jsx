@@ -104,12 +104,12 @@ export default function Engine({ currentUser }) {
                         pad.position.x += pad.speed;
                         setCount(pad.position.x);
 
-                        if (pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) < 35 &&
-                            pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) > -35
-                            && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 35
-                            && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -35) {
+                        if (pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) < 50 &&
+                            pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) > -50
+                            && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 50
+                            && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -50) {
 
-                            currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX);
+                            if (pad.speed !== 0) currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX);
                             // onPad.current = true
                             // gameStart.current = true
                         }
