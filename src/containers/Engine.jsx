@@ -28,8 +28,7 @@ export default function Engine({ currentUser }) {
     const [userArray, setUserArray] = useState([]);
     const [ballArray, setBallArray] = useState([]);
     const currentMap = useRef(mapObj[currentUser.current.currentRoom]);
-    const [loading, setLoading] = useState(true);
-    const [disableKeys, setDisableKeys] = useState(false);
+    const [disableKeys, setDisableKeys] = useState(true);
     const [boxOpen, setBoxOpen] = useState(false);
     const [currentNpc, setNpc] = useState(false);
     // const [user, setUser] = useState(false)
@@ -41,22 +40,27 @@ export default function Engine({ currentUser }) {
     const gameStart = useRef(false);
     const winBox = useRef(false);
     const loseBox = useRef(false);
-
+    const disable = useRef(true)
+    const loading = useRef(true)
     useEffect(() => {
+
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
             setBallArray(ballArray);
-            setDisableKeys(false);
+            disable.current = false;
         });
     }, [socket]);
 
     useEffect(() => {
+
         setTimeout(() => {
-            setLoading(false);
+
+            loading.current = false
+            disable.current = false
         }, 1000);
 
         const gameStateInterval = setInterval(() => {
-            if (currentUser.current) {
+            if (currentUser.current && !winBox.current && !loseBox.current && !loading.current) {
                 socket.emit('GAME_STATE', currentUser.current);
 
             }
@@ -71,6 +75,7 @@ export default function Engine({ currentUser }) {
     }, [currentUser.current.position]);
 
     useEffect(() => {
+        setDisableKeys(disable.current)
         window.addEventListener('keydown', (e) => {
             e.stopImmediatePropagation();
 
@@ -81,14 +86,14 @@ export default function Engine({ currentUser }) {
             }, 500);
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen);
+                handleKeyPress(e, currentUser, currentMap, disable, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen));
+            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, disable, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen));
         };
-    }, []);
+    }, [disable.current]);
 
     useEffect(() => {
         if (frogger.current) {
@@ -123,6 +128,7 @@ export default function Engine({ currentUser }) {
 
                             if (pad.win) {
                                 winBox.current = true;
+                                disable.current = true
                             }
                         }
 
@@ -135,6 +141,7 @@ export default function Engine({ currentUser }) {
 
                     if (gameStart.current === true && onPad.current === false) {
                         loseBox.current = true;
+                        disable.current = true
                     }
                 }
             }, 250);
@@ -149,7 +156,8 @@ export default function Engine({ currentUser }) {
         if (mapName === 'frogger') { frogger.current = true; }
         if (mapName !== 'frogger') { frogger.current = false; }
         console.log(frogger.current);
-        setLoading(true);
+        loading.current = true;
+        disable.current = true
 
         currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
 
@@ -163,7 +171,8 @@ export default function Engine({ currentUser }) {
         localStorage.setItem(CURRENT_USER, JSON.stringify(currentUser.current));
 
         setTimeout(() => {
-            setLoading(false);
+            loading.current = false;
+            disable.current = false
         }, 1000);
     };
 
@@ -196,6 +205,7 @@ export default function Engine({ currentUser }) {
         winBox.current = false;
         onPad.current = false;
         gameStart.current = false;
+        disable.current = false;
     };
 
     const handleEndGame = () => {
@@ -206,6 +216,7 @@ export default function Engine({ currentUser }) {
         onPad.current = false;
         gameStart.current = false;
         frogger.current = false;
+        disable.current = false;
     };
 
     const renderPads = () => {
@@ -317,7 +328,7 @@ export default function Engine({ currentUser }) {
 
     return (
         <div className={styles.view} >
-            {loading ? <div className={styles.loading}>Loading...</div>
+            {loading.current ? <div className={styles.loading}>Loading...</div>
                 : currentUser.current.position ?
                     <div>
                         <div className={styles.map}
