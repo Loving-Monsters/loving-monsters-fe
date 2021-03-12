@@ -40,8 +40,8 @@ export default function Engine({ currentUser }) {
     const gameStart = useRef(false);
     const winBox = useRef(false);
     const loseBox = useRef(false);
-    const disable = useRef(true)
-    const loading = useRef(true)
+    const disable = useRef(true);
+    const loading = useRef(true);
     useEffect(() => {
 
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
@@ -55,9 +55,9 @@ export default function Engine({ currentUser }) {
 
         setTimeout(() => {
 
-            loading.current = false
-            disable.current = false
-        }, 1500);
+            loading.current = false;
+            disable.current = false;
+        }, 1000);
 
         const gameStateInterval = setInterval(() => {
             if (currentUser.current && !winBox.current && !loseBox.current) {
@@ -127,7 +127,7 @@ export default function Engine({ currentUser }) {
 
                             if (pad.win) {
                                 winBox.current = true;
-                                disable.current = true
+                                disable.current = true;
                             }
                         }
 
@@ -140,7 +140,7 @@ export default function Engine({ currentUser }) {
 
                     if (gameStart.current === true && onPad.current === false) {
                         loseBox.current = true;
-                        disable.current = true
+                        disable.current = true;
                     }
                 }
             }, 150);
@@ -151,17 +151,14 @@ export default function Engine({ currentUser }) {
     }, [frogger.current]);
 
     const handleMapChange = (mapName) => {
-        console.log('🚀 ~ file: Engine.jsx ~ line 131 ~ handleMapChange ~ (mapName)', (mapName));
         if (mapName === 'frogger') { frogger.current = true; }
         if (mapName !== 'frogger') { frogger.current = false; }
-        console.log(frogger.current);
         loading.current = true;
-        disable.current = true
+        disable.current = true;
 
         currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
 
         currentMap.current = mapObj[mapName];
-        console.log('🚀 ~ file: Engine.jsx ~ line 140 ~ handleMapChange ~ currentMap', currentMap.current);
         socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: mapName });
         currentUser.current.currentRoom = mapName;
 
@@ -171,7 +168,7 @@ export default function Engine({ currentUser }) {
 
         setTimeout(() => {
             loading.current = false;
-            disable.current = false
+            disable.current = false;
         }, 1000);
     };
 
