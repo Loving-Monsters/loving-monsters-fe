@@ -367,12 +367,12 @@ export default function Engine({ currentUser }) {
                     handleClose={handleClose}
                     handleGiveItem={handleGiveItem} />
                 : null}
-            {loseBox.current && frogger.current ? <LoseBox
+            {loseBox.current && frogger.current && !winBox.current ? <LoseBox
                 handleEndGame={handleEndGame}
                 handleReset={handleReset}
                 setDisableKeys={setDisableKeys}
             /> : null}
-            {winBox.current && frogger.current ? <WinBox
+            {winBox.current && frogger.current && !loseBox.current ? <WinBox
                 handleEndGame={handleEndGame}
                 handleReset={handleReset}
             /> : null}
