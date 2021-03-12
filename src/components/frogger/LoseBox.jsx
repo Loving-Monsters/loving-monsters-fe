@@ -1,11 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-export default function LoseBox({ handleReset, handleEndGame, setDisableKeys }) {
-
-    useEffect(() => {
-        setDisableKeys(true);
-    }, []);
-
+export default function LoseBox({ handleReset, handleEndGame }) {
     return (
         <>
             <div style={{

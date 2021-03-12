@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+/* eslint-disable max-len */
 import itemObj from '../Items/fullItems';
 import npcObj from '../NPCs/fullNPCs';
 
@@ -28,8 +29,7 @@ const hallway = {
             x: 75,
             y: 550
         }
-    },
-    {
+    }, {
         type: 'portal',
         position: {
             x: 1380, y: 0
@@ -649,20 +649,22 @@ const courtyard = {
         }
     }, {
         type: 'portal',
+        name: 'frogger',
         position: {
-            x: 75,
-            y: 375
+            x: 900,
+            y: 850
         },
         dimension: {
-            x: 100,
-            y: 25
+            x: 50,
+            y: 50
         },
-        name: 'frogger',
         startingPosition: {
             x: 700,
-            y: 1055
+            y: 1050
         }
-    }],
+    }
+
+    ],
     arrows: [{
         location: 'classroomarrow1',
         marginTop: '1100px',
@@ -734,22 +736,22 @@ const frogger = {
     npcs: [],
     items: [],
     portals: [
-        // {
-        //     type: 'portal',
-        //     position: {
-        //         x: 50,
-        //         y: 950
-        //     },
-        //     dimension: {
-        //         x: 100,
-        //         y: 25
-        //     },
-        //     name: 'courtyard',
-        //     startingPosition: {
-        //         x: 1200,
-        //         y: 550
-        //     }
-        // },
+        {
+            type: 'portal',
+            position: {
+                x: 0,
+                y: 0
+            },
+            dimension: {
+                x: 0,
+                y: 0
+            },
+            name: 'courtyard',
+            startingPosition: {
+                x: 600,
+                y: 850
+            }
+        }
         // {
         //     type: 'portal',
         //     position: {
@@ -808,7 +810,7 @@ const frogger = {
                 x: 25, y: 1200
             }
         },
-    ], 
+    ],
     pads: [
         {
             speed: 0,
@@ -977,7 +979,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 309
-        }, 
+        },
         {
             speed: 20,
             win: false,
@@ -991,7 +993,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 277
-        }, 
+        },
         {
             speed: -20,
             win: false,
@@ -1005,7 +1007,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 82
-        }, 
+        },
         {
             speed: -20,
             win: false,
@@ -1019,7 +1021,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 223
-        }, 
+        },
         {
             speed: -20,
             win: false,
@@ -1033,7 +1035,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 251
-        }, 
+        },
         {
             speed: 20,
             win: false,
@@ -1047,7 +1049,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 202
-        }, 
+        },
         {
             speed: 20,
             win: false,
@@ -1061,7 +1063,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 282
-        }, 
+        },
         {
             speed: 20,
             win: false,
@@ -1076,7 +1078,7 @@ const frogger = {
             }
             ,
             rotate: 269
-        }, 
+        },
         {
             speed: 30,
             win: false,
@@ -1090,7 +1092,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 249
-        }, 
+        },
         {
             speed: 30,
             win: false,
@@ -1104,7 +1106,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 209
-        }, 
+        },
         {
             speed: 30,
             win: false,
@@ -1118,7 +1120,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 257
-        }, 
+        },
         {
             speed: 0,
             win: true,
@@ -1244,7 +1246,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 207
-        }, 
+        },
         {
             speed: 0,
             win: true,
@@ -1258,7 +1260,7 @@ const frogger = {
                 x: 75, y: 75
             },
             rotate: 255
-        }, 
+        },
         {
             speed: 0,
             win: true,
@@ -1279,5 +1281,4 @@ const frogger = {
 const mapObj = { hallway, hallway2, hallway3, classroom, classroom2, classroom3, courtyard, frogger };
 
 export default mapObj;
-
 
