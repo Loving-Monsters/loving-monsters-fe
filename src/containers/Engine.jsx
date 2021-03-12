@@ -250,7 +250,7 @@ export default function Engine({ currentUser }) {
     };
 
     const renderBalls = () => {
-        if (ballArray.length > 0) {
+        if (ballArray && ballArray.length > 0) {
             return ballArray.map(ball => <Ball
                 key={ball.id}
                 xOffset={currentMap.current.playerOffsetX}
