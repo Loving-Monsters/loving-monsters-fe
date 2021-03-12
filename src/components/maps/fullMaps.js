@@ -28,21 +28,7 @@ const hallway = {
             x: 75,
             y: 550
         }
-    }, {
-        type: 'portal',
-        position: {
-            x: 75,
-            y: 375
-        },
-        dimension: {
-            x: 100,
-            y: 25
-        },
-        name: 'frogger',
-        startingPosition: {
-            x: 600,
-            y: 1200
-        }
+
     }, {
         type: 'portal',
         position: {
@@ -661,6 +647,21 @@ const courtyard = {
             x: 900,
             y: 375
         }
+    }, {
+        type: 'portal',
+        position: {
+            x: 900,
+            y: 860
+        },
+        dimension: {
+            x: 50,
+            y: 10
+        },
+        name: 'frogger',
+        startingPosition: {
+            x: 600,
+            y: 1200
+        }
     }],
     arrows: [{
         location: 'classroomarrow1',
@@ -734,22 +735,22 @@ const frogger = {
     npcs: [],
     items: [],
     portals: [
-        // {
-        //     type: 'portal',
-        //     position: {
-        //         x: 50,
-        //         y: 950
-        //     },
-        //     dimension: {
-        //         x: 100,
-        //         y: 25
-        //     },
-        //     name: 'courtyard',
-        //     startingPosition: {
-        //         x: 1200,
-        //         y: 550
-        //     }
-        // },
+        {
+            type: 'portal',
+            position: {
+                x: 0,
+                y: 0
+            },
+            dimension: {
+                x: 0,
+                y: 0
+            },
+            name: 'courtyard',
+            startingPosition: {
+                x: 1200,
+                y: 550
+            }
+        },
         // {
         //     type: 'portal',
         //     position: {
@@ -1020,7 +1021,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: 20,
+            speed: 25,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1033,7 +1034,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: 20,
+            speed: 25,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1046,7 +1047,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: 20,
+            speed: 25,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1059,7 +1060,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: 30,
+            speed: -30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1072,7 +1073,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: 30,
+            speed: -30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1085,7 +1086,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: 30,
+            speed: -30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1098,7 +1099,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: -20,
+            speed: 15,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1111,7 +1112,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: -20,
+            speed: 15,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1124,7 +1125,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: -20,
+            speed: 15,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1137,7 +1138,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: 20,
+            speed: -20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1150,7 +1151,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: 20,
+            speed: -20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1163,7 +1164,7 @@ const frogger = {
                 x: 50, y: 50
             }
         }, {
-            speed: 20,
+            speed: -20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
