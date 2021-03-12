@@ -33,7 +33,7 @@
 
 .messageItems {
     height: 480px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .messageDropdown {
@@ -139,7 +139,7 @@
 .messageList {
     margin-top: 15px;
     height: 510px;
-    overflow: scroll;
+    overflow: auto;
     margin-top: 15px;
     font-family: dogica;
     color: black;

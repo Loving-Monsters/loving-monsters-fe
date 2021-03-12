@@ -52,6 +52,23 @@ html {
     background-image: linear-gradient(#0f0d0f, #141114);
 }
 
+.loading {
+    text-align: center;
+    font-family: pixelfy;
+    font-size: 60pt;
+    color: tomato;
+    text-shadow: 4px 4px 2px white;
+    animation-name: loading;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite; 
+}
+
+@keyframes loading {
+    0% {margin-top: 280px}
+    50% {margin-top: 290px}
+    100% {margin-top: 280px}
+}
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
