@@ -16,6 +16,8 @@ export default function ExistingUser({ currentUser, handleNewUser, handleLogIn }
                 window.alert('invalid user name or password');
             } else {
                 currentUser.current = userInfo;
+                console.log('🚀 ~ file: ExistingUser.jsx ~ line 19 ~ useEffect ~ userInfo', userInfo);
+
                 handleLogIn();
             }
         });

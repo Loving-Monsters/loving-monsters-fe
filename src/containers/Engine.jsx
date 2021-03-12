@@ -45,6 +45,8 @@ export default function Engine({ currentUser }) {
     const frogger = useRef(false);
     const gameStart = useRef(false);
     const winningPad = useRef(false);
+
+
     useEffect(() => {
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
@@ -63,33 +65,34 @@ export default function Engine({ currentUser }) {
     }, []);
 
     useEffect(() => {
-        if (frogger.current === true) {
-            currentUser.current.avatar = 'frog';
-        } else { currentUser.current.avatar = avatar; }
-    }, [currentUser.current.position]);
-
-    useEffect(() => {
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false;
-
 
             setTimeout(() => {
                 currentUser.current.idle = true;
             }, 500);
 
             if (validKeyPress.includes(e.key)) {
-                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen, loading);
+                handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleLaunchFrogger, setBoxOpen, loading);
             }
         });
 
         return function cleanup() {
-            window.removeEventListener('keydown', (e) => handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, setLoading, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen, loading));
+            window.removeEventListener('keydown', (e) => {
+                currentUser.current.idle = false;
+
+                setTimeout(() => {
+                    currentUser.current.idle = true;
+                }, 500);
+
+                if (validKeyPress.includes(e.key)) {
+                    handleKeyPress(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleLaunchFrogger, setBoxOpen, loading);
+                }
+            });
         };
     }, []);
 
     useEffect(() => {
-        // console.log('winBox', winBox.current)
-        // console.log('loseBox', loseBox.current)
         if (winBox.current) setWinBox(true);
         if (loseBox.current) setLoseBox(true);
         console.log('winning pad', winningPad.current);
@@ -139,6 +142,7 @@ export default function Engine({ currentUser }) {
                     }
 
                     if (gameStart.current === true && onPad.current === false) {
+                        setDisableKeys(true);
                         loseBox.current = true;
                         console.log('loseBox', loseBox.current);
 
@@ -151,14 +155,14 @@ export default function Engine({ currentUser }) {
         }
     }, [frogger.current]);
 
-    // const handleLaunchFrogger = () => {
-
-    // };
+    const handleLaunchFrogger = () => {
+        frogger.current = true;
+        currentUser.current.avatar = 'frog';
+        handleMapChange('frogger');
+    };
 
     const handleMapChange = (mapName) => {
-        // if (mapName === 'frogger') { frogger.current = true }
-        // if (mapName !== 'frogger') { frogger.current = false }
-        // console.log(frogger.current)
+
         setLoading(true);
 
         currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
@@ -204,6 +208,7 @@ export default function Engine({ currentUser }) {
         winBox.current = false;
         onPad.current = false;
         gameStart.current = false;
+        setDisableKeys(false);
     };
     const handleEndGame = () => {
         handleMapChange('courtyard');
@@ -211,7 +216,11 @@ export default function Engine({ currentUser }) {
         winBox.current = false;
         onPad.current = false;
         gameStart.current = false;
+        frogger.current = false;
+        currentUser.current.avatar = avatar;
+        setDisableKeys(false);
     };
+
     const renderPads = () => {
         return currentMap.current.pads.map(pad =>
             <div key={pad.name}
