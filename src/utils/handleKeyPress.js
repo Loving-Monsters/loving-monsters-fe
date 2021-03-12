@@ -2,8 +2,9 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function(e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen) {
+export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleLaunchFrogger, setBoxOpen) {
     e.preventDefault();
+    e.stopImmediatePropagation();
 
     if (currentUser.current && !disableKeys) {
         setDisableKeys(true);
@@ -19,12 +20,13 @@ export default function(e, currentUser, currentMap, setDisableKeys, disableKeys,
             ...npcs,
             ...items,
         ];
+        console.log('🚀 ~ file: handleKeyPress.js ~ line 28 ~ e.key', e.key);
 
         if (whiteBoard) collisionObjects.push(whiteBoard);
 
         const checkCollisionResult = checkCollision(collisionObjects, newPosition, dimension);
 
-        switch(checkCollisionResult.type) {
+        switch (checkCollisionResult.type) {
             case false:
                 setBoxOpen(false);
                 currentUser.current = {
@@ -47,6 +49,9 @@ export default function(e, currentUser, currentMap, setDisableKeys, disableKeys,
 
             case 'whiteBoard':
                 handleWhiteBoardInteraction(checkCollisionResult.name);
+                break;
+            case 'frogger':
+                handleLaunchFrogger();
                 break;
         }
     }

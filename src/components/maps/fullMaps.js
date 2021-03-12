@@ -28,22 +28,8 @@ const hallway = {
             x: 75,
             y: 550
         }
-    }, {
-        type: 'portal',
-        position: {
-            x: 75,
-            y: 375
-        },
-        dimension: {
-            x: 100,
-            y: 25
-        },
-        name: 'frogger',
-        startingPosition: {
-            x: 700,
-            y: 1055
-        }
-    }, {
+    },
+    {
         type: 'portal',
         position: {
             x: 1380, y: 0
@@ -660,6 +646,21 @@ const courtyard = {
         startingPosition: {
             x: 900,
             y: 375
+        }
+    }, {
+        type: 'portal',
+        position: {
+            x: 75,
+            y: 375
+        },
+        dimension: {
+            x: 100,
+            y: 25
+        },
+        name: 'frogger',
+        startingPosition: {
+            x: 700,
+            y: 1055
         }
     }],
     arrows: [{
