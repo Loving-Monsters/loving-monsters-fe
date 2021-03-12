@@ -94,7 +94,6 @@ export default function Engine({ currentUser }) {
     useEffect(() => {
         if (winBox.current) setWinBox(true);
         if (loseBox.current) setLoseBox(true);
-
         if (frogger.current) {
             const interval = setInterval(() => {
 
@@ -198,6 +197,7 @@ export default function Engine({ currentUser }) {
         itemObj[itemName].dimension.x = '0px';
         itemObj[itemName].dimension.y = '0px';
     };
+
     const handleReset = () => {
         currentUser.current.position.x = 600;
         currentUser.current.position.y = 1200;

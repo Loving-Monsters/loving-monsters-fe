@@ -4,6 +4,7 @@ import checkCollision from './collisionChecker';
 
 export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, handleLaunchFrogger, setBoxOpen) {
     e.preventDefault();
+    e.stopImmediatePropagation();
 
     if (currentUser.current && !disableKeys) {
         setDisableKeys(true);
