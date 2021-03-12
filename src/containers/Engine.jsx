@@ -62,8 +62,7 @@ export default function Engine({ currentUser }) {
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false;
-            console.log('onPad', onPad.current)
-            console.log('gameStart', gameStart)
+
 
             setTimeout(() => {
                 currentUser.current.idle = true;
@@ -84,32 +83,34 @@ export default function Engine({ currentUser }) {
         if (frogger.current) {
             const interval = setInterval(() => {
 
-                onPad.current = false
-                currentMap.current.pads.forEach(pad => {
-                    if (pad.position.x > 1150 + currentMap.current.playerOffsetX) pad.position.x = currentMap.current.playerOffsetX;
+                if (frogger.current) {
+                    onPad.current = false
+                    currentMap.current.pads.forEach(pad => {
+                        if (pad.position.x > 1150 + currentMap.current.playerOffsetX) pad.position.x = currentMap.current.playerOffsetX;
 
-                    pad.position.x += pad.speed;
-                    setCount(pad.position.x);
+                        pad.position.x += pad.speed;
+                        setCount(pad.position.x);
 
-                    if (pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) < 50 &&
-                        pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) > -50
-                        && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 50
-                        && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -50) {
+                        if (pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) < 50 &&
+                            pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) > -50
+                            && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 50
+                            && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -50) {
 
-                        currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX)
-                        onPad.current = true
-                        gameStart.current = true
+                            currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX)
+                            onPad.current = true
+                            gameStart.current = true
+                        }
+
+                    }
+                    );
+                    if (onPad) {
+                        setCount(currentMap.current.pads[0].position.y)
+
                     }
 
-                }
-                );
-                if (onPad) {
-                    setCount(currentMap.current.pads[0].position.y)
-
-                }
-
-                if (gameStart.current === true && onPad.current === false) {
-                    console.log('loser')
+                    if (gameStart.current === true && onPad.current === false) {
+                        console.log('loser')
+                    }
                 }
             }, 250);
 
@@ -120,7 +121,7 @@ export default function Engine({ currentUser }) {
 
     const handleMapChange = (mapName) => {
         if (mapName === 'frogger') { frogger.current = true }
-        else { frogger.current = false }
+        if (mapName !== 'frogger') { frogger.current = false }
         console.log(frogger.current)
         setLoading(true);
 
