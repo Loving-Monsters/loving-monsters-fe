@@ -95,7 +95,7 @@ export default function Engine({ currentUser }) {
     useEffect(() => {
         if (winBox.current) setWinBox(true);
         if (loseBox.current) setLoseBox(true);
-        console.log('winning pad', winningPad.current);
+        // console.log('winning pad', winningPad.current);
         if (frogger.current) {
             const interval = setInterval(() => {
 
@@ -128,8 +128,8 @@ export default function Engine({ currentUser }) {
                                 // setWinBox(true)
                                 winBox.current = true;
 
-                                console.log('YouWin');
-                                console.log('winBox', winBox.current);
+                                // console.log('YouWin');
+                                // console.log('winBox', winBox.current);
 
                             }
                         }
@@ -144,7 +144,7 @@ export default function Engine({ currentUser }) {
                     if (gameStart.current === true && onPad.current === false) {
                         setDisableKeys(true);
                         loseBox.current = true;
-                        console.log('loseBox', loseBox.current);
+                        // console.log('loseBox', loseBox.current);
 
                     }
                 }
@@ -287,8 +287,12 @@ export default function Engine({ currentUser }) {
                     handleClose={handleClose}
                 />
                 : null}
-            {loseBox.current && frogger.current ? <LoseBox handleEndGame={handleEndGame}
-                handleReset={handleReset} />
+            {loseBox.current && frogger.current ? <LoseBox
+                handleEndGame={handleEndGame}
+                handleReset={handleReset}
+                setDisableKeys={setDisableKeys}
+
+            />
                 : null}
             {winBox.current && frogger.current ? <WinBox handleEndGame={handleEndGame}
                 handleReset={handleReset} />
