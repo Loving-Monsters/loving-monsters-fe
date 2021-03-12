@@ -37,8 +37,6 @@ export default function Engine({ currentUser }) {
     const winBox = useRef(false);
     const [winsBox, setWinBox] = useState(false);
     const [currentNpc, setNpc] = useState(false);
-    const [user, setUser] = useState(false);
-    const [thanks, setThanks] = useState('');
     const [count, setCount] = useState(0);
     const storyIndex = useRef(0);
     const onPad = useRef(false);
@@ -100,8 +98,9 @@ export default function Engine({ currentUser }) {
                 if (frogger.current) {
                     onPad.current = false;
                     currentMap.current.pads.forEach(pad => {
-                        if (pad.speed > 0 && pad.position.x > 1150 + currentMap.current.playerOffsetX) pad.position.x = currentMap.current.playerOffsetX;
-                        if (pad.speed < 0 && pad.position.x < 0 + currentMap.current.playerOffsetX) pad.position.x = 1150 + currentMap.current.playerOffsetX;
+                        if (pad.speed > 0 && pad.position.x > 1575 + currentMap.current.playerOffsetX) pad.position.x = 100 + currentMap.current.playerOffsetX;
+
+                        if (pad.speed < 0 && pad.position.x < 125 + currentMap.current.playerOffsetX) pad.position.x = 1600 + currentMap.current.playerOffsetX;
 
                         pad.position.x += pad.speed;
                         setCount(pad.position.x);
@@ -112,28 +111,23 @@ export default function Engine({ currentUser }) {
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -50) {
 
                             if (pad.speed !== 0) currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX);
-                            // onPad.current = true
-                            // gameStart.current = true
+
                         }
+
                         if (pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) < 75 &&
                             pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) > -75
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 75
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -75) {
                             onPad.current = true;
                             gameStart.current = true;
+
                             if (pad.win) {
                                 winningPad.current = true;
-                                // setWinBox(true)
                                 winBox.current = true;
-
-                                // console.log('YouWin');
-                                // console.log('winBox', winBox.current);
-
                             }
                         }
+                    });
 
-                    }
-                    );
                     if (onPad) {
                         setCount(currentMap.current.pads[0].position.y);
 
@@ -159,7 +153,6 @@ export default function Engine({ currentUser }) {
     };
 
     const handleMapChange = (mapName) => {
-
         setLoading(true);
 
         currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
@@ -174,7 +167,7 @@ export default function Engine({ currentUser }) {
 
         setTimeout(() => {
             setLoading(false);
-        }, 1500);
+        }, 1000);
     };
 
     const handleWhiteBoardInteraction = (name) => {
@@ -226,7 +219,10 @@ export default function Engine({ currentUser }) {
                     zIndex: 1,
                     transform: `translate3d(${pad.position.x}px, ${pad.position.y}px, 0)`
                 }}>
-                <img src={pad.img} />
+                <img src={pad.img} 
+                    style={{
+                        transform: `rotate(${pad.rotate}deg) scale(1.5)`
+                    }} />
 
             </div>
         );

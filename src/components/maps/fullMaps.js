@@ -28,7 +28,8 @@ const hallway = {
             x: 75,
             y: 550
         }
-    }, {
+    },
+    {
         type: 'portal',
         position: {
             x: 1380, y: 0
@@ -647,19 +648,19 @@ const courtyard = {
             y: 375
         }
     }, {
-        type: 'frogger',
+        type: 'portal',
         position: {
-            x: 900,
-            y: 860
+            x: 75,
+            y: 375
         },
         dimension: {
-            x: 50,
-            y: 10
+            x: 100,
+            y: 25
         },
         name: 'frogger',
         startingPosition: {
-            x: 600,
-            y: 1200
+            x: 700,
+            y: 1055
         }
     }],
     arrows: [{
@@ -723,33 +724,32 @@ const courtyard = {
 };
 const frogger = {
     mapImage: '/FroggerBkgd.png',
-
-    transformPositionX: -200,
-    transformPositionY: 400,
-    playerOffsetX: 500,
-    playerOffsetY: 0,
-    left: 550,
-    top: 500,
-    height: 750,
+    transformPositionX: 0,
+    transformPositionY: 200,
+    playerOffsetX: 300,
+    playerOffsetY: 100,
+    left: 350,
+    top: 350,
+    height: 1025,
     npcs: [],
     items: [],
     portals: [
-        {
-            type: 'portal',
-            position: {
-                x: 0,
-                y: 0
-            },
-            dimension: {
-                x: 0,
-                y: 0
-            },
-            name: 'courtyard',
-            startingPosition: {
-                x: 1200,
-                y: 550
-            }
-        },
+        // {
+        //     type: 'portal',
+        //     position: {
+        //         x: 50,
+        //         y: 950
+        //     },
+        //     dimension: {
+        //         x: 100,
+        //         y: 25
+        //     },
+        //     name: 'courtyard',
+        //     startingPosition: {
+        //         x: 1200,
+        //         y: 550
+        //     }
+        // },
         // {
         //     type: 'portal',
         //     position: {
@@ -768,40 +768,48 @@ const frogger = {
     arrows: [
     ],
     objectArray: [
-
         {
             type: 'object',
-
             name: 'SouthWall',
             position: {
-                x: 0, y: 1400
+                x: 25, y: 1200
             },
             dimension: {
-                x: 1600, y: 10
+                x: 2000, y: 25
+            }
+        },
+        {
+            type: 'object',
+            name: 'NorthWall',
+            position: {
+                x: 25, y: 225
+            },
+            dimension: {
+                x: 2000, y: 25
             }
         },
         {
             type: 'object',
             name: 'WestWall',
             position: {
-                x: 0, y: 0
+                x: 25, y: 225
             },
             dimension: {
-                x: 10, y: 1000
+                x: 25, y: 1200
             }
         },
         {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 1225, y: 0
+                x: 1625, y: 225
             },
             dimension: {
-                x: 10, y: 1000
+                x: 25, y: 1200
             }
         },
-
-    ], pads: [
+    ], 
+    pads: [
         {
             speed: 0,
             win: false,
@@ -809,12 +817,12 @@ const frogger = {
             type: 'pad',
             name: '1',
             position: {
-                x: 575, y: 1100
+                x: 395, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 129
         },
         {
             speed: 0,
@@ -823,14 +831,13 @@ const frogger = {
             type: 'pad',
             name: '2',
             position: {
-                x: 675, y: 1100
+                x: 545, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 282
         },
-
         {
             speed: 0,
             win: false,
@@ -838,12 +845,12 @@ const frogger = {
             type: 'pad',
             name: '3',
             position: {
-                x: 775, y: 1100
+                x: 695, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 178
         },
         {
             speed: 0,
@@ -852,12 +859,12 @@ const frogger = {
             type: 'pad',
             name: '4',
             position: {
-                x: 875, y: 1100
+                x: 845, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 121
         },
         {
             speed: 0,
@@ -866,12 +873,12 @@ const frogger = {
             type: 'pad',
             name: '5',
             position: {
-                x: 975, y: 1100
+                x: 995, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 313
         },
         {
             speed: 0,
@@ -880,12 +887,12 @@ const frogger = {
             type: 'pad',
             name: '6',
             position: {
-                x: 1075, y: 1100
+                x: 1145, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 122
         },
         {
             speed: 0,
@@ -894,12 +901,12 @@ const frogger = {
             type: 'pad',
             name: '7',
             position: {
-                x: 1175, y: 1100
+                x: 1295, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 50
         },
         {
             speed: 0,
@@ -908,12 +915,12 @@ const frogger = {
             type: 'pad',
             name: '8',
             position: {
-                x: 1275, y: 1100
+                x: 1445, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 164
         },
         {
             speed: 0,
@@ -922,273 +929,209 @@ const frogger = {
             type: 'pad',
             name: '9',
             position: {
-                x: 1375, y: 1100
+                x: 1595, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
+                x: 75, y: 75
+            },
+            rotate: 124
+        },
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '10',
+            position: {
+                x: 1745, y: 1170
+            },
+            dimension: {
+                x: 75, y: 75
+            },
+            rotate: 158
+        },
+        {
             speed: 0,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '11',
             position: {
-                x: 1475, y: 1100
+                x: 1895, y: 1170
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: 0,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '12',
-            position: {
-                x: 1575, y: 1100
+                x: 75, y: 75
             },
-
-            dimension: {
-                x: 50, y: 50
-            }
-        }, {
+            rotate: 206
+        },
+        {
             speed: 20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '13',
             position: {
-                x: 575, y: 1000
+                x: 575, y: 1020
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
+                x: 75, y: 75
+            },
+            rotate: 309
+        }, 
+        {
             speed: 20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '14',
             position: {
-                x: 775, y: 1000
+                x: 825, y: 1020
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
+                x: 75, y: 75
+            },
+            rotate: 277
+        }, 
+        {
             speed: -20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '15',
             position: {
-                x: 1275, y: 900
+                x: 1275, y: 870
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
+                x: 75, y: 75
+            },
+            rotate: 82
+        }, 
+        {
             speed: -20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '16',
             position: {
-                x: 1075, y: 900
+                x: 1075, y: 870
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
+                x: 75, y: 75
+            },
+            rotate: 223
+        }, 
+        {
             speed: -20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '17',
             position: {
-                x: 975, y: 900
+                x: 925, y: 870
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: 25,
+                x: 75, y: 75
+            },
+            rotate: 251
+        }, 
+        {
+            speed: 20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '18',
             position: {
-                x: 975, y: 800
+                x: 975, y: 720
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: 25,
+                x: 75, y: 75
+            },
+            rotate: 202
+        }, 
+        {
+            speed: 20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '19',
             position: {
-                x: 875, y: 800
+                x: 825, y: 720
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: 25,
+                x: 75, y: 75
+            },
+            rotate: 282
+        }, 
+        {
+            speed: 20,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '20',
             position: {
-                x: 475, y: 800
+                x: 475, y: 720
             },
-
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             }
-        }, {
-            speed: -30,
+            ,
+            rotate: 269
+        }, 
+        {
+            speed: 30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '21',
             position: {
-                x: 675, y: 700
+                x: 675, y: 570
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: -30,
+                x: 75, y: 75
+            },
+            rotate: 249
+        }, 
+        {
+            speed: 30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '22',
             position: {
-                x: 575, y: 700
+                x: 525, y: 570
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: -30,
+                x: 75, y: 75
+            },
+            rotate: 209
+        }, 
+        {
+            speed: 30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '23',
             position: {
-                x: 1075, y: 700
+                x: 1075, y: 570
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: 15,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '24',
-            position: {
-                x: 1075, y: 600
+                x: 75, y: 75
             },
-
-            dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: 15,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '25',
-            position: {
-                x: 1175, y: 600
-            },
-
-            dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: 15,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '26',
-            position: {
-                x: 675, y: 600
-            },
-
-            dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: -20,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '27',
-            position: {
-                x: 875, y: 500
-            },
-
-            dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: -20,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '29',
-            position: {
-                x: 975, y: 500
-            },
-
-            dimension: {
-                x: 50, y: 50
-            }
-        }, {
-            speed: -20,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '30',
-            position: {
-                x: 775, y: 500
-            },
-
-            dimension: {
-                x: 50, y: 50
-            }
-
-        }, {
+            rotate: 257
+        }, 
+        {
             speed: 0,
             win: true,
             img: '/winninglily.png',
             type: 'pad',
             name: '31',
             position: {
-                x: 575, y: 400
+                x: 395, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 178
         },
         {
             speed: 0,
@@ -1197,14 +1140,13 @@ const frogger = {
             type: 'pad',
             name: '32',
             position: {
-                x: 675, y: 400
+                x: 545, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 175
         },
-
         {
             speed: 0,
             win: true,
@@ -1212,12 +1154,12 @@ const frogger = {
             type: 'pad',
             name: '33',
             position: {
-                x: 775, y: 400
+                x: 695, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 203
         },
         {
             speed: 0,
@@ -1226,12 +1168,12 @@ const frogger = {
             type: 'pad',
             name: '34',
             position: {
-                x: 875, y: 400
+                x: 845, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 321
         },
         {
             speed: 0,
@@ -1240,12 +1182,12 @@ const frogger = {
             type: 'pad',
             name: '35',
             position: {
-                x: 975, y: 420
+                x: 995, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 59
         },
         {
             speed: 0,
@@ -1254,12 +1196,12 @@ const frogger = {
             type: 'pad',
             name: '36',
             position: {
-                x: 1075, y: 400
+                x: 1145, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 157
         },
         {
             speed: 0,
@@ -1268,12 +1210,12 @@ const frogger = {
             type: 'pad',
             name: '37',
             position: {
-                x: 1175, y: 400
+                x: 1295, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 46
         },
         {
             speed: 0,
@@ -1282,12 +1224,12 @@ const frogger = {
             type: 'pad',
             name: '38',
             position: {
-                x: 1275, y: 400
+                x: 1445, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
+                x: 75, y: 75
+            },
+            rotate: 237
         },
         {
             speed: 0,
@@ -1296,39 +1238,43 @@ const frogger = {
             type: 'pad',
             name: '39',
             position: {
-                x: 1375, y: 400
+                x: 1595, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
+                x: 75, y: 75
+            },
+            rotate: 207
+        }, 
+        {
             speed: 0,
             win: true,
             img: '/winninglily.png',
             type: 'pad',
             name: '41',
             position: {
-                x: 1475, y: 400
+                x: 1745, y: 420
             },
-
             dimension: {
-                x: 50, y: 50
-            }
-        }, {
+                x: 75, y: 75
+            },
+            rotate: 255
+        }, 
+        {
             speed: 0,
             win: true,
             img: '/winninglily.png',
             type: 'pad',
             name: '42',
             position: {
-                x: 1575, y: 400
+                x: 1895, y: 420
             },
+            dimension: {
+                x: 75, y: 75
+            },
+            rotate: 341
         }
     ],
 };
-
-
 
 const mapObj = { hallway, hallway2, hallway3, classroom, classroom2, classroom3, courtyard, frogger };
 
