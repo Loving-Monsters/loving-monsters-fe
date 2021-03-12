@@ -16,6 +16,9 @@ import itemObj from '../components/Items/fullItems';
 import npcObj from '../components/NPCs/fullNPCs';
 import { SocketContext } from '../utils/socketController';
 
+import WinBox from '../components/frogger/WinBox';
+import LoseBox from '../components/frogger/LoseBox';
+
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 const CURRENT_USER = 'CURRENT_USER';
 
@@ -25,7 +28,7 @@ export default function Engine({ currentUser }) {
     const [userArray, setUserArray] = useState([]);
     const [ballArray, setBallArray] = useState([]);
     const currentMap = useRef(mapObj[currentUser.current.currentRoom]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [disableKeys, setDisableKeys] = useState(false);
     const [boxOpen, setBoxOpen] = useState(false);
     const [currentNpc, setNpc] = useState(false);
@@ -36,6 +39,9 @@ export default function Engine({ currentUser }) {
     const onPad = useRef(false);
     const frogger = useRef(false);
     const gameStart = useRef(false);
+    const winBox = useRef(false);
+    const loseBox = useRef(false);
+
     useEffect(() => {
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
@@ -45,9 +51,14 @@ export default function Engine({ currentUser }) {
     }, [socket]);
 
     useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+
         const gameStateInterval = setInterval(() => {
             if (currentUser.current) {
                 socket.emit('GAME_STATE', currentUser.current);
+
             }
         }, 100);
         return () => clearInterval(gameStateInterval);
@@ -61,6 +72,8 @@ export default function Engine({ currentUser }) {
 
     useEffect(() => {
         window.addEventListener('keydown', (e) => {
+            e.stopImmediatePropagation();
+
             currentUser.current.idle = false;
 
             setTimeout(() => {
@@ -96,7 +109,8 @@ export default function Engine({ currentUser }) {
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 50
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -50) {
 
-                            currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX);
+                            if (pad.speed !== 0) currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX);
+                            // currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX);
                         }
 
                         if (pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) < 75 &&
@@ -105,7 +119,13 @@ export default function Engine({ currentUser }) {
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -75) {
                             onPad.current = true;
                             gameStart.current = true;
+
+
+                            if (pad.win) {
+                                winBox.current = true;
+                            }
                         }
+
                     });
 
                     if (onPad) {
@@ -114,7 +134,7 @@ export default function Engine({ currentUser }) {
                     }
 
                     if (gameStart.current === true && onPad.current === false) {
-                        console.log('loser');
+                        loseBox.current = true;
                     }
                 }
             }, 250);
@@ -125,6 +145,7 @@ export default function Engine({ currentUser }) {
     }, [frogger.current]);
 
     const handleMapChange = (mapName) => {
+        console.log('🚀 ~ file: Engine.jsx ~ line 131 ~ handleMapChange ~ (mapName)', (mapName));
         if (mapName === 'frogger') { frogger.current = true; }
         if (mapName !== 'frogger') { frogger.current = false; }
         console.log(frogger.current);
@@ -133,6 +154,7 @@ export default function Engine({ currentUser }) {
         currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
 
         currentMap.current = mapObj[mapName];
+        console.log('🚀 ~ file: Engine.jsx ~ line 140 ~ handleMapChange ~ currentMap', currentMap.current);
         socket.emit('CHANGE_ROOM', { localUser: currentUser.current, newRoom: mapName });
         currentUser.current.currentRoom = mapName;
 
@@ -165,6 +187,25 @@ export default function Engine({ currentUser }) {
         itemObj[itemName].display = 'none';
         itemObj[itemName].dimension.x = '0px';
         itemObj[itemName].dimension.y = '0px';
+    };
+
+    const handleReset = () => {
+        currentUser.current.position.x = 700;
+        currentUser.current.position.y = 1050;
+        loseBox.current = false;
+        winBox.current = false;
+        onPad.current = false;
+        gameStart.current = false;
+    };
+
+    const handleEndGame = () => {
+        handleMapChange('courtyard');
+        frogger.current = false;
+        loseBox.current = false;
+        winBox.current = false;
+        onPad.current = false;
+        gameStart.current = false;
+        frogger.current = false;
     };
 
     const renderPads = () => {
@@ -291,8 +332,8 @@ export default function Engine({ currentUser }) {
                             {renderUsers()}
                             {renderBalls()}
 
-                            {frogger.current 
-                                ? 
+                            {frogger.current
+                                ?
                                 renderPads()
                                 : null}
                             {currentMap.current ?
@@ -326,6 +367,15 @@ export default function Engine({ currentUser }) {
                     handleClose={handleClose}
                     handleGiveItem={handleGiveItem} />
                 : null}
+            {loseBox.current && frogger.current ? <LoseBox
+                handleEndGame={handleEndGame}
+                handleReset={handleReset}
+                setDisableKeys={setDisableKeys}
+            /> : null}
+            {winBox.current && frogger.current ? <WinBox
+                handleEndGame={handleEndGame}
+                handleReset={handleReset}
+            /> : null}
         </div >
     );
 }
