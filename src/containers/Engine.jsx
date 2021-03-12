@@ -183,8 +183,7 @@ export default function Engine({ currentUser }) {
         } else {
             storyIndex.current = 0;
         }
-        // setBoxOpen(true);
-        winBox.current = true;
+        setBoxOpen(true);
     };
 
     const handleItemInteraction = (itemName) => {
