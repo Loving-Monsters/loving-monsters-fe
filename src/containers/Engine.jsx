@@ -171,7 +171,7 @@ export default function Engine({ currentUser }) {
                     transform: `translate3d(${pad.position.x}px, ${pad.position.y}px, 0)`
                 }}>
                 <img src="/lilypad.png" />
-                {pad.position.y}
+
             </div>
         );
     };

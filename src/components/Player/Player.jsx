@@ -14,7 +14,7 @@ export default function Player({ position, xOffset, yOffset, direction, userName
             if (runDirections.includes(direction)) {
                 runAnimation();
             }
-        }, 120);
+        }, 140);
 
     }, [frame, idle]);
 
