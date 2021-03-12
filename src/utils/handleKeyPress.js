@@ -2,10 +2,10 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen, loading) {
+export default function (e, currentUser, currentMap, setDisableKeys, disableKeys, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen) {
     e.preventDefault();
 
-    if (currentUser.current && !disableKeys && !loading) {
+    if (currentUser.current && !disableKeys) {
         setDisableKeys(true);
 
         const { position, speed, dimension } = currentUser.current;
@@ -48,6 +48,9 @@ export default function (e, currentUser, currentMap, setDisableKeys, disableKeys
             case 'whiteBoard':
                 handleWhiteBoardInteraction(checkCollisionResult.name);
                 break;
+            //     case 'frogger':
+            //         handleLaunchFrogger();
+            //         break;
         }
     }
 }

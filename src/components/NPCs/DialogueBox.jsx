@@ -1,10 +1,32 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './NPCs.css';
 
-export default function DialogueBox({ currentNpc, handleClose, handleGiveItem, currentUser, storyIndex, thanks }) {
+export default function DialogueBox({ currentNpc, handleClose, currentUser, storyIndex }) {
+    const [thanks, setThanks] = useState('');
+
+    const handleGiveItem = (npc, item) => {
+        currentUser.current.inventory.forEach(userItem => {
+            if (userItem.name === item.name) {
+                const index = currentUser.current.inventory.indexOf(userItem);
+
+                if (index !== -1) {
+                    currentUser.current.inventory.splice(index, 1);
+                }
+                npc.friendship += item.friendship[npc.name];
+            }
+            if (item.friendship[npc.name] > 0) {
+                setThanks(`${npc.positiveReaction}${item.name}${npc.positiveReaction2}`);
+            } else if (item.friendship[npc.name] < 0) {
+                setThanks(`${npc.negativeReaction}${item.name}${npc.negativeReaction2}`);
+            } else {
+                setThanks(`${npc.neutralReaction}${item.name}${npc.neutralReaction2} `);
+            }
+        });
+    };
+
     const handleBeat = () => {
         if (currentNpc.friendship <= 0) {
             return currentNpc.storyBeats1[storyIndex.current];

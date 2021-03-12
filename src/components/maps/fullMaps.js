@@ -31,21 +31,6 @@ const hallway = {
     }, {
         type: 'portal',
         position: {
-            x: 75,
-            y: 375
-        },
-        dimension: {
-            x: 100,
-            y: 25
-        },
-        name: 'frogger',
-        startingPosition: {
-            x: 600,
-            y: 1200
-        }
-    }, {
-        type: 'portal',
-        position: {
             x: 1380, y: 0
         },
         dimension: {

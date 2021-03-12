@@ -36,6 +36,7 @@ export default function Frame() {
     useEffect(() => {
         socket.on('DUPLICATE_USER', () => {
             localStorage.clear();
+            setLoggedIn(false);
         });
     }, [socket]);
 

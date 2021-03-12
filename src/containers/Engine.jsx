@@ -5,10 +5,6 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import Player from '../components/Player/Player';
 import handleKeyPress from '../utils/handleKeyPress';
 import Maps from '../components/maps/Maps.jsx';
-import Arrow from '../components/arrows/Arrow';
-import NPC from '../components/NPCs/NPC.jsx';
-import Ball from '../components/Ball/Ball';
-import Item from '../components/Items/Item';
 import DialogueBox from '../components/NPCs/DialogueBox';
 import styles from './Containers.css';
 import mapObj from '../components/maps/fullMaps';
@@ -16,12 +12,18 @@ import itemObj from '../components/Items/fullItems';
 import npcObj from '../components/NPCs/fullNPCs';
 import { SocketContext } from '../utils/socketController';
 
+import renderUsers from '../components/Renders/renderUsers';
+import renderBalls from '../components/Renders/renderBalls';
+import renderArrows from '../components/Renders/renderArrows';
+import renderItems from '../components/Renders/renderItems';
+import renderNPCs from '../components/Renders/renderNPCs';
+
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 const CURRENT_USER = 'CURRENT_USER';
 
 export default function Engine({ currentUser }) {
     const socket = useContext(SocketContext);
-    const [avatar, setAvatar] = useState(currentUser.current.avatar)
+    const [avatar, setAvatar] = useState(currentUser.current.avatar);
     const [userArray, setUserArray] = useState([]);
     const [ballArray, setBallArray] = useState([]);
     const currentMap = useRef(mapObj[currentUser.current.currentRoom]);
@@ -30,12 +32,11 @@ export default function Engine({ currentUser }) {
     const [boxOpen, setBoxOpen] = useState(false);
     const [currentNpc, setNpc] = useState(false);
     // const [user, setUser] = useState(false)
-    const [thanks, setThanks] = useState('');
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
     const storyIndex = useRef(0);
     const onPad = useRef(false);
-    const frogger = useRef(false)
-    const gameStart = useRef(false)
+    const frogger = useRef(false);
+    const gameStart = useRef(false);
     useEffect(() => {
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
@@ -55,8 +56,8 @@ export default function Engine({ currentUser }) {
 
     useEffect(() => {
         if (frogger.current === true) {
-            currentUser.current.avatar = 'frog'
-        } else { currentUser.current.avatar = avatar }
+            currentUser.current.avatar = 'frog';
+        } else { currentUser.current.avatar = avatar; }
     }, [currentUser.current.position]);
 
     useEffect(() => {
@@ -84,7 +85,7 @@ export default function Engine({ currentUser }) {
             const interval = setInterval(() => {
 
                 if (frogger.current) {
-                    onPad.current = false
+                    onPad.current = false;
                     currentMap.current.pads.forEach(pad => {
                         if (pad.speed > 0 && pad.position.x > 1150 + currentMap.current.playerOffsetX) pad.position.x = currentMap.current.playerOffsetX;
                         if (pad.speed < 0 && pad.position.x < 0 + currentMap.current.playerOffsetX) pad.position.x = 1150 + currentMap.current.playerOffsetX;
@@ -97,7 +98,7 @@ export default function Engine({ currentUser }) {
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 50
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -50) {
 
-                            currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX)
+                            currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX);
                             // onPad.current = true
                             // gameStart.current = true
                         }
@@ -105,19 +106,19 @@ export default function Engine({ currentUser }) {
                             pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) > -75
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 75
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -75) {
-                            onPad.current = true
-                            gameStart.current = true
+                            onPad.current = true;
+                            gameStart.current = true;
                         }
 
                     }
                     );
                     if (onPad) {
-                        setCount(currentMap.current.pads[0].position.y)
+                        setCount(currentMap.current.pads[0].position.y);
 
                     }
 
                     if (gameStart.current === true && onPad.current === false) {
-                        console.log('loser')
+                        console.log('loser');
                     }
                 }
             }, 250);
@@ -127,10 +128,14 @@ export default function Engine({ currentUser }) {
         }
     }, [frogger.current]);
 
+    // const handleLaunchFrogger = () => {
+
+    // };
+
     const handleMapChange = (mapName) => {
-        if (mapName === 'frogger') { frogger.current = true }
-        if (mapName !== 'frogger') { frogger.current = false }
-        console.log(frogger.current)
+        // if (mapName === 'frogger') { frogger.current = true }
+        // if (mapName !== 'frogger') { frogger.current = false }
+        // console.log(frogger.current)
         setLoading(true);
 
         currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
@@ -153,7 +158,6 @@ export default function Engine({ currentUser }) {
     };
 
     const handleNPCInteraction = (npcName) => {
-        setThanks('');
         setNpc(npcObj[npcName]);
         if (storyIndex.current < 2) {
             storyIndex.current += 1;
@@ -183,94 +187,8 @@ export default function Engine({ currentUser }) {
             </div>
         );
     };
-    const renderNPCs = () => {
-        return currentMap.current.npcs.map(npc =>
-            <NPC
-                key={npc.name}
-                name={npc.displayName}
-                img={npc.img}
-                npc={npc}
-                npcposition={npc.position}
-                marginTop={npc.marginTop}
-                marginLeft={npc.marginLeft}
-            />
-        );
-    };
-
-    const renderArrows = () => {
-        return currentMap.current.arrows.map(arrow =>
-            <Arrow
-                key={arrow.location}
-                marginTop={arrow.marginTop}
-                marginLeft={arrow.marginLeft}
-                rotate={arrow.rotate}
-            />
-        );
-    };
-
-    const renderBalls = () => {
-        if (ballArray.length > 0) {
-            return ballArray.map(ball => <Ball
-                key={ball.id}
-                xOffset={currentMap.current.playerOffsetX}
-                yOffset={currentMap.current.playerOffsetY}
-                position={ball.position}
-                avatar={ball.avatar}
-                idle={ball.idle}
-            />
-            );
-        }
-    };
-
-    const renderItems = () => {
-        return currentMap.current.items.map(item =>
-            <Item
-                position={item.position}
-                name={item.name}
-                key={item.name}
-                img={item.img}
-                marginTop={item.marginTop}
-                marginLeft={item.marginLeft}
-                display={item.display}
-            />
-        );
-    };
 
     const filteredUserArray = userArray.filter(user => user.currentRoom !== currentUser.current.currentRoom);
-
-    const renderUsers = () => {
-        return filteredUserArray.map(user => <Player
-            key={user.id}
-            position={user.position}
-            xOffset={currentMap.current.playerOffsetX}
-            yOffset={currentMap.current.playerOffsetY}
-            direction={user.dir}
-            avatar={user.avatar}
-            userName={user.userName}
-            idle={user.idle}
-        />
-        );
-    };
-
-    const handleGiveItem = (npc, item) => {
-        currentUser.current.inventory.forEach(userItem => {
-            if (userItem.name === item.name) {
-                const index = currentUser.current.inventory.indexOf(userItem);
-
-                if (index !== -1) {
-                    currentUser.current.inventory.splice(index, 1);
-                }
-                npc.friendship += item.friendship[npc.name];
-            }
-            if (item.friendship[npc.name] > 0) {
-                setThanks(`${npc.positiveReaction}${item.name}${npc.positiveReaction2}`);
-            } else if (item.friendship[npc.name] < 0) {
-                setThanks(`${npc.negativeReaction}${item.name}${npc.negativeReaction2}`);
-            } else {
-                setThanks(`${npc.neutralReaction}${item.name}${npc.neutralReaction2} `);
-            }
-        });
-    };
 
     const handleClose = () => setBoxOpen(false);
 
@@ -285,11 +203,11 @@ export default function Engine({ currentUser }) {
                                     `translate3d(-${currentUser.current.position.x - currentMap.current.transformPositionX}px,
                                     -${currentUser.current.position.y - currentMap.current.transformPositionY}px, 0)`
                             }}>
-                            {renderItems()}
-                            {renderNPCs()}
-                            {renderArrows()}
-                            {renderUsers()}
-                            {renderBalls()}
+                            {renderItems(currentMap)}
+                            {renderNPCs(currentMap)}
+                            {renderArrows(currentMap)}
+                            {renderUsers(filteredUserArray, currentMap)}
+                            {renderBalls(ballArray, currentMap)}
                             {frogger.current ? renderPads() : null}
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
@@ -315,12 +233,11 @@ export default function Engine({ currentUser }) {
             }
             {boxOpen ?
                 <DialogueBox
-                    thanks={thanks}
                     storyIndex={storyIndex}
                     currentUser={currentUser}
                     currentNpc={currentNpc}
                     handleClose={handleClose}
-                    handleGiveItem={handleGiveItem} />
+                />
                 : null}
         </div >
     );
