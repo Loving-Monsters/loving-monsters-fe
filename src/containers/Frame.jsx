@@ -16,6 +16,8 @@ export default function Frame() {
 
     const handleLogOut = () => {
         setLoggedIn(false);
+        window.location.reload(false)
+
     };
 
     return (
@@ -25,6 +27,7 @@ export default function Frame() {
                     <Header handleLogOut={handleLogOut} />
                     <Engine
                         currentUser={currentUser}
+                        loggedIn={loggedIn}
                     />
                     <Phone
                         currentUser={currentUser}
