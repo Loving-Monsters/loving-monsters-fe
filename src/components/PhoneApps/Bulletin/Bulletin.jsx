@@ -21,6 +21,7 @@ const Bulletin = ({ currentUser, handleHome }) => {
             roomName: currentUser.current.currentRoom,
             text: `${currentUser.current.userName}: ${input}`
         };
+
         socket.emit('SEND_BULLETIN', newBulletin);
         setInput('');
     };

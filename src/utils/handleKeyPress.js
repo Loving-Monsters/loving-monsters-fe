@@ -6,7 +6,6 @@ export default function (e, currentUser, currentMap, disable, handleMapChange, h
     e.preventDefault();
     if (currentUser.current && !disable.current) {
         disable.current = true;
-        console.log(currentUser.current);
 
         const { position, speed, dimension } = currentUser.current;
         const { objectArray, portals, npcs, items, whiteBoard } = currentMap.current;

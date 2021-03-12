@@ -23,7 +23,9 @@ const Phone = ({ currentUser }) => {
 
     useEffect(() => {
         socket.on('RECIEVE_BULLETIN', bulletinObj => {
-            currentUser.current.bulletinArray = [...currentUser.current.bulletinArray, bulletinObj];
+            if (!currentUser.current.bulletinArray.includes(bulletin => bulletin.timestamp === bulletinObj.timestamp)) {
+                currentUser.current.bulletinArray = [...currentUser.current.bulletinArray, bulletinObj];
+            }
         });
 
         socket.on('RECIEVE_MESSAGE', messageObj => {
