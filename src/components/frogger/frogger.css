@@ -1,0 +1,39 @@
+.gamebox {
+    z-index: 1;
+    position: absolute;
+    width: 775px;
+    height: 650px;
+    overflow: hidden;
+    border: solid 5px #242424;
+    background-color: #242424;
+    text-align: center;
+}
+
+.win, .lose {
+    font-family: pixelfy;
+    font-size: 70pt;
+    color: tomato;
+    text-shadow: 4px 4px 2px white;
+}
+
+.subwin {
+    font-size: 30pt;
+    color: white;
+    font-family: dogica;
+    line-height: 35pt;
+}
+
+.gamebox button {
+    margin-top: 20px;
+    background-color: transparent;
+    border: solid 1px white;
+    font-family: dogica;
+    font-size: 12pt;
+    line-height: 26pt;
+    color: white;
+}
+
+.gamebox button:hover {
+    color: tomato;
+    border: solid 1px tomato;
+}
