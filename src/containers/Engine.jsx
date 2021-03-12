@@ -44,6 +44,7 @@ export default function Engine({ currentUser }) {
     const frogger = useRef(false);
     const gameStart = useRef(false);
     const winningPad = useRef(false);
+    // const disable = useRef(false)
     useEffect(() => {
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
@@ -87,11 +88,12 @@ export default function Engine({ currentUser }) {
     }, []);
 
     useEffect(() => {
+        // if (disable.current) setDisableKeys(true)
         // console.log('winBox', winBox.current)
         // console.log('loseBox', loseBox.current)
         if (winBox.current) setWinBox(true)
         if (loseBox.current) setLoseBox(true)
-        console.log('winning pad', winningPad.current);
+        // console.log(disableKeys);
         if (frogger.current) {
             const interval = setInterval(() => {
 
@@ -139,8 +141,7 @@ export default function Engine({ currentUser }) {
 
                     if (gameStart.current === true && onPad.current === false) {
                         loseBox.current = true;
-                        console.log('loseBox', loseBox.current)
-
+                        // disable.current = true
                     }
                 }
             }, 150);
