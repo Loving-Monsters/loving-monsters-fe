@@ -1,7 +1,7 @@
 import React from 'react';
 import Ball from '../Ball/Ball';
 
-export default function (ballArray, currentMap) {
+export default function(ballArray, currentMap) {
     if (ballArray && ballArray.length > 0) {
         return ballArray.map(ball => <Ball
             key={ball.id}

@@ -5,7 +5,6 @@ import styles from '../landingpage.css';
 
 export default function WelcomeScreen({ handleNewUser, handleExistingUser }) {
 
-
     return (
         <div className={styles.welcomeScreen}>
             <div>

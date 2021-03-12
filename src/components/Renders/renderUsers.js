@@ -2,7 +2,7 @@ import React from 'react';
 import Player from '../Player/Player';
 
 
-export default function (filteredUserArray, currentMap) {
+export default function(filteredUserArray, currentMap) {
     return filteredUserArray.map(user => <Player
         key={user.id}
         position={user.position}

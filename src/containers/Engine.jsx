@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
@@ -31,7 +32,6 @@ export default function Engine({ currentUser }) {
     // const [disableKeys, setDisableKeys] = useState(true);
     const [boxOpen, setBoxOpen] = useState(false);
     const [currentNpc, setNpc] = useState(false);
-    // const [user, setUser] = useState(false)
     const [thanks, setThanks] = useState('');
     const [count, setCount] = useState(0);
     const storyIndex = useRef(0);
@@ -42,8 +42,8 @@ export default function Engine({ currentUser }) {
     const loseBox = useRef(false);
     const disable = useRef(true);
     const loading = useRef(true);
-    useEffect(() => {
 
+    useEffect(() => {
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
             setBallArray(ballArray);
@@ -52,9 +52,7 @@ export default function Engine({ currentUser }) {
     }, [socket]);
 
     useEffect(() => {
-
         setTimeout(() => {
-
             loading.current = false;
             disable.current = false;
         }, 1000);
@@ -62,7 +60,6 @@ export default function Engine({ currentUser }) {
         const gameStateInterval = setInterval(() => {
             if (currentUser.current && !winBox.current && !loseBox.current) {
                 socket.emit('GAME_STATE', currentUser.current);
-
             }
         }, 100);
         return () => clearInterval(gameStateInterval);
@@ -114,7 +111,6 @@ export default function Engine({ currentUser }) {
                             && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -50) {
 
                             if (pad.speed !== 0) currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX);
-                            // currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX);
                         }
 
                         if (pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) < 75 &&
@@ -145,7 +141,6 @@ export default function Engine({ currentUser }) {
                 }
             }, 150);
 
-
             return () => clearInterval(interval);
         }
     }, [frogger.current]);
@@ -164,7 +159,6 @@ export default function Engine({ currentUser }) {
 
         setBallArray([]);
         setUserArray([]);
-        // localStorage.setItem(CURRENT_USER, JSON.stringify(currentUser.current));
 
         setTimeout(() => {
             loading.current = false;
@@ -377,7 +371,6 @@ export default function Engine({ currentUser }) {
             {loseBox.current && frogger.current && !winBox.current ? <LoseBox
                 handleEndGame={handleEndGame}
                 handleReset={handleReset}
-                setDisableKeys={setDisableKeys}
             /> : null}
             {winBox.current && frogger.current && !loseBox.current ? <WinBox
                 handleEndGame={handleEndGame}

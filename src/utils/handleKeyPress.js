@@ -2,7 +2,7 @@
 import changePosition from './changePosition';
 import checkCollision from './collisionChecker';
 
-export default function (e, currentUser, currentMap, disable, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen) {
+export default function(e, currentUser, currentMap, disable, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen) {
     e.preventDefault();
     if (currentUser.current && !disable.current) {
         disable.current = true;
@@ -23,7 +23,7 @@ export default function (e, currentUser, currentMap, disable, handleMapChange, h
 
         const checkCollisionResult = checkCollision(collisionObjects, newPosition, dimension);
 
-        switch (checkCollisionResult.type) {
+        switch(checkCollisionResult.type) {
             case false:
                 setBoxOpen(false);
                 currentUser.current = {
