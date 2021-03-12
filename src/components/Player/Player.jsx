@@ -36,8 +36,8 @@ export default function Player({ position, xOffset, yOffset, direction, userName
             <span>{userName}</span>
             <br />
             <img className={styles.sprite} src={sprite} />
-            <span>x = {position.x} </span>
-            <span> y = {position.y} </span>
+            {/* <span>x = {position.x} </span>
+            <span> y = {position.y} </span> */}
         </div>
     );
 }
