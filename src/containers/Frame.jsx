@@ -18,14 +18,6 @@ export default function Frame() {
         setLoggedIn(false);
     };
 
-
-    useEffect(() => {
-        socket.on('DUPLICATE_USER', () => {
-            localStorage.clear();
-            setLoggedIn(false);
-        });
-    }, [socket]);
-
     return (
         <div className={styles.container}>
             {loggedIn ?

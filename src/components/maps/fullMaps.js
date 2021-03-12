@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+/* eslint-disable max-len */
 import itemObj from '../Items/fullItems';
 import npcObj from '../NPCs/fullNPCs';
 
@@ -1280,5 +1281,4 @@ const frogger = {
 const mapObj = { hallway, hallway2, hallway3, classroom, classroom2, classroom3, courtyard, frogger };
 
 export default mapObj;
-
 
