@@ -2,7 +2,7 @@ import React from 'react';
 import Item from '../Items/Item';
 
 
-export default function (currentMap) {
+export default function(currentMap) {
     return currentMap.current.items.map(item =>
         <Item
             position={item.position}

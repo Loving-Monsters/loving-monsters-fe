@@ -1,7 +1,7 @@
 import React from 'react';
 import NPC from '../NPCs/NPC';
 
-export default function (currentMap) {
+export default function(currentMap) {
     return currentMap.current.npcs.map(npc =>
         <NPC
             key={npc.name}
