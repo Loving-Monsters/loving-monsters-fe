@@ -20,7 +20,7 @@ import WinBox from '../components/frogger/WinBox';
 import LoseBox from '../components/frogger/LoseBox';
 
 const validKeyPress = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
-const CURRENT_USER = 'CURRENT_USER';
+// const CURRENT_USER = 'CURRENT_USER';
 
 export default function Engine({ currentUser }) {
     const socket = useContext(SocketContext);
@@ -28,7 +28,7 @@ export default function Engine({ currentUser }) {
     const [userArray, setUserArray] = useState([]);
     const [ballArray, setBallArray] = useState([]);
     const currentMap = useRef(mapObj[currentUser.current.currentRoom]);
-    const [disableKeys, setDisableKeys] = useState(true);
+    // const [disableKeys, setDisableKeys] = useState(true);
     const [boxOpen, setBoxOpen] = useState(false);
     const [currentNpc, setNpc] = useState(false);
     // const [user, setUser] = useState(false)
@@ -57,10 +57,10 @@ export default function Engine({ currentUser }) {
 
             loading.current = false
             disable.current = false
-        }, 1000);
+        }, 1500);
 
         const gameStateInterval = setInterval(() => {
-            if (currentUser.current && !winBox.current && !loseBox.current && !loading.current) {
+            if (currentUser.current && !winBox.current && !loseBox.current) {
                 socket.emit('GAME_STATE', currentUser.current);
 
             }
@@ -75,7 +75,6 @@ export default function Engine({ currentUser }) {
     }, [currentUser.current.position]);
 
     useEffect(() => {
-        setDisableKeys(disable.current)
         window.addEventListener('keydown', (e) => {
             e.stopImmediatePropagation();
 
@@ -168,7 +167,7 @@ export default function Engine({ currentUser }) {
 
         setBallArray([]);
         setUserArray([]);
-        localStorage.setItem(CURRENT_USER, JSON.stringify(currentUser.current));
+        // localStorage.setItem(CURRENT_USER, JSON.stringify(currentUser.current));
 
         setTimeout(() => {
             loading.current = false;
