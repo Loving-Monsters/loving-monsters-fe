@@ -810,7 +810,7 @@ const frogger = {
             type: 'pad',
             name: '1',
             position: {
-                x: 575, y: 1120
+                x: 575, y: 1100
             },
 
             dimension: {
@@ -824,7 +824,7 @@ const frogger = {
             type: 'pad',
             name: '2',
             position: {
-                x: 675, y: 1120
+                x: 675, y: 1100
             },
 
             dimension: {
@@ -839,7 +839,7 @@ const frogger = {
             type: 'pad',
             name: '3',
             position: {
-                x: 775, y: 1120
+                x: 775, y: 1100
             },
 
             dimension: {
@@ -853,7 +853,7 @@ const frogger = {
             type: 'pad',
             name: '4',
             position: {
-                x: 875, y: 1120
+                x: 875, y: 1100
             },
 
             dimension: {
@@ -867,7 +867,7 @@ const frogger = {
             type: 'pad',
             name: '5',
             position: {
-                x: 975, y: 1120
+                x: 975, y: 1100
             },
 
             dimension: {
@@ -881,7 +881,7 @@ const frogger = {
             type: 'pad',
             name: '6',
             position: {
-                x: 1075, y: 1120
+                x: 1075, y: 1100
             },
 
             dimension: {
@@ -895,7 +895,7 @@ const frogger = {
             type: 'pad',
             name: '7',
             position: {
-                x: 1175, y: 1120
+                x: 1175, y: 1100
             },
 
             dimension: {
@@ -909,7 +909,7 @@ const frogger = {
             type: 'pad',
             name: '8',
             position: {
-                x: 1275, y: 1120
+                x: 1275, y: 1100
             },
 
             dimension: {
@@ -923,7 +923,7 @@ const frogger = {
             type: 'pad',
             name: '9',
             position: {
-                x: 1375, y: 1120
+                x: 1375, y: 1100
             },
 
             dimension: {
@@ -936,7 +936,7 @@ const frogger = {
             type: 'pad',
             name: '11',
             position: {
-                x: 1475, y: 1120
+                x: 1475, y: 1100
             },
 
             dimension: {
@@ -949,7 +949,7 @@ const frogger = {
             type: 'pad',
             name: '12',
             position: {
-                x: 1575, y: 1120
+                x: 1575, y: 1100
             },
 
             dimension: {
@@ -962,7 +962,7 @@ const frogger = {
             type: 'pad',
             name: '13',
             position: {
-                x: 575, y: 1020
+                x: 575, y: 1000
             },
 
             dimension: {
@@ -975,7 +975,7 @@ const frogger = {
             type: 'pad',
             name: '14',
             position: {
-                x: 775, y: 1020
+                x: 775, y: 1000
             },
 
             dimension: {
@@ -988,7 +988,7 @@ const frogger = {
             type: 'pad',
             name: '15',
             position: {
-                x: 1275, y: 920
+                x: 1275, y: 900
             },
 
             dimension: {
@@ -1001,7 +1001,7 @@ const frogger = {
             type: 'pad',
             name: '16',
             position: {
-                x: 1075, y: 920
+                x: 1075, y: 900
             },
 
             dimension: {
@@ -1014,7 +1014,7 @@ const frogger = {
             type: 'pad',
             name: '17',
             position: {
-                x: 975, y: 920
+                x: 975, y: 900
             },
 
             dimension: {
@@ -1027,7 +1027,7 @@ const frogger = {
             type: 'pad',
             name: '18',
             position: {
-                x: 975, y: 820
+                x: 975, y: 800
             },
 
             dimension: {
@@ -1040,7 +1040,7 @@ const frogger = {
             type: 'pad',
             name: '19',
             position: {
-                x: 875, y: 820
+                x: 875, y: 800
             },
 
             dimension: {
@@ -1053,7 +1053,7 @@ const frogger = {
             type: 'pad',
             name: '20',
             position: {
-                x: 475, y: 820
+                x: 475, y: 800
             },
 
             dimension: {
@@ -1066,7 +1066,7 @@ const frogger = {
             type: 'pad',
             name: '21',
             position: {
-                x: 675, y: 720
+                x: 675, y: 700
             },
 
             dimension: {
@@ -1079,7 +1079,7 @@ const frogger = {
             type: 'pad',
             name: '22',
             position: {
-                x: 575, y: 720
+                x: 575, y: 700
             },
 
             dimension: {
@@ -1092,7 +1092,7 @@ const frogger = {
             type: 'pad',
             name: '23',
             position: {
-                x: 1075, y: 720
+                x: 1075, y: 700
             },
 
             dimension: {
@@ -1105,7 +1105,7 @@ const frogger = {
             type: 'pad',
             name: '24',
             position: {
-                x: 1075, y: 620
+                x: 1075, y: 600
             },
 
             dimension: {
@@ -1118,7 +1118,7 @@ const frogger = {
             type: 'pad',
             name: '25',
             position: {
-                x: 1175, y: 620
+                x: 1175, y: 600
             },
 
             dimension: {
@@ -1131,7 +1131,7 @@ const frogger = {
             type: 'pad',
             name: '26',
             position: {
-                x: 675, y: 620
+                x: 675, y: 600
             },
 
             dimension: {
@@ -1144,7 +1144,7 @@ const frogger = {
             type: 'pad',
             name: '27',
             position: {
-                x: 875, y: 520
+                x: 875, y: 500
             },
 
             dimension: {
@@ -1157,7 +1157,7 @@ const frogger = {
             type: 'pad',
             name: '29',
             position: {
-                x: 975, y: 520
+                x: 975, y: 500
             },
 
             dimension: {
@@ -1170,7 +1170,7 @@ const frogger = {
             type: 'pad',
             name: '30',
             position: {
-                x: 775, y: 520
+                x: 775, y: 500
             },
 
             dimension: {
@@ -1184,7 +1184,7 @@ const frogger = {
             type: 'pad',
             name: '31',
             position: {
-                x: 575, y: 420
+                x: 575, y: 400
             },
 
             dimension: {
@@ -1198,7 +1198,7 @@ const frogger = {
             type: 'pad',
             name: '32',
             position: {
-                x: 675, y: 420
+                x: 675, y: 400
             },
 
             dimension: {
@@ -1213,7 +1213,7 @@ const frogger = {
             type: 'pad',
             name: '33',
             position: {
-                x: 775, y: 420
+                x: 775, y: 400
             },
 
             dimension: {
@@ -1227,7 +1227,7 @@ const frogger = {
             type: 'pad',
             name: '34',
             position: {
-                x: 875, y: 420
+                x: 875, y: 400
             },
 
             dimension: {
@@ -1255,7 +1255,7 @@ const frogger = {
             type: 'pad',
             name: '36',
             position: {
-                x: 1075, y: 420
+                x: 1075, y: 400
             },
 
             dimension: {
@@ -1269,7 +1269,7 @@ const frogger = {
             type: 'pad',
             name: '37',
             position: {
-                x: 1175, y: 420
+                x: 1175, y: 400
             },
 
             dimension: {
@@ -1283,7 +1283,7 @@ const frogger = {
             type: 'pad',
             name: '38',
             position: {
-                x: 1275, y: 420
+                x: 1275, y: 400
             },
 
             dimension: {
@@ -1297,7 +1297,7 @@ const frogger = {
             type: 'pad',
             name: '39',
             position: {
-                x: 1375, y: 420
+                x: 1375, y: 400
             },
 
             dimension: {
@@ -1310,7 +1310,7 @@ const frogger = {
             type: 'pad',
             name: '41',
             position: {
-                x: 1475, y: 420
+                x: 1475, y: 400
             },
 
             dimension: {
@@ -1323,7 +1323,7 @@ const frogger = {
             type: 'pad',
             name: '42',
             position: {
-                x: 1575, y: 420
+                x: 1575, y: 400
             },
         }
     ],
