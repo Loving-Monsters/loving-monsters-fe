@@ -19,6 +19,13 @@ export default function Frame() {
     };
 
 
+    useEffect(() => {
+        socket.on('DUPLICATE_USER', () => {
+            localStorage.clear();
+            setLoggedIn(false);
+        });
+    }, [socket]);
+
     return (
         <div className={styles.container}>
             {loggedIn ?
