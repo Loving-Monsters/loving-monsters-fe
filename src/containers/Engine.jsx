@@ -81,7 +81,7 @@ export default function Engine({ currentUser }) {
 
         setTimeout(() => {
             setLoading(false);
-        }, 1500);
+        }, 1000);
     };
 
     const handleWhiteBoardInteraction = (name) => {
