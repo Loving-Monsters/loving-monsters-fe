@@ -21,7 +21,7 @@ const CURRENT_USER = 'CURRENT_USER';
 
 export default function Engine({ currentUser }) {
     const socket = useContext(SocketContext);
-
+    const [avatar, setAvatar] = useState(currentUser.current.avatar)
     const [userArray, setUserArray] = useState([]);
     const [ballArray, setBallArray] = useState([]);
     const currentMap = useRef(mapObj[currentUser.current.currentRoom]);
@@ -29,9 +29,13 @@ export default function Engine({ currentUser }) {
     const [disableKeys, setDisableKeys] = useState(false);
     const [boxOpen, setBoxOpen] = useState(false);
     const [currentNpc, setNpc] = useState(false);
+    // const [user, setUser] = useState(false)
     const [thanks, setThanks] = useState('');
+    const [count, setCount] = useState(0)
     const storyIndex = useRef(0);
-
+    const onPad = useRef(false);
+    const frogger = useRef(false)
+    const gameStart = useRef(false)
     useEffect(() => {
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
@@ -50,8 +54,17 @@ export default function Engine({ currentUser }) {
     }, []);
 
     useEffect(() => {
+        if (frogger.current === true) {
+            currentUser.current.avatar = 'frog'
+        } else { currentUser.current.avatar = avatar }
+    }, [currentUser.current.position]);
+
+    useEffect(() => {
         window.addEventListener('keydown', (e) => {
             currentUser.current.idle = false;
+            console.log('onPad', onPad.current)
+            console.log('gameStart', gameStart)
+
             setTimeout(() => {
                 currentUser.current.idle = true;
             }, 500);
@@ -66,7 +79,49 @@ export default function Engine({ currentUser }) {
         };
     }, []);
 
+    useEffect(() => {
+
+        if (frogger.current) {
+            const interval = setInterval(() => {
+
+                onPad.current = false
+                currentMap.current.pads.forEach(pad => {
+                    if (pad.position.x > 1150 + currentMap.current.playerOffsetX) pad.position.x = currentMap.current.playerOffsetX;
+
+                    pad.position.x += pad.speed;
+                    setCount(pad.position.x);
+
+                    if (pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) < 50 &&
+                        pad.position.y - (currentUser.current.position.y + currentMap.current.playerOffsetY) > -50
+                        && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) < 50
+                        && pad.position.x - (currentUser.current.position.x + currentMap.current.playerOffsetX) > -50) {
+
+                        currentUser.current.position.x = (pad.position.x - currentMap.current.playerOffsetX)
+                        onPad.current = true
+                        gameStart.current = true
+                    }
+
+                }
+                );
+                if (onPad) {
+                    setCount(currentMap.current.pads[0].position.y)
+
+                }
+
+                if (gameStart.current === true && onPad.current === false) {
+                    console.log('loser')
+                }
+            }, 250);
+
+
+            return () => clearInterval(interval);
+        }
+    }, [frogger.current]);
+
     const handleMapChange = (mapName) => {
+        if (mapName === 'frogger') { frogger.current = true }
+        else { frogger.current = false }
+        console.log(frogger.current)
         setLoading(true);
 
         currentUser.current.position = currentMap.current.portals.filter(portal => portal.name === mapName)[0].startingPosition;
@@ -104,6 +159,19 @@ export default function Engine({ currentUser }) {
         itemObj[itemName].dimension.y = '0px';
     };
 
+    const renderPads = () => {
+        return currentMap.current.pads.map(pad =>
+            <div key={pad.position.y + pad.position.x}
+                style={{
+                    position: 'absolute',
+                    zIndex: 1,
+                    transform: `translate3d(${pad.position.x}px, ${pad.position.y}px, 0)`
+                }}>
+                <img src="/lilypad.png" />
+                {pad.position.y}
+            </div>
+        );
+    };
     const renderNPCs = () => {
         return currentMap.current.npcs.map(npc =>
             <NPC
@@ -211,6 +279,7 @@ export default function Engine({ currentUser }) {
                             {renderArrows()}
                             {renderUsers()}
                             {renderBalls()}
+                            {frogger.current ? renderPads() : null}
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
                                 />
