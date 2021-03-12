@@ -38,7 +38,6 @@ const Phone = ({ currentUser }) => {
 
         socket.on('GET_TASKS', taskObj => {
             currentUser.current.taskObj = taskObj;
-
         });
     }, [socket]);
 
