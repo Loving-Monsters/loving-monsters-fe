@@ -1080,7 +1080,7 @@ const frogger = {
             rotate: 269
         },
         {
-            speed: 30,
+            speed: -30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1094,7 +1094,7 @@ const frogger = {
             rotate: 249
         },
         {
-            speed: 30,
+            speed: -30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
@@ -1108,7 +1108,7 @@ const frogger = {
             rotate: 209
         },
         {
-            speed: 30,
+            speed: -30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
