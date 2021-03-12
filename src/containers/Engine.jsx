@@ -84,8 +84,9 @@ export default function Engine({ currentUser }) {
                 if (frogger.current) {
                     onPad.current = false;
                     currentMap.current.pads.forEach(pad => {
-                        if (pad.speed > 0 && pad.position.x > 1150 + currentMap.current.playerOffsetX) pad.position.x = currentMap.current.playerOffsetX;
-                        if (pad.speed < 0 && pad.position.x < 0 + currentMap.current.playerOffsetX) pad.position.x = 1150 + currentMap.current.playerOffsetX;
+                        if (pad.speed > 0 && pad.position.x > 1575 + currentMap.current.playerOffsetX) pad.position.x = 100 + currentMap.current.playerOffsetX;
+
+                        if (pad.speed < 0 && pad.position.x < 125 + currentMap.current.playerOffsetX) pad.position.x = 1600 + currentMap.current.playerOffsetX;
 
                         pad.position.x += pad.speed;
                         setCount(pad.position.x);
@@ -105,9 +106,8 @@ export default function Engine({ currentUser }) {
                             onPad.current = true;
                             gameStart.current = true;
                         }
+                    });
 
-                    }
-                    );
                     if (onPad) {
                         setCount(currentMap.current.pads[0].position.y);
 
@@ -177,11 +177,12 @@ export default function Engine({ currentUser }) {
                 }}>
                 <img src={pad.img}
                     style={{
-                        transform: `rotate(${pad.rotate}deg)`
+                        transform: `rotate(${pad.rotate}deg) scale(1.5)`
                     }} />
             </div>
         );
     };
+
     const renderNPCs = () => {
         return currentMap.current.npcs.map(npc =>
             <NPC
@@ -289,7 +290,11 @@ export default function Engine({ currentUser }) {
                             {renderArrows()}
                             {renderUsers()}
                             {renderBalls()}
-                            {frogger.current ? renderPads() : null}
+
+                            {frogger.current 
+                                ? 
+                                renderPads()
+                                : null}
                             {currentMap.current ?
                                 <Maps currentMap={currentMap.current}
                                 />

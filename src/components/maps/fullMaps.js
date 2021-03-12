@@ -40,8 +40,8 @@ const hallway = {
         },
         name: 'frogger',
         startingPosition: {
-            x: 600,
-            y: 1200
+            x: 700,
+            y: 1055
         }
     }, {
         type: 'portal',
@@ -723,13 +723,13 @@ const courtyard = {
 };
 const frogger = {
     mapImage: '/FroggerBkgd.png',
-    transformPositionX: -200,
-    transformPositionY: 400,
-    playerOffsetX: 500,
-    playerOffsetY: 0,
-    left: 550,
-    top: 500,
-    height: 750,
+    transformPositionX: 0,
+    transformPositionY: 200,
+    playerOffsetX: 300,
+    playerOffsetY: 100,
+    left: 350,
+    top: 350,
+    height: 1025,
     npcs: [],
     items: [],
     portals: [
@@ -771,30 +771,40 @@ const frogger = {
             type: 'object',
             name: 'SouthWall',
             position: {
-                x: 0, y: 1400
+                x: 25, y: 1200
             },
             dimension: {
-                x: 1600, y: 10
+                x: 2000, y: 25
+            }
+        },
+        {
+            type: 'object',
+            name: 'NorthWall',
+            position: {
+                x: 25, y: 225
+            },
+            dimension: {
+                x: 2000, y: 25
             }
         },
         {
             type: 'object',
             name: 'WestWall',
             position: {
-                x: 0, y: 0
+                x: 25, y: 225
             },
             dimension: {
-                x: 10, y: 1000
+                x: 25, y: 1200
             }
         },
         {
             type: 'object',
             name: 'EastWall',
             position: {
-                x: 1225, y: 0
+                x: 1625, y: 225
             },
             dimension: {
-                x: 10, y: 1000
+                x: 25, y: 1200
             }
         },
     ], 
@@ -806,10 +816,10 @@ const frogger = {
             type: 'pad',
             name: '1',
             position: {
-                x: 575, y: 1120
+                x: 395, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 129
         },
@@ -820,14 +830,13 @@ const frogger = {
             type: 'pad',
             name: '2',
             position: {
-                x: 675, y: 1120
+                x: 545, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 282
         },
-
         {
             speed: 0,
             win: false,
@@ -835,10 +844,10 @@ const frogger = {
             type: 'pad',
             name: '3',
             position: {
-                x: 775, y: 1120
+                x: 695, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 178
         },
@@ -849,10 +858,10 @@ const frogger = {
             type: 'pad',
             name: '4',
             position: {
-                x: 875, y: 1120
+                x: 845, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 121
         },
@@ -863,10 +872,10 @@ const frogger = {
             type: 'pad',
             name: '5',
             position: {
-                x: 975, y: 1120
+                x: 995, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 313
         },
@@ -877,10 +886,10 @@ const frogger = {
             type: 'pad',
             name: '6',
             position: {
-                x: 1075, y: 1120
+                x: 1145, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 122
         },
@@ -891,10 +900,10 @@ const frogger = {
             type: 'pad',
             name: '7',
             position: {
-                x: 1175, y: 1120
+                x: 1295, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 50
         },
@@ -905,10 +914,10 @@ const frogger = {
             type: 'pad',
             name: '8',
             position: {
-                x: 1275, y: 1120
+                x: 1445, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 164
         },
@@ -919,13 +928,27 @@ const frogger = {
             type: 'pad',
             name: '9',
             position: {
-                x: 1375, y: 1120
+                x: 1595, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
-            rotate: 293
-        }, 
+            rotate: 124
+        },
+        {
+            speed: 0,
+            win: false,
+            img: '/lilypad.png',
+            type: 'pad',
+            name: '10',
+            position: {
+                x: 1745, y: 1170
+            },
+            dimension: {
+                x: 75, y: 75
+            },
+            rotate: 158
+        },
         {
             speed: 0,
             win: false,
@@ -933,27 +956,13 @@ const frogger = {
             type: 'pad',
             name: '11',
             position: {
-                x: 1475, y: 1120
+                x: 1895, y: 1170
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
-            rotate: 218
-        }, 
-        {
-            speed: 0,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '12',
-            position: {
-                x: 1575, y: 1120
-            },
-            dimension: {
-                x: 50, y: 50
-            },
-            rotate: 239
-        }, 
+            rotate: 206
+        },
         {
             speed: 20,
             win: false,
@@ -964,7 +973,7 @@ const frogger = {
                 x: 575, y: 1020
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 309
         }, 
@@ -975,10 +984,10 @@ const frogger = {
             type: 'pad',
             name: '14',
             position: {
-                x: 775, y: 1020
+                x: 825, y: 1020
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 277
         }, 
@@ -989,10 +998,10 @@ const frogger = {
             type: 'pad',
             name: '15',
             position: {
-                x: 1275, y: 920
+                x: 1275, y: 870
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 82
         }, 
@@ -1003,10 +1012,10 @@ const frogger = {
             type: 'pad',
             name: '16',
             position: {
-                x: 1075, y: 920
+                x: 1075, y: 870
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 223
         }, 
@@ -1017,10 +1026,10 @@ const frogger = {
             type: 'pad',
             name: '17',
             position: {
-                x: 975, y: 920
+                x: 925, y: 870
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 251
         }, 
@@ -1031,10 +1040,10 @@ const frogger = {
             type: 'pad',
             name: '18',
             position: {
-                x: 975, y: 820
+                x: 975, y: 720
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 202
         }, 
@@ -1045,10 +1054,10 @@ const frogger = {
             type: 'pad',
             name: '19',
             position: {
-                x: 875, y: 820
+                x: 825, y: 720
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 282
         }, 
@@ -1059,24 +1068,25 @@ const frogger = {
             type: 'pad',
             name: '20',
             position: {
-                x: 475, y: 820
+                x: 475, y: 720
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             }
             ,
             rotate: 269
-        }, {
+        }, 
+        {
             speed: 30,
             win: false,
             img: '/lilypad.png',
             type: 'pad',
             name: '21',
             position: {
-                x: 675, y: 720
+                x: 675, y: 570
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 249
         }, 
@@ -1087,10 +1097,10 @@ const frogger = {
             type: 'pad',
             name: '22',
             position: {
-                x: 575, y: 720
+                x: 525, y: 570
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 209
         }, 
@@ -1101,95 +1111,12 @@ const frogger = {
             type: 'pad',
             name: '23',
             position: {
-                x: 1075, y: 720
+                x: 1075, y: 570
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 257
-        }, 
-        {
-            speed: -20,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '24',
-            position: {
-                x: 1075, y: 620
-            },
-            dimension: {
-                x: 50, y: 50
-            },
-            rotate: 333
-        }, 
-        {
-            speed: -20,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '25',
-            position: {
-                x: 1175, y: 620
-            },
-            dimension: {
-                x: 50, y: 50
-            },
-            rotate: 8
-        }, 
-        {
-            speed: -20,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '26',
-            position: {
-                x: 675, y: 620
-            },
-            dimension: {
-                x: 50, y: 50
-            },
-            rotate: 62
-        }, {
-            speed: 20,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '27',
-            position: {
-                x: 875, y: 520
-            },
-            dimension: {
-                x: 50, y: 50
-            },
-            rotate: 357
-        }, 
-        {
-            speed: 20,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '29',
-            position: {
-                x: 975, y: 520
-            },
-            dimension: {
-                x: 50, y: 50
-            },
-            rotate: 178
-        }, 
-        {
-            speed: 20,
-            win: false,
-            img: '/lilypad.png',
-            type: 'pad',
-            name: '30',
-            position: {
-                x: 775, y: 520
-            },
-            dimension: {
-                x: 50, y: 50
-            },
-            rotate: 162
         }, 
         {
             speed: 0,
@@ -1198,10 +1125,10 @@ const frogger = {
             type: 'pad',
             name: '31',
             position: {
-                x: 575, y: 420
+                x: 395, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 178
         },
@@ -1212,10 +1139,10 @@ const frogger = {
             type: 'pad',
             name: '32',
             position: {
-                x: 675, y: 420
+                x: 545, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 175
         },
@@ -1226,10 +1153,10 @@ const frogger = {
             type: 'pad',
             name: '33',
             position: {
-                x: 775, y: 420
+                x: 695, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 203
         },
@@ -1240,10 +1167,10 @@ const frogger = {
             type: 'pad',
             name: '34',
             position: {
-                x: 875, y: 420
+                x: 845, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 321
         },
@@ -1254,10 +1181,10 @@ const frogger = {
             type: 'pad',
             name: '35',
             position: {
-                x: 975, y: 420
+                x: 995, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 59
         },
@@ -1268,10 +1195,10 @@ const frogger = {
             type: 'pad',
             name: '36',
             position: {
-                x: 1075, y: 420
+                x: 1145, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 157
         },
@@ -1282,10 +1209,10 @@ const frogger = {
             type: 'pad',
             name: '37',
             position: {
-                x: 1175, y: 420
+                x: 1295, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 46
         },
@@ -1296,10 +1223,10 @@ const frogger = {
             type: 'pad',
             name: '38',
             position: {
-                x: 1275, y: 420
+                x: 1445, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 237
         },
@@ -1310,10 +1237,10 @@ const frogger = {
             type: 'pad',
             name: '39',
             position: {
-                x: 1375, y: 420
+                x: 1595, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 207
         }, 
@@ -1324,10 +1251,10 @@ const frogger = {
             type: 'pad',
             name: '41',
             position: {
-                x: 1475, y: 420
+                x: 1745, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 255
         }, 
@@ -1338,10 +1265,10 @@ const frogger = {
             type: 'pad',
             name: '42',
             position: {
-                x: 1575, y: 420
+                x: 1895, y: 420
             },
             dimension: {
-                x: 50, y: 50
+                x: 75, y: 75
             },
             rotate: 341
         }

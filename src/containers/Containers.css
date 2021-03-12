@@ -63,6 +63,15 @@ html {
     animation-iteration-count: infinite; 
 }
 
+.pads {
+    top: 350px;
+    left: 350px;
+    height: 1025;
+    width: 100%;
+    border: solid 5px red;
+    overflow: hidden;
+}
+
 @keyframes loading {
     0% {margin-top: 280px}
     50% {margin-top: 290px}
