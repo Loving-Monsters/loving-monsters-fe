@@ -144,7 +144,7 @@ export default function Engine({ currentUser }) {
                         disable.current = true
                     }
                 }
-            }, 250);
+            }, 150);
 
 
             return () => clearInterval(interval);
