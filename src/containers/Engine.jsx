@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 
@@ -43,7 +44,6 @@ export default function Engine({ currentUser }) {
     const loading = useRef(true);
 
     useEffect(() => {
-
         socket.on('GAME_STATE', ({ userArray, ballArray }) => {
             setUserArray(userArray);
             setBallArray(ballArray);
@@ -52,7 +52,6 @@ export default function Engine({ currentUser }) {
     }, [socket]);
 
     useEffect(() => {
-
         setTimeout(() => {
             loading.current = false;
             disable.current = false;
@@ -144,7 +143,6 @@ export default function Engine({ currentUser }) {
                 }
             }, 150);
 
-
             return () => clearInterval(interval);
         }
     }, [frogger.current]);
@@ -152,7 +150,6 @@ export default function Engine({ currentUser }) {
     const handleMapChange = (mapName) => {
         if (mapName === 'frogger') { frogger.current = true; }
         if (mapName !== 'frogger') { frogger.current = false; }
-
         loading.current = true;
         disable.current = true;
 
