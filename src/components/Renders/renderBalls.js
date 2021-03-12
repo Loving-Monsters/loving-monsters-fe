@@ -2,7 +2,7 @@ import React from 'react';
 import Ball from '../Ball/Ball';
 
 export default function (ballArray, currentMap) {
-    if (ballArray.length > 0) {
+    if (ballArray && ballArray.length > 0) {
         return ballArray.map(ball => <Ball
             key={ball.id}
             xOffset={currentMap.current.playerOffsetX}
