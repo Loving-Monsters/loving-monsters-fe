@@ -79,7 +79,7 @@ export default function Engine({ currentUser }) {
 
             setTimeout(() => {
                 currentUser.current.idle = true;
-            }, 500);
+            }, 75);
 
             if (validKeyPress.includes(e.key)) {
                 handleKeyPress(e, currentUser, currentMap, disable, handleMapChange, handleNPCInteraction, handleItemInteraction, handleWhiteBoardInteraction, setBoxOpen);
